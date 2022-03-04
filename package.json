@@ -1,0 +1,26 @@
+{
+  "name": "inclusivelibrary",
+  "version": "1.0.0",
+  "description": "my first repository\r * my commits test",
+  "main": "index.js",
+  "scripts": {
+    "dev": "vuepress dev docs",
+    "build": "vuepress build docs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Yukilwc/InclusiveLibrary.git"
+  },
+  "keywords": [
+    "blog"
+  ],
+  "author": "misaka",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Yukilwc/InclusiveLibrary/issues"
+  },
+  "homepage": "https://github.com/Yukilwc/InclusiveLibrary#readme",
+  "devDependencies": {
+    "vuepress": "^2.0.0-beta.36"
+  }
+}
