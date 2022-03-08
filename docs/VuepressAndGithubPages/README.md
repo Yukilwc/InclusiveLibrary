@@ -76,6 +76,25 @@ export default defineUserConfig<DefaultThemeOptions>({
 
 4. 推送本地main分支到远程,在github对应仓库的actions下，可以看到流水线日志.最终应该在仓库中创建了一个新的gh-pages分支，作为vuepress编译的打包文件。
 
+![流水线执行日志](./images/微信截图_20220309000002.png)
+
+![新建的gh-pages分支](./images/微信截图_20220309000023.png)
+
+### 配置github pages
+
+1. 如果仓库并非命名为Yukilwc.github.io的根路径仓库，则需要配置vuepress的base字段
+
+```ts
+export default defineUserConfig<DefaultThemeOptions>({
+    base:"/YourRepoName/",
+})
+
+
+```
+
+2. 打开```目标仓库--settings--pages```,发现，当存在gh-pages分支时，github自动将其作为了github pages并生成了访问链接
+
+![Pages配置](./images/微信截图_20220309000805.png)
 ## 参考
 
 [Vuepress v2](https://v2.vuepress.vuejs.org/)
