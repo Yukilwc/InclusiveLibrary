@@ -74,6 +74,8 @@ export default defineUserConfig<DefaultThemeOptions>({
 
 打开博客仓库，打开```setting--secrets--actions```,点击创建仓库密钥按钮，name字段填入BLOG_TOKEN,该名称必须与yml脚本中的字段同步。之后，在下面填入上一步创建的token,点击完成。
 
+4. 推送本地main分支到远程,在github对应仓库的actions下，可以看到流水线日志.最终应该在仓库中创建了一个新的gh-pages分支，作为vuepress编译的打包文件。
+
 ## 参考
 
 [Vuepress v2](https://v2.vuepress.vuejs.org/)
