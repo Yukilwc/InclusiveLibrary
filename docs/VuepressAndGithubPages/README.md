@@ -1,4 +1,4 @@
-# 使用vuepress2.0和github pages搭建个人博客
+# vuepress2.0和github pages搭建博客
 
 ## 前言
 
