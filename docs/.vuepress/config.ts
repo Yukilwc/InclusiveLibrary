@@ -16,5 +16,6 @@ export default defineUserConfig<DefaultThemeOptions>({
     theme: '@vuepress/theme-default',
     themeConfig: {
         logo: '/images/favicon.png',
+        repo:"https://github.com/Yukilwc/InclusiveLibrary",
     },
 })

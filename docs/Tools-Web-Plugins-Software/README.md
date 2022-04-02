@@ -6,6 +6,8 @@
 
 #### Windows Terminal
 
+#### Q-DIR
+
 
 
 
