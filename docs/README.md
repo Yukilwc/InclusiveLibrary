@@ -8,6 +8,8 @@
 
 ## 生活技能
 
+[电脑组装术语](./Life-Skill/Electronic-Product/Terms.md)
+
 [电脑组装](./Life-Skill/Electronic-Product/Computer-Assembly.md)
 
 [电脑清灰](./Life-Skill/Electronic-Product/Computer-Cleaning.md)
