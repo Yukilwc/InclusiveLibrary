@@ -1,4 +1,4 @@
-import { defineUserConfig, DefaultThemeOptions } from 'vuepress'
+import { defineUserConfig, DefaultThemeOptions, PluginOptions, PluginConfig } from 'vuepress'
 import { path } from '@vuepress/utils'
 import { registerComponentsPlugin } from '@vuepress/plugin-register-components'
 export default defineUserConfig<DefaultThemeOptions>({
@@ -24,6 +24,6 @@ export default defineUserConfig<DefaultThemeOptions>({
         registerComponentsPlugin({
             componentsDir: path.resolve(__dirname, "./components"),
             components: {},
-        }),
+        }) as PluginConfig<PluginOptions>,
     ]
 })

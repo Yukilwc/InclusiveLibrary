@@ -1,5 +1,5 @@
 <template>
-  <div>测试全局组件自动注册</div>
+  <div>组件本体:测试全局组件自动注册</div>
 </template>
 
 <script lang='ts' setup>
