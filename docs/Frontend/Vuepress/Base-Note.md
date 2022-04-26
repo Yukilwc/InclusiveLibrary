@@ -42,10 +42,31 @@
 内容
 :::
 
-
+:::: code-group
+::: code-group-item JS
+```js
+class Space {
+    name = ''
+}
+```
+:::
+::: code-group-item Dart
+``` dart
+class Space {
+    String name;
+}
+```
+:::
+::::
 
 ## Components
 
 ### 全局组件
 
 ### 业务组件
+
+## 增强
+
+### 嵌入三方代码在线运行
+
+### live2d
