@@ -63,6 +63,31 @@ class Space {
 
 ### 全局组件
 
+#### 插件自动注册
+
+首先安装组件自动注册工具并进行配置
+```sh
+npm i -D @vuepress/plugin-register-components@next
+```
+```ts
+
+```
+
+所有在`.vuepress/components`中的组件，都会被注册为**异步全局组件**  
+组件注册命名方式为文件层级名称通过横线拼接,例如
+```
+.
+└─ .vuepress
+   └─ components
+      └─ Demo
+         └─ Global.vue
+```
+会自动注册为`<Demo-Global />`
+
+<Demo-Global />
+
+#### ClientAppEnhance注册
+
 ### 业务组件
 
 ## 增强

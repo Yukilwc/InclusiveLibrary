@@ -20,8 +20,15 @@
 ### 基础混合
 
 ``` css
-$--color-primary-light: mix(#fff, #6666ff, 10%) ;
+--color-primary-light: mix(#fff, #6666ff, 10%) ;
 ```
+
+::: tip
+注意，如果是在`:root{}`中,则需要使用插值方式
+``` scss
+--c-tip: #{mix(#000, #6666ff, 10%)};
+```
+:::
 
 
 ### 函数封装

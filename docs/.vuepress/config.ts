@@ -1,4 +1,6 @@
 import { defineUserConfig, DefaultThemeOptions } from 'vuepress'
+import { path } from '@vuepress/utils'
+import { registerComponentsPlugin } from '@vuepress/plugin-register-components'
 export default defineUserConfig<DefaultThemeOptions>({
     // site config
     lang: 'zh-CN',
@@ -16,6 +18,12 @@ export default defineUserConfig<DefaultThemeOptions>({
     theme: '@vuepress/theme-default',
     themeConfig: {
         logo: '/images/favicon.png',
-        repo:"https://github.com/Yukilwc/InclusiveLibrary",
+        repo: "https://github.com/Yukilwc/InclusiveLibrary",
     },
+    plugins: [
+        registerComponentsPlugin({
+            componentsDir: path.resolve(__dirname, "./components"),
+            components: {},
+        }),
+    ]
 })
