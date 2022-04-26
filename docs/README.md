@@ -1,4 +1,4 @@
-# Hello vuepress
+# Misaka Net
 
 [使用github actions自动部署vuepress2项目到github pages](./VuepressAndGithubPages/README.md)
 
@@ -18,4 +18,4 @@
 
 ## 前端
 
-[Vuepress手记](./Frontend/Vuepress/note.md)
+[Vuepress手记](./Frontend/Vuepress/Base-Note.md)
