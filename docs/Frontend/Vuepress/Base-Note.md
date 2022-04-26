@@ -70,7 +70,17 @@ class Space {
 npm i -D @vuepress/plugin-register-components@next
 ```
 ```ts
-
+import { defineUserConfig, DefaultThemeOptions, PluginOptions, PluginConfig } from 'vuepress'
+import { path } from '@vuepress/utils'
+import { registerComponentsPlugin } from '@vuepress/plugin-register-components'
+export default defineUserConfig<DefaultThemeOptions>({
+   plugins: [
+        registerComponentsPlugin({
+            componentsDir: path.resolve(__dirname, "./components"),
+            components: {},
+        }) as PluginConfig<PluginOptions>,
+    ]
+})
 ```
 
 所有在`.vuepress/components`中的组件，都会被注册为**异步全局组件**  
