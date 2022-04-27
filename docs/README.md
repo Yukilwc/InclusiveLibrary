@@ -31,4 +31,5 @@
 ### 富文本编辑器
 
 [Tinymce笔记](./Frontend/Richtext-Editor/Tinymce-Note.md)
-[Tinymce封装](./Frontend/Richtext-Editor/Tinymce-Assembly.md.md)
+
+[Tinymce封装](./Frontend/Richtext-Editor/Tinymce-Assembly.md)
