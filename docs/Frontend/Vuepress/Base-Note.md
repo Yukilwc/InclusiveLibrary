@@ -76,7 +76,7 @@ import { registerComponentsPlugin } from '@vuepress/plugin-register-components'
 export default defineUserConfig<DefaultThemeOptions>({
    plugins: [
         registerComponentsPlugin({
-            componentsDir: path.resolve(__dirname, "./components"),
+            componentsDir: path.resolve(__dirname, "../components"),
             components: {},
         }) as PluginConfig<PluginOptions>,
     ]
@@ -87,7 +87,7 @@ export default defineUserConfig<DefaultThemeOptions>({
 组件注册命名方式为文件层级名称通过横线拼接,例如
 ```
 .
-└─ .vuepress
+└─ doc
    └─ components
       └─ Demo
          └─ Global.vue
@@ -95,6 +95,11 @@ export default defineUserConfig<DefaultThemeOptions>({
 会自动注册为`<Demo-Global />`
 
 <Demo-Global />
+
+
+:::tip
+莫名其妙的，放在`.vuepress/components`的vue文件的代码提示没了，不知道是不是volar抽风了.所以把组件文件夹迁移到了doc目录下。
+:::
 
 #### ClientAppEnhance注册
 
