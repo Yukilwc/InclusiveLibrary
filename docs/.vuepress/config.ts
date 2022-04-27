@@ -10,7 +10,7 @@ export default defineUserConfig<DefaultThemeOptions>({
     head: [
         [
             'link', {
-                rel: 'icon', href: '/images/favicon.png'
+                rel: 'icon', href: '/InclusiveLibrary/images/favicon.png'
             }
         ]
     ],
