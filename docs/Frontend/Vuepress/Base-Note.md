@@ -76,7 +76,7 @@ import { registerComponentsPlugin } from '@vuepress/plugin-register-components'
 export default defineUserConfig<DefaultThemeOptions>({
    plugins: [
         registerComponentsPlugin({
-            componentsDir: path.resolve(__dirname, "../components"),
+            componentsDir: path.resolve(__dirname, "./components"),
             components: {},
         }) as PluginConfig<PluginOptions>,
     ]
@@ -87,19 +87,22 @@ export default defineUserConfig<DefaultThemeOptions>({
 组件注册命名方式为文件层级名称通过横线拼接,例如
 ```
 .
-└─ doc
+└─ .vuepress
    └─ components
       └─ Demo
          └─ Global.vue
 ```
 会自动注册为`<Demo-Global />`
 
-<Demo-Global />
+:::warning
+当前放到`.vuepress`中的vue文件，会出现volar无法识别的情况，导致代码提示消失。  
+[issue](https://github.com/johnsoncodehk/volar/issues/70)  
+一种方法是，迁移components文件夹到.vuepress文件夹同级，可以恢复代码提示。  
+第二种方法
 
-
-:::tip
-莫名其妙的，放在`.vuepress/components`的vue文件的代码提示没了，不知道是不是volar抽风了.所以把组件文件夹迁移到了doc目录下。
 :::
+
+<Demo-Global />
 
 #### ClientAppEnhance注册
 
