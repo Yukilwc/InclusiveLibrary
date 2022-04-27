@@ -2,6 +2,18 @@
 
 ## Git指令
 
+### config
+
+```sh
+# 查看/配置用户名和邮箱
+git config --global user.email
+git config --global user.name
+git config --global user.name myname
+git config --global user.email myemail
+
+
+```
+
 ## Github
 
 ### ssh key生成
