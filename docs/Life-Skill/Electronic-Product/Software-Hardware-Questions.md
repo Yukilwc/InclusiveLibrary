@@ -6,4 +6,7 @@
 
 解决方案:
 
+参考资料:
+* [Link](https://www.zhihu.com/question/21861177)
+
 ## 硬件
