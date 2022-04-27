@@ -22,7 +22,7 @@ export default defineUserConfig<DefaultThemeOptions>({
     },
     plugins: [
         registerComponentsPlugin({
-            componentsDir: path.resolve(__dirname, "./components"),
+            componentsDir: path.resolve(__dirname, "../components"),
             components: {
             },
         }) as PluginConfig<PluginOptions>,
