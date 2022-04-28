@@ -94,13 +94,19 @@ export default defineUserConfig<DefaultThemeOptions>({
 ```
 会自动注册为`<Demo-Global />`
 
-:::warning
-当前放到`.vuepress`中的vue文件，会出现volar无法识别的情况，导致代码提示消失。  
-[issue](https://github.com/johnsoncodehk/volar/issues/70)  
-一种方法是，迁移components文件夹到.vuepress文件夹同级，可以恢复代码提示。  
-第二种方法
+**注意**  
+当前放到`.vuepress`中的vue文件，会出现volar无法识别的情况，导致ts的代码提示消失。  
+[issue](https://github.com/johnsoncodehk/volar/issues/70)
 
-:::
+产生原因猜测: 由于vuepress是通过在build时，进行的ts编译检查，tsconfig是vite内部内置，而在根目录并没有`tsconfig.json`文件。  
+而不论是`buildin extensions`中的`TypeScript and JavaScript Language Features`，还是volar自身的take over模式，都是基于了根目录下的`tsconfig.json`文件,来进行ts类型推断的。而没有配置时，则该是有一套默认方案，但是这个方案，排除了对`.vuepress`目录的检测.
+
+
+解决方案想到了两种
+
+一种方法是，迁移components文件夹到.vuepress文件夹同级，可以恢复代码提示。  
+
+第二种方法,是给文件根目录添加一个`tsconfig.json`,配置如下即可
 
 <Demo-Global />
 
