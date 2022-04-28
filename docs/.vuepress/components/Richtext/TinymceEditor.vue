@@ -6,29 +6,27 @@
 <script lang="ts" setup>
 import { onMounted } from "vue";
 import { useScriptTag } from "@vueuse/core";
-onMounted(() => {
-  console.log('==========on mounted',)
-  useScriptTag(
-    // "/tinymce/tinymce.min.js",
-     'https://player.twitch.tv/js/embed/v1.js',
-    // on script tag loaded.
-    (el: HTMLScriptElement) => {
-      // do something
-      console.log("==========load result");
-      // window.tinymce.init({
-      //   selector: "#tinymce-1",
-      //   // plugins: "advlist code emoticons link lists table",
-      //   // toolbar: "bold italic | bullist numlist | link emoticons",
-      //   // skin: false,
-      //   // language: "zh-Hans",
-      //   // language_url: "/tinymce/langs/zh-Hans.js",
-      //   // skin_url: '/tinymce/skins/ui/oxide-dark',
-      //   // content_css: "/tinymce/skins/content/dark/content.min.css",
-      //   // content_style: contentUiSkinCss.toString() + "\n" + contentCss.toString(),
-      // });
-    }
-  );
-});
+console.log("==========on mounted");
+useScriptTag(
+  "/tinymce/tinymce.min.js",
+  // on script tag loaded.
+  (el: HTMLScriptElement) => {
+    // do something
+    console.log("==========load result");
+    window.tinymce.init({
+      selector: "#tinymce-1",
+      // plugins: "advlist code emoticons link lists table",
+      // toolbar: "bold italic | bullist numlist | link emoticons",
+      // skin: false,
+      // language: "zh-Hans",
+      // language_url: "/tinymce/langs/zh-Hans.js",
+      // skin_url: '/tinymce/skins/ui/oxide-dark',
+      // content_css: "/tinymce/skins/content/dark/content.min.css",
+      // content_style: contentUiSkinCss.toString() + "\n" + contentCss.toString(),
+    });
+  }
+);
+onMounted(() => {});
 </script>
 
 <style scoped lang="scss"></style>
