@@ -4,7 +4,7 @@
 </template>
 
 <script lang="ts" setup>
-import { onMounted } from "vue";
+import {onMounted} from 'vue'
 let a: string = "ts";
 onMounted(() => {});
 </script>

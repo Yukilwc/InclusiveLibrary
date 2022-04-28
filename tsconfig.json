@@ -1,0 +1,15 @@
+{
+  "include": ["docs/.vuepress/**/*.ts", "docs/.vuepress/**/*.vue"],
+  "exclude": ["node_modules"],
+  "compilerOptions": {
+    "module": "esnext",
+    "types": [],
+    "lib": ["ESNext", "DOM"],
+    "declaration": false,
+    "jsx": "preserve",
+    "allowJs": true,
+    "resolveJsonModule": true,
+    "esModuleInterop": true,
+    "moduleResolution": "node"
+  }
+}
