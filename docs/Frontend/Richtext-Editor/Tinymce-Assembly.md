@@ -1,8 +1,9 @@
 # Tinymce封装
 
 ## 实例
-
-<Richtext-TinymceEditor></Richtext-TinymceEditor>
+<ClientOnly>
+    <Richtext-TinymceEditor></Richtext-TinymceEditor>
+</ClientOnly>
 
 ## 引言
 
