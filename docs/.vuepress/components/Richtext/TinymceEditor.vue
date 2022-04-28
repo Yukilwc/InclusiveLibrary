@@ -13,7 +13,7 @@ import "tinymce/themes/silver";
 import "tinymce/models/dom";
 
 /* Import a skin (can be a custom skin instead of the default) */
-import 'tinymce/skins/ui/oxide/skin.css';
+import "tinymce/skins/ui/oxide/skin.css";
 /* Import plugins */
 import "tinymce/plugins/advlist";
 import "tinymce/plugins/code";
@@ -41,6 +41,8 @@ onMounted(() => {
     plugins: "advlist code emoticons link lists table",
     toolbar: "bold italic | bullist numlist | link emoticons",
     skin: false,
+    language: "zh-Hans",
+    language_url: "/tinymce/langs/zh-Hans.js",
     // skin_url: '/tinymce/skins/ui/oxide',
     // content_css: false,
     // content_style: contentUiSkinCss.toString() + "\n" + contentCss.toString(),
