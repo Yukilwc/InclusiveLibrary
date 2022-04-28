@@ -108,6 +108,24 @@ export default defineUserConfig<DefaultThemeOptions>({
 
 第二种方法,是给文件根目录添加一个`tsconfig.json`,配置如下即可
 
+```json
+{
+  "include": ["docs/.vuepress/**/*.ts", "docs/.vuepress/**/*.vue"],
+  "exclude": ["node_modules"],
+  "compilerOptions": {
+    "module": "esnext",
+    "types": [],
+    "lib": ["ESNext", "DOM"],
+    "declaration": false,
+    "jsx": "preserve",
+    "allowJs": true,
+    "resolveJsonModule": true,
+    "esModuleInterop": true,
+    "moduleResolution": "node"
+  }
+}
+```
+
 <Demo-Global />
 
 #### ClientAppEnhance注册
