@@ -114,6 +114,18 @@ export default defineUserConfig<DefaultThemeOptions>({
 
 ### 业务组件
 
+
+### 内置组件
+
+#### ClientOnly
+
+用来对一些访问了dom的组件，例如tinymce，仅进行客户端渲染
+
+```vue
+<ClientOnly>
+</ClientOnly>
+```
+
 ## 增强
 
 ### 嵌入三方代码在线运行
