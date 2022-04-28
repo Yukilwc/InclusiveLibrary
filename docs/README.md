@@ -16,6 +16,10 @@
 
 [二手鉴别指南](./Life-Skill/Electronic-Product/Second-Hand-Identification.md)
 
+[必要软件](./Life-Skill/Electronic-Product/Required-Software.md)
+
+[软硬件问题](./Life-Skill/Electronic-Product/Software-Hardware-Questions.md)
+
 ## 前端
 
 [Vuepress手记](./Frontend/Vuepress/Base-Note.md)
