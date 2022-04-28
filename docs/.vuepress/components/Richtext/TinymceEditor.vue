@@ -44,7 +44,7 @@ onMounted(() => {
     language: "zh-Hans",
     language_url: "/tinymce/langs/zh-Hans.js",
     // skin_url: '/tinymce/skins/ui/oxide',
-    // content_css: false,
+    content_css: false,
     // content_style: contentUiSkinCss.toString() + "\n" + contentCss.toString(),
   });
 });
