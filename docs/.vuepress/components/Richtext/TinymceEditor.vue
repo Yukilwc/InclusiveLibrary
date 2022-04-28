@@ -8,7 +8,7 @@ import { onMounted } from "vue";
 import { useScriptTag } from "@vueuse/core";
 console.log("==========on mounted");
 useScriptTag(
-  "/tinymce/tinymce.min.js",
+  "/InclusiveLibrary/tinymce/tinymce.min.js",
   // on script tag loaded.
   (el: HTMLScriptElement) => {
     // do something
