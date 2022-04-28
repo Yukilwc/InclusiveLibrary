@@ -13,7 +13,7 @@ useScriptTag(
   (el: HTMLScriptElement) => {
     // do something
     console.log("==========load result");
-    window.tinymce.init({
+    tinymce.init({
       selector: "#tinymce-1",
       // plugins: "advlist code emoticons link lists table",
       // toolbar: "bold italic | bullist numlist | link emoticons",

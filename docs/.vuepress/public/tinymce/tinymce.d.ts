@@ -80,7 +80,7 @@ interface EventDispatcherSettings {
 }
 interface EventDispatcherConstructor<T extends NativeEventMap> {
     readonly prototype: EventDispatcher<T>;
-    new (settings?: EventDispatcherSettings): EventDispatcher<T>;
+    new(settings?: EventDispatcherSettings): EventDispatcher<T>;
     isNative: (name: string) => boolean;
 }
 declare class EventDispatcher<T> {
@@ -209,7 +209,7 @@ declare type Attributes$1 = Array<{
 };
 interface AstNodeConstructor {
     readonly prototype: AstNode;
-    new (name: string, type: number): AstNode;
+    new(name: string, type: number): AstNode;
     create(name: string, attrs?: Record<string, string>): AstNode;
 }
 declare class AstNode {
@@ -1829,7 +1829,7 @@ declare type EventUtilsEvent<T> = NormalizedEvent<T> & {
 };
 interface EventUtilsConstructor {
     readonly prototype: EventUtils;
-    new (): EventUtils;
+    new(): EventUtils;
     Event: EventUtils;
 }
 declare class EventUtils {
@@ -2127,7 +2127,7 @@ interface ExecCommandArgs {
 }
 interface EditorCommandsConstructor {
     readonly prototype: EditorCommands;
-    new (editor: Editor): EditorCommands;
+    new(editor: Editor): EditorCommands;
 }
 declare class EditorCommands {
     private readonly editor;
@@ -2175,7 +2175,7 @@ interface URISettings {
 }
 interface URIConstructor {
     readonly prototype: URI;
-    new (url: string, settings?: URISettings): URI;
+    new(url: string, settings?: URISettings): URI;
     getDocumentBaseUrl: (loc: {
         protocol: string;
         host?: string;
@@ -2388,7 +2388,7 @@ interface Plugin {
 declare type PluginManager = AddOnManager<void | Plugin>;
 interface ShortcutsConstructor {
     readonly prototype: Shortcuts;
-    new (editor: Editor): Shortcuts;
+    new(editor: Editor): Shortcuts;
 }
 declare type CommandFunc = string | [
     string,
@@ -2426,7 +2426,7 @@ interface Theme {
 declare type ThemeManager = AddOnManager<void | Theme>;
 interface EditorConstructor {
     readonly prototype: Editor;
-    new (id: string, options: RawEditorOptions, editorManager: EditorManager): Editor;
+    new(id: string, options: RawEditorOptions, editorManager: EditorManager): Editor;
 }
 declare class Editor implements EditorObservable {
     documentBaseUrl: string;
@@ -2584,7 +2584,7 @@ interface ScriptLoaderSettings {
 }
 interface ScriptLoaderConstructor {
     readonly prototype: ScriptLoader;
-    new (): ScriptLoader;
+    new(): ScriptLoader;
     ScriptLoader: ScriptLoader;
 }
 declare class ScriptLoader {
@@ -2617,7 +2617,7 @@ interface TextSeeker {
 }
 interface DomTreeWalkerConstructor {
     readonly prototype: DomTreeWalker;
-    new (startNode: Node, rootNode: Node): DomTreeWalker;
+    new(startNode: Node, rootNode: Node): DomTreeWalker;
 }
 declare class DomTreeWalker {
     private readonly rootNode;
@@ -2873,4 +2873,7 @@ interface TinyMCE extends EditorManager {
     _addCacheSuffix: Tools['_addCacheSuffix'];
 }
 declare const tinymce: TinyMCE;
+declare global {
+    const tinymce: TinyMCE
+}
 export { AddOnManager, Annotator, AstNode, Bookmark, BookmarkManager, ControlSelection, DOMUtils, Delay, DomParser, DomParserSettings, DomSerializer, DomSerializerSettings, DomTreeWalker, Editor, EditorCommands, EditorEvent, EditorManager, EditorModeApi, EditorObservable, EditorOptions, EditorSelection, Entities, Env, EventDispatcher, EventUtils, EventTypes_d as Events, FakeClipboard, FocusManager, Format_d as Formats, Formatter, GeomRect, HtmlSerializer, HtmlSerializerSettings, I18n, IconManager, Model, ModelManager, NotificationApi, NotificationManager, NotificationSpec, Observable, Plugin, PluginManager, RangeUtils, RawEditorOptions, Rect, Resource, Schema, SchemaSettings, ScriptLoader, Shortcuts, StyleSheetLoader, Styles, TextSeeker, Theme, ThemeManager, TinyMCE, Tools, URI, Ui_d as Ui, UndoManager, VK, WindowManager, Writer, WriterSettings, tinymce as default };
