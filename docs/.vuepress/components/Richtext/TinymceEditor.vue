@@ -40,11 +40,16 @@ useScriptTag(
         "help",
         "wordcount",
       ],
-      toolbar:
-        "undo redo | blocks | " +
-        "bold italic backcolor | alignleft aligncenter " +
-        "alignright alignjustify | bullist numlist outdent indent | " +
-        "removeformat | help",
+      toolbar: [
+        "undo redo",
+        "blocks",
+        "bold italic backcolor",
+        "alignleft aligncenter",
+        "alignright alignjustify",
+        "bullist numlist outdent indent",
+        "removeformat",
+        "help",
+      ].join(" | "),
       content_style:
         "body { font-family:Helvetica,Arial,sans-serif; font-size:16px }",
       images_upload_handler: (blobInfo, progress) => {
