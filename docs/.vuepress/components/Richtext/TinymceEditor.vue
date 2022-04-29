@@ -24,6 +24,7 @@ const exportContent = ref("");
 let mode = localStorage.getItem("vuepress-color-scheme");
 const options: RawEditorOptions = {
   selector: "#tinymce-1",
+  height: 600,
   language: "zh-Hans",
   language_url: "/InclusiveLibrary/tinymce/langs/zh-Hans.js",
   skin: mode === "dark" ? "oxide-dark" : "oxide",
