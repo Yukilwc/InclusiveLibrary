@@ -2,16 +2,24 @@
   <div class="tiny-container">
     <div class="title">tinymce封装样例</div>
     <div class="content" id="tinymce-1"></div>
-    <button @click="changeSkin">tinymce修改皮肤</button>
-    <button @click="initData">tinymce初始化</button>
-    <button class="" @click="exportStr">tinymce导出</button>
+    <div class="btn-group mt10">
+      <button @click="changeSkin">tinymce修改皮肤</button>
+      <button @click="initData">tinymce初始化</button>
+      <button class="" @click="exportStr">tinymce导出</button>
+    </div>
+    <div class="export-area mt10">
+      <div class="wrapper">{{ exportContent }}</div>
+    </div>
   </div>
 </template>
 
 <script lang="ts" setup>
-import { onMounted, watch } from "vue";
+import { onMounted, ref, watch } from "vue";
 import { useScriptTag, useLocalStorage } from "@vueuse/core";
+import { Editor } from "../../public/tinymce/tinymce";
 console.log("==========on mounted");
+// let editor: Editor | null = null;
+const exportContent = ref("");
 useScriptTag(
   "/InclusiveLibrary/tinymce/tinymce.min.js",
   // on script tag loaded.
@@ -21,7 +29,7 @@ useScriptTag(
     initTinymce();
   }
 );
-const initTinymce = () => {
+const initTinymce = async () => {
   let mode = localStorage.getItem("vuepress-color-scheme");
   tinymce.init({
     selector: "#tinymce-1",
@@ -84,15 +92,22 @@ const initTinymce = () => {
     },
   });
 };
-const exportStr = () => {};
-const initData = () => {};
+const exportStr = () => {
+  let content = tinymce.activeEditor.getContent();
+  exportContent.value = content;
+};
+const initData = () => {
+  tinymce.activeEditor.setContent(
+    `<div class="test" style="color:blue">测试初始化</div>`
+  );
+};
 const changeSkin = () => {
   let mode = localStorage.getItem("vuepress-color-scheme");
-  console.log("==========do change skin",mode);
-  tinymce.init({
-    selector: "#tinymce-1",
-    skin: mode === "dark" ? "oxide-dark" : "oxide",
-  });
+  console.log("==========do change skin", mode);
+  console.log("==========");
+  // tinymce.activeEditor({
+  //   skin: mode === "dark" ? "oxide-dark" : "oxide",
+  // });
 };
 onMounted(() => {});
 </script>
@@ -105,6 +120,12 @@ onMounted(() => {});
     padding: 10px 0;
   }
   .content {
+  }
+  .export-area {
+    .wrapper {
+      max-height: 300px;
+      overflow: auto;
+    }
   }
 }
 </style>
