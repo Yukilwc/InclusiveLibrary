@@ -22,11 +22,14 @@ console.log("==========on mounted");
 // let editor: Editor | null = null;
 const exportContent = ref("");
 let mode = localStorage.getItem("vuepress-color-scheme");
-const options:RawEditorOptions = {
+const options: RawEditorOptions = {
   selector: "#tinymce-1",
   language: "zh-Hans",
   language_url: "/InclusiveLibrary/tinymce/langs/zh-Hans.js",
   skin: mode === "dark" ? "oxide-dark" : "oxide",
+  content_css: mode === "dark" ? "dark" : "default",
+  content_style:
+    "body { font-family:Helvetica,Arial,sans-serif; font-size:16px }",
   menubar: "file edit view insert format tools table help",
   toolbar: [
     "undo redo",
@@ -73,8 +76,6 @@ const options:RawEditorOptions = {
     "quickbars",
     "emoticons",
   ],
-  content_style:
-    "body { font-family:Helvetica,Arial,sans-serif; font-size:16px }",
   images_upload_handler: (blobInfo, progress) => {
     return new Promise((resolve, reject) => {
       console.log("==========images_upload_handler");
@@ -107,9 +108,12 @@ const changeSkin = () => {
   let mode = localStorage.getItem("vuepress-color-scheme");
   console.log("==========do change skin", mode);
   console.log("==========");
-  // tinymce.activeEditor({
-  //   skin: mode === "dark" ? "oxide-dark" : "oxide",
-  // });
+  tinymce.activeEditor.remove();
+  tinymce.init({
+    ...options,
+    skin: mode === "dark" ? "oxide-dark" : "oxide",
+    content_css: mode === "dark" ? "dark" : "default",
+  });
   // tinymce.activeEditor.setProgressState(true);
 };
 onMounted(() => {});
