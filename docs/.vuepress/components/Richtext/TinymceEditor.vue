@@ -2,14 +2,16 @@
   <div class="tiny-container">
     <div class="title">tinymce封装样例</div>
     <div class="content" id="tinymce-1"></div>
+    <button @click="changeSkin">tinymce修改皮肤</button>
+    <button @click="initData">tinymce初始化</button>
+    <button class="" @click="exportStr">tinymce导出</button>
   </div>
 </template>
 
 <script lang="ts" setup>
-import { onMounted } from "vue";
+import { onMounted, watch } from "vue";
 import { useScriptTag, useLocalStorage } from "@vueuse/core";
 console.log("==========on mounted");
-let mode = useLocalStorage("vuepress-color-scheme", "");
 useScriptTag(
   "/InclusiveLibrary/tinymce/tinymce.min.js",
   // on script tag loaded.
@@ -20,11 +22,12 @@ useScriptTag(
   }
 );
 const initTinymce = () => {
+  let mode = localStorage.getItem("vuepress-color-scheme");
   tinymce.init({
     selector: "#tinymce-1",
     language: "zh-Hans",
     language_url: "/InclusiveLibrary/tinymce/langs/zh-Hans.js",
-    skin: mode.value === "dark" ? "oxide-dark" : "oxide",
+    skin: mode === "dark" ? "oxide-dark" : "oxide",
     menubar: "file edit view insert format tools table help",
     toolbar: [
       "undo redo",
@@ -81,8 +84,16 @@ const initTinymce = () => {
     },
   });
 };
-const getStr = () => {};
-const changeSkin = () => {};
+const exportStr = () => {};
+const initData = () => {};
+const changeSkin = () => {
+  let mode = localStorage.getItem("vuepress-color-scheme");
+  console.log("==========do change skin",mode);
+  tinymce.init({
+    selector: "#tinymce-1",
+    skin: mode === "dark" ? "oxide-dark" : "oxide",
+  });
+};
 onMounted(() => {});
 </script>
 
