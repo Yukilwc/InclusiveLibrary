@@ -1,6 +1,8 @@
 <template>
-  <div>tinymce</div>
-  <div class="" id="tinymce-1"></div>
+  <div class="tiny-container">
+    <div class="title">tinymce封装样例</div>
+    <div class="content" id="tinymce-1"></div>
+  </div>
 </template>
 
 <script lang="ts" setup>
@@ -15,18 +17,56 @@ useScriptTag(
     console.log("==========load result");
     tinymce.init({
       selector: "#tinymce-1",
-      // plugins: "advlist code emoticons link lists table",
-      // toolbar: "bold italic | bullist numlist | link emoticons",
-      // skin: false,
       language: "zh-Hans",
       language_url: "/InclusiveLibrary/tinymce/langs/zh-Hans.js",
-      // skin_url: '/tinymce/skins/ui/oxide-dark',
-      // content_css: "/tinymce/skins/content/dark/content.min.css",
-      // content_style: contentUiSkinCss.toString() + "\n" + contentCss.toString(),
+      menubar: true,
+      plugins: [
+        "advlist",
+        "autolink",
+        "lists",
+        "link",
+        "image",
+        "charmap",
+        "preview",
+        "anchor",
+        "searchreplace",
+        "visualblocks",
+        "code",
+        "fullscreen",
+        "insertdatetime",
+        "media",
+        "table",
+        "code",
+        "help",
+        "wordcount",
+      ],
+      toolbar:
+        "undo redo | blocks | " +
+        "bold italic backcolor | alignleft aligncenter " +
+        "alignright alignjustify | bullist numlist outdent indent | " +
+        "removeformat | help",
+      content_style:
+        "body { font-family:Helvetica,Arial,sans-serif; font-size:16px }",
+      images_upload_handler: (blobInfo, progress) => {
+        return new Promise((resolve, reject) => {
+          console.log("==========images_upload_handler");
+          resolve("");
+        });
+      },
     });
   }
 );
 onMounted(() => {});
 </script>
 
-<style scoped lang="scss"></style>
+<style scoped lang="scss">
+.tiny-container {
+  padding: 20px 0;
+  .title {
+    font-weight: bold;
+    padding: 10px 0;
+  }
+  .content {
+  }
+}
+</style>
