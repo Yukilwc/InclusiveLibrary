@@ -43,7 +43,11 @@ npm install --save tinymce
 
 ## 部分调整
 
+
 ### 图片上传方式
+
+
+## 如何实时调整config配置
 ## 参考
 
 [webpack-es6-npm](https://www.tiny.cloud/docs/tinymce/6/webpack-es6-npm/)

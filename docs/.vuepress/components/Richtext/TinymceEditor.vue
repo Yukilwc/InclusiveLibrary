@@ -7,60 +7,82 @@
 
 <script lang="ts" setup>
 import { onMounted } from "vue";
-import { useScriptTag } from "@vueuse/core";
+import { useScriptTag, useLocalStorage } from "@vueuse/core";
 console.log("==========on mounted");
+let mode = useLocalStorage("vuepress-color-scheme", "");
 useScriptTag(
   "/InclusiveLibrary/tinymce/tinymce.min.js",
   // on script tag loaded.
   (el: HTMLScriptElement) => {
     // do something
     console.log("==========load result");
-    tinymce.init({
-      selector: "#tinymce-1",
-      language: "zh-Hans",
-      language_url: "/InclusiveLibrary/tinymce/langs/zh-Hans.js",
-      menubar: true,
-      plugins: [
-        "advlist",
-        "autolink",
-        "lists",
-        "link",
-        "image",
-        "charmap",
-        "preview",
-        "anchor",
-        "searchreplace",
-        "visualblocks",
-        "code",
-        "fullscreen",
-        "insertdatetime",
-        "media",
-        "table",
-        "code",
-        "help",
-        "wordcount",
-      ],
-      toolbar: [
-        "undo redo",
-        "blocks",
-        "bold italic backcolor",
-        "alignleft aligncenter",
-        "alignright alignjustify",
-        "bullist numlist outdent indent",
-        "removeformat",
-        "help",
-      ].join(" | "),
-      content_style:
-        "body { font-family:Helvetica,Arial,sans-serif; font-size:16px }",
-      images_upload_handler: (blobInfo, progress) => {
-        return new Promise((resolve, reject) => {
-          console.log("==========images_upload_handler");
-          resolve("");
-        });
-      },
-    });
+    initTinymce();
   }
 );
+const initTinymce = () => {
+  tinymce.init({
+    selector: "#tinymce-1",
+    language: "zh-Hans",
+    language_url: "/InclusiveLibrary/tinymce/langs/zh-Hans.js",
+    skin: mode.value === "dark" ? "oxide-dark" : "oxide",
+    menubar: "file edit view insert format tools table help",
+    toolbar: [
+      "undo redo",
+      "bold italic underline strikethrough",
+      "fontfamily fontsize blocks",
+      "alignleft aligncenter alignright alignjustify",
+      "outdent indent",
+      "numlist bullist",
+      "forecolor backcolor removeformat",
+      "pagebreak",
+      "charmap emoticons",
+      "fullscreen  preview save print",
+      "insertfile image media template link anchor codesample",
+      "ltr rtl",
+    ].join(" | "),
+    plugins: [
+      "preview",
+      "importcss",
+      "searchreplace",
+      "autolink",
+      "autosave",
+      "save",
+      "directionality",
+      "code",
+      "visualblocks",
+      "visualchars",
+      "fullscreen",
+      "image",
+      "link",
+      "media",
+      "template",
+      "codesample",
+      "table",
+      "charmap",
+      "pagebreak",
+      "nonbreaking",
+      "anchor",
+      "insertdatetime",
+      "advlist",
+      "lists",
+      "wordcount",
+      "help",
+      "charmap",
+      "quickbars",
+      "emoticons",
+    ],
+    content_style:
+      "body { font-family:Helvetica,Arial,sans-serif; font-size:16px }",
+    images_upload_handler: (blobInfo, progress) => {
+      return new Promise((resolve, reject) => {
+        console.log("==========images_upload_handler");
+        resolve("");
+      });
+    },
+  });
+};
+const getStr = () => {};
+const changeSkin = () => {};
 onMounted(() => {});
 </script>
 
