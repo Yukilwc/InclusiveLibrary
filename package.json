@@ -21,6 +21,11 @@
   },
   "homepage": "https://github.com/Yukilwc/InclusiveLibrary#readme",
   "devDependencies": {
+    "@vuepress/plugin-register-components": "^2.0.0-beta.41",
     "vuepress": "^2.0.0-beta.36"
+  },
+  "dependencies": {
+    "@vueuse/core": "^8.3.1",
+    "tinymce": "^6.0.2"
   }
 }

@@ -1,4 +1,4 @@
-# Hello vuepress
+# Misaka Net
 
 [使用github actions自动部署vuepress2项目到github pages](./VuepressAndGithubPages/README.md)
 
@@ -15,3 +15,25 @@
 [电脑清灰](./Life-Skill/Electronic-Product/Computer-Cleaning.md)
 
 [二手鉴别指南](./Life-Skill/Electronic-Product/Second-Hand-Identification.md)
+
+[必要软件](./Life-Skill/Electronic-Product/Required-Software.md)
+
+[软硬件问题](./Life-Skill/Electronic-Product/Software-Hardware-Questions.md)
+
+## 前端
+
+[Vuepress手记](./Frontend/Vuepress/Base-Note.md)
+
+
+### Style
+
+#### 预处理器
+
+[Scss](./Frontend/Style/Css-Preprocessor/Scss.md)
+
+
+### 富文本编辑器
+
+[Tinymce笔记](./Frontend/Richtext-Editor/Tinymce-Note.md)
+
+[Tinymce封装](./Frontend/Richtext-Editor/Tinymce-Assembly.md)

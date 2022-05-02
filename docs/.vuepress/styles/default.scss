@@ -1,8 +1,7 @@
 :root {
   // brand colors
-//   --c-brand: #3eaf7c;
-  --c-brand: #008aff !important;
-  --c-brand-light: #4abf8a;
+  --c-brand: #6666ff;
+  --c-brand-light: #{mix(#fff, #6666ff, 10%)};
 
   // background colors
   --c-bg: #ffffff;
@@ -58,9 +57,9 @@
   --code-ln-wrapper-width: 3.5rem;
 
   // font vars
-  --font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
-    Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
-  --font-family-code: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+  --font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+  --font-family-code: Consolas, Monaco, "Andale Mono", "Ubuntu Mono", monospace;
 
   // layout vars
   --navbar-height: 3.6rem;
