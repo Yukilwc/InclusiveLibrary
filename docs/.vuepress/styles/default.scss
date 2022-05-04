@@ -1,7 +1,8 @@
+$theme-primary:#6666ff;
 :root {
   // brand colors
-  --c-brand: #6666ff;
-  --c-brand-light: #{mix(#fff, #6666ff, 10%)};
+  --c-brand: #{$theme-primary};
+  --c-brand-light: #{mix(#fff, $theme-primary, 10%)};
 
   // background colors
   --c-bg: #ffffff;
