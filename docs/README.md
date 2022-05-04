@@ -9,9 +9,17 @@
 
 ## 前端
 
+### Vuepress
+
 [Vuepress手记](./Frontend/Vuepress/Base-Note.md)
 
 [使用github actions自动部署vuepress2项目到github pages](./Frontend/Vuepress/VuepressAndGithubPages/README.md)
+
+[我的自定义组件](./Frontend/Vuepress/My-Components.md)
+
+### Typescript
+
+[Tsconfig解析](./Frontend/Typescript/Tsconfig-Analysis.md)
 
 ### Style
 
@@ -31,12 +39,6 @@
 # 游戏
 
 ## 原神
-## 工具
-
-[Git常用操作](./Tools/Git-Operation/README.md)
-
-[软件，网页，插件，工具收录](./Tools/Tools-Web-Plugins-Software/README.md)
-
 
 ## 生活技能
 
