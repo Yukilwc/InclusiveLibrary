@@ -10,6 +10,12 @@
 [软件，网页，插件，工具收录](./Tools/Tools-Web-Plugins-Software/README.md)
 ## 生活技能
 
+### 厨艺
+
+[食谱收录其一](Life-Skill/Cook/Recipes-Collection/Recipes-1.md)
+
+### 电子产品
+
 [电脑组装术语](./Life-Skill/Electronic-Product/Terms.md)
 
 [电脑组装](./Life-Skill/Electronic-Product/Computer-Assembly.md)
