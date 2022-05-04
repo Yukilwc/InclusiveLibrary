@@ -1,13 +1,43 @@
 # Misaka Net
 
 
+## 设计
+
+### 色彩
+
+[好看的颜色与其表征的意象](./Design/Colors/Nice-Colors-And-Imagery.md)
+
+## 前端
+
+[Vuepress手记](./Frontend/Vuepress/Base-Note.md)
+
+[使用github actions自动部署vuepress2项目到github pages](./Frontend/Vuepress/VuepressAndGithubPages/README.md)
+
+### Style
+
+#### 预处理器
+
+[Scss](./Frontend/Style/Css-Preprocessor/Scss.md)
 
 
+### 富文本编辑器
+
+[Tinymce笔记](./Frontend/Richtext-Editor/Tinymce-Note.md)
+
+[Tinymce封装](./Frontend/Richtext-Editor/Tinymce-Assembly.md)
+
+
+
+# 游戏
+
+## 原神
 ## 工具
 
 [Git常用操作](./Tools/Git-Operation/README.md)
 
 [软件，网页，插件，工具收录](./Tools/Tools-Web-Plugins-Software/README.md)
+
+
 ## 生活技能
 
 ### 厨艺
@@ -28,21 +58,14 @@
 
 [软硬件问题](./Life-Skill/Electronic-Product/Software-Hardware-Questions.md)
 
-## 前端
-
-[Vuepress手记](./Frontend/Vuepress/Base-Note.md)
-
-[使用github actions自动部署vuepress2项目到github pages](./Frontend/Vuepress/VuepressAndGithubPages/README.md)
-
-### Style
-
-#### 预处理器
-
-[Scss](./Frontend/Style/Css-Preprocessor/Scss.md)
 
 
-### 富文本编辑器
+## 工具
 
-[Tinymce笔记](./Frontend/Richtext-Editor/Tinymce-Note.md)
+[Git常用操作](./Tools/Git-Operation/README.md)
 
-[Tinymce封装](./Frontend/Richtext-Editor/Tinymce-Assembly.md)
+[软件，网页，插件，工具收录](./Tools/Tools-Web-Plugins-Software/README.md)
+
+
+
+
