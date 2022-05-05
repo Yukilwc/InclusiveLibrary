@@ -4,6 +4,7 @@ import { path } from '@vuepress/utils'
 import { registerComponentsPlugin } from '@vuepress/plugin-register-components'
 // import { docsearchPlugin } from "@vuepress/plugin-docsearch"
 import { searchPlugin } from '@vuepress/plugin-search'
+import { pwaPlugin } from '@vuepress/plugin-pwa'
 export default defineUserConfig({
     // site config
     lang: 'zh-CN',
@@ -14,8 +15,12 @@ export default defineUserConfig({
         [
             'link', {
                 rel: 'icon', href: '/InclusiveLibrary/images/favicon.png'
-            }
-        ]
+            },
+        ],
+        [
+            "link", { rel: 'manifest', href: '/InclusiveLibrary/manifest.webmanifest' }
+        ],
+        ['meta', { name: 'theme-color', content: '#00a6ac' }],
     ],
     // theme and its config
     theme: defaultTheme({
@@ -40,5 +45,6 @@ export default defineUserConfig({
         searchPlugin({
             isSearchable: (page) => page.path !== '/',
         }),
+        pwaPlugin({})
     ]
 })

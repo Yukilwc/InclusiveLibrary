@@ -164,3 +164,5 @@ docsearch私人性质的文档难以申请成功，因此选择本地化的plugi
 ### 谷歌统计
 
 ### PWA
+
+[参考](https://v2.vuepress.vuejs.org/reference/plugin/pwa.html)
