@@ -1,7 +1,8 @@
 import { defineUserConfig, DefaultThemeOptions, PluginOptions, PluginConfig } from 'vuepress'
 import { path } from '@vuepress/utils'
 import { registerComponentsPlugin } from '@vuepress/plugin-register-components'
-import { docsearchPlugin } from "@vuepress/plugin-docsearch"
+// import { docsearchPlugin } from "@vuepress/plugin-docsearch"
+import { searchPlugin } from '@vuepress/plugin-search'
 export default defineUserConfig<DefaultThemeOptions>({
     // site config
     lang: 'zh-CN',
@@ -35,5 +36,8 @@ export default defineUserConfig<DefaultThemeOptions>({
         //     // https://www.algolia.com/doc/api-reference/search-api-parameters/
         //     searchParameters:{}
         // }) as PluginConfig<PluginOptions>,
+        searchPlugin({
+            isSearchable: (page) => page.path !== '/',
+        }) as PluginConfig<PluginOptions>,
     ]
 })
