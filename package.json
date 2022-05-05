@@ -29,7 +29,6 @@
     "vuepress": "^2.0.0-beta.43"
   },
   "dependencies": {
-    "@vueuse/core": "^8.4.1",
-    "tinymce": "^6.0.2"
+    "@vueuse/core": "^8.4.1"
   }
 }

@@ -36,8 +36,8 @@ export default defineUserConfig<DefaultThemeOptions>({
         //     // https://www.algolia.com/doc/api-reference/search-api-parameters/
         //     searchParameters:{}
         // }) as PluginConfig<PluginOptions>,
-        searchPlugin({
-            isSearchable: (page) => page.path !== '/',
-        }) as PluginConfig<PluginOptions>,
+        // searchPlugin({
+        //     isSearchable: (page) => page.path !== '/',
+        // }) as PluginConfig<PluginOptions>,
     ]
 })
