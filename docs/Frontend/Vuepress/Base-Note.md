@@ -151,10 +151,21 @@ export default defineUserConfig<DefaultThemeOptions>({
 
 ### live2d
 
-### 安装使用antdesign
+### 安装使用element plus
 
-<a-calendar  :fullscreen="false" @panelChange="onPanelChange" />
+#### 基础配置
 
+由于antdesigin会污染全局样式，因此选择安装elementui  
+参考如下，配置好`tsconfig.json`和`clientAppEnhance.ts`文件即可
+
+[参考](https://element-plus.org/zh-CN/guide/quickstart.html#%E5%AE%8C%E6%95%B4%E5%BC%95%E5%85%A5)
+
+使用实例如下:
+<el-button type="primary">按钮</el-button>
+
+#### 修改主题色
+
+### 配置vite的能力
 ## 插件
 
 ### 查询

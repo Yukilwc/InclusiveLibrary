@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
     "module": "esnext",
-    "types": ["vite/client", "node"],
+    "types": ["vite/client", "node", "element-plus/global"],
     "lib": ["ESNext", "dom"],
     "declaration": false,
     "jsx": "preserve",
