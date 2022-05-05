@@ -2,7 +2,7 @@
   "name": "Misaka Net",
   "short_name": "Misaka Net",
   "description": "Blog",
-  "start_url": "/index.html",
+  "start_url": "/InclusiveLibrary/index.html",
   "display": "standalone",
   "background_color": "#fff",
   "theme_color": "#00a6ac",
@@ -11,11 +11,7 @@
       "src": "/InclusiveLibrary/images/icons/android-chrome-192x192.png",
       "sizes": "192x192",
       "type": "image/png"
-    },
-    {
-      "src": "/InclusiveLibrary/images/icons/android-chrome-384x384.png",
-      "sizes": "384x384",
-      "type": "image/png"
     }
+    
   ]
 }

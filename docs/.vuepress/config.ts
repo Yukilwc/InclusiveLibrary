@@ -5,6 +5,7 @@ import { registerComponentsPlugin } from '@vuepress/plugin-register-components'
 // import { docsearchPlugin } from "@vuepress/plugin-docsearch"
 import { searchPlugin } from '@vuepress/plugin-search'
 import { pwaPlugin } from '@vuepress/plugin-pwa'
+import { pwaPopupPlugin } from '@vuepress/plugin-pwa-popup'
 export default defineUserConfig({
     // site config
     lang: 'zh-CN',
@@ -45,6 +46,9 @@ export default defineUserConfig({
         searchPlugin({
             isSearchable: (page) => page.path !== '/',
         }),
-        pwaPlugin({})
+        pwaPlugin({
+            skipWaiting: false,
+        }),
+        pwaPopupPlugin()
     ]
 })
