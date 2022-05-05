@@ -1,6 +1,7 @@
 import { defineUserConfig, DefaultThemeOptions, PluginOptions, PluginConfig } from 'vuepress'
 import { path } from '@vuepress/utils'
 import { registerComponentsPlugin } from '@vuepress/plugin-register-components'
+import { docsearchPlugin } from "@vuepress/plugin-docsearch"
 export default defineUserConfig<DefaultThemeOptions>({
     // site config
     lang: 'zh-CN',
@@ -26,5 +27,13 @@ export default defineUserConfig<DefaultThemeOptions>({
             components: {
             },
         }) as PluginConfig<PluginOptions>,
+        // docsearchPlugin({
+        //     apiKey: '',
+        //     indexName: '',
+        //     appId:'',
+        //     placeholder:'查询',
+        //     // https://www.algolia.com/doc/api-reference/search-api-parameters/
+        //     searchParameters:{}
+        // }) as PluginConfig<PluginOptions>,
     ]
 })

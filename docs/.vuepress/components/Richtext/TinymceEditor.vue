@@ -77,12 +77,21 @@ const options: RawEditorOptions = {
     "quickbars",
     "emoticons",
   ],
-  images_upload_handler: (blobInfo, progress) => {
-    return new Promise((resolve, reject) => {
-      console.log("==========images_upload_handler");
-      resolve("");
-    });
-  },
+  
+  // ============================================================ image plugin START
+  
+  // images_upload_handler: (blobInfo, progress) => {
+  //   return new Promise((resolve, reject) => {
+  //     console.log("==========images_upload_handler");
+  //     resolve("");
+  //   });
+  // },
+  image_list: [
+    { title: "My image 1", value: "https://www.example.com/my1.gif" },
+    { title: "My image 2", value: "http://www.moxiecode.com/my2.gif" },
+  ],
+  image_caption: true
+  // ============================================================ image plugin END
 };
 useScriptTag(
   "/InclusiveLibrary/tinymce/tinymce.min.js",

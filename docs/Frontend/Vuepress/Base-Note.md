@@ -63,7 +63,7 @@ class Space {
 
 ### 全局组件
 
-#### 插件自动注册
+#### 组件自动注册
 
 首先安装组件自动注册工具并进行配置
 ```sh
@@ -149,3 +149,13 @@ export default defineUserConfig<DefaultThemeOptions>({
 ### 嵌入三方代码在线运行
 
 ### live2d
+
+### 安装使用antdesign
+
+## 插件
+
+### 查询
+
+### 谷歌统计
+
+### PWA
