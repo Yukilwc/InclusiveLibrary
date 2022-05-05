@@ -153,6 +153,8 @@ export default defineUserConfig<DefaultThemeOptions>({
 
 ### 安装使用antdesign
 
+<a-calendar  :fullscreen="false" @panelChange="onPanelChange" />
+
 ## 插件
 
 ### 查询
