@@ -144,6 +144,7 @@ export default defineUserConfig<DefaultThemeOptions>({
 </ClientOnly>
 ```
 
+## Frontmater配置
 ## 增强
 
 ### 嵌入三方代码在线运行
@@ -156,7 +157,9 @@ export default defineUserConfig<DefaultThemeOptions>({
 
 ### 查询
 
-[参考](https://v2.vuepress.vuejs.org/reference/plugin/docsearch.html#appid)
+[参考](https://v2.vuepress.vuejs.org/reference/plugin/search.html#options)
+
+docsearch私人性质的文档难以申请成功，因此选择本地化的plugin-search插件
 
 ### 谷歌统计
 

@@ -62,17 +62,27 @@ node_modules
 
 5. 新建```/docs/.vuepress/config.ts```文件，作为配置文件
 ```ts
-import {defineUserConfig,DefaultThemeOptions} from 'vuepress'
-export default defineUserConfig<DefaultThemeOptions>({
+import { defineUserConfig, } from 'vuepress'
+import { defaultTheme } from "@vuepress/theme-default"
+export default defineUserConfig({
   // site config
   lang: 'zh-CN',
   title: '我的博客',
   description: '学习，工作，生活',
-  // theme and its config
-  theme: '@vuepress/theme-default',
-  themeConfig: {
-    logo: '',
-  },
+  head: [
+          [
+            'link', {
+                rel: 'icon', href: '/InclusiveLibrary/images/favicon.png'
+            }
+          ]
+    ],
+    // theme and its config
+  theme: defaultTheme({
+        logo: '/images/favicon.png',
+        repo: "https://github.com/Yukilwc/InclusiveLibrary",
+
+  }),
+ 
 })
 ```
 <!-- TODO: -->
@@ -165,7 +175,7 @@ jobs:
 1. 如果仓库并非命名为Yukilwc.github.io的根路径仓库，则需要配置vuepress的base字段
 
 ```ts
-export default defineUserConfig<DefaultThemeOptions>({
+export default defineUserConfig({
     base:"/YourRepoName/",
 })
 
