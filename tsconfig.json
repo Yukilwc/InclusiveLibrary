@@ -1,15 +1,22 @@
 {
-  "include": ["docs/.vuepress/**/*.ts", "docs/.vuepress/**/*.vue"],
-  "exclude": ["node_modules"],
   "compilerOptions": {
     "module": "esnext",
-    "types": [],
-    "lib": ["ESNext", "DOM"],
+    "types": ["vite/client", "node"],
+    "lib": ["ESNext", "dom"],
     "declaration": false,
     "jsx": "preserve",
     "allowJs": true,
     "resolveJsonModule": true,
     "esModuleInterop": true,
-    "moduleResolution": "node"
-  }
+    "moduleResolution": "node",
+    "skipLibCheck": true,
+    "baseUrl": "."
+  },
+  "include": [
+    "docs/.vuepress/**/*.d.ts",
+    "docs/.vuepress/**/*.ts",
+    "docs/.vuepress/**/*.vue",
+    "docs/.vuepress/**/*.tsx"
+  ],
+  "exclude": ["node_modules"]
 }

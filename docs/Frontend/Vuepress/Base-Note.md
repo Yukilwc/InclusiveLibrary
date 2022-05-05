@@ -156,6 +156,8 @@ export default defineUserConfig<DefaultThemeOptions>({
 
 ### 查询
 
+[参考](https://v2.vuepress.vuejs.org/reference/plugin/docsearch.html#appid)
+
 ### 谷歌统计
 
 ### PWA

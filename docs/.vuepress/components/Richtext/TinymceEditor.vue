@@ -77,20 +77,26 @@ const options: RawEditorOptions = {
     "quickbars",
     "emoticons",
   ],
-  
+
   // ============================================================ image plugin START
-  
-  // images_upload_handler: (blobInfo, progress) => {
-  //   return new Promise((resolve, reject) => {
-  //     console.log("==========images_upload_handler");
-  //     resolve("");
-  //   });
-  // },
+
+  images_upload_handler: (blobInfo, progress) => {
+    tinymce.activeEditor.setProgressState(true);
+    return new Promise((resolve, reject) => {
+      console.log("==========images_upload_handler");
+      setTimeout(() => {
+        tinymce.activeEditor.setProgressState(false);
+        resolve(
+          "https://yukilwc.github.io/InclusiveLibrary/images/favicon.png"
+        );
+      }, 1000);
+    });
+  },
   image_list: [
     { title: "My image 1", value: "https://www.example.com/my1.gif" },
     { title: "My image 2", value: "http://www.moxiecode.com/my2.gif" },
   ],
-  image_caption: true
+  image_caption: true,
   // ============================================================ image plugin END
 };
 useScriptTag(
@@ -124,7 +130,6 @@ const changeSkin = () => {
     skin: mode === "dark" ? "oxide-dark" : "oxide",
     content_css: mode === "dark" ? "dark" : "default",
   });
-  // tinymce.activeEditor.setProgressState(true);
 };
 onMounted(() => {});
 </script>
