@@ -161,8 +161,18 @@ export default defineUserConfig<DefaultThemeOptions>({
 
 docsearch私人性质的文档难以申请成功，因此选择本地化的plugin-search插件
 
+按文档配置即可。
+
 ### 谷歌统计
+
+[参考](https://v2.vuepress.vuejs.org/reference/plugin/google-analytics.html#usage)
+
+按文档配置即可。
+
+[Analytics网站](https://marketingplatform.google.com/about/analytics/)
 
 ### PWA
 
 [参考](https://v2.vuepress.vuejs.org/reference/plugin/pwa.html)
+
+按文档配置即可。
