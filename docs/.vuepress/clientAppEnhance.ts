@@ -1,7 +1,7 @@
 import { defineClientAppEnhance } from '@vuepress/client'
-import Antd from 'ant-design-vue';
-import 'ant-design-vue/dist/antd.css';
+import ElementPlus from 'element-plus'
+import 'element-plus/dist/index.css'
 export default defineClientAppEnhance(({ app, router, siteData }) => {
     console.log('========== defineClientAppEnhance',)
-    app.use(Antd)
+    app.use(ElementPlus)
 })

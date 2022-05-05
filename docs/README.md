@@ -36,9 +36,12 @@
 
 
 
-# 游戏
+## IDE
 
-## 原神
+[VSCode相关配置](./IDE/VSCode/VSCode-config.md)
+## 游戏
+
+### 原神
 
 ## 生活技能
 
