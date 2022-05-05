@@ -51,3 +51,7 @@ npm i @babel/preset-env @babel/register -D
 [源码地址]()
 
 ### 计算相对路径并自动引入
+
+核心api
+
+* `path.relative(from, to)`
