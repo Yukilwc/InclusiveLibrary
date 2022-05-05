@@ -1,9 +1,10 @@
-import { defineUserConfig, DefaultThemeOptions, PluginOptions, PluginConfig } from 'vuepress'
+import { defineUserConfig, } from 'vuepress'
+import { defaultTheme } from "@vuepress/theme-default"
 import { path } from '@vuepress/utils'
 import { registerComponentsPlugin } from '@vuepress/plugin-register-components'
 // import { docsearchPlugin } from "@vuepress/plugin-docsearch"
 import { searchPlugin } from '@vuepress/plugin-search'
-export default defineUserConfig<DefaultThemeOptions>({
+export default defineUserConfig({
     // site config
     lang: 'zh-CN',
     title: 'Misaka Net',
@@ -17,17 +18,17 @@ export default defineUserConfig<DefaultThemeOptions>({
         ]
     ],
     // theme and its config
-    theme: '@vuepress/theme-default',
-    themeConfig: {
+    theme: defaultTheme({
         logo: '/images/favicon.png',
         repo: "https://github.com/Yukilwc/InclusiveLibrary",
-    },
+
+    }),
     plugins: [
         registerComponentsPlugin({
             componentsDir: path.resolve(__dirname, "./components"),
             components: {
             },
-        }) as PluginConfig<PluginOptions>,
+        }),
         // docsearchPlugin({
         //     apiKey: '',
         //     indexName: '',
@@ -36,8 +37,8 @@ export default defineUserConfig<DefaultThemeOptions>({
         //     // https://www.algolia.com/doc/api-reference/search-api-parameters/
         //     searchParameters:{}
         // }) as PluginConfig<PluginOptions>,
-        // searchPlugin({
-        //     isSearchable: (page) => page.path !== '/',
-        // }) as PluginConfig<PluginOptions>,
+        searchPlugin({
+            isSearchable: (page) => page.path !== '/',
+        }),
     ]
 })
