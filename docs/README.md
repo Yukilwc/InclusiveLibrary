@@ -35,6 +35,14 @@
 [JS语法树解析](./Frontend/Javascript/AST/JS-Parser.md)
 
 [HTML语法树解析](./Frontend/Javascript/AST/HTML-Parser.md)
+
+#### 正则
+
+[正则收录](./Frontend/Javascript/Regex/Collection.md)
+
+### 小程序
+
+[小程序翻译搭建流程](./Frontend/Minapp/Translate/Progress.md)
 ### 富文本编辑器
 
 [Tinymce笔记](./Frontend/Richtext-Editor/Tinymce-Note.md)
