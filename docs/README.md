@@ -40,6 +40,8 @@
 
 [正则收录](./Frontend/Javascript/Regex/Collection.md)
 
+[ 正则原理](./Frontend/Javascript/Regex/Principle.md)
+
 ### 小程序
 
 [小程序翻译搭建流程](./Frontend/Minapp/Translate/Progress.md)
