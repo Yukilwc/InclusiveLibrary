@@ -52,7 +52,7 @@ export default defineUserConfig({
         }),
         pwaPopupPlugin({
             locales: {
-                '/': {
+                '/InclusiveLibrary/': {
                     message: '发现新内容可用',
                     buttonText: '刷新',
                 },
