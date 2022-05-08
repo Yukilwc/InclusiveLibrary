@@ -15,7 +15,7 @@
 <script lang="ts" setup>
 import { onMounted } from "vue";
 // core version + navigation, pagination modules:
-import Swiper from "swiper/swiper-bundle.js";
+import Swiper, { Navigation, Pagination } from "swiper";
 // import Swiper and modules styles
 import "swiper/swiper-bundle.min.css"
 onMounted(() => {
