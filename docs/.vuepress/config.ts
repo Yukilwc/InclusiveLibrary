@@ -7,6 +7,7 @@ import { searchPlugin } from '@vuepress/plugin-search'
 import { pwaPlugin } from '@vuepress/plugin-pwa'
 import { pwaPopupPlugin } from '@vuepress/plugin-pwa-popup'
 import { googleAnalyticsPlugin } from '@vuepress/plugin-google-analytics'
+import { viteBundler } from '@vuepress/bundler-vite'
 export default defineUserConfig({
     // site config
     lang: 'zh-CN',
@@ -61,5 +62,12 @@ export default defineUserConfig({
         googleAnalyticsPlugin({
             id: 'G-E8JW1JB5MY'
         })
-    ]
+    ],
+    // bundler: viteBundler({
+    //     viteOptions: {
+    //         build: {
+    //         }
+    //     },
+    //     vuePluginOptions: {},
+    // }),
 })

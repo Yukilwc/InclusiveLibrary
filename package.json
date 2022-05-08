@@ -34,6 +34,6 @@
   "dependencies": {
     "@vueuse/core": "^8.4.1",
     "element-plus": "^2.1.11",
-    "swiper": "^8.1.4"
+    "swiper": "^6.8.4"
   }
 }

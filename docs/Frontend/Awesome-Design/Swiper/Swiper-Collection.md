@@ -2,4 +2,6 @@
 
 ## 基础单Slide轮播
 
-<Swiper-SingleSlide></Swiper-SingleSlide>
+<ClientOnly>
+    <Swiper-SingleSlide></Swiper-SingleSlide>
+</ClientOnly>

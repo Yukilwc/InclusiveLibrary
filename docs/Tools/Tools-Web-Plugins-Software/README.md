@@ -33,6 +33,7 @@
 | --------------- | -------------------------------------------- | ---- |
 | vuepress2.0文档 | [Link](https://v2.vuepress.vuejs.org/guide/) |      |
 | vueuse 文档     | [Link](https://vueuse.org/guide/)            |      |
+|vite文档|[Link](https://vitejs.dev/guide/)||
 
 ## chrome插件
 
