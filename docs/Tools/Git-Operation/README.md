@@ -14,6 +14,14 @@ git config --global user.email myemail
 
 ```
 
+### 分支
+
+切换到远程分支
+
+```sh
+git checkout -b 本地分支名 origin/远程分支名
+```
+
 ## Github
 
 ### ssh key生成
