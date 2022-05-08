@@ -50,9 +50,16 @@ export default defineUserConfig({
         pwaPlugin({
             skipWaiting: false,
         }),
-        pwaPopupPlugin(),
+        pwaPopupPlugin({
+            locales: {
+                '/': {
+                    message: '发现新内容可用',
+                    buttonText: '刷新',
+                },
+            }
+        }),
         googleAnalyticsPlugin({
-            id:'G-E8JW1JB5MY'
+            id: 'G-E8JW1JB5MY'
         })
     ]
 })

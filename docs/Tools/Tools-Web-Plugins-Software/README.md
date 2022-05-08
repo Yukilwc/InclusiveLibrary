@@ -19,11 +19,20 @@
 
 ## Web网页
 
-| 简称           | 地址                             | 功能     |
+### 未分类
+
+| 名字           | 地址                             | 功能     |
 | -------------- | -------------------------------- | -------- |
 | switch520      | [Link](https://switch520.com/)   | 游戏白嫖 |
 | 图形化正则演示 | [Link](https://regexper.com/)    |          |
 | 在线查看AST    | [Link](https://astexplorer.net/) |          |
+
+### 文档
+
+| 名字            | 地址                                         | 功能 |
+| --------------- | -------------------------------------------- | ---- |
+| vuepress2.0文档 | [Link](https://v2.vuepress.vuejs.org/guide/) |      |
+| vueuse 文档     | [Link](https://vueuse.org/guide/)            |      |
 
 ## chrome插件
 
