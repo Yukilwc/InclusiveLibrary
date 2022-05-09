@@ -30,11 +30,19 @@
 
 ### 文档
 
-| 名字            | 地址                                         | 功能 |
-| --------------- | -------------------------------------------- | ---- |
-| vuepress2.0文档 | [Link](https://v2.vuepress.vuejs.org/guide/) |      |
-| vueuse 文档     | [Link](https://vueuse.org/guide/)            |      |
-| vite文档        | [Link](https://vitejs.dev/guide/)            |      |
+| 名字            | 地址                                                  | 功能 |
+| --------------- | ----------------------------------------------------- | ---- |
+| vuepress2.0文档 | [Link](https://v2.vuepress.vuejs.org/guide/)          |      |
+| vueuse 文档     | [Link](https://vueuse.org/guide/)                     |      |
+| vite文档        | [Link](https://vitejs.dev/guide/)                     |      |
+| html2canvas     | [Link](https://html2canvas.hertzen.com/documentation) |      |
+
+### vpn
+
+| 名字  | 地址                              | 其他 |
+| ----- | --------------------------------- | ---- |
+| 棱角  | [Link](https://www.lengjiao.me/)  |      |
+| nerwo | [Link](https://control.nerwo.co/) |      |
 
 ## chrome插件
 
