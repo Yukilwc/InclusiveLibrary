@@ -21,11 +21,12 @@
 
 ### 未分类
 
-| 名字           | 地址                             | 功能     |
-| -------------- | -------------------------------- | -------- |
-| switch520      | [Link](https://switch520.com/)   | 游戏白嫖 |
-| 图形化正则演示 | [Link](https://regexper.com/)    |          |
-| 在线查看AST    | [Link](https://astexplorer.net/) |          |
+| 名字             | 地址                                                | 功能     |
+| ---------------- | --------------------------------------------------- | -------- |
+| switch520        | [Link](https://switch520.com/)                      | 游戏白嫖 |
+| 图形化正则演示   | [Link](https://regexper.com/)                       |          |
+| 在线查看AST      | [Link](https://astexplorer.net/)                    |          |
+| google analytics | [Link](https://analytics.google.com/analytics/web/) |          |
 
 ### 文档
 
@@ -33,7 +34,7 @@
 | --------------- | -------------------------------------------- | ---- |
 | vuepress2.0文档 | [Link](https://v2.vuepress.vuejs.org/guide/) |      |
 | vueuse 文档     | [Link](https://vueuse.org/guide/)            |      |
-|vite文档|[Link](https://vitejs.dev/guide/)||
+| vite文档        | [Link](https://vitejs.dev/guide/)            |      |
 
 ## chrome插件
 
