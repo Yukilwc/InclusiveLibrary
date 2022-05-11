@@ -69,6 +69,10 @@
 
 [VSCode相关配置](./IDE/VSCode/VSCode-config.md)
 
+### 代码片段
+
+[Javascript片段收集](./IDE/VSCode/Snippets/Javascript.md)
+
 ### Vim
 
 [Vim常用操作](./IDE/Vim/Base.md)
