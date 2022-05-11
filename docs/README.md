@@ -68,6 +68,10 @@
 ## IDE
 
 [VSCode相关配置](./IDE/VSCode/VSCode-config.md)
+
+### Vim
+
+[Vim常用操作](./IDE/Vim/Base.md)
 ## 游戏
 
 ### 原神
