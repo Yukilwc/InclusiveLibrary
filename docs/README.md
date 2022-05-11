@@ -54,6 +54,9 @@
 ### 小程序
 
 [小程序翻译搭建流程](./Frontend/Minapp/Translate/Progress.md)
+### 模式
+
+[常用页面结构模式](./Frontend/Pattern/Page.md)
 ### 富文本编辑器
 
 [Tinymce笔记](./Frontend/Richtext-Editor/Tinymce-Note.md)
@@ -65,6 +68,10 @@
 ## IDE
 
 [VSCode相关配置](./IDE/VSCode/VSCode-config.md)
+
+### Vim
+
+[Vim常用操作](./IDE/Vim/Base.md)
 ## 游戏
 
 ### 原神
