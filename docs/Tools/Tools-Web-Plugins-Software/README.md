@@ -36,16 +36,24 @@
 | vueuse 文档     | [Link](https://vueuse.org/guide/)                     |      |
 | vite文档        | [Link](https://vitejs.dev/guide/)                     |      |
 | html2canvas     | [Link](https://html2canvas.hertzen.com/documentation) |      |
+| Vue3            | [Link](https://vuejs.org/guide/introduction.html)     |      |
 
 ### vpn
 
-| 名字  | 地址                              | 其他 |
-| ----- | --------------------------------- | ---- |
-| 棱角  | [Link](https://www.lengjiao.me/)  |      |
-| nerwo | [Link](https://control.nerwo.co/) |      |
-| 不限制时间      | [Link](https://byw.tv/)           |      |
+| 名字       | 地址                              | 其他 |
+| ---------- | --------------------------------- | ---- |
+| 棱角       | [Link](https://www.lengjiao.me/)  |      |
+| nerwo      | [Link](https://control.nerwo.co/) |      |
+| 不限制时间 | [Link](https://byw.tv/)           |      |
 
 ## chrome插件
 
+
+### 油猴脚本
+
+|                                      |                                                                                                                                                                                               |     |
+| ------------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --- |
+| 购物党比价工具【官方正版，持续维护】 | [Link](https://greasyfork.org/zh-CN/scripts/436876-%E8%B4%AD%E7%89%A9%E5%85%9A%E6%AF%94%E4%BB%B7%E5%B7%A5%E5%85%B7-%E5%AE%98%E6%96%B9%E6%AD%A3%E7%89%88-%E6%8C%81%E7%BB%AD%E7%BB%B4%E6%8A%A4) |     |
+|                                      |                                                                                                                                                                                               |     |
 
 ## VSCode插件
