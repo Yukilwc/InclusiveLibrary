@@ -21,6 +21,8 @@
 
 [Tsconfig解析](./Frontend/Typescript/Tsconfig-Analysis.md)
 
+[TS技巧](./Frontend/Typescript/Ts-Skills.md)
+
 ### Style
 
 ####  Css
