@@ -12,6 +12,14 @@
     text-align: justify;
     text-align-last: justify;
     display: inline-block;
+    // 伪元素是处理ios小程序text-align-last不生效的兼容方案
+    // 添加一行，促使text-align:justify生效
+    &:after {
+      content:'';
+      width: 100%;
+      display: inline-block;
+    }
+ 
 ```
 
 行内多元素控制隐藏优先级
