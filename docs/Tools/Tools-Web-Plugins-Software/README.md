@@ -40,11 +40,11 @@
 
 ### vpn
 
-| 名字       | 地址                              | 其他 |
-| ---------- | --------------------------------- | ---- |
-| 棱角       | [Link](https://www.lengjiao.me/)  |      |
-| nerwo      | [Link](https://control.nerwo.co/) |      |
-| 不限制时间 | [Link](https://byw.tv/)           |      |
+| 名字             | 地址                              | 其他 |
+| ---------------- | --------------------------------- | ---- |
+| 棱角             | [Link](https://www.lengjiao.me/)  |      |
+| nerwo            | [Link](https://control.nerwo.co/) |      |
+| bywave不限制时间 | [Link](https://sub.paasmi.com)    |      |
 
 ## chrome插件
 
