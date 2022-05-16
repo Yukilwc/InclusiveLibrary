@@ -145,6 +145,10 @@ export default defineUserConfig<DefaultThemeOptions>({
 ```
 
 ## Frontmater配置
+
+## 系统
+
+## 主题
 ## 增强
 
 ### 嵌入三方代码在线运行

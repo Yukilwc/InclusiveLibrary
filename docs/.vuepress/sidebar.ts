@@ -1,0 +1,5 @@
+const sidebar = {
+//   "/": [],
+};
+
+// export {sidebar}
