@@ -103,6 +103,10 @@
 [软硬件问题](./Life-Skill/Electronic-Product/Software-Hardware-Questions.md)
 
 
+### 备忘录
+
+[更换手机号需要处理的问题](./Life-Skill/Memorandum/Change-Phone-Number.md)
+
 
 ## 脚本
 
