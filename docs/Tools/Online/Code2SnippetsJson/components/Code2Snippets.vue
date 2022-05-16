@@ -14,6 +14,8 @@
 
 <script lang="ts" setup>
 import { ref } from "vue";
+import prettier from "prettier";
+import parser from 'prettier/parser-babel'
 
 const code = ref("");
 const jsonStr = ref("");
@@ -30,8 +32,13 @@ const convert = () => {
   let obj = {
     body: resList,
   };
+  let objStr = JSON.stringify(obj);
+  objStr = prettier.format(objStr, {
+      parser:'json',
+      plugins:[parser]
+  });
   // 打印结果
-  jsonStr.value = JSON.stringify(obj);
+  jsonStr.value = objStr;
 };
 </script>
 

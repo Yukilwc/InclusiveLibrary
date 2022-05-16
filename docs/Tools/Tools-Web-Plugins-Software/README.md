@@ -48,10 +48,10 @@
 
 ### 开发工具
 
-| Name                | Link                         |     |
-| ------------------- | ---------------------------- | --- |
-| can i use兼容性查询 | [Link](https://caniuse.com/) |     |
-|                     |                              |     |
+| Name                | Link                                                     |     |
+| ------------------- | -------------------------------------------------------- | --- |
+| can i use兼容性查询 | [Link](https://caniuse.com/)                             |     |
+| TS类型包查询        | [Link](https://www.typescriptlang.org/dt/search?search=) |     |
 
 ## chrome插件
 
