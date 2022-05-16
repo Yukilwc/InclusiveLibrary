@@ -35,6 +35,7 @@ export default defineUserConfig({
         registerComponentsPlugin({
             componentsDir: path.resolve(__dirname, "./components"),
             components: {
+                Code2Snippets:path.resolve(__dirname,"../Tools/Online/Code2SnippetsJson/components/Code2Snippets.vue")
             },
         }),
         // docsearchPlugin({

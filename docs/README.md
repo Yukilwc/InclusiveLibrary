@@ -118,5 +118,8 @@
 [软件，网页，插件，工具收录](./Tools/Tools-Web-Plugins-Software/README.md)
 
 
+### 在线工具
+
+[代码转snippets JSON数组](./Tools/Online/Code2SnippetsJson/README.md)
 
 
