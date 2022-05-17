@@ -193,3 +193,20 @@ docsearch私人性质的文档难以申请成功，因此选择本地化的plugi
 [参考](https://v2.vuepress.vuejs.org/reference/plugin/pwa.html)
 
 按文档配置即可。
+
+### 图片缩放
+
+配置特殊不进行缩放的class,核心是要搞清楚not的匹配规则，小心祖先元素的not匹配陷阱  
+[参考](https://www.zhangxinxu.com/wordpress/2019/07/css-not-pseudo-class/)
+
+```ts
+import {mediumZoomPlugin } from '@vuepress/plugin-medium-zoom'
+export default defineUserConfig({
+  plugins: [
+    mediumZoomPlugin({
+    selector:":not(a) > img:not(.ignore-zoom)"
+    })
+  ]
+})
+
+```

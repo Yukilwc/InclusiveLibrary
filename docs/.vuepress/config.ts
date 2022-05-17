@@ -8,7 +8,9 @@ import { pwaPlugin } from "@vuepress/plugin-pwa";
 import { pwaPopupPlugin } from "@vuepress/plugin-pwa-popup";
 import { googleAnalyticsPlugin } from "@vuepress/plugin-google-analytics";
 import { viteBundler } from "@vuepress/bundler-vite";
+import {mediumZoomPlugin } from '@vuepress/plugin-medium-zoom'
 // import { sidebar } from "./sidebar";
+
 export default defineUserConfig({
   // site config
   lang: "zh-CN",
@@ -70,6 +72,11 @@ export default defineUserConfig({
     googleAnalyticsPlugin({
       id: "G-E8JW1JB5MY",
     }),
+    mediumZoomPlugin({
+      selector:":not(a) > img:not(.ignore-zoom)"
+      // selector:".is-disable-this-plugin > img"
+      // selector:":not(.swiper-slide) img"
+    })
   ],
   // bundler: viteBundler({
   //     viteOptions: {

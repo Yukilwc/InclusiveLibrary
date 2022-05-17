@@ -17,3 +17,5 @@ ctrl+shift+p,show built-in extensions,TypeScript and JavaScript Language Feature
   ],
  
 ```
+
+设置一种文件的，例如.vue文件，默认的格式化插件
