@@ -71,6 +71,11 @@ sidebar: false
 
 
 
+### WebAssembly
+
+[WebAssembly基础](./Frontend/WebAssembly/Base.md)
+
+[Rust应用转Wasm](./Frontend/WebAssembly/Rust2Wasm/README.md)
 ## IDE
 
 [VSCode相关配置](./IDE/VSCode/VSCode-config.md)
