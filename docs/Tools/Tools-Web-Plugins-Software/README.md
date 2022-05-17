@@ -43,6 +43,7 @@
 | emscripten      | [Link](https://emscripten.org/)                       | wasm工具链             |
 | llvm            | [Link](https://llvm.org/)                             | 一组编译器基础设施项目 |
 | openmp          | [Link](https://www.openmp.org/)                       | 跨平台多线程           |
+| swiper轮播      | [Link](https://swiperjs.com/get-started)                         |                        |
 
 ### vpn
 
