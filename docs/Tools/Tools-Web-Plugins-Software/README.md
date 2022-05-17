@@ -33,13 +33,16 @@
 
 ### 文档
 
-| 名字            | 地址                                                  | 功能 |
-| --------------- | ----------------------------------------------------- | ---- |
-| vuepress2.0文档 | [Link](https://v2.vuepress.vuejs.org/guide/)          |      |
-| vueuse 文档     | [Link](https://vueuse.org/guide/)                     |      |
-| vite文档        | [Link](https://vitejs.dev/guide/)                     |      |
-| html2canvas     | [Link](https://html2canvas.hertzen.com/documentation) |      |
-| Vue3            | [Link](https://vuejs.org/guide/introduction.html)     |      |
+| 名字            | 地址                                                  | 功能                   |
+| --------------- | ----------------------------------------------------- | ---------------------- |
+| vuepress2.0文档 | [Link](https://v2.vuepress.vuejs.org/guide/)          |                        |
+| vueuse 文档     | [Link](https://vueuse.org/guide/)                     |                        |
+| vite文档        | [Link](https://vitejs.dev/guide/)                     |                        |
+| html2canvas     | [Link](https://html2canvas.hertzen.com/documentation) |                        |
+| Vue3            | [Link](https://vuejs.org/guide/introduction.html)     |                        |
+| emscripten      | [Link](https://emscripten.org/)                       | wasm工具链             |
+| llvm            | [Link](https://llvm.org/)                             | 一组编译器基础设施项目 |
+| openmp          | [Link](https://www.openmp.org/)                       | 跨平台多线程           |
 
 ### vpn
 
@@ -56,6 +59,7 @@
 | can i use兼容性查询 | [Link](https://caniuse.com/)                             |     |
 | TS类型包查询        | [Link](https://www.typescriptlang.org/dt/search?search=) |     |
 | WebAssembly下载商店 | [Link](https://wapm.io/)                                 |     |
+| 免费的计算机电子书  | [Link](https://www.cntofu.com/)                          |     |
 
 ## chrome插件
 
