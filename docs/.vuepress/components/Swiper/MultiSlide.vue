@@ -1,13 +1,18 @@
 <template>
   <div>
-    <div class="single-slide-container" ref="singleSlideRef">
-      <div class="swiper-wrapper">
-        <div class="swiper-slide" v-for='(item, index) in 6' :key='index'>
-          <div class='content'>
-            <img class='image ignore-zoom' :src="getImage(index)" />
+    <div class=''>
+      <div class=''>定宽</div>
+      <div class=''>overflow不设置hidden实现</div>
+      <div class="multi-slide-container" ref="swiperRef">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide" v-for='(item, index) in 6' :key='index'>
+            <div class='content'>
+              <img class='image ignore-zoom' :src="getImage(index)" />
+            </div>
           </div>
         </div>
       </div>
+      <div class=''>swiper设置slide数量实现</div>
     </div>
   </div>
 </template>
@@ -25,10 +30,10 @@ const getImage = (index) => {
 onMounted(() => {
   init()
 });
-const singleSlideRef = ref(null)
+const swiperRef = ref(null)
 const init = () => {
-  if (!singleSlideRef.value) return
-  new Swiper(singleSlideRef.value, {
+  if (!swiperRef.value) return
+  new Swiper(swiperRef.value, {
     loop: true,
     autoplay: {
       delay: 3000,
@@ -41,7 +46,7 @@ const init = () => {
 </script>
 
 <style scoped lang="scss">
-.single-slide-container {
+.multi-slide-container {
   $w: 400px;
   $h: 600px;
   width: $w;

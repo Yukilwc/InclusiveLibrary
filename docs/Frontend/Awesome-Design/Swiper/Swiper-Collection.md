@@ -1,7 +1,36 @@
 # Swiper样例收录
 
-## 基础单Slide轮播
+## 轮播样例
+
+### 基础单Slide轮播
+
+特点: 单slide，循环，自动轮播
 
 <ClientOnly>
     <Swiper-SingleSlide></Swiper-SingleSlide>
 </ClientOnly>
+
+### 容器内多Slide轮播
+
+分两种，指定容器宽度和自适应占满屏幕,自适应需要自动计算slide  
+slide宽度总是确定的，但是容器宽度视需求而定
+
+
+
+### 线性过渡轮播
+
+### 两边缩放中间放大轮播
+
+### 走马灯效果
+
+### 点击事件添加
+
+### loop轮播vue组件的方案
+
+### 轮播切换后的动画添加方案
+
+### 3D前后翻页轮播
+
+## Options解析
+
+## API解析
