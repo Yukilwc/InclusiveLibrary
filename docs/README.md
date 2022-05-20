@@ -43,6 +43,8 @@ sidebar: false
 
 [Swiper样例收录](./Frontend/Awesome-Design/Swiper/Swiper-Collection.md)
 
+[Swiper API解析验证](./Frontend/Awesome-Design/Swiper/Swiper-API.md)
+
 ### Javascript
 
 #### AST

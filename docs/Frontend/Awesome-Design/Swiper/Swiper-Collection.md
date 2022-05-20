@@ -1,5 +1,9 @@
 # Swiper样例收录
 
+## 概要
+
+该文章收录好看的swiper实现，查阅swiper api请到隔壁 [Swiper-API](Swiper-API.md)
+
 ## 轮播样例
 
 ### 基础单Slide轮播
@@ -31,6 +35,4 @@ slide宽度总是确定的，但是容器宽度视需求而定
 
 ### 3D前后翻页轮播
 
-## Options解析
 
-## API解析
