@@ -119,7 +119,7 @@ sidebar: false
 
 ### 生活经验
 
-[情感](./Life-Skill/Life-Experience/Emotion.md)
+[ 为人处世之情感](./Life-Skill/Life-Experience/Emotion.md)
 ## 脚本
 
 [Gulp基础笔记](./Script/Gulp/Base.md)
