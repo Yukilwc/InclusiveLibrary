@@ -117,6 +117,9 @@ sidebar: false
 [更换手机号需要处理的问题](./Life-Skill/Memorandum/Change-Phone-Number.md)
 
 
+### 生活经验
+
+[情感](./Life-Skill/Life-Experience/Emotion.md)
 ## 脚本
 
 [Gulp基础笔记](./Script/Gulp/Base.md)
