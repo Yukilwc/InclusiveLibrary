@@ -3,11 +3,13 @@
     <div class=''>
       <div class=''>定宽</div>
       <div class=''>overflow不设置hidden实现</div>
-      <div class="multi-slide-container" ref="swiperRef">
-        <div class="swiper-wrapper">
-          <div class="swiper-slide" v-for='(item, index) in 6' :key='index'>
-            <div class='content'>
-              <img class='image ignore-zoom' :src="getImage(index)" />
+      <div class='outermost-layer'>
+        <div class="multi-slide-container-1" ref="swiper1">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide" v-for='(item, index) in 6' :key='index'>
+              <div class='content'>
+                <img class='image ignore-zoom' :src="getImage(index)" />
+              </div>
             </div>
           </div>
         </div>
