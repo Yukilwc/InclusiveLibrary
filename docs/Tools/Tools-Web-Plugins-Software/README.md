@@ -43,7 +43,9 @@
 | emscripten      | [Link](https://emscripten.org/)                       | wasm工具链             |
 | llvm            | [Link](https://llvm.org/)                             | 一组编译器基础设施项目 |
 | openmp          | [Link](https://www.openmp.org/)                       | 跨平台多线程           |
-| swiper轮播      | [Link](https://swiperjs.com/get-started)                         |                        |
+| swiper轮播      | [Link](https://swiperjs.com/get-started)              |                        |
+| vue-i18n vue3   | [Link](https://vue-i18n.intlify.dev/guide/)           |                        |
+| vue router vue3 | [Link](https://router.vuejs.org/guide/)               |                        |
 
 ### vpn
 
