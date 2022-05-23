@@ -33,19 +33,22 @@
 
 ### 文档
 
-| 名字            | 地址                                                  | 功能                   |
-| --------------- | ----------------------------------------------------- | ---------------------- |
-| vuepress2.0文档 | [Link](https://v2.vuepress.vuejs.org/guide/)          |                        |
-| vueuse 文档     | [Link](https://vueuse.org/guide/)                     |                        |
-| vite文档        | [Link](https://vitejs.dev/guide/)                     |                        |
-| html2canvas     | [Link](https://html2canvas.hertzen.com/documentation) |                        |
-| Vue3            | [Link](https://vuejs.org/guide/introduction.html)     |                        |
-| emscripten      | [Link](https://emscripten.org/)                       | wasm工具链             |
-| llvm            | [Link](https://llvm.org/)                             | 一组编译器基础设施项目 |
-| openmp          | [Link](https://www.openmp.org/)                       | 跨平台多线程           |
-| swiper轮播      | [Link](https://swiperjs.com/get-started)              |                        |
-| vue-i18n vue3   | [Link](https://vue-i18n.intlify.dev/guide/)           |                        |
-| vue router vue3 | [Link](https://router.vuejs.org/guide/)               |                        |
+| 名字                      | 地址                                                  | 功能                   |
+| ------------------------- | ----------------------------------------------------- | ---------------------- |
+| vuepress2.0文档           | [Link](https://v2.vuepress.vuejs.org/guide/)          |                        |
+| vueuse 文档               | [Link](https://vueuse.org/guide/)                     |                        |
+| vite文档                  | [Link](https://vitejs.dev/guide/)                     |                        |
+| html2canvas               | [Link](https://html2canvas.hertzen.com/documentation) |                        |
+| Vue3                      | [Link](https://vuejs.org/guide/introduction.html)     |                        |
+| emscripten                | [Link](https://emscripten.org/)                       | wasm工具链             |
+| llvm                      | [Link](https://llvm.org/)                             | 一组编译器基础设施项目 |
+| openmp                    | [Link](https://www.openmp.org/)                       | 跨平台多线程           |
+| swiper轮播                | [Link](https://swiperjs.com/get-started)              |                        |
+| vue-i18n vue3             | [Link](https://vue-i18n.intlify.dev/guide/)           |                        |
+| vue router vue3           | [Link](https://router.vuejs.org/guide/)               |                        |
+| Rust and WebAssembly book | [Link](https://rustwasm.github.io/docs/book/)         |                        |
+| Rust lang book            | [Link](https://doc.rust-lang.org/book/)               |                        |
+| Rust cargo                | [Link](https://doc.rust-lang.org/cargo/index.html)    |                        |
 
 ### vpn
 

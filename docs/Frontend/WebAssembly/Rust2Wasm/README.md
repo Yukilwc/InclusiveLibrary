@@ -56,6 +56,8 @@ cargo new --lib hello-wasm
 
 [pngquant文档](http://pngquant.com/install.html)
 
+[pngquant lib](https://pngquant.org/lib/)
+
 [MDN WebAssembly Rust_to_wasm](https://developer.mozilla.org/en-US/docs/WebAssembly/Rust_to_wasm)
 
 [wasm-bindgen文档](https://rustwasm.github.io/docs/wasm-bindgen/)
