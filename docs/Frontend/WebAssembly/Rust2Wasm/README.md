@@ -27,7 +27,7 @@ Openssl并配置环境变量。
 ![Link](./images/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20220523164903.png)
 
 
-#### 参考
+### 异常处理参考
 
 [参考](https://github.com/rustwasm/wasm-pack/issues/1108)
 
@@ -38,6 +38,12 @@ Openssl并配置环境变量。
 [Link](https://docs.rs/openssl/latest/openssl/)
 
 ## 样例
+
+### 工程构建
+
+```sh
+cargo new --lib hello-wasm
+```
 
 ## 实践pngquant转wasm
 
