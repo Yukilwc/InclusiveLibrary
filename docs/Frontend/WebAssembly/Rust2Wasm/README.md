@@ -39,6 +39,11 @@ Openssl并配置环境变量。
 
 ## 样例
 
+
+### 运行
+
+<Rust2WasmDemo></Rust2WasmDemo>
+
 ### 工程构建
 
 ```sh
@@ -52,3 +57,5 @@ cargo new --lib hello-wasm
 [pngquant文档](http://pngquant.com/install.html)
 
 [MDN WebAssembly Rust_to_wasm](https://developer.mozilla.org/en-US/docs/WebAssembly/Rust_to_wasm)
+
+[wasm-bindgen文档](https://rustwasm.github.io/docs/wasm-bindgen/)

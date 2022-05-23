@@ -45,6 +45,7 @@ export default defineUserConfig({
           __dirname,
           "../Tools/Online/Code2SnippetsJson/components/Code2Snippets.vue"
         ),
+        Rust2WasmDemo: path.resolve(__dirname,"../Frontend/WebAssembly/Rust2Wasm/components/Rust2WasmDemo.vue")
       },
     }),
     // docsearchPlugin({

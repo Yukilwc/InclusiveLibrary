@@ -20,6 +20,7 @@
 
 下载成功后，运行`rustc --version`能正确输出版本即可
 
+## IDE环境搭建
 ## 参考
 
 [Rust文档](https://www.rust-lang.org/)

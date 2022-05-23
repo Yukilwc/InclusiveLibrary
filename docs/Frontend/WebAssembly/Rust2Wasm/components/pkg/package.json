@@ -1,0 +1,21 @@
+{
+  "name": "hello-wasm",
+  "collaborators": [
+    "yukilwc"
+  ],
+  "description": "A sample project with wasm-pack",
+  "version": "0.1.0",
+  "license": "MIT/Apache-2.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yukilwc"
+  },
+  "files": [
+    "hello_wasm_bg.wasm",
+    "hello_wasm.js",
+    "hello_wasm.d.ts"
+  ],
+  "module": "hello_wasm.js",
+  "types": "hello_wasm.d.ts",
+  "sideEffects": false
+}
