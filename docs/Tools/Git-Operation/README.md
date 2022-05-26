@@ -16,11 +16,33 @@ git config --global user.email myemail
 
 ### 分支
 
-切换到远程分支
 
 ```sh
+# 切换到远程分支
 git checkout -b 本地分支名 origin/远程分支名
+
+# 本地创建新分支
+git checkout -b 分支名
+
+# 查看全部分支
+git branch -a
+
+# 删除本地分支
+
+# 删除远程分支
+git branch -d 分支名
+
+# 本地分支和远程分支链接
+
+# 合并分支
+git merge --no-ff 其他分支名
 ```
+
+#### 注意
+
+合并分支添加--no-ff理由:
+
+
 
 ## Github
 
