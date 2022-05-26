@@ -124,6 +124,14 @@ sidebar: false
 
 [更换手机号需要处理的问题](./Life-Skill/Memorandum/Change-Phone-Number.md)
 
+## Rust
+
+### 基础
+
+[生态](./Rust/Base/Env.md)
+
+[语法](./rust/Base/Grammar.md)
+
 ## 脚本
 
 [Gulp基础笔记](./Script/Gulp/Base.md)
