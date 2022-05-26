@@ -18,7 +18,7 @@
     <Swiper-SingleSlide></Swiper-SingleSlide>
 </ClientOnly>
 
-### 容器内多Slide轮播
+### 不定宽容器内多Slide轮播
 
 多个slide,指定容器宽度或者自适应占满屏幕
 
@@ -36,18 +36,40 @@
 
 ### 线性过渡轮播
 
+特性:轮播过渡效果为线性滚动，且没有停顿延时
+
+[源码](https://github.com/Yukilwc/InclusiveLibrary/blob/master/docs/.vuepress/components/Swiper/LinearTransition.vue)
+
+示例演示如下:
+
+<ClientOnly>
+    <Swiper-LinearTransition></Swiper-LinearTransition>
+</ClientOnly>
+
+此种方法具有弊端，即在一轮slide-wrapper位移交替时，会减速和卡顿，猜测是强制覆盖linear导致loop切换slide时出了什么问题。总之，其实swiper并不是很适合做这种走马灯.如果非要使用，猜测增加loop的slide数量可能缓解一下这种卡顿?
+
+
+[鼠标悬停后停止的方案参考](https://www.kozzzx.com/2019/02/21/%E4%BD%BF%E7%94%A8Vue-Awesome-Swiper%E5%AE%9E%E7%8E%B0%E5%B9%B3%E6%BB%91%E6%BB%9A%E5%8A%A8%EF%BC%8C%E9%BC%A0%E6%A0%87%E6%94%BE%E7%BD%AE%E7%AB%8B%E5%8D%B3%E6%9A%82%E5%81%9C-%E5%90%AF%E5%8A%A8/)
+
+
 ### 两边缩放中间放大轮播
 
-### 走马灯效果
+### 文字走马灯
+### loop模式下点击事件添加
 
-### 点击事件添加
-
+借助swiper自身api和钩子实现
 ### loop轮播vue组件的方案
 
 ### 轮播切换后的动画添加方案
 
+借助swiper自身api和钩子实现
+
 ### 3D前后翻页轮播
 
 ### 视差滚动
+
+## 中文官网样例参考
+
+## 英文官网样例参考
 
 
