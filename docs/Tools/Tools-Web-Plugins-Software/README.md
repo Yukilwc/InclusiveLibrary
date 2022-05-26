@@ -63,7 +63,7 @@
 | Rust and WebAssembly book | [Link](https://rustwasm.github.io/docs/book/)         |                        |
 | Rust lang book            | [Link](https://doc.rust-lang.org/book/)               |                        |
 | Rust cargo                | [Link](https://doc.rust-lang.org/cargo/index.html)    |                        |
-
+|element-plus|[Link](https://element-plus.org/zh-CN/#/zh-CN)||
 ### vpn
 
 | 名字             | 地址                              | 其他 |
