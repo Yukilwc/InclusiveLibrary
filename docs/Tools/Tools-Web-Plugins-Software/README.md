@@ -9,6 +9,20 @@
 
 #### Windows Terminal
 
+[terminal](https://github.com/microsoft/terminal)
+
+关于开放运行脚本的权限，参考 [Software-Hardware-Questions](../../.vuepress/dist/assets/Software-Hardware-Questions.html.79e9c433.js)
+
+#### chocolatey
+
+[install](https://chocolatey.org/install)
+
+#### gsudo 命令行获取管理员权限
+
+[install](https://github.com/gerardog/gsudo)
+
+安装chocolatey后，以管理员身份，运行`choco install gsudo`
+
 #### Q-DIR
 
 

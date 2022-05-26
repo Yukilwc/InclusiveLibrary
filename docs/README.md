@@ -133,6 +133,8 @@ sidebar: false
 
 [软件，网页，插件，工具收录](./Tools/Tools-Web-Plugins-Software/README.md)
 
+[NPM收录](./Tools/Tools-Web-Plugins-Software/NPM.md)
+
 ### 环境搭建参考
 
 [Rust环境搭建](./Tools/EnvironmentSetup/Rust/README.md)
