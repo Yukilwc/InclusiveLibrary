@@ -44,7 +44,7 @@ const init = () => {
     freeMode: true,
     autoplay: {
       delay: 0, // 取消停顿
-      disableOnInteraction: true,
+      disableOnInteraction: false,
     },
     noSwiping: true,// 同时添加swiper-no-swiping禁止鼠标拖动
   });

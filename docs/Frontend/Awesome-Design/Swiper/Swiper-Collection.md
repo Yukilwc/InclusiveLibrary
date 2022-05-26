@@ -46,12 +46,17 @@
     <Swiper-LinearTransition></Swiper-LinearTransition>
 </ClientOnly>
 
-此种方法具有弊端，即在一轮slide-wrapper位移交替时，会减速和卡顿，猜测是强制覆盖linear导致loop切换slide时出了什么问题。总之，其实swiper并不是很适合做这种走马灯.如果非要使用，猜测增加loop的slide数量可能缓解一下这种卡顿?
-
+此种方法具有弊端，即在一轮swiper-wrapper位移交替时，会减速和卡顿，猜测是强制覆盖linear导致loop切换时,swiper-wrapper通过translate位移到后位进行补充，但是由于此时是linear过度且无暂停的delay，导致这个大位移过程，被linear影响，出现明显卡顿。  
+总之，其实swiper并不是很适合做这种走马灯.如果非要使用，猜测增加loop的slide数量可能缓解一下这种卡顿?  
+或者说，是否可以完全接管translate的控制，实现更高级别的操作?
 
 [鼠标悬停后停止的方案参考](https://www.kozzzx.com/2019/02/21/%E4%BD%BF%E7%94%A8Vue-Awesome-Swiper%E5%AE%9E%E7%8E%B0%E5%B9%B3%E6%BB%91%E6%BB%9A%E5%8A%A8%EF%BC%8C%E9%BC%A0%E6%A0%87%E6%94%BE%E7%BD%AE%E7%AB%8B%E5%8D%B3%E6%9A%82%E5%81%9C-%E5%90%AF%E5%8A%A8/)
 
+### 尝试通过api控制线性轮播走马灯
 
+### 手写一个基于css animation的走马灯
+
+支持多图片，组件，以及持续性的文字.
 ### 两边缩放中间放大轮播
 
 ### 文字走马灯
