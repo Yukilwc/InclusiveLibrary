@@ -4,6 +4,17 @@
 
 ## 路线
 
+1. 官方文档 [Link](https://webassembly.org/getting-started/js-api/)
+2. MDN文档 [Link](https://developer.mozilla.org/en-US/docs/WebAssembly)
+3. 手动编译一个c/c++简单程序到wasm并应用 Emscripten,LLVM
+4. 手动编译一个Rust简单程序到wasm并应用
+5. worker
+6. worker内离屏渲染canvas [Link](https://developer.mozilla.org/zh-CN/docs/Web/API/Canvas_API/Tutorial/Optimizing_canvas)
+
+
+### 工具
+
+[emscripten](https://emscripten.org/docs/getting_started/index.html)
 ### awesome-wasm
 [awesome-wasm](https://github.com/mbasso/awesome-wasm)
 ## 准备

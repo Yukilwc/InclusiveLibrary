@@ -143,6 +143,8 @@ sidebar: false
 
 [NPM收录](./Tools/Tools-Web-Plugins-Software/NPM.md)
 
+[编程领域术语](./Tools/Terms/Code.md)
+
 ### 环境搭建参考
 
 [Rust环境搭建](./Tools/EnvironmentSetup/Rust/README.md)
