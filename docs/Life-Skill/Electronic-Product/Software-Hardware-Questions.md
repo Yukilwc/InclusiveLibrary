@@ -16,4 +16,13 @@
 以管理员身份打开，执行`get-executionpolicy`,打印结果是`Restricted`,表示允许单个命令，但是不允许脚本。  
 之后，执行`set-executionpolicy remotesigned`,修改执行策略，即可执行脚本.
 
+### 命令行工具使用VPN问题
+
+使用powershell好像直接可以连接系统代理的vpn，可以使用`curl https://www.google.com `测试  
+如果是使用cmd，需要配置环境变量如下
+```sh
+set http_proxy=http://127.0.0.1:1080
+set https_proxy=http://127.0.0.1:1080
+```
+
 ## 硬件

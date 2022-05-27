@@ -1,6 +1,11 @@
 # WebAssembly基础
 
 ## 概述
+
+## 路线
+
+### awesome-wasm
+[awesome-wasm](https://github.com/mbasso/awesome-wasm)
 ## 准备
 
 ###  CMake安装
