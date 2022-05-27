@@ -49,12 +49,10 @@ const init = () => {
   if (!swiperHidden.value) return
   new Swiper(swiperHidden.value, {
     loop: true,
-    // autoplay: {
-    //   delay: 3000,
-    //   disableOnInteraction: false,
-    //   pauseOnMouseEnter: false,
-    //   reverseDirection: false,
-    // },
+    autoplay: {
+      delay: 3000,
+      disableOnInteraction: true,
+    },
     spaceBetween: 20,
     // loopedSlides: 5,
     // loopAdditionalSlides: 5
@@ -66,6 +64,7 @@ const init = () => {
     spaceBetween: 20,
     slidesPerView: 'auto',
     loopedSlides: 6,
+    // slideToClickedSlide: true,
     autoplay: {
       delay: 1000,
       disableOnInteraction: true,
