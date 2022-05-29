@@ -83,6 +83,12 @@
 | WebAssembly下载商店 | [Link](https://wapm.io/)                                 |     |
 | 免费的计算机电子书  | [Link](https://www.cntofu.com/)                          |     |
 
+### 娱乐资源
+
+|            |                                                                                           |     |
+| ---------- | ----------------------------------------------------------------------------------------- | --- |
+| 精校版小说 | [Link](https://noveless.com/) [Link](https://www.jingjiaoba.com/) [Link](http://zxcs.me/) |     |
+|            |                                                                                           |     |
 ## chrome插件
 
 
