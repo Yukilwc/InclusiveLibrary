@@ -21,8 +21,14 @@
 使用powershell好像直接可以连接系统代理的vpn，可以使用`curl https://www.google.com `测试  
 如果是使用cmd，需要配置环境变量如下
 ```sh
-set http_proxy=http://127.0.0.1:1080
-set https_proxy=http://127.0.0.1:1080
+# cmd
+set http_proxy="http://localhost:10080"
+set https_proxy="http://localhost:10080"
+# powershell
+$env:http_proxy="http://localhost:10080"
+$env:https_proxy="http://localhost:10080"
 ```
+
+
 
 ## 硬件

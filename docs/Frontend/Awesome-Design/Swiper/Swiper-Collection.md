@@ -59,6 +59,10 @@
 支持多图片，组件，以及持续性的文字.  
 难点在于如何实现拷贝dom，以及无缝loop
 
+<ClientOnly>
+    <Swiper-VueCarousel></Swiper-VueCarousel>
+</ClientOnly>
+
 ### 两边缩放中间放大轮播
 
 ### 文字走马灯
