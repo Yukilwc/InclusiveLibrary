@@ -60,7 +60,7 @@
 难点在于如何实现拷贝dom，以及无缝loop
 
 <ClientOnly>
-    <Swiper-VueCarousel></Swiper-VueCarousel>
+    <Swiper-VueCarousel-index></Swiper-VueCarousel-index>
 </ClientOnly>
 
 ### 两边缩放中间放大轮播

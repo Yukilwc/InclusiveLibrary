@@ -6,7 +6,7 @@
 
 ## 基础
 
-文字容器内两端对齐
+### 文字容器内两端对齐
 
 ```scss
     text-align: justify;
@@ -22,7 +22,19 @@
  
 ```
 
-行内多元素控制隐藏优先级
+### 行内多元素控制隐藏优先级
+
+### 父元素宽度由子元素自动撑开，而非100%
+
+```scss
+.parent {
+  display:inline-block;
+  white-space:nowrap;
+  .child {
+
+  }
+}
+```
 
 ## 工具
 
