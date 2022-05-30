@@ -62,6 +62,10 @@ sidebar: false
 
 [ 正则原理](./Frontend/Javascript/Regex/Principle.md)
 
+
+#### 动画
+
+[requestAnimationFrame](./Frontend/Javascript/Animate/requestAnimationFrame.md)
 ### 小程序
 
 [小程序翻译搭建流程](./Frontend/Minapp/Translate/Progress.md)
