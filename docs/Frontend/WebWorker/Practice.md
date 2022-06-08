@@ -3,5 +3,5 @@
 ## Canvas绘制
 
 <ClientOnly>
-<CanvasWorker></CanvasWorker>
+<WebWorker-CanvasWorker></WebWorker-CanvasWorker>
 </ClientOnly>
