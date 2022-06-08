@@ -2,4 +2,6 @@
 
 ## Canvas绘制
 
+<ClientOnly>
 <CanvasWorker></CanvasWorker>
+</ClientOnly>
