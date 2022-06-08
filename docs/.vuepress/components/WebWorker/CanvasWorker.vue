@@ -14,11 +14,11 @@ import { onMounted } from 'vue';
 onMounted(() => {
     let url = new URL("./StarsCanvasWorker", import.meta.url)
     console.log('==========url',url)
-    // const starsCanvasWorker = new Worker()
-    // starsCanvasWorker.postMessage({ test: 1 })
-    // starsCanvasWorker.onmessage = (e) => {
-    //     console.log('==========main thread worker onmessage', e)
-    // }
+    const starsCanvasWorker = new Worker(url)
+    starsCanvasWorker.postMessage({ test: 1 })
+    starsCanvasWorker.onmessage = (e) => {
+        console.log('==========main thread worker onmessage', e)
+    }
     // var canvas = document.getElementById('canvas'),
     //     ctx = canvas.getContext('2d'),
     //     w = canvas.width = window.innerWidth,
