@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
     "module": "esnext",
-    "types": ["vite/client", "node", "element-plus/global"],
+    "types": ["vite/client", "node", "element-plus/global","offscreencanvas"],
     "lib": ["ESNext", "dom"],
     "declaration": false,
     "jsx": "preserve",
