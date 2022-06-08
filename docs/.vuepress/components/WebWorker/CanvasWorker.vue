@@ -8,13 +8,12 @@
 <script lang='ts' setup>
 import { onMounted } from 'vue';
 
-// import StarsCanvasWorker from './StarsCanvasWorker?worker'
-
-// starsCanvasWorker.terminate();
+import StarsCanvasWorker from './StarsCanvasWorker?worker'
 onMounted(() => {
-    let url = new URL("./StarsCanvasWorker", import.meta.url)
-    console.log('==========url', url)
-    const starsCanvasWorker = new Worker(url)
+    // let url = new URL("./StarsCanvasWorker", import.meta.url)
+    // console.log('==========url', url)
+    // const starsCanvasWorker = new Worker(url)
+    const starsCanvasWorker = new StarsCanvasWorker()
     const canvas = document.getElementById('canvas') as HTMLCanvasElement
     let offscreen = canvas.transferControlToOffscreen()
     starsCanvasWorker.postMessage({ canvas: offscreen }, [offscreen])
