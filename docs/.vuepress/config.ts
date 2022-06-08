@@ -45,7 +45,8 @@ export default defineUserConfig({
           __dirname,
           "../Tools/Online/Code2SnippetsJson/components/Code2Snippets.vue"
         ),
-        Rust2WasmDemo: path.resolve(__dirname,"../Frontend/WebAssembly/Rust2Wasm/components/Rust2WasmDemo.vue")
+        Rust2WasmDemo: path.resolve(__dirname,"../Frontend/WebAssembly/Rust2Wasm/components/Rust2WasmDemo.vue"),
+        CanvasWorker: path.resolve(__dirname,"../Frontend/WebWorker/components/CanvasWorker.vue"),
       },
     }),
     // docsearchPlugin({
