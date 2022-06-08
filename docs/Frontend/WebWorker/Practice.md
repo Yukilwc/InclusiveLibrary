@@ -1,5 +1,13 @@
 # WebWorker实践
 
+## 基础
+
+### vite使用worker
+
+方法一: worker文件写js，放在public文件夹中，做非打包资源，然后在主线程文件中，通过`new URL("./StarsCanvasWorker", import.meta.url)`进行引入
+
+方法二:使用vite的`import StarsCanvasWorker from './StarsCanvasWorker?worker'`,改引入方式是支持ts类型判定的,推荐此种方法,此引入方法，worker文件也会被打包，被babel编译，最终打包为一个编译后的js文件，并在主线程文件中引入正确的路径。
+
 ## Canvas绘制
 
 [源码](https://github.com/Yukilwc/InclusiveLibrary/tree/master/docs/.vuepress/components/WebWorker)
