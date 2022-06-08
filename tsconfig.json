@@ -16,6 +16,8 @@
     "docs/.vuepress/**/*.d.ts",
     "docs/.vuepress/**/*.ts",
     "docs/.vuepress/**/*.vue",
+    "docs/**/*.vue",
+    "docs/**/*.ts",
     "docs/.vuepress/**/*.tsx"
   ],
   "exclude": ["node_modules"]
