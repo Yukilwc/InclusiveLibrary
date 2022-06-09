@@ -83,6 +83,7 @@
 | WebAssembly下载商店       | [Link](https://wapm.io/)                                 |     |
 | 免费的计算机电子书        | [Link](https://www.cntofu.com/)                          |     |
 | codepen查找实验好看的效果 | [Link](https://codepen.io/)                              |     |
+| crates Rust应用商店       | [Link](https://crates.io/)                               |     |
 
 ### 娱乐资源
 

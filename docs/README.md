@@ -137,6 +137,10 @@ sidebar: false
 
 ### 基础
 
+[学习计划](./Rust/Base/Plan.md)
+
+[开始](./Rust/Base/Start.md)
+
 [生态](./Rust/Base/Env.md)
 
 [语法](./rust/Base/Grammar.md)
