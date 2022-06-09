@@ -28,6 +28,12 @@ leetcode
 
 [awesome-rust](https://github.com/rust-unofficial/awesome-rust)
 
+## 练手
+
+[Link](https://www.zhihu.com/question/34665842)
+
+参照书籍 Ray Tracing from the Ground Up
+
 ## to WASM
 
 [wasm-pack](https://github.com/rustwasm/wasm-pack)

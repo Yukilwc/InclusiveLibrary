@@ -6,6 +6,6 @@
 | 名字                 | 含义               | 备注   |
 | -------------------- | ------------------ | ------ |
 | UpperCamelCase       |                    |        |
-| snake_case           |                    |        |
+| snake_case           | name_name_name     |        |
 | SCREAMING_SNAKE_CASE |                    |        |
 | mustache             | 模板语法，双大括号 | `{{}}` |
