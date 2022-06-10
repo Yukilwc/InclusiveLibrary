@@ -6,18 +6,18 @@
     <div class='carousel-wrapper'>
       <div class='comp-container'>
         <MisakaCarousel ref="carouselRef1" :additionalSlides="2" :itemRight="'20px'" :speed="10000" :offset="'33.33%'">
-          <div class='image-list'>
+          <!-- <div class='image-list'>
             <div class="item" v-for='(item, index) in 6' :key='index'>
               <img class='image ignore-zoom' :src="getImage(index)" />
             </div>
 
-          </div>
+          </div> -->
         </MisakaCarousel>
 
       </div>
       <div class=''>常规方向</div>
       <div class='comp-container'>
-        <MisakaCarousel ref="carouselRef2" :additionalSlides="2" :itemRight="'20px'" :speed="10000" 
+        <!-- <MisakaCarousel ref="carouselRef2" :additionalSlides="2" :itemRight="'20px'" :speed="10000" 
           :reverse="true">
           <div class='image-list'>
             <div class="item" v-for='(item, index) in 6' :key='index'>
@@ -25,7 +25,7 @@
             </div>
 
           </div>
-        </MisakaCarousel>
+        </MisakaCarousel> -->
       </div>
       <div class=''>反转方向</div>
     </div>
@@ -34,17 +34,17 @@
 
 <script lang='ts' setup>
 import { onMounted, ref, toRaw } from "vue";
-import MisakaCarousel from './MisakaCarousel.vue'
+import MisakaCarousel from './MisakaCarousel/index.vue'
 
 const getImage = (index) => {
   return new URL(`../images/${index}.png`, import.meta.url).href
 }
 const carouselRef1 = ref<InstanceType<typeof MisakaCarousel>>(null)
-const carouselRef2 = ref<InstanceType<typeof MisakaCarousel>>(null)
+// const carouselRef2 = ref<InstanceType<typeof MisakaCarousel>>(null)
 const start = () => {
   console.log('==========carouselRef1', toRaw(carouselRef1) )
   carouselRef1.value.start()
-  carouselRef2.value.start()
+  // carouselRef2.value.start()
 }
 </script>
 

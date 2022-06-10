@@ -59,6 +59,10 @@ sidebar: false
 
 [Swiper API解析验证](./Frontend/Awesome-Design/Swiper/Swiper-API.md)
 
+#### 走马灯
+
+[Demo](./Frontend/Awesome-Design/Carousel/Demo.md)
+
 ### Javascript
 
 #### AST
