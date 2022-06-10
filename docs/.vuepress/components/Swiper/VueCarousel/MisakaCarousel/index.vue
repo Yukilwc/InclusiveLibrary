@@ -47,7 +47,7 @@ const wrapper = ref<HTMLElement>()
 const { additionalSlides, itemRight, speed, offset, reverse, mode } = toRefs(props)
 
 
-const { wrapperStyle, calcAllSize, resetWrapperStyle, computedSize } = useSize(offset, additionalSlides, reverse)
+const { wrapperStyle, calcAllSize, computedSize } = useSize(offset, additionalSlides, reverse)
 // ============================================================ transition 版本 START
 const cssMode = useCssCarousel(wrapperStyle, computedSize, speed, reverse)
 const fpsMode = useFPSCarousel(wrapperStyle, computedSize, speed, reverse)
@@ -68,6 +68,7 @@ const start = async () => {
   }
   else {
     console.log('==========fps mode',)
+    fpsMode.start()
   }
 }
 

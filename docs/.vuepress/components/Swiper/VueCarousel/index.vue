@@ -5,7 +5,7 @@
   <div class="carousel-container">
     <div class='carousel-wrapper'>
       <div class='comp-container'>
-        <MisakaCarousel ref="carouselRef1" :additionalSlides="2" :itemRight="'20px'" :speed="10000" offset="5vw" :reverse="true">
+        <MisakaCarousel ref="carouselRef1" :additionalSlides="2" :itemRight="'20px'" :speed="10000" offset="300px" :reverse="false" mode="fps">
           <div class='image-list'>
             <div class="item" v-for='(item, index) in 6' :key='index'>
               <img class='image ignore-zoom' :src="getImage(index)" />

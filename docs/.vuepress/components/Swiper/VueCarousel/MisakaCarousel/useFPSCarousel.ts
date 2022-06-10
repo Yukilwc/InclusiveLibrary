@@ -8,10 +8,17 @@ class FPSAnimate {
   x = 0;
   currentTime = 0;
   startTime = undefined;
+  isActive = false;
   callback = (x: number) => {};
   animate = async () => {
+    this.isActive = true;
     return new Promise(async (resolve, reject) => {
       const step = async (timestamp) => {
+        if (this.isActive === false) {
+          console.log("==========FPSAnimate is set isAnimating finished");
+          reject(this.x);
+          return;
+        }
         // console.log('==========step',)
         if (this.startTime === undefined) {
           this.startTime = timestamp;
@@ -19,9 +26,8 @@ class FPSAnimate {
         const elapsedTime = timestamp - this.startTime;
         const ratio = elapsedTime / this.totalTime;
         this.x = Math.round(this.x0 + (this.x1 - this.x0) * ratio);
-        // console.log('==========this.x', this.x)
-        if (this.x - this.x0 >= this.x1 - this.x0) {
-          // console.log('==========finished',)
+        // console.log("==========this.x", this.x);
+        if (Math.abs(this.x - this.x0) >= Math.abs(this.x1 - this.x0)) {
           this.x = this.x1;
           this.callback(this.x);
           resolve(this.x);
@@ -36,6 +42,21 @@ class FPSAnimate {
   };
 
   constructor() {}
+  init = ({
+    x0 = 0,
+    x1 = 300,
+    totalTime = 3000,
+    x = 0,
+    currentTime = 0,
+    startTime = undefined,
+  }) => {
+    this.x0 = x0;
+    this.x1 = x1;
+    this.totalTime = totalTime;
+    this.x = x;
+    this.currentTime = currentTime;
+    this.startTime = startTime;
+  };
   static getFrameTime = async () => {
     console.log("==========getFrameTime start");
     // let now = performance.now()
@@ -50,20 +71,61 @@ class FPSAnimate {
     });
   };
 }
-// let frameTime = await FPSAnimate.getFrameTime();
-// let ani = new FPSAnimate();
-// ani.callback = (x) => {
-//   console.log("==========ani callback", x);
-// };
-// console.log("==========start ani", ani);
-// await ani.animate();
-// console.log("==========end ani");
-
+let ani = new FPSAnimate();
 export const useFPSCarousel = (
   wrapperStyle: Ref<IWrapperStyle>,
   computedSize: Ref<IComputedSize>,
   speed: Ref<number>,
-reverse:Ref<boolean>
+  reverse: Ref<boolean>
 ) => {
-  return {};
+  const start = async () => {
+    if (ani.isActive) {
+      ani.isActive = false;
+    }
+    ani = new FPSAnimate();
+    ani.init({
+      x0: 0,
+      x1: -computedSize.value.offsetPx,
+      totalTime:
+        speed.value *
+        (computedSize.value.offsetPx / computedSize.value.itemWidth),
+    });
+    ani.callback = (x) => {
+      // console.log("==========ani callback", x);
+      wrapperStyle.value.transform = `translateX(${x}px)`;
+    };
+    console.log("==========start ani", ani);
+    try {
+      await ani.animate();
+    } catch (e) {
+      console.log("==========动画强制停止", e);
+      return;
+    }
+    console.log("==========end ani");
+    doLoop();
+  };
+  const doLoop = async () => {
+    ani.init({
+      x0: -computedSize.value.offsetPx,
+      x1: -computedSize.value.offsetPx - computedSize.value.itemWidth,
+      totalTime: speed.value,
+    });
+    ani.callback = (x) => {
+      // console.log("==========ani callback", x);
+      wrapperStyle.value.transform = `translateX(${x}px)`;
+    };
+    console.log("==========start loop ani", ani);
+    try {
+      await ani.animate();
+    } catch (e) {
+      console.log("==========动画强制停止", e);
+      return;
+    }
+    console.log("==========end loop ani");
+    doLoop();
+  };
+  const finish = () => {};
+  return {
+    start,
+  };
 };
