@@ -9,18 +9,24 @@ MSVC LLVM mingw64 都是什么
 dll作用功效?
 ### 语言
 
+1. [Rust编程世界](https://course.rs/into-rust.html)
+
 官网
 
 [github rust-course](https://github.com/sunface/rust-course)
 
-[Rust编程世界](https://course.rs/into-rust.html)
 
 ### 生态
 
-cargo
+
+[cargo](https://doc.rust-lang.org/cargo/getting-started/index.html)
 
 
 ## 练习
+
+优先刷完rustlings
+
+[国人的练习](https://zh.practice.rs/why-exercise.html)
 
 leetcode
 
@@ -41,3 +47,5 @@ leetcode
 [wasm-bindgen](https://github.com/rustwasm/wasm-bindgen)
 
 [多线程wasm-bindgen-rayon](https://github.com/GoogleChromeLabs/wasm-bindgen-rayon)
+
+[Link](https://rustwasm.github.io/docs/book/)
