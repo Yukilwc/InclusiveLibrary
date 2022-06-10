@@ -69,6 +69,13 @@ sidebar: false
 ### 小程序
 
 [小程序翻译搭建流程](./Frontend/Minapp/Translate/Progress.md)
+
+### nodejs
+
+[NPM收录](./Frontend/NODEJS/NPM/NPMLibCollection.md)
+
+[NPM操作](./Frontend/NODEJS/NPM/NPMOperator.md)
+
 ### 模式
 
 [常用页面结构模式](./Frontend/Pattern/Page.md)
@@ -154,7 +161,6 @@ sidebar: false
 
 [软件，网页，插件，工具收录](./Tools/Tools-Web-Plugins-Software/README.md)
 
-[NPM收录](./Tools/Tools-Web-Plugins-Software/NPM.md)
 
 [编程领域术语](./Tools/Terms/Code.md)
 
