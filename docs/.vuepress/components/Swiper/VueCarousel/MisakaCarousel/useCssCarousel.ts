@@ -4,7 +4,8 @@ import { IComputedSize, IWrapperStyle } from "./useSize";
 export const useCssCarousel = (
   wrapperStyle: Ref<IWrapperStyle>,
   computedSize: Ref<IComputedSize>,
-  speed: Ref<number>
+  speed: Ref<number>,
+reverse:Ref<boolean>
 ) => {
   const start = () => {
     if (computedSize.value.offsetPx > 0) {

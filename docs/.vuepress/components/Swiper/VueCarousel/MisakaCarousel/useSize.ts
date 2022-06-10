@@ -12,7 +12,7 @@ export interface IWrapperStyle {
   width: string;
 }
 
-export const useSize = (offset: Ref<string>, additionalSlides: Ref<number>) => {
+export const useSize = (offset: Ref<string>, additionalSlides: Ref<number>,reverse:Ref<boolean>) => {
   const wrapperStyle = ref({
     transition: ``,
     transform: ``,
@@ -41,6 +41,7 @@ export const useSize = (offset: Ref<string>, additionalSlides: Ref<number>) => {
       computedSize.value.wrapperWidth =
         computedSize.value.itemWidth * (additionalSlides.value + 1);
       computedSize.value.offsetPx = wrapper.value.offsetLeft;
+      console.log('==========wrapper.value.offsetLeft',wrapper.value.offsetLeft)
       wrapperStyle.value.width = `${computedSize.value.wrapperWidth}px`;
     }
   };

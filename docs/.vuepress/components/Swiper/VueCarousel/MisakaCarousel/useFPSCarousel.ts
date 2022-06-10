@@ -62,7 +62,8 @@ class FPSAnimate {
 export const useFPSCarousel = (
   wrapperStyle: Ref<IWrapperStyle>,
   computedSize: Ref<IComputedSize>,
-  speed: Ref<number>
+  speed: Ref<number>,
+reverse:Ref<boolean>
 ) => {
   return {};
 };
