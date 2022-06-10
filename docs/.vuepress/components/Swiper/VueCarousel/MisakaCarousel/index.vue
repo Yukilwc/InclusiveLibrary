@@ -1,7 +1,8 @@
 <template>
-  <div class="misaka-carousel-container" ref="container">
+  <div class="misaka-carousel-container" ref="container"
+    :style="[{ opacity: dataReady ? '1' : '0' }, { height: `${computedSize.containerHeight}px` }]">
     <div :style="wrapperStyle" class='misaka-carousel-wrapper' ref="wrapper" @transitionend="endHandle">
-      <div class="misaka-carousel-item" v-for="(item, index) in (additionalSlides + 2)" :key="index"
+      <div class="misaka-carousel-item" v-for="(item, index) in (additionalSlides + 1)" :key="index"
         :style="[{ paddingRight: `${itemRight}` }]">
         <slot></slot>
       </div>
@@ -46,21 +47,22 @@ const wrapper = ref<HTMLElement>()
 const { additionalSlides, itemRight, speed, offset, reverse, mode } = toRefs(props)
 
 
-const { wrapperStyle, calcAllSize, resetWrapperStyle, computedSize } = useSize(offset, additionalSlides,reverse)
+const { wrapperStyle, calcAllSize, resetWrapperStyle, computedSize } = useSize(offset, additionalSlides, reverse)
 // ============================================================ transition 版本 START
-const cssMode = useCssCarousel(wrapperStyle, computedSize, speed,reverse)
-const fpsMode = useFPSCarousel(wrapperStyle, computedSize, speed,reverse)
-
+const cssMode = useCssCarousel(wrapperStyle, computedSize, speed, reverse)
+const fpsMode = useFPSCarousel(wrapperStyle, computedSize, speed, reverse)
+const dataReady = ref(false)
 
 
 onMounted(async () => {
   start()
 })
-const start = () => {
+const start = async () => {
+  dataReady.value = false
   resetWrapperStyle()
-  calcAllSize(container, wrapper)
-  console.log('==========size',computedSize.value)
-  return
+  await calcAllSize(container, wrapper)
+  console.log('==========size', computedSize.value)
+  dataReady.value = true
   if (mode.value === 'css') {
     console.log('==========css mode',)
     cssMode.start()
@@ -110,9 +112,8 @@ defineExpose({
     flex-wrap: nowrap;
     position: relative;
     // display: inline-block; // 使得自身宽度为子元素撑开宽度
-    // position: absolute;
-    // top: 0px;
-    // left: 0px;
+    position: absolute;
+    top: 0px;
 
     .misaka-carousel-item {
       flex: 0 0 auto;

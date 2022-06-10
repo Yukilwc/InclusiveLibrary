@@ -5,7 +5,7 @@ export const useCssCarousel = (
   wrapperStyle: Ref<IWrapperStyle>,
   computedSize: Ref<IComputedSize>,
   speed: Ref<number>,
-reverse:Ref<boolean>
+  reverse: Ref<boolean>
 ) => {
   const start = () => {
     if (computedSize.value.offsetPx > 0) {
@@ -20,24 +20,44 @@ reverse:Ref<boolean>
   };
   const offsetAnimate = () => {
     setTimeout(() => {
-      wrapperStyle.value.transition = `transform ${
-        speed.value *
-        (computedSize.value.offsetPx / computedSize.value.itemWidth)
-      }ms linear`;
-      wrapperStyle.value.transform = `translateX(-${computedSize.value.offsetPx}px)`;
+      if (reverse.value) {
+        wrapperStyle.value.transition = `transform ${
+          speed.value *
+          (computedSize.value.offsetPx / computedSize.value.itemWidth)
+        }ms linear`;
+        wrapperStyle.value.transform = `translateX(${computedSize.value.offsetPx}px)`;
+      } else {
+        wrapperStyle.value.transition = `transform ${
+          speed.value *
+          (computedSize.value.offsetPx / computedSize.value.itemWidth)
+        }ms linear`;
+        wrapperStyle.value.transform = `translateX(-${computedSize.value.offsetPx}px)`;
+      }
     }, 0);
   };
   const restartAnimate = async () => {
     setTimeout(() => {
-      wrapperStyle.value.transition = `transform ${speed.value}ms linear`;
-      wrapperStyle.value.transform = `translateX(-${
-        computedSize.value.offsetPx + computedSize.value.itemWidth
-      }px)`;
+      if (reverse.value) {
+        wrapperStyle.value.transition = `transform ${speed.value}ms linear`;
+        wrapperStyle.value.transform = `translateX(${
+          computedSize.value.offsetPx + computedSize.value.itemWidth
+        }px)`;
+      } else {
+        wrapperStyle.value.transition = `transform ${speed.value}ms linear`;
+        wrapperStyle.value.transform = `translateX(-${
+          computedSize.value.offsetPx + computedSize.value.itemWidth
+        }px)`;
+      }
     }, 0);
   };
   const toOrigin = () => {
-    wrapperStyle.value.transition = `transform 0ms linear`;
-    wrapperStyle.value.transform = `translateX(-${computedSize.value.offsetPx}px)`;
+    if (reverse.value) {
+      wrapperStyle.value.transition = `transform 0ms linear`;
+      wrapperStyle.value.transform = `translateX(${computedSize.value.offsetPx}px)`;
+    } else {
+      wrapperStyle.value.transition = `transform 0ms linear`;
+      wrapperStyle.value.transform = `translateX(-${computedSize.value.offsetPx}px)`;
+    }
   };
   return {
     start,
