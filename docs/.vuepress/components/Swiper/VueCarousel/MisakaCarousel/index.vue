@@ -59,7 +59,6 @@ onMounted(async () => {
 })
 const start = async () => {
   dataReady.value = false
-  resetWrapperStyle()
   await calcAllSize(container, wrapper)
   console.log('==========size', computedSize.value)
   dataReady.value = true

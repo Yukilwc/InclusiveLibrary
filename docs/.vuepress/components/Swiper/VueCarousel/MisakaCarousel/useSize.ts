@@ -40,6 +40,8 @@ export const useSize = (
     container: Ref<HTMLElement>,
     wrapper: Ref<HTMLElement>
   ) => {
+    resetWrapperStyle();
+    await nextTick()
     computedSize.value.containerWidth =
       container.value.getBoundingClientRect().width;
     computedSize.value.containerHeight =

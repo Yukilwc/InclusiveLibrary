@@ -5,14 +5,14 @@
   <div class="carousel-container">
     <div class='carousel-wrapper'>
       <div class='comp-container'>
-        <MisakaCarousel ref="carouselRef1" :additionalSlides="2" :itemRight="'20px'" :speed="5000" offset="0px" :reverse="false">
-          <!-- <div class='image-list'>
+        <MisakaCarousel ref="carouselRef1" :additionalSlides="2" :itemRight="'20px'" :speed="10000" offset="5vw" :reverse="true">
+          <div class='image-list'>
             <div class="item" v-for='(item, index) in 6' :key='index'>
               <img class='image ignore-zoom' :src="getImage(index)" />
             </div>
 
-          </div> -->
-          <div class='' @click="textClick">一段文字一段文字一段文字一段文字一段文字一段文字一段文字一段文字一段文字2233</div>
+          </div>
+          <!-- <div class='' @click="textClick">一段文字一段文字一段文字一段文字一段文字一段文字一段文字一段文字一段文字2233</div> -->
         </MisakaCarousel>
 
       </div>
