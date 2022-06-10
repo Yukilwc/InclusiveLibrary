@@ -1,5 +1,6 @@
 // js帧动画过渡方案
-import { Ref } from "vue";
+import { is } from "dom7";
+import { ref, Ref } from "vue";
 import { IComputedSize, IWrapperStyle } from "./useSize";
 class FPSAnimate {
   x0 = 0;
@@ -9,6 +10,7 @@ class FPSAnimate {
   currentTime = 0;
   startTime = undefined;
   isActive = false;
+  // isPause = false;
   callback = (x: number) => {};
   animate = async () => {
     this.isActive = true;
@@ -19,6 +21,10 @@ class FPSAnimate {
           reject(this.x);
           return;
         }
+        // if(this.isPause) {
+        //   window.requestAnimationFrame(step)
+        //   return
+        // }
         // console.log('==========step',)
         if (this.startTime === undefined) {
           this.startTime = timestamp;
@@ -114,18 +120,53 @@ export const useFPSCarousel = (
       // console.log("==========ani callback", x);
       wrapperStyle.value.transform = `translateX(${x}px)`;
     };
-    console.log("==========start loop ani", ani);
+    // console.log("==========start loop ani", ani);
     try {
       await ani.animate();
     } catch (e) {
       console.log("==========动画强制停止", e);
       return;
     }
-    console.log("==========end loop ani");
+    // console.log("==========end loop ani");
     doLoop();
   };
-  const finish = () => {};
+  const pause = async (isPause: boolean) => {
+    console.log("==========pause fps animate", isPause);
+    // ani.isPause = !ani.isPause;
+    ani.isActive = false;
+    if (isPause) {
+      console.log("==========", ani.x);
+      return;
+    }
+    console.log("==========pause结束暂停");
+    let currentX = ani.x;
+    ani = new FPSAnimate();
+    let ratio =
+      1 -
+      Math.abs(currentX) /
+        (computedSize.value.offsetPx + computedSize.value.itemWidth);
+    console.log("==========ratio", ratio);
+    ani.init({
+      x0: currentX,
+      x1: -computedSize.value.offsetPx - computedSize.value.itemWidth,
+      totalTime: speed.value * ratio,
+    });
+    ani.callback = (x) => {
+      // console.log("==========ani callback", x);
+      wrapperStyle.value.transform = `translateX(${x}px)`;
+    };
+    console.log("==========start ani", ani);
+    try {
+      await ani.animate();
+    } catch (e) {
+      console.log("==========动画强制停止", e);
+      return;
+    }
+    console.log("==========end ani");
+    doLoop();
+  };
   return {
     start,
+    pause,
   };
 };

@@ -82,12 +82,13 @@ const endHandle = (e) => {
     }
   }
 }
-const pause = () => {
-
+const pause = (isPause:boolean) => {
+  fpsMode.pause(isPause)
 }
 
 defineExpose({
-  start
+  start,
+  pause
 })
 
 // ============================================================  transition 版本  END

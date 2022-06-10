@@ -1,11 +1,13 @@
 <template>
   <div class=''>
     <el-button @click="start">Restart</el-button>
+    <el-button @click="pause">Pause</el-button>
   </div>
   <div class="carousel-container">
     <div class='carousel-wrapper'>
       <div class='comp-container'>
-        <MisakaCarousel ref="carouselRef1" :additionalSlides="2" :itemRight="'20px'" :speed="10000" offset="300px" :reverse="false" mode="fps">
+        <MisakaCarousel ref="carouselRef1" :additionalSlides="2" :itemRight="'20px'" :speed="10000" offset="300px"
+          :reverse="false" mode="fps">
           <div class='image-list'>
             <div class="item" v-for='(item, index) in 6' :key='index'>
               <img class='image ignore-zoom' :src="getImage(index)" />
@@ -43,11 +45,17 @@ const getImage = (index) => {
 const carouselRef1 = ref<InstanceType<typeof MisakaCarousel>>(null)
 // const carouselRef2 = ref<InstanceType<typeof MisakaCarousel>>(null)
 const start = () => {
-  console.log('==========carouselRef1', toRaw(carouselRef1) )
+  console.log('==========carouselRef1', toRaw(carouselRef1))
   carouselRef1.value.start()
   // carouselRef2.value.start()
 }
-const textClick = ()=> {
+const isPause = ref(false)
+const pause = () => {
+  isPause.value = !isPause.value
+  carouselRef1.value.pause(isPause.value)
+  // carouselRef2.value.start()
+}
+const textClick = () => {
   console.log('==========textClick',)
 }
 </script>
