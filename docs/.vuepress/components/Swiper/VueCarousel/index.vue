@@ -12,6 +12,7 @@
             </div>
 
           </div> -->
+          <div class='' @click="textClick">一段文字一段文字一段文字一段文字一段文字一段文字一段文字一段文字一段文字</div>
         </MisakaCarousel>
 
       </div>
@@ -45,6 +46,9 @@ const start = () => {
   console.log('==========carouselRef1', toRaw(carouselRef1) )
   carouselRef1.value.start()
   // carouselRef2.value.start()
+}
+const textClick = ()=> {
+  console.log('==========textClick',)
 }
 </script>
 

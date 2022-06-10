@@ -1,4 +1,6 @@
 // js帧动画过渡方案
+import { Ref } from "vue";
+import { IComputedSize, IWrapperStyle } from "./useSize";
 class FPSAnimate {
   x0 = 0;
   x1 = 300;
@@ -56,3 +58,11 @@ class FPSAnimate {
 // console.log("==========start ani", ani);
 // await ani.animate();
 // console.log("==========end ani");
+
+export const useFPSCarousel = (
+  wrapperStyle: Ref<IWrapperStyle>,
+  computedSize: Ref<IComputedSize>,
+  speed: Ref<number>
+) => {
+  return {};
+};

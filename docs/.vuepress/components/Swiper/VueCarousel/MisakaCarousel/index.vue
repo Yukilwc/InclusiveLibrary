@@ -11,6 +11,8 @@
 
 <script lang='ts' setup>
 import { onMounted, reactive, ref, toRefs, nextTick } from 'vue';
+import { useCssCarousel } from './useCssCarousel';
+import { useFPSCarousel } from './useFPSCarousel';
 import { useSize } from './useSize';
 
 const props = defineProps({
@@ -34,14 +36,20 @@ const props = defineProps({
     type: Boolean,
     default: false
   },
+  mode: {
+    type: String,
+    default: 'css' // css fps
+  }
 });
 const container = ref<HTMLElement>()
 const wrapper = ref<HTMLElement>()
-const { additionalSlides, itemRight, speed, offset, reverse } = toRefs(props)
+const { additionalSlides, itemRight, speed, offset, reverse, mode } = toRefs(props)
 
 
 const { wrapperStyle, calcAllSize, resetWrapperStyle, computedSize } = useSize(offset, additionalSlides)
 // ============================================================ transition 版本 START
+const cssMode = useCssCarousel(wrapperStyle, computedSize, speed)
+const fpsMode = useFPSCarousel(wrapperStyle, computedSize, speed)
 
 
 
@@ -49,40 +57,25 @@ onMounted(async () => {
   start()
 })
 const start = () => {
-
   resetWrapperStyle()
   calcAllSize(container, wrapper)
-  if (computedSize.value.offsetPx > 0) {
-    console.log('==========offsetAnimate',)
-    offsetAnimate()
-  }
-  else if (computedSize.value.offsetPx == 0) {
-    console.log('==========restartAnimate',)
-    restartAnimate()
+  if (mode.value === 'css') {
+    console.log('==========css mode',)
+    cssMode.start()
   }
   else {
-    throw new Error('offset cannot be less than zero')
+    console.log('==========fps mode',)
   }
 }
-const offsetAnimate = () => {
-  setTimeout(() => {
-    wrapperStyle.value.transition = `transform ${speed.value * (computedSize.value.offsetPx / computedSize.value.itemWidth)}ms linear`
-    wrapperStyle.value.transform = `translateX(-${computedSize.value.offsetPx}px)`
-  }, 0);
-}
-const restartAnimate = async () => {
-  setTimeout(() => {
-    wrapperStyle.value.transition = `transform ${speed.value}ms linear`
-    wrapperStyle.value.transform = `translateX(-${computedSize.value.offsetPx + computedSize.value.itemWidth}px)`
-  }, 0);
-}
+
 const endHandle = (e) => {
   console.log('==========end handle ', e)
-  if (e.propertyName === 'transform') {
-    console.log('重启')
-    wrapperStyle.value.transition = `transform 0ms linear`
-    wrapperStyle.value.transform = `translateX(-${computedSize.value.offsetPx}px)`
-    restartAnimate()
+  if (mode.value === 'css') {
+    if (e.propertyName === 'transform') {
+      console.log('重启')
+      cssMode.toOrigin()
+      cssMode.restartAnimate()
+    }
   }
 }
 const pause = () => {

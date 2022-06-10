@@ -1,4 +1,16 @@
 import { Ref, ref } from "vue";
+export interface IComputedSize {
+  wrapperWidth: number;
+  containerWidth: number;
+  itemWidth: number;
+  offsetPx: number;
+}
+export interface IWrapperStyle {
+  transition: string;
+  transform: string;
+  left: string;
+  width: string;
+}
 
 export const useSize = (offset: Ref<string>, additionalSlides: Ref<number>) => {
   const wrapperStyle = ref({
@@ -7,7 +19,7 @@ export const useSize = (offset: Ref<string>, additionalSlides: Ref<number>) => {
     left: offset.value,
     width: ``,
   });
-  const computedSize = ref({
+  const computedSize = ref<IComputedSize>({
     wrapperWidth: 0,
     containerWidth: 0,
     itemWidth: 0,
