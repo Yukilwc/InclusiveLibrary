@@ -24,5 +24,15 @@ npm create vite@latest
 
 ## 手动发布npm
 
+需要提前注册准备好npm账号
+
+```sh
+
+npm login
+
+npm publish
+
+```
+
 ## 推送master分支自动发布npm与release
 
