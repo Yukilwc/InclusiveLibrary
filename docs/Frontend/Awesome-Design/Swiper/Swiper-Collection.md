@@ -54,20 +54,6 @@
 
 ### 尝试通过api控制线性轮播走马灯
 
-### 手写一个基于css animation的走马灯
-
-支持多图片，组件，以及持续性的文字.  
-难点在于如何实现拷贝dom，以及无缝loop
-
-<ClientOnly>
-    <Swiper-VueCarousel-index></Swiper-VueCarousel-index>
-</ClientOnly>
-
-
-[使用源码](https://github.com/Yukilwc/InclusiveLibrary/blob/master/docs/.vuepress/components/Swiper/VueCarousel/index.vue)
-
-[组件源码](https://github.com/Yukilwc/InclusiveLibrary/blob/master/docs/.vuepress/components/Swiper/VueCarousel/MisakaCarousel.vue)
-
 ### 两边缩放中间放大轮播
 
 ### 文字走马灯

@@ -12,6 +12,17 @@ sidebar: false
 
 [好看的颜色与其表征的意象](./Design/Colors/Nice-Colors-And-Imagery.md)
 
+## Flutter
+
+### Dart
+
+[Dart学习计划](./Flutter/Dart/Plan.md)
+### Flutter
+
+[Flutter学习计划](./Flutter/Flutter/Plan.md)
+
+[开始](./Flutter/Flutter/Start.md)
+
 ## 前端
 
 ### Vuepress
@@ -48,6 +59,10 @@ sidebar: false
 
 [Swiper API解析验证](./Frontend/Awesome-Design/Swiper/Swiper-API.md)
 
+#### 走马灯
+
+[Demo](./Frontend/Awesome-Design/Carousel/Demo.md)
+
 ### Javascript
 
 #### AST
@@ -69,6 +84,13 @@ sidebar: false
 ### 小程序
 
 [小程序翻译搭建流程](./Frontend/Minapp/Translate/Progress.md)
+
+### nodejs
+
+[NPM收录](./Frontend/NODEJS/NPM/NPMLibCollection.md)
+
+[NPM操作](./Frontend/NODEJS/NPM/NPMOperator.md)
+
 ### 模式
 
 [常用页面结构模式](./Frontend/Pattern/Page.md)
@@ -85,6 +107,11 @@ sidebar: false
 [WebAssembly基础](./Frontend/WebAssembly/Base.md)
 
 [Rust应用转Wasm](./Frontend/WebAssembly/Rust2Wasm/README.md)
+
+### WebWorker
+
+[WebWorker实践](./Frontend/WebWorker/Practice.md)
+
 ## IDE
 
 [VSCode相关配置](./IDE/VSCode/VSCode-config.md)
@@ -132,6 +159,10 @@ sidebar: false
 
 ### 基础
 
+[学习计划](./Rust/Base/Plan.md)
+
+[开始](./Rust/Base/Start.md)
+
 [生态](./Rust/Base/Env.md)
 
 [语法](./rust/Base/Grammar.md)
@@ -145,7 +176,6 @@ sidebar: false
 
 [软件，网页，插件，工具收录](./Tools/Tools-Web-Plugins-Software/README.md)
 
-[NPM收录](./Tools/Tools-Web-Plugins-Software/NPM.md)
 
 [编程领域术语](./Tools/Terms/Code.md)
 

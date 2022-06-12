@@ -34,6 +34,7 @@
     "vuepress": "^2.0.0-beta.46"
   },
   "dependencies": {
+    "@types/offscreencanvas": "^2019.7.0",
     "@vueuse/core": "^8.5.0",
     "element-plus": "^2.2.2",
     "swiper": "^6.8.4"

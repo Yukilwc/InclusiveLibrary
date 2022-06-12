@@ -76,12 +76,14 @@
 
 ### 开发工具
 
-| Name                | Link                                                     |     |
-| ------------------- | -------------------------------------------------------- | --- |
-| can i use兼容性查询 | [Link](https://caniuse.com/)                             |     |
-| TS类型包查询        | [Link](https://www.typescriptlang.org/dt/search?search=) |     |
-| WebAssembly下载商店 | [Link](https://wapm.io/)                                 |     |
-| 免费的计算机电子书  | [Link](https://www.cntofu.com/)                          |     |
+| Name                      | Link                                                     |     |
+| ------------------------- | -------------------------------------------------------- | --- |
+| can i use兼容性查询       | [Link](https://caniuse.com/)                             |     |
+| TS类型包查询              | [Link](https://www.typescriptlang.org/dt/search?search=) |     |
+| WebAssembly下载商店       | [Link](https://wapm.io/)                                 |     |
+| 免费的计算机电子书        | [Link](https://www.cntofu.com/)                          |     |
+| codepen查找实验好看的效果 | [Link](https://codepen.io/)                              |     |
+| crates Rust应用商店       | [Link](https://crates.io/)                               |     |
 
 ### 娱乐资源
 

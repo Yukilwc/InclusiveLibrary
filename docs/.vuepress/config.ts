@@ -8,7 +8,7 @@ import { pwaPlugin } from "@vuepress/plugin-pwa";
 import { pwaPopupPlugin } from "@vuepress/plugin-pwa-popup";
 import { googleAnalyticsPlugin } from "@vuepress/plugin-google-analytics";
 import { viteBundler } from "@vuepress/bundler-vite";
-import {mediumZoomPlugin } from '@vuepress/plugin-medium-zoom'
+import { mediumZoomPlugin } from "@vuepress/plugin-medium-zoom";
 // import { sidebar } from "./sidebar";
 
 export default defineUserConfig({
@@ -45,7 +45,10 @@ export default defineUserConfig({
           __dirname,
           "../Tools/Online/Code2SnippetsJson/components/Code2Snippets.vue"
         ),
-        Rust2WasmDemo: path.resolve(__dirname,"../Frontend/WebAssembly/Rust2Wasm/components/Rust2WasmDemo.vue")
+        Rust2WasmDemo: path.resolve(
+          __dirname,
+          "../Frontend/WebAssembly/Rust2Wasm/components/Rust2WasmDemo.vue"
+        ),
       },
     }),
     // docsearchPlugin({
@@ -74,10 +77,10 @@ export default defineUserConfig({
       id: "G-E8JW1JB5MY",
     }),
     mediumZoomPlugin({
-      selector:":not(a) > img:not(.ignore-zoom)"
+      selector: ":not(a) > img:not(.ignore-zoom)",
       // selector:".is-disable-this-plugin > img"
       // selector:":not(.swiper-slide) img"
-    })
+    }),
   ],
   // bundler: viteBundler({
   //     viteOptions: {
