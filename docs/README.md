@@ -91,6 +91,8 @@ sidebar: false
 
 [NPM操作](./Frontend/NODEJS/NPM/NPMOperator.md)
 
+[Vite+Typescript+vue3发布npm组件](./Frontend/NODEJS/NPM/NpmPublish/ViteTsVue3.md)
+
 ### 模式
 
 [常用页面结构模式](./Frontend/Pattern/Page.md)
