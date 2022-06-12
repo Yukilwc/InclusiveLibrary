@@ -10,7 +10,6 @@ class FPSAnimate {
   currentTime = 0;
   startTime = undefined;
   isActive = false;
-  // isPause = false;
   callback = (x: number) => {};
   animate = async () => {
     this.isActive = true;
@@ -21,11 +20,6 @@ class FPSAnimate {
           reject(this.x);
           return;
         }
-        // if(this.isPause) {
-        //   window.requestAnimationFrame(step)
-        //   return
-        // }
-        // console.log('==========step',)
         if (this.startTime === undefined) {
           this.startTime = timestamp;
         }
@@ -46,7 +40,6 @@ class FPSAnimate {
       window.requestAnimationFrame(step);
     });
   };
-
   constructor() {}
   init = ({
     x0 = 0,
