@@ -1,5 +1,4 @@
 ---
-sidebar: false
 ---
 
 # Misaka Net
