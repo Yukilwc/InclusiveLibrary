@@ -1,26 +1,20 @@
 <template>
   <div class=''>
-    <el-button @click="start">Restart</el-button>
+    <el-button @click="start">start</el-button>
     <el-button @click="pause">Pause</el-button>
   </div>
   <div class="carousel-container">
     <div class='carousel-wrapper'>
+      <div class='mt10'>常规方向</div>
       <div class='comp-container'>
-        <Vue3CarouselAnimate ref="carouselRef1" :additionalSlides="2" :itemRight="'20px'" :speed="10000" offset="300px"
+        <!-- <Vue3CarouselAnimate ref="carouselRef1" :additionalSlides="2" :itemRight="'20px'" :speed="10000" offset="300px"
           :reverse="false" mode="fps">
-          <div class='image-list'>
-            <div class="item" v-for='(item, index) in 6' :key='index'>
-              <img class='image ignore-zoom' :src="getImage(index)" />
-            </div>
-
-          </div>
-          <!-- <div class='' @click="textClick">一段文字一段文字一段文字一段文字一段文字一段文字一段文字一段文字一段文字2233</div> -->
-        </Vue3CarouselAnimate>
-
+          <div class='' @click="textClick">一段文字一段文字一段文字一段文字一段文字一段文字一段文字一段文字一段文字2233</div>
+        </Vue3CarouselAnimate> -->
       </div>
-      <div class=''>常规方向</div>
+      <div class='mt10'>反转方向</div>
       <div class='comp-container'>
-        <!-- <Vue3CarouselAnimate ref="carouselRef2" :additionalSlides="2" :itemRight="'20px'" :speed="10000" 
+        <Vue3CarouselAnimate ref="carouselRef2" :additionalSlides="2" :itemRight="'20px'" :speed="10000" mode="fps"
           :reverse="true">
           <div class='image-list'>
             <div class="item" v-for='(item, index) in 6' :key='index'>
@@ -28,9 +22,9 @@
             </div>
 
           </div>
-        </Vue3CarouselAnimate> -->
+        </Vue3CarouselAnimate>
       </div>
-      <div class=''>反转方向</div>
+
     </div>
   </div>
 </template>
@@ -38,7 +32,7 @@
 <script lang='ts' setup>
 import { onMounted, ref, toRaw } from "vue";
 // import MisakaCarousel from './MisakaCarousel/index.vue'
-import {Vue3CarouselAnimate } from 'vue3-carousel-animate'
+import { Vue3CarouselAnimate } from 'vue3-carousel-animate'
 import "vue3-carousel-animate/dist/style.css"
 
 const getImage = (index) => {
