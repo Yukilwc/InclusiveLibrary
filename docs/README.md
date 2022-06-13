@@ -22,6 +22,8 @@
 
 [开始](./Flutter/Flutter/Start.md)
 
+[Flutter问题解决](./Flutter/Flutter/Difficulty/1.md)
+
 ## 前端
 
 ### Vuepress
