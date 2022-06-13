@@ -37,6 +37,7 @@
     "@types/offscreencanvas": "^2019.7.0",
     "@vueuse/core": "^8.5.0",
     "element-plus": "^2.2.2",
-    "swiper": "^6.8.4"
+    "swiper": "^6.8.4",
+    "vue3-carousel-animate": "^0.0.2-alpha.0"
   }
 }

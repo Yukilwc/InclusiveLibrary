@@ -23,6 +23,8 @@ npm create vite@latest
 
 tag
 
+sideEffects
+
 
 ## 编译
 
@@ -49,3 +51,5 @@ npm publish
 如何开发和生产分离，防止生产混入app.vue等类型声明
 
 1. 配置`"typings": "./dist_types/components/main.d.ts"`,然后添加npmignore文件去除其它
+
+[参考](https://npm.github.io/publishing-pkgs-docs/publishing/the-npmignore-file.html)
