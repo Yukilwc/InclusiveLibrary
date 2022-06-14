@@ -27,6 +27,8 @@ set https_proxy="http://localhost:10080"
 # powershell
 $env:http_proxy="http://localhost:10080"
 $env:https_proxy="http://localhost:10080"
+# 成功后验证,存在返回即成功.返回无法连接到远程服务器即失败
+curl www.google.com
 ```
 
 
