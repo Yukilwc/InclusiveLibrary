@@ -16,3 +16,9 @@
 | subscript operator ([])           | 下标运算符         | list[0]                      |
 | spread operator (...)             |                    | `var list2 = [0, ...?list];` |
 | null-aware spread operator (...?) | null感知           |                              |
+| Named parameters                  | 命名参数           |                              |
+| Positional parameters             | 位置参数           |                              |
+|colon|冒号||
+|Lexical scope|||
+| curly braces|||
+||||
