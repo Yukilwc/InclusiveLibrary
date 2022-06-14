@@ -153,7 +153,6 @@
 
 ### 生活经验
 
-[婚姻](./Life-Skill/Life-Experience/Marriage.md)
 ### 备忘录
 
 [更换手机号需要处理的问题](./Life-Skill/Memorandum/Change-Phone-Number.md)
