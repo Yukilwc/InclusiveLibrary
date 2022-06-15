@@ -29,4 +29,7 @@
 | function body                     | 函数体                     |                              |
 | recursive                         | 递归                       |                              |
 | concurrency                       | 并发                       |                              |
+| soundness, sound type system      | 健壮性，健壮的类型系统     |                              |
+| Trigonometry                      | 三角函数                   |                              |
+|Math constants                                   |   数学常量                         |                              |
 |                                   |                            |                              |
