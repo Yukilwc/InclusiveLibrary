@@ -40,3 +40,98 @@ dynamic本质是禁用了静态类型检查，最好使用Object替代
 词法作用域
 
 闭包
+
+## 运算符
+
+运算符的分类 见Operators表格
+
+特性 Cascade notation
+
+`foo!.bar`断言非空
+
+## 控制流
+
+## 异常处理
+
+try on catch finally
+
+rethrow
+
+## 类，基于mixin的继承
+
+### 类
+
+使用类成员 
+
+构造函数命名 ClassName.identifier来设定多构造函数
+
+constant constructors
+
+类实例变量的声明
+
+getter and setter
+
+成员的final
+
+构造函数定义模式
+
+简单赋值语法糖  `Point(this.x,this.y)`; 省略了函数体，参数中直接写入二重含义
+
+默认构造函数
+
+构造函数不可继承
+
+initializer list和superClass的构造函数调用顺序  
+initializer list
+superclass’s no-arg constructor
+main class’s no-arg constructor
+
+父类无隐式无参构造函数时，需要主动调用.
+
+初始化语法糖也支持父类 `Vector3d(super.x, super.y, this.z);`
+
+参数的位置参数和命名参数，required声明
+
+Redirecting constructors
+
+冒号前，职责有二，接收参数，如果存在this或者super，进行赋值操作。  
+冒号后，职责为，解析this，super，进行调用与传参
+
+抽象方法
+
+Abstract methods can only exist in abstract classes.
+
+implements extends override
+
+enum
+
+emun可以implements 
+
+mixins
+
+type alias
+
+metadata annotations?是装饰器?
+
+## Generics泛型
+
+写法:
+类型声明 字面量赋值Map List 函数 类
+
+泛型的约束:
+extends
+
+## 包导入导出体系
+
+内置导入 自定义包导入 别名
+
+## 异步
+
+## 特性
+
+字面量化的list sets map
+## 与ts的差异总结
+
+同上分类来进行总结
+
+## 整理一份各种语法实现的速查参考
