@@ -1,19 +1,22 @@
 <template>
     <div class=''>
         <div class=''>修改容器宽度</div>
-        <el-input placeholder='请输入容器宽度' v-model='inputWidth'></el-input>
-        <el-button @click="outerWidth = inputWidth; refresh()">确认</el-button>
+        <el-input placeholder='请输入容器宽度' v-model='inputWidth' @input="outerWidth = inputWidth; refresh()"></el-input>
+        <el-button>确认</el-button>
     </div>
     <div class='outer-container mt10' :style="{ width: `${outerWidth}px` }">
         <div class="tags-list-container">
             <div class='tags-list-wrapper'>
                 <div class='list' v-for='(itemClone, indexClone) in 2' :key='indexClone'
-                    :class="indexClone > 0 ? 'list--for-calc-length' : 'list--for-show'">
+                    :class="indexClone == 0 ? 'list--for-calc-length' : 'list--for-show'">
                     <div class='item' v-for='(item, index) in showColorList' :key='index'
                         :style="{ backgroundColor: hex2Rgba(item.color, '0.2') }">
                         <div class='item-wrapper'>
                             <div class='text'>{{ item.name }}</div>
                         </div>
+                    </div>
+                    <div class='item--add' v-if="dataReady && overList.length > 0">
+                        +{{ overList.length }}
                     </div>
                 </div>
             </div>
@@ -28,6 +31,7 @@ interface ColorItem {
     name: string,
     color: string,
 }
+const dataReady = ref(false)
 const outerWidth = ref(380)
 const inputWidth = ref(380)
 const offset = 40 // +按钮宽度占位
@@ -87,12 +91,14 @@ onMounted(() => {
 const refresh = async () => {
     showColorList.value = [...allColorList]
     overList.value = []
+    dataReady.value = false
     await asyncNextTick()
-    for (let i = allColorList.length - 1; i++; i >= 0) {
+    for (let i = allColorList.length - 1; i >= 0; i--) {
         let width = document.querySelector(".list--for-calc-length")?.getBoundingClientRect().width
         let containerWidth = document.querySelector(".list--for-show")?.getBoundingClientRect().width
-        console.log('==========width', width)
+        console.log('==========width', width, i)
         console.log('========== container width', containerWidth)
+        console.log('==========list result', showColorList.value, overList.value)
         if (overList.value.length === 0) {
             // 是第一轮，不考虑偏差值
             if (width <= containerWidth) {
@@ -111,7 +117,7 @@ const refresh = async () => {
         overList.value = [item, ...overList.value]
         await asyncNextTick()
     }
-    console.log('==========list result', showColorList.value, overList.value)
+    dataReady.value = true
 }
 // vue2版本处理
 const asyncNextTick = async () => {
@@ -152,6 +158,15 @@ console.log('==========hex2Rgb', hex2Rgba("#409EFF", '0.8'))
                 &:first-child {
                     margin-left: 0;
                 }
+            }
+
+            .item--add {
+                width: 40px; // 同步js
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                border: 1px solid red;
+
             }
         }
 
