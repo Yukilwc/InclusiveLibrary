@@ -11,12 +11,12 @@
 | trailing                             | 尾部的     |     |
 | canonicalized                 规范化 |            |     |
 | symmetrical                          | 对称的     |     |
-|                                      |            |     |
-|                                      |            |     |
-|                                      |            |     |
-|                                      |            |     |
-|                                      |            |     |
-|                                      |            |     |
+| overwhelm                            | 淹没压倒   |     |
+| liberal                              | 自由的     |     |
+| elevation                            | 海拔       |     |
+| tight                                | 拉紧       |     |
+| impose                               | 施加       |     |
+| proportionally                       | 按比例     |     |
 |                                      |            |     |
 |                                      |            |     |
 |                                      |            |     |

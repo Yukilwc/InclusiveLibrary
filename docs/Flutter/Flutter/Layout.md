@@ -20,8 +20,19 @@
 
 ### Expanded
 
-
+### Flexible
 ### SizedBox
 
 用来充当margin做间距?
+
+### ConstraintBox
+
+### OverflowBox
+
+### UnconstrainedBox
+
+### LimitedBox
+
+### FittedBox
+
 
