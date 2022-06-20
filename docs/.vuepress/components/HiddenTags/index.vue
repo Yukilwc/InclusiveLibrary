@@ -1,7 +1,7 @@
 <template>
     <div class=''>
         <div class=''>修改容器宽度</div>
-        <el-input placeholder='请输入容器宽度' v-model='inputWidth' @input="outerWidth = inputWidth; refresh()"></el-input>
+        <el-input placeholder='请输入容器宽度' v-model='inputWidth' @input="outerWidth = inputWidth; "></el-input>
         <el-button>确认</el-button>
     </div>
     <div class='outer-container mt10' :style="{ width: `${outerWidth}px` }">
@@ -85,8 +85,9 @@ const hex2Rgba = function (hex: string, opacity: string) {
     }
     return sColor;
 };
-onMounted(() => {
-    refresh()
+onMounted(async () => {
+    await refresh()
+    listenSize()
 })
 const refresh = async () => {
     showColorList.value = [...allColorList]
@@ -96,9 +97,9 @@ const refresh = async () => {
     for (let i = allColorList.length - 1; i >= 0; i--) {
         let width = document.querySelector(".list--for-calc-length")?.getBoundingClientRect().width
         let containerWidth = document.querySelector(".list--for-show")?.getBoundingClientRect().width
-        console.log('==========width', width, i)
-        console.log('========== container width', containerWidth)
-        console.log('==========list result', showColorList.value, overList.value)
+        // console.log('==========width', width, i)
+        // console.log('========== container width', containerWidth)
+        // console.log('==========list result', showColorList.value, overList.value)
         if (overList.value.length === 0) {
             // 是第一轮，不考虑偏差值
             if (width <= containerWidth) {
@@ -118,6 +119,20 @@ const refresh = async () => {
         await asyncNextTick()
     }
     dataReady.value = true
+}
+const listenSize = () => {
+    var ro = new ResizeObserver(entries => {
+        // for (let entry of entries) {
+        //     const cr = entry.contentRect;
+        //     console.log('Element:', entry.target);
+        //     console.log(`Element size: ${cr.width}px x ${cr.height}px`);
+        //     console.log(`Element padding: ${cr.top}px ; ${cr.left}px`);
+        // }
+        refresh()
+    });
+
+    // 观察一个或多个元素
+    ro.observe(document.querySelector('.tags-list-container'))
 }
 // vue2版本处理
 const asyncNextTick = async () => {
