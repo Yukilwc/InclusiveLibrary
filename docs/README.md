@@ -54,16 +54,13 @@
 
 ### 精彩的效果实现
 
-#### 轮播
-
 [Swiper样例收录](./Frontend/Awesome-Design/Swiper/Swiper-Collection.md)
 
 [Swiper API解析验证](./Frontend/Awesome-Design/Swiper/Swiper-API.md)
 
-#### 走马灯
+[走马灯Demo](./Frontend/Awesome-Design/Carousel/Demo.md)
 
-[Demo](./Frontend/Awesome-Design/Carousel/Demo.md)
-
+[超长后自动隐藏的tag标签](./Frontend/Awesome-Design/HiddenTags/Demo.md)
 ### Javascript
 
 #### AST
