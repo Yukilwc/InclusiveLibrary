@@ -1,5 +1,4 @@
 ---
-sidebar: false
 ---
 
 # Misaka Net
@@ -22,6 +21,8 @@ sidebar: false
 [Flutter学习计划](./Flutter/Flutter/Plan.md)
 
 [开始](./Flutter/Flutter/Start.md)
+
+[Flutter问题解决](./Flutter/Flutter/Difficulty/1.md)
 
 ## 前端
 
@@ -91,6 +92,8 @@ sidebar: false
 
 [NPM操作](./Frontend/NODEJS/NPM/NPMOperator.md)
 
+[Vite+Typescript+vue3发布npm组件](./Frontend/NODEJS/NPM/NpmPublish/ViteTsVue3.md)
+
 ### 模式
 
 [常用页面结构模式](./Frontend/Pattern/Page.md)
@@ -150,7 +153,6 @@ sidebar: false
 
 ### 生活经验
 
-[婚姻](./Life-Skill/Life-Experience/Marriage.md)
 ### 备忘录
 
 [更换手机号需要处理的问题](./Life-Skill/Memorandum/Change-Phone-Number.md)
