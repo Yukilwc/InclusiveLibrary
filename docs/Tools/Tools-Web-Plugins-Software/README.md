@@ -45,6 +45,7 @@
 | 在线查看AST      | [Link](https://astexplorer.net/)                    |          |
 | google analytics | [Link](https://analytics.google.com/analytics/web/) |          |
 | 在线文档转换     | [Link](https://convertio.co/zh/)                    |          |
+| css加载阻塞      | [Link](http://ruofee.cn/article/1633592450024/)     |          |
 
 ### 文档
 
@@ -69,7 +70,7 @@
 | MDN WebAssembly           | [Link](https://developer.mozilla.org/en-US/docs/WebAssembly)      |                        |
 | Dart                      | [Link](https://dart.dev/guides)                                   |                        |
 | Flutter                   | [Link](https://docs.flutter.dev/)                                 |                        |
-| TSConfig文档              | [Link](https://www.typescriptlang.org/tsconfig#references)        |                        |
+| TSConfig文档              | [Link](https://www.typescriptlang.org/tsconfig)                   |                        |
 | Esbuild                   | [Link](https://esbuild.github.io/getting-started/)                |                        |
 | material design           | [Link](https://material.io/design/introduction)                   |                        |
 |                           |                                                                   |                        |
