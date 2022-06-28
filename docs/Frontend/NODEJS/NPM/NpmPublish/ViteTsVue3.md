@@ -195,7 +195,14 @@ jobs:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 ```
 
-由此，每当合并到主分支时，则会自动发布到npm
+由此，每当合并到主分支时，则会自动发布到npm  
+当然如果想要创建release时再发布，也可以修改触发方式为  
+
+```yml
+on: 
+  release:
+    types: [created]
+```
 
 ## 参考资料
 
