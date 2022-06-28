@@ -76,54 +76,126 @@ formates字段没有配置，默认是打包`['es', 'umd']`两种格式文件
 
 ### tsconfig.json
 
-[全部配置参考此处](https://www.typescriptlang.org/tsconfig)
+核心提取`.d.ts`配置如下,类型声明文件将被`vue-tsc`提取到配置的`./dist_types`文件夹下  
 
+```json
+{
+  "compilerOptions": {
+    "baseUrl": "./",
+    "declaration": true,
+    "declarationDir": "./dist_types/",
+    "declarationMap": false,
+    "outDir": "./dist_types/"
+  },
+}
 
-导出样式包:
+```
 
-tag
-
-sideEffects
 ### package.json发布配置
 
-[全部配置参考此处](../PackageJson.md)
+[配置参考此处](../PackageJson.md)
 
+
+```json
+{
+  "name": "vue3-carousel-animate",
+  "private": false,
+  "version": "0.0.2-alpha.6",
+  "license": "MIT",
+  "files": [
+    "dist",
+    "dist_types/components/"
+  ],
+  "module": "./dist/vue3-carousel-animate.es.js",
+  "main": "./dist/vue3-carousel-animate.umd.js",
+  "exports": {
+    ".": {
+      "import": "./dist/vue3-carousel-animate.es.js",
+      "require": "./dist/vue3-carousel-animate.umd.js"
+    },
+    "./dist/style.css": {
+      "import": "./dist/style.css",
+      "require": "./dist/style.css"
+    }
+  },
+  "typings": "./dist_types/components/main.d.ts",
+  "keywords": [
+    "vue3",
+    "carousel"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Yukilwc/vue3-carousel-animate.git"
+  },
+}
+
+```
 
 
 ## 手动发布npm
 
-需要提前注册准备好npm账号
+先去npm网站注册一个账号，然后在项目中，运行如下指令
 
 ```sh
-
 npm login
-
 npm publish
-
 ```
+发布成功后如下:
 
-## 推送master分支自动发布npm与release
+![发布成功](./images/微信截图_20220628163408.png)
+
+
+## 推送master分支自动发布npm
 
 ### NPM_TOKEN配置
 
-### 关于release
+登录npm网站，在头像下拉菜单中，点击access tokens,然后在页面中 generate new token
 
-## 参考下其它知名库的npm发布配置
+![Link](./images/微信截图_20220628164237.png)
 
-## 问题
+拿到获取的token，登录github账户，进入项目的设置中，进入secrets->actions,点击 new repository secret,创建一个名为NPM_TOKEN的新密钥  
 
-如何开发和生产分离，防止生产混入app.vue等类型声明
+### github actions
 
-1. 配置`"typings": "./dist_types/components/main.d.ts"`,然后添加npmignore文件去除其它
+项目根目录创建文件`.github/workflows/publish.yml` 
+```yml
+name: Publish Package to npmjs
+on:
+  push:
+    branches: [master, main]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      # Setup .npmrc file to publish to npm
+      - uses: actions/setup-node@v3
+        with:
+          node-version: "16.x"
+          registry-url: "https://registry.npmjs.org"
 
-[参考](https://npm.github.io/publishing-pkgs-docs/publishing/the-npmignore-file.html)
+      - name: Cache dependencies
+        uses: actions/cache@v2
+        id: npm-cache
+        with:
+          path: |
+            **/node_modules
+          key: ${{ runner.os }}-npm-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-npm-
 
+      # install dependencies if the cache did not hit
+      - name: Install dependencies
+        if: steps.npm-cache.outputs.cache-hit != 'true'
+        run: npm install
 
-多余编译的`.d.ts`文件，去除方法:
+      - run: npm run build
+      - run: npm publish
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+```
 
-* tsconfig配置去除？`declarationDir`?
-* package.json file参数配置不上传
-
+由此，每当合并到主分支时，则会自动发布到npm
 
 ## 参考资料
 
@@ -132,3 +204,5 @@ npm publish
 [build-lib](https://vitejs.dev/config/#build-lib)
 
 [rollup](https://rollupjs.org/guide/en/#big-list-of-options)
+
+[tsconfig配置](https://www.typescriptlang.org/tsconfig)
