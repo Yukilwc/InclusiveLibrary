@@ -91,6 +91,8 @@
 
 [Vite+Typescript+vue3发布npm组件](./Frontend/NODEJS/NPM/NpmPublish/ViteTsVue3.md)
 
+[package.json配置](./Frontend/NODEJS/NPM/PackageJson.md)
+
 ### 模式
 
 [常用页面结构模式](./Frontend/Pattern/Page.md)

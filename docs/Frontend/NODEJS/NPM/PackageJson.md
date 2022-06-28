@@ -110,9 +110,15 @@
 
 ### exports
 
-Nodejs12+以后支持，作为main的替代选项
+Nodejs12+以后支持，作为main的替代选项  
 
-### typings
+[具体参考](https://nodejs.org/api/packages.html#conditional-exports)
+
+### typings/types
+
+声明类型文件的入口
+
+[文档](https://www.typescriptlang.org/docs/handbook/declaration-files/publishing.html)
 
 ## 参考
 
