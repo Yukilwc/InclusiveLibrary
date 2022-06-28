@@ -57,7 +57,68 @@
 
 ### main
 
-其作为外部调用的入口,如果没有设定，默认为`index.js`
+
+其作为外部调用的入口,如果没有设定，默认为`index.js`  
+此处一般要放一个生产环境打包好的commonjs入口文件?提供给浏览器或者node端通过require导入时使用
+
+### browser
+
+如果库明确是在浏览器环境使用，则此字段竟会替代main字段，作为导入的入口  
+
+### bin
+
+其作为可执行指令的入口，`npm run vuepress dev docs`
+
+```json
+
+"bin": {
+    "vuepress": "bin/vuepress.js"
+},
+
+
+```
+
+如果直接作为字符串，例如rimraf的`"bin": "./bin.js",`，则默认包名作为指令运行`npm run rimraf`
+
+### directories
+
+用来指定一个目录的全部文件，而不需要挨个单独指定声明  
+
+### repository
+
+指定仓库路径
+
+### config
+
+用来设置一些包脚本需要使用到的参数，类似环境变量？例如下面的变量`npm_package_config_port`
+
+```json
+"config": {
+    "port": "8080"
+}
+```
+
+### dependencies
+
+依赖项的map
+
+### devDependencies
+
+测试,框架,编译等非用于生产的依赖项
+
+### type
+
+### exports
+
+Nodejs12+以后支持，作为main的替代选项
+
+### typings
+
 ## 参考
 
 [文档](https://docs.npmjs.com/cli/v8/configuring-npm/package-json#homepage)
+
+[browser，module，main](https://github.com/SunshowerC/blog/issues/8)
+
+
+[Nodejs](https://nodejs.org/api/packages.html#packages_exports)
