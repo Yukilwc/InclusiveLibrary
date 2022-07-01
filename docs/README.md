@@ -156,6 +156,13 @@
 
 [更换手机号需要处理的问题](./Life-Skill/Memorandum/Change-Phone-Number.md)
 
+## 阅读
+
+### 收录
+
+[文章](./Reading/Collections/Articles.md)
+
+[书籍](./Reading/Collections/Books.md)
 ## Rust
 
 ### 基础

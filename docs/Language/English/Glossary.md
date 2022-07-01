@@ -23,7 +23,7 @@
 | intuitive                            | 直观的           |     |
 | incorporate                          | 合并吸收         |     |
 | irreversibly                         | 不可逆转的       |     |
-|                                      |                  |     |
+|dump                                      |        转储          |     |
 |                                      |                  |     |
 |                                      |                  |     |
 |                                      |                  |     |
