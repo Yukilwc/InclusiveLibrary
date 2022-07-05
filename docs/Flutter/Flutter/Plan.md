@@ -8,8 +8,9 @@
 练习 官方样例和掘金样例
 
 * 基础文档
-* codelabs
+* cookbooks codelabs内部样例逐个实现一遍
 * 掘金样例
+* 提取flutter实战中，可封装的模块
 ## 第三方书籍练习
 
 [Link](https://book.flutterchina.club/)
