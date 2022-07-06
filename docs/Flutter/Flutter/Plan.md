@@ -23,6 +23,8 @@
 
 [收录效果](https://flutter.github.io/samples/#)
 
+[外观模式](https://juejin.cn/post/6939774499399139336)
+
 
 ## 文档笔记
 ## IDE
