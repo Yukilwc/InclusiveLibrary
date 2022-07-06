@@ -23,9 +23,9 @@
 | intuitive                            | 直观的           |     |
 | incorporate                          | 合并吸收         |     |
 | irreversibly                         | 不可逆转的       |     |
-|dump                                      |        转储          |     |
-|                                      |                  |     |
-|                                      |                  |     |
+| dump                                 | 转储             |     |
+| implicitly                           | 隐式的           |     |
+| evaluate                             | 评估估算求值     |     |
 |                                      |                  |     |
 |                                      |                  |     |
 |                                      |                  |     |
