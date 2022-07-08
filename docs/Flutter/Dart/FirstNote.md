@@ -135,3 +135,62 @@ extends
 同上分类来进行总结
 
 ## 整理一份各种语法实现的速查参考
+
+
+## 一些特殊语法
+
+**Null-aware operators**
+Dart offers some handy operators for dealing with values that might be null. One is the ??= assignment operator, which assigns a value to a variable only if that variable is currently null:
+
+```dart
+int? a; // = null
+a ??= 3;
+print(a); // <-- Prints 3.
+
+a ??= 5;
+print(a); // <-- Still prints 3.
+```
+
+**Dart, Identifier with exclamation mark in the back**
+
+It's part of the null safety that Dart have. You can read about it [here](https://dart.dev/null-safety)
+>If you’re sure that an expression with a nullable type isn’t null, you can add ! to make Dart treat it as non-nullable
+
+```dart
+int? aNullableInt = 2;
+int value = aNullableInt!; // `aNullableInt!` is an int.
+// This throws if aNullableInt is null.
+```
+
+**if表达式**
+
+作为一个表达式直接返回值
+
+**箭头函数**  
+For functions that contain just one expression, you can use a shorthand syntax:
+```dart
+bool isNoble(int atomicNumber) => _nobleGases[atomicNumber] != null;
+```
+
+**匿名函数**
+
+```dart
+list.forEach((item) {
+  print('${list.indexOf(item)}: $item');
+});
+```
+
+**类中待初始化函数定义**
+
+```dart
+class SplashPage extends StatefulWidget {
+  final void Function() onFinished;
+} 
+```
+
+**for表达式在数组中使用**
+```dart
+ pages: [
+            for (final page in uriRouteManager.pages) page,
+        ],
+```
