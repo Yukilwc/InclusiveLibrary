@@ -8,11 +8,22 @@
 练习 官方样例和掘金样例
 
 * 基础文档
-* codelabs
+* cookbooks codelabs内部样例逐个实现一遍
 * 掘金样例
+* 提取flutter实战中，可封装的模块
 ## 第三方书籍练习
 
 [Link](https://book.flutterchina.club/)
+
+完成该项目全部组件 [Link](https://github.com/flutterchina/flukit)
+
+仿制todo list项目 [Link](https://github.com/asjqkkkk/flutter-todos)
+
+[lottie splash](https://zhuanlan.zhihu.com/p/491161317)
+
+[收录效果](https://flutter.github.io/samples/#)
+
+[外观模式](https://juejin.cn/post/6939774499399139336)
 
 
 ## 文档笔记

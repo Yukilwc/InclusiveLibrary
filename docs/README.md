@@ -54,16 +54,13 @@
 
 ### 精彩的效果实现
 
-#### 轮播
-
 [Swiper样例收录](./Frontend/Awesome-Design/Swiper/Swiper-Collection.md)
 
 [Swiper API解析验证](./Frontend/Awesome-Design/Swiper/Swiper-API.md)
 
-#### 走马灯
+[走马灯Demo](./Frontend/Awesome-Design/Carousel/Demo.md)
 
-[Demo](./Frontend/Awesome-Design/Carousel/Demo.md)
-
+[超长后自动隐藏的tag标签](./Frontend/Awesome-Design/HiddenTags/Demo.md)
 ### Javascript
 
 #### AST
@@ -93,6 +90,8 @@
 [NPM操作](./Frontend/NODEJS/NPM/NPMOperator.md)
 
 [Vite+Typescript+vue3发布npm组件](./Frontend/NODEJS/NPM/NpmPublish/ViteTsVue3.md)
+
+[package.json配置](./Frontend/NODEJS/NPM/PackageJson.md)
 
 ### 模式
 
@@ -153,10 +152,21 @@
 
 ### 生活经验
 
+### 健身
+
+[热量缺口](./Life-Skill/Fitness/HeatGap.md)
+
 ### 备忘录
 
 [更换手机号需要处理的问题](./Life-Skill/Memorandum/Change-Phone-Number.md)
 
+## 阅读
+
+### 收录
+
+[文章](./Reading/Collections/Articles.md)
+
+[书籍](./Reading/Collections/Books.md)
 ## Rust
 
 ### 基础
