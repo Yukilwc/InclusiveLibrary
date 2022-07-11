@@ -188,9 +188,15 @@ class SplashPage extends StatefulWidget {
 } 
 ```
 
-**for表达式在数组中使用**
+**if for表达式在数组中使用**
 ```dart
  pages: [
             for (final page in uriRouteManager.pages) page,
         ],
+ pages: [
+  if (mainRoutes.isEmpty)
+    MainPageBuilder(context, MainRoute.home()).page,
+  for (MainRoute path in mainRoutes)
+    MainPageBuilder(context, path).page,
+ ],
 ```
