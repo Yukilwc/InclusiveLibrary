@@ -38,3 +38,7 @@
 ## 实践项目
 
 ## 实践笔记
+
+## 参考
+
+[Navigator2.0](https://www.raywenderlich.com/19457817-flutter-navigator-2-0-and-deep-links#toc-anchor-003)
