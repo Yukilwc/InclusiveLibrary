@@ -34,7 +34,12 @@ flutter pub get
 # 升级包
 flutter packages upgrade
 
+# 指定web开发的ip和端口号 好像是有问题，能访问到但是报Service worker not supported (or configured)
+flutter run -d chrome --web-port 8888  --web-hostname 0.0.0.0
+
 ```
+
+
 
 ## 快捷操作
 
