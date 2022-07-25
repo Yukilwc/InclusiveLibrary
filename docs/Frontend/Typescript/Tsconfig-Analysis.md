@@ -17,3 +17,12 @@
 
 如果配置了路径，则编译生成的 `js`，`js.map`,`d.ts`文件，都会输出到该目录下  
 如果不配置该路径，则输出的文件会放在`ts`文件同级目录下
+
+### useDefineForClassFields
+
+编译Class时，属性赋值，从setter转变为defineProperty.  
+[详见](https://zhuanlan.zhihu.com/p/258906525)
+
+### isolatedModules
+时开启单文件转译时，存在错误的报错  
+[详见](https://www.typescriptlang.org/tsconfig#isolatedModules)
