@@ -27,7 +27,13 @@ npm install
 
 ### tsconfig
 
+TODO:最后添加
+
 ### types依赖安装
+
+```sh
+npm install --save-dev @types/node
+```
 
 ### shim垫片
 
@@ -50,16 +56,35 @@ npm install
 
 ## vite.config.ts基础配置
 
+TODO:最后添加
+
 ## 核心依赖安装与封装
 
 ### CSS预处理器
 
 ```sh
-# 选一个即可
+# 选一个即可,无需其它配置
 npm add -D sass
 # npm add -D less
 # npm add -D stylus
 ```
+
+### vue router
+
+### pinia
+### axios
+
+### 自动引入组件与方法
+
+### vant ui
+
+### 其它工具
+
+* ramda
+* js-cookie
+
+
+
 
 ## 类型技巧
 
@@ -67,7 +92,14 @@ npm add -D sass
 
 ### 为js库添加类型定义
 
+## vue3特性
+* plugins
+* directives
+* filters
+* 全局变量与方法
+* 全局组件
 
+## 权限体系
 ## 移动端支持
 
 ## 其它辅助配置
@@ -75,7 +107,11 @@ npm add -D sass
 ### console.log去除
 
 ### 打包分析工具
-
+rollup-plugin-visualizer
 ### 兼容性处理
 
 ### 环境变量配置
+
+## 优化
+
+### Pre-bunding处理大量网络请求阻塞

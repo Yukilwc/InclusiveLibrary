@@ -26,3 +26,14 @@
 ### isolatedModules
 时开启单文件转译时，存在错误的报错  
 [详见](https://www.typescriptlang.org/tsconfig#isolatedModules)
+
+### types
+
+用来导入一组类型到全局  
+如果不指定此数组，则会默认引入@types下的类型声明  
+如过指定了此数组，则会仅引入指定的类型声明到全局中
+
+### lib
+
+ts自带内嵌的一组类型，可以修改为指定类型合集  
+[参考](https://www.typescriptlang.org/tsconfig#lib)
