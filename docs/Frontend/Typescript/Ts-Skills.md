@@ -11,3 +11,8 @@ let surchargeList = propsRef.surchargeList as Ref<SurchargeList[]>;
 ```
 
 **函数类型定义**
+
+**数组类型定义**
+```ts
+const routes: RouteRecordRaw[] = [];
+```

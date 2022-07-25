@@ -69,7 +69,27 @@ npm add -D sass
 # npm add -D stylus
 ```
 
+**全局样式导入**
+
 ### vue router
+
+**安装**
+
+```sh
+npm install vue-router@4 --save
+```
+
+**配置**
+
+```vue
+<!-- 配置app.vue入口 -->
+<template>
+  <router-view></router-view>
+</template>
+```
+
+
+**使用**
 
 ### pinia
 ### axios
@@ -92,6 +112,12 @@ npm add -D sass
 
 ### 为js库添加类型定义
 
+### 扩充一个带类型的三方库
+
+vue-router 的 RouteMeta
+
+### 引入已经定义的组件或方法的类型
+
 ## vue3特性
 * plugins
 * directives
@@ -99,6 +125,9 @@ npm add -D sass
 * 全局变量与方法
 * 全局组件
 
+
+
+## 全局样式，字体，图标与主题覆盖
 ## 权限体系
 ## 移动端支持
 
@@ -115,3 +144,5 @@ rollup-plugin-visualizer
 ## 优化
 
 ### Pre-bunding处理大量网络请求阻塞
+
+## 单元测试
