@@ -1,5 +1,9 @@
 # Vite搭建Vue3+Typescript移动端h5项目模板
 
+## 引言
+
+[模板](https://github.com/Yukilwc/ProjectTemplate/tree/master/vite3-vue3-typescript-mobile)
+
 ## 搭建
 
 ```sh
@@ -70,8 +74,9 @@ npm add -D sass
 ```
 
 **全局样式导入**
+TODO:
 
-### vue router
+### Vue Router
 
 **安装**
 
@@ -81,17 +86,23 @@ npm install vue-router@4 --save
 
 **配置**
 
-```vue
-<!-- 配置app.vue入口 -->
-<template>
-  <router-view></router-view>
-</template>
-```
+详细配置见模板
 
+* `<router-view></router-view>`
+* `router/index.ts`配置
+* `meta.d.ts`定义路由参数类型
+* `main.ts`引入
 
 **使用**
 
+详细配置见模板router页面与usePermission
+
+* 路由守卫
+* 跳转与传参
+* 页面内监听路由变化
+
 ### pinia
+
 ### axios
 
 ### 自动引入组件与方法
@@ -127,8 +138,26 @@ vue-router 的 RouteMeta
 
 
 
-## 全局样式，字体，图标与主题覆盖
+## 全局样式
+
+### 覆盖样式
+
+移除默认的全局样式，然后添加style文件夹  
+内容见模板  
+之后在main.ts中引入
+
+### 工具样式
+
+### 图标库
+
+### 导入字体
+
 ## 权限体系
+
+### 权限的存储与读取
+
+### 接口控制
+
 ## 移动端支持
 
 ## 其它辅助配置

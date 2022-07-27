@@ -16,3 +16,22 @@ let surchargeList = propsRef.surchargeList as Ref<SurchargeList[]>;
 ```ts
 const routes: RouteRecordRaw[] = [];
 ```
+
+## 类型
+
+### 扩展库类型
+
+以vue-router模块的RouteMeta为例
+
+```ts
+// 创建meta.d.ts文件
+import { RouteMeta } from "vue-router";
+declare module "vue-router" {
+  interface RouteMeta {
+    isHome: boolean;
+  }
+}
+export {};
+```
+
+[模块扩展](https://www.tslang.cn/docs/handbook/declaration-merging.html)
