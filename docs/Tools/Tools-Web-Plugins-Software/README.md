@@ -47,6 +47,14 @@
 | 在线文档转换     | [Link](https://convertio.co/zh/)                    |          |
 | css加载阻塞      | [Link](http://ruofee.cn/article/1633592450024/)     |          |
 
+### 待消化的文章
+
+
+| 名字                 | 地址                                                      | 功能 |
+| -------------------- | --------------------------------------------------------- | ---- |
+| vite pre-bunding原理 | [Link](https://mp.weixin.qq.com/s/2zZcjo9Wfg7wZBjsyCnT_w) |      |
+|                      |                                                           |      |
+
 ### 文档
 
 | 名字                      | 地址                                                              | 功能                   |
@@ -73,6 +81,16 @@
 | TSConfig文档              | [Link](https://www.typescriptlang.org/tsconfig)                   |                        |
 | Esbuild                   | [Link](https://esbuild.github.io/getting-started/)                |                        |
 | material design           | [Link](https://material.io/design/introduction)                   |                        |
+| pinia                     | [Link](https://pinia.vuejs.org/introduction.html)                 |                        |
+|                           |                                                                   |                        |
+|                           |                                                                   |                        |
+|                           |                                                                   |                        |
+|                           |                                                                   |                        |
+|                           |                                                                   |                        |
+|                           |                                                                   |                        |
+|                           |                                                                   |                        |
+|                           |                                                                   |                        |
+|                           |                                                                   |                        |
 |                           |                                                                   |                        |
 |                           |                                                                   |                        |
 ### vpn

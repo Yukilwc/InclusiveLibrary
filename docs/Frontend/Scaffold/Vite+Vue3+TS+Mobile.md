@@ -103,7 +103,55 @@ npm install vue-router@4 --save
 
 ### pinia
 
+**安装**
+
+```sh
+npm install pinia --save
+```
+
+**配置**
+一般来说，使用options的配置方法即可，而composition api风格的配置，过于自由，一般无需求不需要用吗?  
+存在疑问  
+
+* store定义
+* action定义
+* getter定义
+
+**使用**
+
+* state读取
+* action调用
+* getter读取
+* $patch修改state
+* $subscribe使用与自动卸载
+* storo之间的相互调用
+
+**启动时/登录时载入基本信息**
+
 ### axios
+
+**安装**
+
+使用vueuse集成的useAxios即可  
+接口调用也要适应composition api
+
+**配置**
+
+* 超时时间
+* baseUrl
+* 拦截器
+* 错误处理
+* header头
+* 泛型
+* get post formData等划分
+* 文件上传下载支持
+
+
+**API文件设计**
+
+为了常用接口的统一使用管理，以及统一处理
+
+**使用**
 
 ### 自动引入组件与方法
 
@@ -111,9 +159,13 @@ npm install vue-router@4 --save
 
 ### 其它工具
 
-* ramda
-* js-cookie
-
+```sh
+#  vueuse
+npm i @vueuse/core --save
+npm i @vueuse/integrations --save
+npm i universal-cookie --save
+# ramda
+```
 
 
 
@@ -155,6 +207,8 @@ vue-router 的 RouteMeta
 ## 权限体系
 
 ### 权限的存储与读取
+其与全局store状态中的token同步  
+权限的token存储到cookie中，当刷新或者调用接口时，如果cookie失效，则做相应处理  
 
 ### 接口控制
 
@@ -167,6 +221,8 @@ vue-router 的 RouteMeta
 ### 打包分析工具
 rollup-plugin-visualizer
 ### 兼容性处理
+
+@vitejs/plugin-legacy
 
 ### 环境变量配置
 
