@@ -196,9 +196,14 @@ npm i vant --save
 
 **样式覆盖体系**
 
+TODO:
+
 两种方案，考虑到动态化js的可能性，可以考虑ConfigProvider
 
 ### element ui
+
+TODO:
+
 ```sh
 npm install element-plus --save
 ```
@@ -229,13 +234,13 @@ npm i universal-cookie --save
 * Vue全局方法与属性
 * Vue全局组件
 
-### 为js库添加类型定义
-
-### 扩充一个带类型的三方库
+### 为js库添加类型定义及类型扩展
 
 vue-router 的 RouteMeta
 
 ### 引入已经定义的组件或方法的类型
+
+使用`const computed: typeof import('vue')['computed']` `RouterLink: typeof import('vue-router')['RouterLink']`   
 
 ## vue3特性
 
@@ -264,25 +269,36 @@ vue-router 的 RouteMeta
 ## 权限体系
 
 ### 权限的存储与读取
+
 其与全局store状态中的token同步  
 权限的token存储到cookie中，当刷新或者调用接口时，如果cookie失效，则做相应处理  
 
 ### 接口控制
 
+见模板
+
 ## 移动端支持
+
+TODO:
 
 ## 其它辅助配置
 
 ### console.log去除
 
+TODO:
+
 ### 打包分析工具
+
+TODO:
 rollup-plugin-visualizer
 ### 兼容性处理
 
+TODO:
 @vitejs/plugin-legacy
 
 ### 环境变量配置
 
+TODO:
 ## 优化
 
 ### Pre-bunding处理大量网络请求阻塞
