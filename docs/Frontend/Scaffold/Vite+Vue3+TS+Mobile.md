@@ -60,6 +60,9 @@ npm install --save-dev @types/node
 
 ## vite.config.ts基础配置
 
+* 开放ip和端口
+* 类型别名
+
 TODO:最后添加
 
 ## 核心依赖安装与封装
@@ -122,7 +125,7 @@ npm install pinia --save
 * state读取
 * action调用
 * getter读取
-* $patch修改state
+* $patch修改state 一般不要在业务组件内调用修改，而是定义actions
 * $subscribe使用与自动卸载
 * storo之间的相互调用
 
@@ -130,16 +133,28 @@ npm install pinia --save
 
 ### axios
 
+**思路**
+
+还是不使用vueuse集成的useAxios了，而是自己封装一个  
+接口调用也要适应composition api  
+封装的use，其本质，要遵循封装一组data methods computed，  
+类似之前用法，需要手动处理loading赋值，取消等，现在可以基于封装，把loading合并到  
+useAxios中，直接在setup中使用  
+当然如果还需更复杂的使用，那就需要封装进一步的业务use函数  
+
 **安装**
 
-使用vueuse集成的useAxios即可  
-接口调用也要适应composition api
+```sh
+npm install axios --save
+npm i qs --save
+```
 
 **配置**
 
 * 超时时间
 * baseUrl
 * 拦截器
+* header及权限控制
 * 错误处理
 * header头
 * 泛型
@@ -149,14 +164,48 @@ npm install pinia --save
 
 **API文件设计**
 
-为了常用接口的统一使用管理，以及统一处理
+为了常用接口的统一使用管理，以及统一处理  
+需要注册到全局，并且有类型提示  
+
+**model文件设计**
+
+**跨域配置**
+
+[详细配置见](https://vitejs.dev/config/server-options.html#server-proxy)
 
 **使用**
 
+
 ### 自动引入组件与方法
+
+```sh
+npm i unplugin-vue-components -D
+npm i unplugin-auto-import -D
+npm i vite-plugin-style-import -D
+```
+
+其中组件更希望自己导入全局，而非被动命名，因此不对components文件夹进行配置
 
 ### vant ui
 
+```sh
+npm i vant --save
+```
+
+在vite.config.ts中配置插件
+
+**样式覆盖体系**
+
+两种方案，考虑到动态化js的可能性，可以考虑ConfigProvider
+
+### element ui
+```sh
+npm install element-plus --save
+```
+
+**覆盖样式**
+使用此方法 [Link](https://vueuse.org/core/usecssvar/),封装一套控制elementui的样式控制器  
+结合js化的css变量与自定义覆盖样式  
 ### 其它工具
 
 ```sh
@@ -173,6 +222,13 @@ npm i universal-cookie --save
 
 ### 全局变量
 
+添加一个插件注册
+
+* 新增window全局属性 除非是进行script脚本引入，否则不要在module体系内，定义全局属性
+* 扩展window全局属性 .一般用来对一些三方脚本进行扩充强化
+* Vue全局方法与属性
+* Vue全局组件
+
 ### 为js库添加类型定义
 
 ### 扩充一个带类型的三方库
@@ -182,13 +238,14 @@ vue-router 的 RouteMeta
 ### 引入已经定义的组件或方法的类型
 
 ## vue3特性
+
 * plugins
-* directives
+* directives 关于一点类型的参考 [Link](https://www.jianshu.com/p/68498f1bbd3b)
 * filters
 * 全局变量与方法
 * 全局组件
-
-
+* props与emit
+* 全局指令，filter与组件内指令，filter
 
 ## 全局样式
 

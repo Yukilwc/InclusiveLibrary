@@ -35,3 +35,8 @@ export {};
 ```
 
 [模块扩展](https://www.tslang.cn/docs/handbook/declaration-merging.html)
+
+
+### try catch中错误类型
+
+[Link](https://fettblog.eu/typescript-typing-catch-clauses/)
