@@ -264,6 +264,8 @@ vue-router 的 RouteMeta
 使用此方法 [Link](https://vueuse.org/core/usecssvar/),封装一套控制elementui，vantui的样式控制器  
 结合js化的css变量与自定义覆盖样式  
 
+应该支持一套useVantStyle和一套纯scss的覆盖  
+
 
 ### 图标库
 
