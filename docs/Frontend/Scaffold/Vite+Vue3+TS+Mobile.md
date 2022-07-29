@@ -31,7 +31,7 @@ npm install
 
 ### tsconfig
 
-TODO:最后添加
+见模板
 
 ### types依赖安装
 
@@ -60,10 +60,10 @@ npm install --save-dev @types/node
 
 ## vite.config.ts基础配置
 
+见模板
+
 * 开放ip和端口
 * 类型别名
-
-TODO:最后添加
 
 ## 核心依赖安装与封装
 
@@ -196,21 +196,18 @@ npm i vant --save
 
 **样式覆盖体系**
 
-TODO:
-
-两种方案，考虑到动态化js的可能性，可以考虑ConfigProvider
+见全局样式部分
 
 ### element ui
 
-TODO:
+暂不添加
 
 ```sh
 npm install element-plus --save
 ```
 
 **覆盖样式**
-使用此方法 [Link](https://vueuse.org/core/usecssvar/),封装一套控制elementui的样式控制器  
-结合js化的css变量与自定义覆盖样式  
+
 ### 其它工具
 
 ```sh
@@ -262,9 +259,19 @@ vue-router 的 RouteMeta
 
 ### 工具样式
 
+### 样式覆盖
+
+使用此方法 [Link](https://vueuse.org/core/usecssvar/),封装一套控制elementui，vantui的样式控制器  
+结合js化的css变量与自定义覆盖样式  
+
+
 ### 图标库
 
+TODO:
+
 ### 导入字体
+
+TODO:
 
 ## 权限体系
 
@@ -279,9 +286,19 @@ vue-router 的 RouteMeta
 
 ## 移动端支持
 
-TODO:
-
+安装
+```sh
+npm install postcss postcss-pxtorem --save-dev
+```
+配置对应rem方案 见模板
 ## 其它辅助配置
+
+### meta配置
+
+```html
+<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no">
+<meta name="format-detection" content="telephone=no, email=no, date=no, address=no">
+```
 
 ### console.log去除
 
@@ -293,8 +310,47 @@ TODO:
 rollup-plugin-visualizer
 ### 兼容性处理
 
-TODO:
-@vitejs/plugin-legacy
+**样式**
+
+安装配置autoprefixer以及.browserslistrc
+
+```sh
+npm install autoprefixer -D
+```
+
+配置vite.config.ts和.browserslistrc
+
+使用命令行可以查看支持的浏览器列表 `npx browserslist "last 1 version, >1%"`
+
+最后使用如下代码查看测试  
+```css
+  input::placeholder {
+    color: gray;
+  }
+```
+
+[参考](https://zqianduan.com/pages/browserslist-config.html#%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95)
+
+
+**javascript**
+
+使用@vitejs/plugin-legacy
+
+```
+npm install @vitejs/plugin-legacy -D
+npm install -D terser
+```
+
+```ts
+import legacy from '@vitejs/plugin-legacy'
+export default {
+  plugins: [
+    legacy({
+      targets: ['defaults', 'not IE 11']
+    })
+  ]
+}
+```
 
 ### 环境变量配置
 
@@ -304,3 +360,5 @@ TODO:
 ### Pre-bunding处理大量网络请求阻塞
 
 ## 单元测试
+
+TODO:安装基本框架，泡通通用函数测试
