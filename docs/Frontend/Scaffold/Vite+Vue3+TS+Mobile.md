@@ -76,8 +76,12 @@ npm add -D sass
 # npm add -D stylus
 ```
 
-**全局样式导入**
-TODO:
+**全局工具样式导入**
+
+使用preprocessorOptions,详细见config文件  
+一些问题:  
+1. warning: "@charset" must be the first rule in the file
+2. 使用@use引入，还是使用css的@import引入
 
 ### Vue Router
 
@@ -269,11 +273,13 @@ vue-router 的 RouteMeta
 
 ### 图标库
 
-TODO:
+使用`unplugin-icons`  
+TODO:暂不安装，暂且使用着vant自带图标  
+如果要安装，参考 [Link](https://www.npmjs.com/package/unplugin-icons#auto-importing),尽量单个子集安装,按需加载
 
 ### 导入字体
 
-TODO:
+TODO:核心是字体载入策略以及字体提取脚本
 
 ## 权限体系
 
@@ -304,12 +310,16 @@ npm install postcss postcss-pxtorem --save-dev
 
 ### console.log去除
 
-TODO:
+参考使用esbuild的配置
+[Link](https://github.com/vitejs/vite/discussions/7920)  
+[Link](https://esbuild.github.io/api/#drop)
 
 ### 打包分析工具
 
-TODO:
 rollup-plugin-visualizer
+
+[Link](https://github.com/btd/rollup-plugin-visualizer#readme)
+
 ### 兼容性处理
 
 **样式**
