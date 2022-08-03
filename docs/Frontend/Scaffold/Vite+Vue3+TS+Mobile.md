@@ -366,11 +366,143 @@ export default {
 
 ### 环境变量配置
 
-TODO:
+[参考](https://vitejs.dev/guide/env-and-mode.html)
+
+[loadEnv](https://vitejs.dev/config/#async-config)
+
 ## 优化
 
 ### Pre-bunding处理大量网络请求阻塞
 
-## 单元测试
+## 测试
 
-TODO:安装基本框架，泡通通用函数测试
+### 单元测试直接使用jest
+
+**此方案弃用，难以与unplugin插件兼容**
+
+**安装**
+
+```sh
+# 工具
+npm install --save-dev @vue/test-utils
+# vue单文件解析，以及jest本体
+npm install --save-dev @vue/vue3-jest@28 
+# 本体，编译与类型
+npm install --save-dev jest babel-jest ts-jest @types/jest
+# babel依赖
+npm install --save-dev @babel/core @babel/preset-env
+# 其它辅助工具
+npm install --save-dev jest-serializer-vue jest-transform-stub
+# 测试dom相关
+npm install -D jest-environment-jsdom
+# npm i -D tslib
+```
+
+**package.json**  
+加运行test指令
+
+**jest.config.js**  
+加jest配置
+
+```js
+export default {
+    moduleFileExtensions: ["js", "json", "jsx", "ts", "tsx", "node", "vue"],
+    transform: {
+        "^.+\\.vue$": "@vue/vue3-jest",
+        "^.+\\.ts$": "ts-jest",
+        "^.+\\.js$": "babel-jest",
+        "^.+\\.[jt]sx?$": "babel-jest",
+        '.+\\.(css|styl|less|sass|scss|svg|png|jpg|ttf|woff|woff2)$': "jest-transform-stub"
+    },
+    transformIgnorePatterns: ['/node_modules/'],
+    // support the same @ -> src alias mapping in source code
+    moduleNameMapper: {
+        '^@/(.*)$': '<rootDir>/src/$1'
+    },
+    snapshotSerializers: ['jest-serializer-vue'],
+    testEnvironment: 'jsdom',
+    testEnvironmentOptions: {
+        customExportConditions: ["node", "node-addons"],
+    },
+    // testEnvironment: 'node',
+    globals: {
+    },
+
+}
+```
+**tsconfig.json**  
+加include
+```json
+  "include": [
+    "src/**/*.ts",
+    "src/**/*.d.ts",
+    "src/**/*.tsx",
+    "src/**/*.vue",
+    "./auto-imports.d.ts",
+    "./components.d.ts",
+    "./test/**/*.ts",
+    "./test/**/*.tsx"
+  ],
+ 
+```
+
+**babel.config.js**  
+```js
+module.exports = {
+    presets: [
+        ['@babel/preset-env',
+            {
+                targets: {
+                    node: 'current'
+                }
+            }
+        ]
+    ]
+}
+```
+
+**test/unit文件夹**
+
+**参考**
+
+[test-utils](https://test-utils.vuejs.org/)
+
+[Link](https://dev.to/vuesomedev/add-testing-to-vite-4b75)
+
+[Link](https://juejin.cn/post/7039146473878978596)
+
+### 单元测试Vitest
+
+安装  
+```sh
+npm install -D vitest
+npm install -D @vue/test-utils
+npm install -D jsdom
+```
+
+配置  
+
+package.json
+
+```json
+"test": "vitest",
+"coverage": "vitest run --coverage"
+```
+
+tsconfig.json
+
+```json
+"types": ["@types","vitest/globals"],
+```
+
+vite.config.ts
+
+```ts
+    test: {
+      globals: true,
+      environment: "jsdom",
+    },
+ 
+```
+
+### E2E测试
