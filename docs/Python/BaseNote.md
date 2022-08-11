@@ -8,6 +8,11 @@
 
 [cookbook](https://python3-cookbook.readthedocs.io/zh_CN/latest/c01/p01_unpack_sequence_into_separate_variables.html)
 
+## 差异点
+
+* tuple dict
+* 循环语法
+* 函数传参
 ## 解释器
 
 命令行调用
@@ -210,14 +215,19 @@ def move(x, y, step, angle=0):
 | enumerate  |      |     |
 | range      |      |     |
 | next       |      |     |
-|  iter          |      |     |
+| iter       |      |     |
 |            |      |     |
 |            |      |     |
 |            |      |     |
 |            |      |     |
 |            |      |     |
 |            |      |     |
+### 匿名函数
 
+```py
+>>> list(map(lambda x: x * x, [1, 2, 3, 4, 5, 6, 7, 8, 9]))
+[1, 4, 9, 16, 25, 36, 49, 64, 81]
+```
 ## 高级特性
 
 ### Generator
@@ -233,8 +243,19 @@ def move(x, y, step, angle=0):
 
 ### Iterable
 
+
 一类是集合数据类型，如list、tuple、dict、set、str等；
 
 一类是generator，包括生成器和带yield的generator function。
 
 这些可以直接作用于for循环的对象统称为可迭代对象：Iterable。
+
+## 函数式
+
+高阶函数
+
+匿名函数
+
+装饰器
+
+偏函数
