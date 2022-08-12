@@ -12,3 +12,7 @@
 
 
 [流程介绍](https://www.daimajiaoliu.com/daima/47e09a435100418)
+
+[开源框架与论坛](https://www.vnpy.com/forum/)
+
+[国内量化交易平台](https://zhuanlan.zhihu.com/p/346393703)

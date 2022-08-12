@@ -19,6 +19,11 @@
 ```sh
 python -c command [arg]
 python -m module [arg]
+
+py -3 -m pip install Pillow
+py -3 -m pip install --upgrade pip
+py -3 -m pip list
+py -3 -m pip show Pillow
 ```
 
 
@@ -259,3 +264,5 @@ def move(x, y, step, angle=0):
 装饰器
 
 偏函数
+
+## 面向对象
