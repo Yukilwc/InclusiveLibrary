@@ -202,4 +202,4 @@
 
 ## Python
 
-[速查备忘清单](./Python/CheatsheetCodeLab.md)
+[Python速查手册](./Python/CheatsheetCodeLab.md)
