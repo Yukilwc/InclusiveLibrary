@@ -11,6 +11,12 @@
 爬虫  
 脚本工具
 
+### 爬取html获得pdf与epub
+
+[Link](https://www.cxyzjd.com/article/qiximenghu/111058915)
+
+[Link](https://zhuanlan.zhihu.com/p/77273388)
+
 ## 资源
 
 

@@ -295,8 +295,9 @@ def f2(a, b, c=0, *, d, **kw):
 
 ## 高级特性
 
-#### list,tuple,字符串切片
+### list,tuple,字符串切片
 
+基础索引切片  
 ```py
 l = list(range(100))
 # 索引区间 从0开始，不包括索引3
@@ -308,6 +309,19 @@ l[::5] # 每5个取一次
 l[:] # 等于复制一个list
 ```
 
+更好的实践，使用slice创建命名切片  
+```py
+l = list(range(100))
+lastTenNum = slice(-10,len(l))
+l[lastTenNum]
+a = slice(5, 50, 2)
+a.start
+a.stop
+a.step
+```
+
+
+### 迭代interation
 ## 命令行编程
 
 ```py

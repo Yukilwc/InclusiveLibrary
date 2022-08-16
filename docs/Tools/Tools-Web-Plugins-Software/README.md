@@ -30,6 +30,10 @@
 * enterprise architecture
 * power designer
 
+#### pandoc
+各类文档转换器，可结合python使用  
+[Link](https://pandoc.org/index.html)
+
 ## 移动端
 
 ### 客户端
