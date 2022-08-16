@@ -62,17 +62,17 @@ export default defineUserConfig({
     searchPlugin({
       isSearchable: (page) => page.path !== "/",
     }),
-    pwaPlugin({
-      skipWaiting: false,
-    }),
-    pwaPopupPlugin({
-      locales: {
-        "/": {
-          message: "发现新内容可用",
-          buttonText: "刷新",
-        },
-      },
-    }),
+    // pwaPlugin({
+    //   skipWaiting: false,
+    // }),
+    // pwaPopupPlugin({
+    //   locales: {
+    //     "/": {
+    //       message: "发现新内容可用",
+    //       buttonText: "刷新",
+    //     },
+    //   },
+    // }),
     googleAnalyticsPlugin({
       id: "G-E8JW1JB5MY",
     }),
