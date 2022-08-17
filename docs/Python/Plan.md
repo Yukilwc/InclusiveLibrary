@@ -8,6 +8,8 @@
 
 ## 实践
 
+[数据结构与算法](https://jackkuo666.github.io/Data_Structure_with_Python_book/chapter7/index.html)
+
 爬虫  
 脚本工具
 

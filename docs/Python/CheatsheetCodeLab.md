@@ -38,7 +38,7 @@ not True
 None
 ```
 
-### 类型转换
+### 类型转换与判断
 
 基础类型
 ```py
@@ -54,6 +54,11 @@ bool(x)
 x = 'str'
 if not isinstance(x,(int,float)):
     raise TypeError('x type shoule be string')
+
+# type函数
+
+type(3)
+# <class 'int'>
 ```
 ### 基础运算
 
@@ -321,9 +326,270 @@ a.step
 ```
 
 
-### 迭代interation
-## 命令行编程
+### 迭代iteration
 
+可迭代对象: list tuple dict str generator
+
+```py
+# 基础迭代
+d = {'a': 1, 'b': 2, 'c': 3}
+for key in d: 
+    print(key)
+for value in d.values:
+    pass
+for k,v in d.items:
+    pass
+
+# 是否可迭代
+from collections.abc import Iterable
+isinstance('str',Iterable)
+
+# 索引获取
+for index,value in enumerate(['a','b',c]):
+    pass
+```
+
+### 列表生成式List Comprehensions
+
+使用表达式简单创建list
+
+```py
+list(range(1,11))
+# for表达式
+# for前为生成，if后为筛选
+[x*x for x in range(1,11) if x%2==0]
+# 二重组合
+[m + n for m in 'ABC' for n in 'XYZ']
+# ['AX', 'AY', 'AZ', 'BX', 'BY', 'BZ', 'CX', 'CY', 'CZ']
+# 文件及目录列举
+import os
+ [d for d in os.listdir('.')]
+
+#  结合if for之后为筛选 if不可带else，for之前if为表达式 必须带else
+[x if x % 2 == 0 else -x for x in range(1, 11) if x>3]
+
+```
+
+### 生成器generator
+
+```py
+# 表达式定义
+g = (x * x for x in range(10))
+for n in g:
+    pass
+
+# yield定义
+def fib(max):
+    n, a, b = 0, 0, 1
+    while n < max:
+        yield b
+        a, b = b, a + b
+        n = n + 1
+    return 'done'
+
+# 调用该generator函数时，首先要生成一个generator对象，然后用next()函数不断获得下一个返回值：
+# 请务必注意：调用generator函数会创建一个generator对象，多次调用generator函数会创建多个相互独立的generator。
+def odd():
+    print('step 1')
+    yield 1
+    print('step 2')
+    yield(3)
+    print('step 3')
+    yield(5)
+o = odd()
+
+# 越界捕获
+g = fib(6)
+while True:
+    try:
+        x = next(g)
+        print('g:', x)
+    except StopIteration as e:
+        print('Generator return value:', e.value)
+    break
+```
+
+### 迭代器Iterator
+
+可以被next()函数调用并不断返回下一个值的对象称为迭代器：Iterator。
+
+生成器都是Iterator对象，但list、dict、str虽然是Iterable，却不是Iterator。  
+把list、dict、str等Iterable变成Iterator可以使用`iter()`函数：
+
+为什么list、dict、str等数据类型不是Iterator？  
+这是因为Python的Iterator对象表示的是一个数据流，Iterator对象可以被next()函数调用并不断返回下一个数据，直到没有数据时抛出StopIteration错误。可以把这个数据流看做是一个有序序列，但我们却不能提前知道序列的长度，只能不断通过next()函数实现按需计算下一个数据，所以Iterator的计算是惰性的，只有在需要返回下一个数据时它才会计算。  
+Iterator甚至可以表示一个无限大的数据流，例如全体自然数。而使用list是永远不可能存储全体自然数的。
+
+凡是可作用于for循环的对象都是Iterable类型；凡是可作用于next()函数的对象都是Iterator类型，它们表示一个惰性计算的序列；
+
+```py
+# for循环本质:
+for x in [1, 2, 3, 4, 5]:
+    pass
+while True:
+    try:
+        # 获得下一个值:
+        x = next(it)
+    except StopIteration:
+        # 遇到StopIteration就退出循环
+        break
+```
+
+## 函数式编程
+
+### 内置高阶函数
+
+```py
+# map
+def f(x):
+    return x*x
+r = map(f, [1, 2, 3, 4, 5, 6, 7, 8, 9])
+# r是Iterator，是惰性序列，因此需要使用list让其全部返回
+list(r)
+
+# reduce 第一个参数是累计值，第二个参数是遍历的元素
+from functools import reduce
+def f(x,y):
+    return x*10+y
+reduce(f,[1,2,3,4,5])
+# print:12345
+
+# filter
+list(filter(is_odd, [1, 2, 4, 5, 6, 9, 10, 15]))
+
+# sorted , key函数会对每个元素处理后再排序
+sorted([36, 5, -12, 9, -21], key=abs,reverse=True)
+
+```
+
+### 匿名函数
+
+```py
+lamda x:x*x
+
+```
+
+### 装饰器
+
+本质上，decorator就是一个返回函数的高阶函数
+
+```py
+def log(func):
+    def wrapper(*args, **kw):
+        print('call %s():' % func.__name__)
+        return func(*args, **kw)
+    return wrapper
+
+@log
+def now():
+    print('2015-3-25')
+
+# 带参数
+def log(text):
+    def decorator(func):
+        def wrapper(*args, **kw):
+            print('%s %s():' % (text, func.__name__))
+            return func(*args, **kw)
+        return wrapper
+    return decorator
+
+@log('execute')
+def now():
+    print('2015-3-25')
+```
+
+### 偏函数
+
+柯里化
+
+```py
+import functools
+int2 = functools.partial(int,base=2)
+```
+
+## 面向对象编程
+
+### 类与实例
+
+和普通的函数相比，在类中定义的函数只有一点不同，就是第一个参数永远是实例变量self，并且，调用时，不用传递该参数。除此之外，类的方法和普通函数没有什么区别，所以，你仍然可以用默认参数、可变参数、关键字参数和命名关键字参数。
+
+```py
+# 定义
+class Student(object):
+
+    def __init__(self, name, score):
+        self.name = name
+        self.score = score
+
+bart = Student('Bart Simpson', 59)
+
+```
+
+
+### 可访问性
+
+```py
+# 私有，使用双下划线
+class Student(object):
+
+    def __init__(self, name, score):
+        self.__name = name
+        self.__score = score
+
+    def print_score(self):
+        print('%s: %s' % (self.__name, self.__score))
+
+# setter getter基础写法
+class Student(object):
+    def get_score(self):
+        return self.__score
+
+    def set_score(self, score):
+        if 0 <= score <= 100:
+            self.__score = score
+        else:
+            raise ValueError('bad score')
+    
+s = Student()
+s.set_score(10)
+s.get_score()
+# setter getter 装饰器写法
+class Student(object):
+    def __init__(self):
+        self.__score=0
+
+    @property
+    def score(self):
+        return self.__score
+
+    @score.setter
+    def score(self,score):
+        if 0 <= score <= 100:
+            self.__score = score
+        else:
+            raise ValueError('bad score')
+ 
+s = Student()
+s.score = 100
+print(s.score)
+
+```
+
+### 继承和多态
+
+```py
+class Animal(object):
+    def run(self):
+        print('Animal is running...')
+
+class Dog(Animal):
+    pass
+
+class Cat(Animal):
+    pass
+
+```
+## 命令行交互
 ```py
 # 用户输入
 name = input('name:')

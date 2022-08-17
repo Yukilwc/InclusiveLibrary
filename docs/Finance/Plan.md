@@ -16,3 +16,5 @@
 [开源框架与论坛](https://www.vnpy.com/forum/)
 
 [国内量化交易平台](https://zhuanlan.zhihu.com/p/346393703)
+
+[基础的一些文章](https://www.liaoxuefeng.com/category/895882450960192?page=1)
