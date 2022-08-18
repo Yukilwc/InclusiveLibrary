@@ -56,9 +56,13 @@ if not isinstance(x,(int,float)):
     raise TypeError('x type shoule be string')
 
 # type函数
-
+import types
 type(3)
 # <class 'int'>
+type(fn)==types.FunctionType
+type(abs)==types.BuiltinFunctionType
+type(lambda x: x)==types.LambdaType
+type((x for x in range(10)))==types.GeneratorType
 ```
 ### 基础运算
 
@@ -589,6 +593,65 @@ class Cat(Animal):
     pass
 
 ```
+
+### 对象信息
+
+类型判断见基础中的内容  
+
+```py
+# 获取对象所有属性与方法
+dir('ABC')
+# 配合getattr()、setattr()以及hasattr()，我们可以直接操作一个对象的状态
+hasattr(obj, 'x') # 有属性'x'吗？
+setattr(obj, 'y', 19) # 设置一个属性'y'
+getattr(obj, 'y') # 获取属性'y'
+# 如果试图获取不存在的属性，会抛出AttributeError的错误：
+getattr(obj,'z')
+# AttributeError: 'MyObject' object has no attribute 'z'
+# 可以传入一个default参数，如果属性不存在，就返回默认值：
+getattr(obj, 'z', 404)
+```
+### 实例属性和类属性
+
+```py
+class Student(object):
+    name = 'Student'
+```
+
+### 多重继承与Mixin
+
+```py
+class Dog(Mammal, RunnableMixIn, CarnivorousMixIn):
+    pass
+```
+
+### 定制类
+
+__slots__
+
+__str__
+
+__repr__
+
+__iter__
+
+__getitem__
+
+__getattr__
+
+__call__
+
+
+### 枚举类
+
+```py
+from enum import Enum
+Month = Enum('Month', ('Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'))
+Month.Jan
+for name, member in Month.__members__.items():
+    print(name, '=>', member, ',', member.value)
+```
+
 ## 命令行交互
 ```py
 # 用户输入
