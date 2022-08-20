@@ -25,8 +25,14 @@
 
 #### Q-DIR
 
+#### UML建模工具
 
+* enterprise architecture
+* power designer
 
+#### pandoc
+各类文档转换器，可结合python使用  
+[Link](https://pandoc.org/index.html)
 
 ## 移动端
 
@@ -46,6 +52,14 @@
 | google analytics | [Link](https://analytics.google.com/analytics/web/) |          |
 | 在线文档转换     | [Link](https://convertio.co/zh/)                    |          |
 | css加载阻塞      | [Link](http://ruofee.cn/article/1633592450024/)     |          |
+
+### 待消化的文章
+
+
+| 名字                 | 地址                                                      | 功能 |
+| -------------------- | --------------------------------------------------------- | ---- |
+| vite pre-bunding原理 | [Link](https://mp.weixin.qq.com/s/2zZcjo9Wfg7wZBjsyCnT_w) |      |
+|                      |                                                           |      |
 
 ### 文档
 
@@ -73,6 +87,16 @@
 | TSConfig文档              | [Link](https://www.typescriptlang.org/tsconfig)                   |                        |
 | Esbuild                   | [Link](https://esbuild.github.io/getting-started/)                |                        |
 | material design           | [Link](https://material.io/design/introduction)                   |                        |
+| pinia                     | [Link](https://pinia.vuejs.org/introduction.html)                 |                        |
+|                           |                                                                   |                        |
+|                           |                                                                   |                        |
+|                           |                                                                   |                        |
+|                           |                                                                   |                        |
+|                           |                                                                   |                        |
+|                           |                                                                   |                        |
+|                           |                                                                   |                        |
+|                           |                                                                   |                        |
+|                           |                                                                   |                        |
 |                           |                                                                   |                        |
 |                           |                                                                   |                        |
 ### vpn
@@ -93,6 +117,7 @@
 | 免费的计算机电子书        | [Link](https://www.cntofu.com/)                          |     |
 | codepen查找实验好看的效果 | [Link](https://codepen.io/)                              |     |
 | crates Rust应用商店       | [Link](https://crates.io/)                               |     |
+| 在线浏览器兼容性测试      | [Link](https://www.browserling.com/)                     |     |
 
 ### 娱乐资源
 

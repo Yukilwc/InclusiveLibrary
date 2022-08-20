@@ -25,6 +25,10 @@
 
 [外观模式](https://juejin.cn/post/6939774499399139336)
 
+[Widget组件实验学习 全部](http://laomengit.com/flutter/widgets/ShapeBorder.html#beveledrectangleborder)
+
+[Widget组件实验学习 常用](http://laomengit.com/guide/introduction/mobile_system.html)
+
 
 ## 文档笔记
 ## IDE
@@ -38,3 +42,5 @@
 ## 实践项目
 
 ## 实践笔记
+
+## 参考

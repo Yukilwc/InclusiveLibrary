@@ -199,3 +199,7 @@
 [代码转snippets JSON数组](./Tools/Online/Code2SnippetsJson/README.md)
 
 
+
+## Python
+
+[Python速查手册](./Python/CheatsheetCodeLab.md)
