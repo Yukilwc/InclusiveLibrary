@@ -652,6 +652,88 @@ for name, member in Month.__members__.items():
     print(name, '=>', member, ',', member.value)
 ```
 
+自定义枚举类  
+@unique装饰器可以帮助我们检查保证没有重复值。  
+```python
+from enum import Enum, unique
+
+@unique
+class Weekday(Enum):
+    Sun = 0 # Sun的value被设定为0
+    Mon = 1
+    Tue = 2
+    Wed = 3
+    Thu = 4
+    Fri = 5
+    Sat = 6
+```
+
+### 元类
+
+使用函数创建类，用到了再记录吧  
+
+
+## 异常处理
+
+基础使用  
+```py
+try:
+    print('try...')
+    r = 10 / int('a')
+    print('result:', r)
+except ValueError as e:
+    print('ValueError:', e)
+except ZeroDivisionError as e:
+    print('ZeroDivisionError:', e)
+else:
+    print('no error!')
+finally:
+    print('finally...')
+print('END')
+```
+
+记录   
+```py
+import logging
+ try:
+        bar('0')
+    except Exception as e:
+        logging.exception(e)
+```
+
+自定义错误  
+```py
+try:
+    10 / 0
+except ZeroDivisionError:
+    raise ValueError('input error!')
+```
+
+[异常类继承关系](https://docs.python.org/3/library/exceptions.html#exception-hierarchy)
+
+## IO操作
+
+读取文件
+```py
+#  基础实现
+try:
+    f = open('/path/to/file', 'r')
+    print(f.read())
+finally:
+    if f:
+        f.close()
+
+# with语句实现
+with open('/path/to/file', 'r') as f:
+    print(f.read())
+```
+
+如果文件很小，read()一次性读取最方便；如果不能确定文件大小，反复调用read(size)比较保险；如果是配置文件，调用readlines()最方便：
+
+```py
+for line in f.readlines():
+    print(line.strip()) # 把末尾的'\n'删掉
+```
 ## 命令行交互
 ```py
 # 用户输入
