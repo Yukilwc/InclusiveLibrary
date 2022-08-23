@@ -1,5 +1,10 @@
 # Python速查手册
 
+## 概要
+
+记录速查用的笔记，具体参考了:
+
+* [Link](https://www.liaoxuefeng.com/wiki/1016959663602400)
 ## 指令与工具
 
 安装双版本python时，使用pip安装依赖，更新依赖，查看依赖
@@ -713,7 +718,8 @@ except ZeroDivisionError:
 
 ## IO操作
 
-读取文件
+### 读取文件
+
 ```py
 #  基础实现
 try:
@@ -726,6 +732,11 @@ finally:
 # with语句实现
 with open('/path/to/file', 'r') as f:
     print(f.read())
+
+# 二进制文件
+f = open('/Users/michael/test.jpg', 'rb')
+# 特殊编码
+f = open('/Users/michael/gbk.txt', 'r', encoding='gbk', errors='ignore')
 ```
 
 如果文件很小，read()一次性读取最方便；如果不能确定文件大小，反复调用read(size)比较保险；如果是配置文件，调用readlines()最方便：
@@ -734,6 +745,279 @@ with open('/path/to/file', 'r') as f:
 for line in f.readlines():
     print(line.strip()) # 把末尾的'\n'删掉
 ```
+
+### 写文件
+
+你可以反复调用write()来写入文件，但是务必要调用f.close()来关闭文件。当我们写文件时，操作系统往往不会立刻把数据写入磁盘，而是放到内存缓存起来，空闲的时候再慢慢写入。只有调用close()方法时，操作系统才保证把没有写入的数据全部写入磁盘。忘记调用close()的后果是数据可能只写了一部分到磁盘，剩下的丢失了。所以，还是用with语句来得保险：  
+
+默认是覆盖，如果追加文件等模式参考 [文档](https://docs.python.org/3/library/functions.html#open)  
+```py
+# 基础
+f = open('/Users/michael/test.txt', 'w')
+f.write('Hello, world!')
+f.close()
+# with
+with open('/Users/michael/test.txt', 'w') as f:
+    f.write('Hello, world!')
+```
+
+### 操作文件与目录
+
+系统信息  
+```py
+import os
+os.name
+# 环境变量
+os.environ
+os.environ.get('PATH')
+os.environ.get('x', 'default')
+```
+
+文件与目录  
+操作文件和目录的函数一部分放在os模块中，一部分放在os.path模块中，这一点要注意一下。查看、创建和删除目录可以这么调用：
+这些合并、拆分路径的函数并不要求目录和文件要真实存在，它们只对字符串进行操作。
+
+```py
+# 查看当前目录的绝对路径:
+os.path.abspath('.')
+# '/Users/michael'
+# 在某个目录下创建一个新目录，首先把新目录的完整路径表示出来:
+os.path.join('/Users/michael', 'testdir')
+# '/Users/michael/testdir'
+# 然后创建一个目录:
+os.mkdir('/Users/michael/testdir')
+# 删掉一个目录:
+os.rmdir('/Users/michael/testdir')
+# 拆分目录
+os.path.split('/Users/michael/testdir/file.txt')
+# ('/Users/michael/testdir', 'file.txt')
+# 获取扩展名
+os.path.splitext('/path/to/file.txt')
+# ('/path/to/file', '.txt')
+# 重命名
+os.rename('test.txt', 'test.py')
+# 删除文件
+os.remove('test.py')
+```
+
+此外,shutil模块提供了copyfile()的函数，你还可以在shutil模块中找到很多实用函数，它们可以看做是os模块的补充。  
+
+一些技巧
+```py
+# 列出所有目录
+[x for x in os.listdir('.') if os.path.isdir(x)]
+# 列出py文件
+[x for x in os.listdir('.') if os.path.isfile(x) and os.path.splitext(x)[1]=='.py']
+```
+
+### 序列化
+
+python提供pickle模块进行序列化,不过还是最好用json吧，通用还兼容,但是转换麻烦  
+pickle和json哪个更常用?  
+pickle速度优，但是可读性和流通性差  
+pickle对类实例的序列化和反序列化，是否更加简单?
+
+```py
+# 写入
+import pickle
+d = dict(name='n',age=2)
+f = open("dump.txt",'wb')
+pickle.dumps(d,f)
+f.close()
+# 读
+f = open("dump.txt",'rb')
+d = pickle.load(f)
+f.close()
+```
+
+使用JSON
+```py
+import json
+d = dict(name='Bob', age=20, score=88)
+json.dumps(d)
+json.loads(json_str)
+```
+
+类实例与JSON转换
+```py
+import json
+
+class Student(object):
+    def __init__(self, name, age, score):
+        self.name = name
+        self.age = age
+        self.score = score
+
+s = Student('Bob', 20, 88)
+# 自定义转换器
+def student2dict(std):
+    return {
+        'name': std.name,
+        'age': std.age,
+        'score': std.score
+    }
+json.dumps(s, default=student2dict)
+
+# 便捷做法
+json.dumps(s, default=lambda obj: obj.__dict__)
+# 反序列化
+def dict2student(d):
+    return Student(d['name'], d['age'], d['score'])
+json_str = '{"age": 20, "score": 88, "name": "Bob"}'
+son.loads(json_str, object_hook=dict2student)
+
+```
+
+## 进程与线程
+
+TODO:使用时记录
+
+## 正则表达式
+
+基础定义与使用  
+```py
+# 定义 使用前缀
+s = r'ABC\-001' # Python的字符串
+# 匹配
+import re
+re.match(r'^\d{3}\-\d{3,8}$', '010-12345')
+test = '用户输入的字符串'
+if re.match(r'正则表达式', test):
+    print('ok')
+else:
+    print('failed')
+
+# 用于split
+re.split(r'[\s\,\;]+', 'a,b;; c  d')
+# ['a', 'b', 'c', 'd']
+```
+
+匹配分组,即能提取字串  
+注意到group(0)永远是与整个正则表达式相匹配的字符串，group(1)、group(2)……表示第1、2、……个子串。  
+```py
+m = re.match(r'^(\d{3})-(\d{3,8})$', '010-12345')
+m.group(0)
+# '010-12345'
+m.group(1)
+# '010'
+m.group(2)
+# '12345'
+```
+
+编译
+```py
+import re
+re_telephone = re.compile(r'^(\d{3})-(\d{3,8})$')
+re_telephone.match('010-12345').groups()
+# 配置
+re.compile(r'\w',re.IGNORECASE)
+```
+
+## 常用内建模块
+
+### datetime
+
+```py
+from datetime import datetime
+now = datetime.now()
+dt = datetime(2015, 4, 19, 12, 20) # 用指定日期时间创建datetime
+# js的时间戳是毫秒，而py是秒
+dt.timestamp() # 把datetime转换为timestamp建
+t = 1429417200.0
+datetime.fromtimestamp(t)
+# 字符串转换
+cday = datetime.strptime('2015-6-1 18:19:59', '%Y-%m-%d %H:%M:%S')
+```
+
+关于字符串格式详细见 [文档](https://docs.python.org/3/library/datetime.html#strftime-strptime-behavior)
+
+时间运算
+```py
+from datetime import datetime, timedelta
+now = datetime.now()
+now + timedelta(hours=10)
+now - timedelta(days=1)
+now + timedelta(days=2, hours=12)
+```
+
+### collections
+**namedtuple**  
+namedtuple是一个函数，它用来创建一个自定义的tuple对象，并且规定了tuple元素的个数，并可以用属性而不是索引来引用tuple的某个元素。
+这样一来，我们用namedtuple可以很方便地定义一种数据类型，它具备tuple的不变性，又可以根据属性来引用，使用十分方便。  
+并且其为tuple的字类
+```py
+from collections import namedtuple
+Point = namedtuple('Point', ['x', 'y'])
+p = Point(1, 2)
+p.x
+isinstance(p, Point)
+# True
+```
+
+**deque**  
+使用list存储数据时，按索引访问元素很快，但是插入和删除元素就很慢了，因为list是线性存储，数据量大的时候，插入和删除效率很低。
+deque是为了高效实现插入和删除操作的双向列表，适合用于队列和栈：
+```py
+from collections import deque
+q = deque(['a', 'b', 'c'])
+q.append('x')
+q.appendleft('y')
+```
+
+**defaultdict**  
+使用dict时，如果引用的Key不存在，就会抛出KeyError。如果希望key不存在时，返回一个默认值，就可以用defaultdict  
+除了在Key不存在时返回默认值，defaultdict的其他行为跟dict是完全一样的。
+```py
+from collections import defaultdict
+dd = defaultdict(lambda: 'N/A')
+dd['key1'] = 'abc'
+dd['key1'] # key1存在
+# 'abc'
+dd['key2'] # key2不存在，返回默认值
+# 'N/A'
+```
+
+**OrderedDict**
+使用dict时，Key是无序的。在对dict做迭代时，我们无法确定Key的顺序。 
+如果要保持Key的顺序，可以用OrderedDict
+
+**ChainMap**  
+ChainMap可以把一组dict串起来并组成一个逻辑上的dict。ChainMap本身也是一个dict，但是查找的时候，会按照顺序在内部的dict依次查找。   
+什么时候使用ChainMap最合适？举个例子：应用程序往往都需要传入参数，参数可以通过命令行传入，可以通过环境变量传入，还可以有默认参数。我们可以用ChainMap实现参数的优先级查找，即先查命令行参数，如果没有传入，再查环境变量，如果没有，就使用默认参数。
+
+### itertools
+
+常用:  
+* chain()
+* groupby()
+* repeat()
+* circle()
+
+### contextlib
+管理上下文来使用简洁的with语法  
+
+### HTMLParser
+
+html解析
+
+## 常用三方模块
+
+### Pillow
+
+图像处理
+
+### requests
+
+请求库
+
+### psutil
+
+获取系统，进程信息
+
+## 数据库
+
+## 异步IO
+asyncio
 ## 命令行交互
 ```py
 # 用户输入
