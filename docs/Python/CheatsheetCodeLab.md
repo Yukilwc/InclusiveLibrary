@@ -195,6 +195,10 @@ else:
 if x: 
     pass
 
+# None
+if(link_el is not None):
+    pass
+
 ```
 
 ### 循环
