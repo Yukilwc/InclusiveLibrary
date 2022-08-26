@@ -136,9 +136,10 @@ itemList.pop(index)
 ```
 
 技巧  
-
+TODO:
 ```py
 # 移除list中全部dict的某个key
+# 合并两个list
 ```
 
 ### tuple
@@ -168,7 +169,14 @@ dt['f'] = 10
 # 使用get方法 可指定默认，不指定则返回None
 dt.get('z','default value')
 # 删除
-dt.pop('a')
+dt.pop('a') # 可返回移除的元素
+del dt['a']
+# 拷贝 仅仅是浅拷贝，只拷贝第一层
+dt.copy()
+```
+
+技巧  
+```py
 ```
 
 ### set
