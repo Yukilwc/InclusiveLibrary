@@ -119,6 +119,7 @@ d =  f'number is {a},string is {b},number format is {c:.2f}'
 
 ### list
 
+基础  
 ```py
 # 定义
 itemList = ['a','b','c']
@@ -132,6 +133,12 @@ itemList.append('d')
 itemList.insert(1,'e')
 itemList.pop()
 itemList.pop(index)
+```
+
+技巧  
+
+```py
+# 移除list中全部dict的某个key
 ```
 
 ### tuple
@@ -1027,3 +1034,9 @@ asyncio
 # 用户输入
 name = input('name:')
 ```
+
+## IDE
+
+vim批量缩进  
+选中行即可，不用全选，包括替换类似,不用真的选中全部代码，而是命中行
+`shift+>`和`shift+<`即可
