@@ -15,6 +15,13 @@ py -3 -m pip list
 py -3 -m pip show Pillow
 ```
 
+### 依赖收录
+
+| 依赖名               | 功能 | 安装注意 |
+| -------------------- | ---- | -------- |
+| pip install selenium |      |          |
+|                      |      |          |
+
 ## 基础
 
 ### 基础类型
@@ -136,10 +143,32 @@ itemList.pop(index)
 ```
 
 技巧  
-TODO:
 ```py
 # 移除list中全部dict的某个key
-# 合并两个list
+```
+
+**合并list**
+
+如果数据量小，使用+和*运算符好  
+数据量大，使用itertools  
+修改原始列表，使用extend  
+需要合并前做处理，使用for循环append
+
+```py
+# +运算符
+list1+list2
+# list.append()
+for element in list1:
+    result.append(element)
+# *号
+[*list1,*list2]
+# extend
+result = []
+result.extend(list1)
+result.extend(list2)
+# itertools.chain()实现
+import itertools
+result = list(itertools.chain(list2, list2, list3))
 ```
 
 ### tuple
