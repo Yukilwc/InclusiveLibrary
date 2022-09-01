@@ -498,6 +498,19 @@ while True:
         break
 ```
 
+
+### 可迭代元素处理技巧汇总
+
+TODO:对list进行处理后返回新list
+
+```py
+# map
+img_others_list = map(lamda path:Image.open(path).convert('RGB'),list[1:])
+# for表达式
+img_others_list = [Image.open(path ).convert('RGB') for path in list[1:]]
+# 大列表使用迭代器
+```
+
 ## 函数式编程
 
 ### 内置高阶函数
