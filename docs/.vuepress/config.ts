@@ -4,7 +4,7 @@ import { path } from "@vuepress/utils";
 import { registerComponentsPlugin } from "@vuepress/plugin-register-components";
 // import { docsearchPlugin } from "@vuepress/plugin-docsearch"
 import { searchPlugin } from "@vuepress/plugin-search";
-import { pwaPlugin } from "@vuepress/plugin-pwa";
+// import { pwaPlugin } from "@vuepress/plugin-pwa";
 import { pwaPopupPlugin } from "@vuepress/plugin-pwa-popup";
 import { googleAnalyticsPlugin } from "@vuepress/plugin-google-analytics";
 import { viteBundler } from "@vuepress/bundler-vite";

@@ -269,6 +269,12 @@ while n>0:
     n=n-2
 ```
 
+### 延时
+```py
+import time
+time.sleep(1) # 单位秒
+
+```
 ## 函数
 
 ### 定义
@@ -1077,3 +1083,9 @@ name = input('name:')
 vim批量缩进  
 选中行即可，不用全选，包括替换类似,不用真的选中全部代码，而是命中行
 `shift+>`和`shift+<`即可
+
+vscode创建launch.json  
+TODO:
+
+vscode断点不生效  
+配置中开启`"stopOnEntry": true`
