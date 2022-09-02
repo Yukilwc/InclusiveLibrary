@@ -2,9 +2,13 @@
 
 ## 概要
 
+主要描述一些基础性质的语法，并非任何技巧的收录  
+
 记录速查用的笔记，具体参考了:
 
 * [Link](https://www.liaoxuefeng.com/wiki/1016959663602400)
+
+
 ## 指令与工具
 
 安装双版本python时，使用pip安装依赖，更新依赖，查看依赖
@@ -14,6 +18,13 @@ py -3 -m pip install --upgrade pip
 py -3 -m pip list
 py -3 -m pip show Pillow
 ```
+
+### 依赖收录
+
+| 依赖名               | 功能 | 安装注意 |
+| -------------------- | ---- | -------- |
+| pip install selenium |      |          |
+|                      |      |          |
 
 ## 基础
 
@@ -136,10 +147,32 @@ itemList.pop(index)
 ```
 
 技巧  
-TODO:
 ```py
 # 移除list中全部dict的某个key
-# 合并两个list
+```
+
+**合并list**
+
+如果数据量小，使用+和*运算符好  
+数据量大，使用itertools  
+修改原始列表，使用extend  
+需要合并前做处理，使用for循环append
+
+```py
+# +运算符
+list1+list2
+# list.append()
+for element in list1:
+    result.append(element)
+# *号
+[*list1,*list2]
+# extend
+result = []
+result.extend(list1)
+result.extend(list2)
+# itertools.chain()实现
+import itertools
+result = list(itertools.chain(list2, list2, list3))
 ```
 
 ### tuple
@@ -240,6 +273,12 @@ while n>0:
     n=n-2
 ```
 
+### 延时
+```py
+import time
+time.sleep(1) # 单位秒
+
+```
 ## 函数
 
 ### 定义
@@ -461,6 +500,23 @@ while True:
     except StopIteration:
         # 遇到StopIteration就退出循环
         break
+
+# 迭代括号写法,这是创建了一个Generator
+itr = (x for x in range(10))
+isinstance(itr, Iterable)
+```
+
+
+### 可迭代元素处理技巧汇总
+
+TODO:对list进行处理后返回新list
+
+```py
+# map
+img_others_list = map(lamda path:Image.open(path).convert('RGB'),list[1:])
+# for表达式
+img_others_list = [Image.open(path ).convert('RGB') for path in list[1:]]
+# 大列表使用迭代器
 ```
 
 ## 函数式编程
@@ -1048,3 +1104,9 @@ name = input('name:')
 vim批量缩进  
 选中行即可，不用全选，包括替换类似,不用真的选中全部代码，而是命中行
 `shift+>`和`shift+<`即可
+
+vscode创建launch.json  
+TODO:
+
+vscode断点不生效  
+配置中开启`"stopOnEntry": true`
