@@ -2,9 +2,13 @@
 
 ## 概要
 
+主要描述一些基础性质的语法，并非任何技巧的收录  
+
 记录速查用的笔记，具体参考了:
 
 * [Link](https://www.liaoxuefeng.com/wiki/1016959663602400)
+
+
 ## 指令与工具
 
 安装双版本python时，使用pip安装依赖，更新依赖，查看依赖
@@ -496,6 +500,10 @@ while True:
     except StopIteration:
         # 遇到StopIteration就退出循环
         break
+
+# 迭代括号写法,这是创建了一个Generator
+itr = (x for x in range(10))
+isinstance(itr, Iterable)
 ```
 
 
