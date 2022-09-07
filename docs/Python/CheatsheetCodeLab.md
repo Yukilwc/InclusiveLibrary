@@ -399,6 +399,7 @@ a.step
 
 ```py
 # 基础迭代
+# 迭代dict
 d = {'a': 1, 'b': 2, 'c': 3}
 for key in d: 
     print(key)
@@ -1088,6 +1089,97 @@ html解析
 ### psutil
 
 获取系统，进程信息
+
+## 自定义包
+
+### 包定义
+
+基础定义:  
+在文件夹下，放置一个空的`__init__.py`即可，它会被作为初始化模块调用的文件  
+
+**区分单独执行还是作为包引入**
+修改__init__.py文件
+```py
+if __name__ == '__main__':
+    print('作为主程序运行')
+else:
+    print('初始化')
+```
+
+**限定包可被导出的方法**
+```py
+# 变量a不会被导出
+__all__ = ["f1", "f2"]
+
+def f1():
+    pass
+
+def f2():
+    pass
+
+a = 5
+```
+
+**__init__.py集中导出子模块方法**
+
+结构如下:
+
+main.py
+modules folder 
+* a func1
+* b func2
+
+```py
+# __init__.py
+from .a import func1
+from .b import func2
+# main.py
+from modules import func1,func2 
+```
+
+### 包引入
+
+**基础**
+需要告知python从哪里查询模块  
+同级目录会被自动加入sys.path的查询数组中  
+非同级包则需要主动添加  
+
+结构如下:  
+* doc_to_pdf
+  * base_doc_to_pdf
+    * __init__.py
+    * base_tools.py
+  * vue_doc
+    * vue_doc_to_pdf.py
+
+```py
+# file vue_doc_to_pdf.py
+import sys
+print(sys.path) # 包查询目录,会从中查询下面有__init__.py的文件夹
+sys.path.append(r'D:\workspace\libiary\my\misaka_python_practice\doc_to_pdf')
+
+# 直接导入子模块 
+import base_doc_to_pdf.base_tools
+base_doc_to_pdf.base_tools.hello()
+
+# 从主模块中导入子模块 
+from base_doc_to_pdf import base_tools
+base_tools.hello()
+
+# 从子模块导入方法
+from base_doc_to_pdf.base_tools import hello
+hello()
+
+# 该写法错误 子模块不可使用点号运算符调用，方法才可以
+# import base_doc_to_pdf
+# base_doc_to_pdf.base_tools.hello()
+
+
+# 重命名导入的包
+import modules.p1 as new_p1
+```
+
+**最佳模块引入实践**
 
 ## 数据库
 
