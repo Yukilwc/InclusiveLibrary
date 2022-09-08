@@ -754,6 +754,21 @@ class Weekday(Enum):
 使用函数创建类，用到了再记录吧  
 
 
+### 静态方法
+使用装饰器声明即可
+```py
+    @staticmethod
+    def wait_selector(browser,selector):
+        # 创建等待对象
+        wait_obj = WebDriverWait(browser,10)
+        wait_obj.until(
+            expected_conditions.presence_of_element_located(
+                (By.CSS_SELECTOR,selector)
+            )
+        )
+```
+
+### 定义接口或抽象类
 ## 异常处理
 
 基础使用  
@@ -1092,6 +1107,12 @@ html解析
 
 ## 自定义包
 
+### 基础知识
+
+* import只能引入模块,不可引入变量和函数
+* from import 可以引入模块，变量和函数
+* __all__属性仅在存在import *时有效果
+
 ### 包定义
 
 基础定义:  
@@ -1181,14 +1202,26 @@ import modules.p1 as new_p1
 
 **最佳模块引入实践**
 
+[参考的组织形式](https://zhuanlan.zhihu.com/p/78247846)
+
+不论是通过添加环境变量，还是使用`sys.path.append`添加模块，都有各种问题  
+要么是造成多项目的冗余配置,要么是更换设备需要大量修改配置  
+python是不推荐进行相对引用的，一般都是使用绝对路径  
+TODO: 
+
 ## 数据库
 
 ## 异步IO
 asyncio
 ## 命令行交互
+用户输入
 ```py
-# 用户输入
 name = input('name:')
+```
+
+用户选择
+```py
+
 ```
 
 ## IDE
@@ -1202,3 +1235,33 @@ TODO:
 
 vscode断点不生效  
 配置中开启`"stopOnEntry": true`
+
+## python项目代码组织
+
+[参考](https://stackoverflow.com/questions/193161/what-is-the-best-project-structure-for-a-python-application)
+
+### 基础知识
+
+没个py文件就是一个模块  
+每个模块都有默认名字__name__  
+如果文件作为模块导入，__name__则为模块名  
+如果文件作为被执行的文件,__name__则为__main__
+
+### 结构目录
+
+Project:
+* bin/
+  * __init__.py
+* lib/
+  * __init__.py
+* src/
+  * test/
+  * __init__.py
+  * main.py
+* setup.py
+* README.md
+* requirements.txt
+* LICENSE
+
+### startup.py
+使用setuptools 
