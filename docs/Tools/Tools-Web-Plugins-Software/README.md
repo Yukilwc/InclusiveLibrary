@@ -88,8 +88,8 @@
 | Esbuild                   | [Link](https://esbuild.github.io/getting-started/)                |                        |
 | material design           | [Link](https://material.io/design/introduction)                   |                        |
 | pinia                     | [Link](https://pinia.vuejs.org/introduction.html)                 |                        |
-|                           |                                                                   |                        |
-|                           |                                                                   |                        |
+| scrapy                    | [Link](https://docs.scrapy.org/en/latest/intro/tutorial.html)     |                        |
+| selenium                  | [Link](https://www.selenium.dev/documentation/)                   |                        |
 |                           |                                                                   |                        |
 |                           |                                                                   |                        |
 |                           |                                                                   |                        |

@@ -25,3 +25,5 @@
 [500行](http://aosabook.org/en/500L/)
 
 [知乎练手项目推荐](https://www.zhihu.com/question/29372574)
+
+[基础与案例](https://github.com/jackfrued/Python-100-Days)
