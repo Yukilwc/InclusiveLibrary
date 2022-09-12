@@ -14,6 +14,18 @@ git config --global user.email myemail
 
 ```
 
+### 仓库
+
+```sh
+# 查看远程仓库
+git remote -v
+# 添加远程仓库
+git remote add origin [仓库url]
+# 切换远程仓库 例如从https得切换为ssh得
+git remote set-url origin [仓库url]
+
+```
+
 ### 分支
 
 
