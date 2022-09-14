@@ -89,3 +89,6 @@ print('独立迭代器生成:',list(i_1),list(i_2))
 
 ### 按最长的迭代器zip
 print('按最长的迭代器zip',list(itertools.zip_longest('abcd','12',fillvalue='-')))
+
+### 复制拷贝list tuple dict,分深拷贝和浅拷贝
+# TODO:
