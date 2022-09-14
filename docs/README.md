@@ -131,6 +131,10 @@
 
 ## 生活技能
 
+### 旅行
+
+[西安旅行日志](./Life-Skill/travel/xian.md)
+
 ### 厨艺
 
 [食谱收录其一](Life-Skill/Cook/Recipes-Collection/Recipes-1.md)
