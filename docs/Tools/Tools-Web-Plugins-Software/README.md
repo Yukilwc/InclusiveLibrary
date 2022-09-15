@@ -44,14 +44,15 @@
 
 ### 未分类
 
-| 名字             | 地址                                                | 功能     |
-| ---------------- | --------------------------------------------------- | -------- |
-| switch520        | [Link](https://switch520.com/)                      | 游戏白嫖 |
-| 图形化正则演示   | [Link](https://regexper.com/)                       |          |
-| 在线查看AST      | [Link](https://astexplorer.net/)                    |          |
-| google analytics | [Link](https://analytics.google.com/analytics/web/) |          |
-| 在线文档转换     | [Link](https://convertio.co/zh/)                    |          |
-| css加载阻塞      | [Link](http://ruofee.cn/article/1633592450024/)     |          |
+| 名字             | 地址                                                          | 功能     |
+| ---------------- | ------------------------------------------------------------- | -------- |
+| switch520        | [Link](https://switch520.com/)                                | 游戏白嫖 |
+| 图形化正则演示   | [Link](https://regexper.com/)                                 |          |
+| 在线查看AST      | [Link](https://astexplorer.net/)                              |          |
+| google analytics | [Link](https://analytics.google.com/analytics/web/)           |          |
+| 在线文档转换     | [Link](https://convertio.co/zh/)                              |          |
+| css加载阻塞      | [Link](http://ruofee.cn/article/1633592450024/)               |          |
+| 便宜服务器推荐   | [Link](https://www.guozeyu.com/2022/08/choose-a-web-service/) |          |
 
 ### 待消化的文章
 

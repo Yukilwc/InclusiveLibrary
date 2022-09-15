@@ -9,23 +9,6 @@
 * [Link](https://www.liaoxuefeng.com/wiki/1016959663602400)
 
 
-## 指令与工具
-
-安装双版本python时，使用pip安装依赖，更新依赖，查看依赖
-```sh
-py -3 -m pip install Pillow
-py -3 -m pip install --upgrade pip
-py -3 -m pip list
-py -3 -m pip show Pillow
-```
-
-### 依赖收录
-
-| 依赖名               | 功能 | 安装注意 |
-| -------------------- | ---- | -------- |
-| pip install selenium |      |          |
-|                      |      |          |
-
 ## 基础
 
 ### 基础类型
@@ -1224,44 +1207,3 @@ name = input('name:')
 
 ```
 
-## IDE
-
-vim批量缩进  
-选中行即可，不用全选，包括替换类似,不用真的选中全部代码，而是命中行
-`shift+>`和`shift+<`即可
-
-vscode创建launch.json  
-TODO:
-
-vscode断点不生效  
-配置中开启`"stopOnEntry": true`
-
-## python项目代码组织
-
-[参考](https://stackoverflow.com/questions/193161/what-is-the-best-project-structure-for-a-python-application)
-
-### 基础知识
-
-没个py文件就是一个模块  
-每个模块都有默认名字__name__  
-如果文件作为模块导入，__name__则为模块名  
-如果文件作为被执行的文件,__name__则为__main__
-
-### 结构目录
-
-Project:
-* bin/
-  * __init__.py
-* lib/
-  * __init__.py
-* src/
-  * test/
-  * __init__.py
-  * main.py
-* setup.py
-* README.md
-* requirements.txt
-* LICENSE
-
-### startup.py
-使用setuptools 
