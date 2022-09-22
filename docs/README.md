@@ -206,6 +206,6 @@
 
 ## Python
 
-[Python项目相关](./Python/Project.md)
+[Python项目构建](./Python/Project.md)
 
 [Python速查手册](./Python/CheatsheetCodeLab.md)
