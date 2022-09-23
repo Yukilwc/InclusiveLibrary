@@ -7,6 +7,11 @@
 
 ## 设计
 
+### PS
+
+[PS技巧收录](./Design/PS/Skill.md)
+
+[PS设计资源](./Design/PS/Source.md)
 ### 色彩
 
 [好看的颜色与其表征的意象](./Design/Colors/Nice-Colors-And-Imagery.md)
