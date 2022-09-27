@@ -54,6 +54,27 @@ py -3 -m pip venv ./
 * vscode会自动激活虚拟环境,进入对应的venv状态
 * 此时可以在虚拟环境中安装依赖与运行
 
+此时的launch.json文件配置  
+```json
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Python: Current File",
+            "type": "python",
+            "request": "launch",
+            "program": "${file}",
+            "console": "integratedTerminal",
+            "justMyCode": false,
+            "stopOnEntry": true 
+        }
+    ]
+}
+```
+
 ## python项目代码组织结构
 
 [参考](https://stackoverflow.com/questions/193161/what-is-the-best-project-structure-for-a-python-application)
