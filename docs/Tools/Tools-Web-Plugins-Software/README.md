@@ -92,8 +92,8 @@
 | pinia                     | [Link](https://pinia.vuejs.org/introduction.html)                 |                        |
 | scrapy                    | [Link](https://docs.scrapy.org/en/latest/intro/tutorial.html)     |                        |
 | selenium                  | [Link](https://www.selenium.dev/documentation/)                   |                        |
-|                           |                                                                   |                        |
-|                           |                                                                   |                        |
+| go语言圣经英文版          | [Link](https://www.shuzhiduo.com/A/Vx5Mvo47dN/)                   |                        |
+| go语言圣经中文版          | [Link](https://github.com/golang-china/gopl-zh)                   |                        |
 |                           |                                                                   |                        |
 |                           |                                                                   |                        |
 |                           |                                                                   |                        |
