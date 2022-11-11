@@ -94,7 +94,7 @@
 | selenium                  | [Link](https://www.selenium.dev/documentation/)                   |                        |
 | go语言圣经英文版          | [Link](https://www.shuzhiduo.com/A/Vx5Mvo47dN/)                   |                        |
 | go语言圣经中文版          | [Link](https://github.com/golang-china/gopl-zh)                   |                        |
-|                           |                                                                   |                        |
+| tsconfig配置解释          | [Link](https://mp.weixin.qq.com/s/qKjshvVnMmEfN1Mj1rsfqg)         |                        |
 |                           |                                                                   |                        |
 |                           |                                                                   |                        |
 |                           |                                                                   |                        |
