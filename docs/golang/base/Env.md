@@ -21,10 +21,10 @@ go安装完成后，需要保证一些环境变量的配置，具体介绍如下
 
 ### 安装后的环境变量
 
-安装完成后，会自动添加以下环境变量，如果没有找到则需要手动添加上。
+Go本身安装完成后，会自动添加以下环境变量。如果查看电脑环境变量，发现缺失了配置，则可以手动进行添加。
 * 系统变量，PATH添加go安装目录下的bin文件夹：`PATH=C:\Program Files\Go\bin`
 * 用户变量，添加GOPATH,指定其为go的工作区：`GOPATH=%USERPROFILE%\go`
-* 用户变量，PATH添加go工作区目录下的bin文件夹：`PATH=%USERPROFILE%\go\bin`其放置了项目的可执行文件。`go install`生成的exe文件也会放入其中。
+* 用户变量，PATH添加go工作区目录下的bin文件夹：`PATH=%USERPROFILE%\go\bin`。其放置了项目的可执行文件，同时`go install`生成的exe文件也会放入其中。
 
 ### go开发配置环境变量
 
@@ -34,20 +34,20 @@ go自身还维护了很多go专属的环境变量。go版本大于1.13时，可�
 
 以下介绍一些重要的环境变量:
 
-**GOROOT**:go的安装目录  
+**GOROOT**：go的安装目录  
 
-**GOPATH**: go的工作区目录,其下三个文件夹:
+**GOPATH**： go的工作区目录,其下三个文件夹:
 * src 用户项目源码，但是在使用go mod后，就不需要必须在此文件夹中建立项目了
 * pkg 编译后的库文件
 * bin 可执行文件
 
-**GOOS**: 操作系统
+**GOOS**： 操作系统
 
-**GOARCH**: CPU架构,与GOOS一起配置，用于交叉编译，指定build的目标系统
+**GOARCH**： CPU架构,与GOOS一起配置，用于交叉编译，指定build的目标系统
 
-**GO111MODULE**: go modules开关，一般开启设置为on
+**GO111MODULE**： go modules开关，一般开启设置为on
 
-**GOPROXY**: **必要配置**,`go env -w GOPROXY=https://goproxy.cn,direct`
+**GOPROXY**： **必要配置**,`go env -w GOPROXY=https://goproxy.cn,direct`
 
 
 ## 创建与运行项目
