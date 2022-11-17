@@ -22,16 +22,16 @@ go安装完成后，其开发依赖了一些环境变量。可以查看自己的
 ### 安装后的环境变量
 
 安装完成后，添加了如下环境变量
-* 系统变量添加go的安装目录下的bin文件夹:`PATH=%PATH%;C:\Program Files\Go\bin`
+* 系统变量添加go的安装目录下的bin文件夹:`PATH=C:\Program Files\Go\bin`
 * 用户变量添加GOPATH,指定go的工作区: `GOPATH=%USERPROFILE%\go`
 * 用户变量添加go工作区目录下的bin文件夹,其放置了项目的可执行文件:`PATH=%USERPROFILE%\go\bin`
 
 ### go开发配置环境变量
 
-go自身还维护了很多go专属的环境变量  
-go版本大于1.13时，可以直接使用`go env`指令查看和设置  
-使用`go env`查看全部，使用`go env 变量名`查看指定变量  
-使用`go env -w 变量名=设置值`设置指定变量，并且关闭命令行工具后依然有效  
+go自身还维护了很多go专属的环境变量。  
+go版本大于1.13时，可以直接使用`go env`指令查看和设置。  
+使用`go env`查看全部，使用`go env 变量名`查看指定变量。  
+使用`go env -w 变量名=设置值`设置指定变量，并且关闭命令行工具后依然有效 。  
 
 以下仅介绍一些终要的环境变量:
 
@@ -43,6 +43,103 @@ go版本大于1.13时，可以直接使用`go env`指令查看和设置
 * bin 可执行文件
 
 **GOOS**: 操作系统
+
 **GOARCH**: CPU架构,与GOOS一起配置，用于交叉编译，指定build的目标系统
 
 **GO111MODULE**: go modules开关，一般开启设置为on
+
+**GOPROXY**: **必要配置**,`go env -w GOPROXY=https://goproxy.cn,direct`
+
+
+## 创建与运行项目
+
+### 创建
+
+```sh
+# 创建项目目录
+mkdir go_test_init
+cd go_test_init
+# 模块初始化 会自动生成go.mod文件
+go mod init go_test_init
+```
+::: tip GO111MODULE=on时的依赖查找机制
+内容
+:::
+
+### 代码与执行
+
+创建一个`main.go`文件，写入如下代码
+```go
+package main
+import "fmt"
+func main() {
+	fmt.Println("hello go")
+}
+```
+
+执行`go run main.go`,打印出信息
+
+### 安装三方模块与引入
+
+**安装Gin包**
+
+```sh
+go get -u github.com/gin-gonic/gin
+```
+**导入后的变动**
+
+`go.mod`包会增加大量require依赖  
+会自动生成`go.sum`包，管理依赖关系,一般不会去修改`go.sum`包,类似前端的`package-lock.json`  
+
+**使用Gin包**
+
+```go
+package main
+import (
+	"fmt"
+	"github.com/gin-gonic/gin"
+)
+func main() {
+	fmt.Println("hello go")
+	r := gin.Default()
+	r.GET("/", func(ctx *gin.Context) {})
+	r.Run()
+}
+```
+
+**已有go.mod安装依赖**
+
+如果是从github下载了已有的go项目，则直接运行`go run main.go`即可，`go.mod`中的依赖会自动下载。
+
+### 导入本地模块
+
+首先创建如下文件结构
+
+![文件结构](./images/微信截图_20221117151347.png)
+
+在三个包文件中定义需要导出的函数，函数使用大驼峰命名  
+
+![导出函数定义](./images/微信截图_20221117151905.png)
+
+最后在main.go中导入,包前缀的`go_test_init`即为顶层`go.mod`中的`module go_test_init`声明
+
+![导入自定义包函数](./images/微信截图_20221117151951.png)
+
+::: tip  模块文件结构设计
+注意，一个文件夹下的全部文件，必须声明为同一个package,声明不同package会报错。  
+如果是嵌套的文件夹，则可以声明为不同的package。  
+包的命名最好和文件夹保持一致，全小写，不适用复数。  
+:::
+
+## 使用vscode
+
+
+### 安装插件与依赖
+
+打开一个go项目，`ctrl+shift+p`,查找指令`Go:Install/Update Tools`
+
+## 参考
+
+[Vscode使用go插件](https://learn.microsoft.com/zh-cn/azure/developer/go/configure-visual-studio-code)
+
+[go mod文档](https://go.dev/ref/mod#go-mod-init)
