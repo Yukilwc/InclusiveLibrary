@@ -14,6 +14,8 @@ npm install -g treer
 treer -d D:\test
 # 导出
 treer -d D:\test -e D:\export.text
+# 忽略
+treer -d D:\test -i .git
 ```
 
 导出如下，使用代码模块，类型指定为sh即可：
