@@ -219,7 +219,7 @@
 
 ### 基础笔记
 
-[go环境配置与简单项目搭建](./golang//base/Env.md)
+[Go安装配置与简单项目搭建](./golang//base/Env.md)
 
 ### 服务端构建
 
