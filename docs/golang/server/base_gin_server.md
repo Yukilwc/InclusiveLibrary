@@ -88,8 +88,18 @@ go run main.go
 
 ## 分层设计其二
 
+## IDE配置
+
+### .code-workspace配置
+
 ## 参考
 
 [GoFrame工程开发设计](https://goframe.org/pages/viewpage.action?pageId=3672442)
 
 [Gin文档](https://github.com/gin-gonic/gin#contents)
+
+[gofast](https://github.com/tiger1103/gfast)
+
+[go-vue-admin](https://github.com/flipped-aurora/gin-vue-admin/tree/main/server)
+
+[关于golang框架搭建和标准的思考](https://www.xcssuper.com/post/%E5%85%B3%E4%BA%8Egolang%E6%A1%86%E6%9E%B6%E6%90%AD%E5%BB%BA%E5%92%8C%E6%A0%87%E5%87%86%E7%9A%84%E6%80%9D%E8%80%83/)

@@ -12,4 +12,4 @@
 | 书名           | 链接                                                                | 描述                               |
 | -------------- | ------------------------------------------------------------------- | ---------------------------------- |
 | Go语言高级编程 | [Link](https://chai2010.cn/advanced-go-programming-book/index.html) | 提供了CGO，汇编，RPC等高级特性教程 |
-|                |                                                                     |                                    |
+| Uber的Go规范   | [Link](https://github.com/xxjwxc/uber_go_guide_cn)                  |                                    |
