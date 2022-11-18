@@ -14,3 +14,9 @@ DAO(Data Access Object)
 
 **基于业务的struct和基于DB的struct如何区分？**  
 基于DB的struct是可以做自动生成的，因此可以分离出来使用工具维护
+
+**项目初始化加载的逻辑放在initialize吗**
+
+**日志体系如何嵌入？**
+
+**api文件夹在分层架构中是何职责位置？**
