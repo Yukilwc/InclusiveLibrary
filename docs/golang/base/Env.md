@@ -21,9 +21,9 @@ Go安装完成后，需要保证一些环境变量的配置，具体介绍如下
 ### 安装后的环境变量
 
 Go本身安装完成后，会自动添加以下环境变量。如果查看电脑环境变量，发现缺失了配置，则可以手动进行添加。
-* 系统变量，PATH添加Go安装目录下的bin文件夹：`PATH=C:\Program Files\Go\bin`
-* 用户变量，添加GOPATH,指定其为Go的工作区：`GOPATH=%USERPROFILE%\go`
-* 用户变量，PATH添加Go工作区目录下的bin文件夹：`PATH=%USERPROFILE%\go\bin`。其放置了项目的可执行文件，同时`go install`生成的exe文件也会放入其中。
+* 系统变量PATH中，添加Go安装目录下的bin文件夹：`PATH=C:\Program Files\Go\bin`
+* 用户变量中，添加GOPATH,指定其为Go的工作区：`GOPATH=%USERPROFILE%\go`
+* 用户变量PATH中，添加Go工作区目录下的bin文件夹：`PATH=%USERPROFILE%\go\bin`。其放置了项目的可执行文件，同时`go install`生成的exe文件也会放入其中。
 
 ### Go开发配置环境变量
 
