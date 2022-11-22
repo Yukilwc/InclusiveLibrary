@@ -225,9 +225,9 @@
 
 [使用Gin搭建基础服务端](./golang/server/base_gin_server.md)
 
-### 手册
+### Go速查手册
 
-[手册](./golang/handbook/handbook.md)
+[手册-结构体](./golang/handbook/struct.md)
 
 
 ## 写作
