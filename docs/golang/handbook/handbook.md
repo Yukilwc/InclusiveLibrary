@@ -29,9 +29,11 @@ p.name = "Kiana"
 可以使用**结构体字面值**进行初始化：
 ```go
 // 使用命名指定
-var p := Person{id:1,name:"Kiana",address:"home"}
+p := Person{id:1,name:"Kiana",address:"home"}
+// 使用命名指定 且返回指针，较为常用
+gp := &Person(id:1,name:"Kiana",address:"")
 // 使用顺序指定 不推荐，改动成本大
-var p := Person{1,"Kiana","home"}
+p := Person{1,"Kiana","home"}
 ```
 
 ### 成员的可访问性
@@ -51,3 +53,8 @@ var p := Person{1,"Kiana","home"}
 2. 各种传参赋值函数返回中，使用变量本身还是指针？各自有何意义权衡？
 
 如果需要在函数内部，修改参数结构体变量的成员，则必须使用指针传入参数，因为所有的函数参数，都是值拷贝传入的。
+
+对于结构体，常用的处理方式就是指针，因为结构体变量初始化常写成如下：
+```go
+gp := &Person(id:1,name:"Kiana",address:"")
+```
