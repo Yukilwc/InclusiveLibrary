@@ -239,3 +239,9 @@
 ### Markdown
 
 [Markdown技巧](./Writing/Markdown/skill.md)
+
+## 软件工程
+
+### DDD领域驱动设计
+
+[领域驱动设计笔记](./SoftwareEngineering/DDD/base_note.md)
