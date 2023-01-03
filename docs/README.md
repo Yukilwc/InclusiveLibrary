@@ -245,3 +245,10 @@
 ### DDD领域驱动设计
 
 [领域驱动设计笔记](./SoftwareEngineering/DDD/base_note.md)
+
+
+## 医疗
+
+### 新冠
+
+[常备医疗资源](./Life-Skill/Medical/Covid19/reserved_drugs.md)
