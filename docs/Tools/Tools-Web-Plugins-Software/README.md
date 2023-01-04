@@ -121,6 +121,7 @@
 | codepen查找实验好看的效果 | [Link](https://codepen.io/)                              |     |
 | crates Rust应用商店       | [Link](https://crates.io/)                               |     |
 | 在线浏览器兼容性测试      | [Link](https://www.browserling.com/)                     |     |
+| 免费的https证书颁发       | [Link](https://letsencrypt.org/zh-cn/docs/)              |     |
 
 ### 娱乐资源
 
