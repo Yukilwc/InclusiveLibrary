@@ -54,6 +54,7 @@
 | css加载阻塞      | [Link](http://ruofee.cn/article/1633592450024/)               |          |
 | 便宜服务器推荐   | [Link](https://www.guozeyu.com/2022/08/choose-a-web-service/) |          |
 | 生活百科         | [Link](https://zh.wikihow.com/%E9%A6%96%E9%A1%B5)             |          |
+| navicat激活教程  | [Link](https://zhuanlan.zhihu.com/p/480187567)                |          |
 
 ### 待消化的文章
 
