@@ -44,17 +44,19 @@
 
 ### 未分类
 
-| 名字             | 地址                                                          | 功能     |
-| ---------------- | ------------------------------------------------------------- | -------- |
-| switch520        | [Link](https://switch520.com/)                                | 游戏白嫖 |
-| 图形化正则演示   | [Link](https://regexper.com/)                                 |          |
-| 在线查看AST      | [Link](https://astexplorer.net/)                              |          |
-| google analytics | [Link](https://analytics.google.com/analytics/web/)           |          |
-| 在线文档转换     | [Link](https://convertio.co/zh/)                              |          |
-| css加载阻塞      | [Link](http://ruofee.cn/article/1633592450024/)               |          |
-| 便宜服务器推荐   | [Link](https://www.guozeyu.com/2022/08/choose-a-web-service/) |          |
-| 生活百科         | [Link](https://zh.wikihow.com/%E9%A6%96%E9%A1%B5)             |          |
-| navicat激活教程  | [Link](https://zhuanlan.zhihu.com/p/480187567)                |          |
+| 名字             | 地址                                                          | 功能                            |
+| ---------------- | ------------------------------------------------------------- | ------------------------------- |
+| switch520        | [Link](https://switch520.com/)                                | 游戏白嫖                        |
+| 图形化正则演示   | [Link](https://regexper.com/)                                 |                                 |
+| 在线查看AST      | [Link](https://astexplorer.net/)                              |                                 |
+| google analytics | [Link](https://analytics.google.com/analytics/web/)           |                                 |
+| 在线文档转换     | [Link](https://convertio.co/zh/)                              |                                 |
+| css加载阻塞      | [Link](http://ruofee.cn/article/1633592450024/)               |                                 |
+| 便宜服务器推荐   | [Link](https://www.guozeyu.com/2022/08/choose-a-web-service/) |                                 |
+| 生活百科         | [Link](https://zh.wikihow.com/%E9%A6%96%E9%A1%B5)             |                                 |
+| navicat激活教程  | [Link](https://zhuanlan.zhihu.com/p/480187567)                |                                 |
+| 正则测试         | [Link](https://regex101.com/)                                 |                                 |
+| web3.0学习       |                                                               | [Link](https://www.web321.icu/) |
 
 ### 待消化的文章
 
@@ -123,6 +125,7 @@
 | crates Rust应用商店       | [Link](https://crates.io/)                               |     |
 | 在线浏览器兼容性测试      | [Link](https://www.browserling.com/)                     |     |
 | 免费的https证书颁发       | [Link](https://letsencrypt.org/zh-cn/docs/)              |     |
+|                           |                                                          |     |
 
 ### 娱乐资源
 
@@ -133,10 +136,10 @@
 
 ### 设计
 
-|      |                                   |     |
-| ---- | --------------------------------- | --- |
-| 站酷 | [Link](https://www.zcool.com.cn/) |     |
-|      |                                   |     |
+|                |                                   |     |
+| -------------- | --------------------------------- | --- |
+| 站酷           | [Link](https://www.zcool.com.cn/) |     |
+| 好看的颜色搭配 | [Link](https://colorhunt.co/)     |     |
 ## chrome插件
 
 
