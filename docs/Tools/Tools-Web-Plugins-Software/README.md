@@ -65,6 +65,7 @@
 | -------------------- | --------------------------------------------------------- | ---- |
 | vite pre-bunding原理 | [Link](https://mp.weixin.qq.com/s/2zZcjo9Wfg7wZBjsyCnT_w) |      |
 | 一个人生观博客       | [Link](https://www.bmpi.dev/self/learn-skill/)            |      |
+| 关于创业             | [Link](https://zhuanlan.zhihu.com/p/19855994)             |      |
 
 ### 文档
 
