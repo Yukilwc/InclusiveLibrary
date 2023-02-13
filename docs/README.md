@@ -123,6 +123,10 @@
 
 [WebWorker实践](./Frontend/WebWorker/Practice.md)
 
+### 脚手架模板搭建
+
+[Vue v2版本模板搭建](./Frontend/Scaffold/vue_v2/start.md)
+
 ## IDE
 
 [VSCode相关配置](./IDE/VSCode/VSCode-config.md)
