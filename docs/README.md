@@ -237,6 +237,10 @@
 
 [手册-结构体](./golang/handbook/struct.md)
 
+### 库使用
+
+[Go JWT基础使用与封装](./golang/lib_learning/go_gin_jwt.md)
+
 
 ## 写作
 
