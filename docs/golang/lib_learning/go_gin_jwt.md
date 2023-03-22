@@ -18,6 +18,17 @@ JWT签名的加密，通常使用HMAC算法，也常使用需要公钥私钥对�
 1. 登录身份验证。
 2. 分享传输信息。保证信息被篡改后无效。
 
+在web中，常存放在请求头中的Authorization字段，发送给后端  
+
+在web中使用，一般是把JWT存入request header中的 Authorization 中，此种传输方式，由于不需要存储进cookie传输，所以也就没有跨域问题。  
+但是也要注意，其中存储的内容也不宜过大，否则容易被一些服务器拦截。  
+格式一般如下：
+```
+Authorization: Bearer <token>
+```
+
+
+
 ### 结构 
 
 JWT由三部分构成，之间使用点号`.`连接：
@@ -73,6 +84,7 @@ Registered Claims的名字都是三个字母，是因为JWT要尽可能压缩，
 
 ::: warning
 要注意，Header和Payload部分虽然被篡改会导致失效，但是他们都是只读的，所以不要往里面放私密的信息，其它人可以直接解密出其中内容。 
+可以使用官方提供的[在线工具](https://jwt.io/#debugger-io) 解码JWT查看信息
 :::
 
 #### Signiture
@@ -93,8 +105,20 @@ Signiture作用有二：
 
 ## 基础使用
 
-## 封装
+### 安装导入
+
+```sh
+go get -u github.com/golang-jwt/jwt/v5
+```
+
+```go
+import "github.com/golang-jwt/jwt/v5"
+```
+
+## Gin中间件封装
 
 ## 参考
 
 [JWT官方介绍](https://jwt.io/introduction)
+
+[go-jwt文档](https://pkg.go.dev/github.com/golang-jwt/jwt/v5#example-Parse-Hmac)
