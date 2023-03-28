@@ -30,6 +30,12 @@ zapcore定义了zap构建所依赖的底层接口，通过提供这些接口的�
 
 创建一个写日志到指定WriterSyncer的Core。
 
+### zap内置函数
+
+## 封装zap
+
+## ELK
+
 
 
 
