@@ -11,3 +11,17 @@ IDE支持自然是使用vscode+volar插件，注意要禁用vetur。
 
  开启此模式后，将会使用TypeScript Vue Plugin (Volar)来取代vue内置的ts插件，来对项目进行ts校验。
 :::
+
+### defineProps
+
+### 使用ref获取组件实例时的类型声明
+
+```ts
+import MyModal from './MyModal.vue'
+
+const modal = ref<InstanceType<typeof MyModal> | null>(null)
+
+const openModal = () => {
+  modal.value?.open()
+}
+```

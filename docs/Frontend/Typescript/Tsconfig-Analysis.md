@@ -24,8 +24,26 @@
 [详见](https://zhuanlan.zhihu.com/p/258906525)
 
 ### isolatedModules
+
 时开启单文件转译时，存在错误的报错  
 [详见](https://www.typescriptlang.org/tsconfig#isolatedModules)
+
+compilerOptions.isolatedModules 是一个 TypeScript 编译器选项，它的作用是让 TypeScript 在编译每个模块时，只考虑该模块本身的代码，而不考虑其他模块的类型信息。
+
+这个选项的设计意义是为了适配一些其他的转译器，比如 Babel，它们只能对单个文件进行转译，而不能像 TypeScript 那样对整个项目进行类型检查和代码转换。这种限制也适用于 TypeScript 的 ts.transpileModule API，它被一些构建工具使用。
+
+这些限制会导致一些 TypeScript 的特性在运行时出现问题，比如 const enum 和 namespace。设置 isolatedModules 选项可以让 TypeScript 在你写出一些不能被单文件转译过程正确解释的代码时，给出警告。它不会改变你的代码的行为，或者改变 TypeScript 的检查和输出过程。
+
+你应该在以下情况下使用这个选项：
+
+* 当你使用 Babel 或其他单文件转译器来处理 TypeScript 代码时
+* 当你使用 ts.transpileModule API 来转译 TypeScript 代码时
+* 当你想要确保你的代码可以被单文件转译过程正确解释时
+
+例如vite使用esbuild来转译typescript，受限于单文件转译限制，就需要设置此属性为true。
+
+简单来讲，就是babel，esbuild等编译器，只能对单个ts文件编译，而不会去联系整套ts代码构造类型体系。  
+因此，如果使用了一些特殊的特性，导致编译器无法处理，会产生报错时，就能够在编译阶段，提前报错。
 
 ### types
 
