@@ -92,3 +92,12 @@ const openModal = () => {
   modal.value?.open()
 }
 ```
+
+如果只是想要一个通用组件实例的类型，可以直接导入
+
+```ts
+import { ref } from 'vue'
+import type { ComponentPublicInstance } from 'vue'
+const child = ref<ComponentPublicInstance | null>(null)
+
+```
