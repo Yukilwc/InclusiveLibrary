@@ -31,6 +31,10 @@
 
 ## 前端
 
+### Vue
+
+[vue3知识点的收录](./Frontend/Vue/vue3_points_collection.md)
+
 ### Vuepress
 
 [Vuepress手记](./Frontend/Vuepress/Base-Note.md)
