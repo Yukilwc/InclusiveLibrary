@@ -14,6 +14,26 @@ IDE支持自然是使用vscode+volar插件，注意要禁用vetur。
 
 ### defineProps
 
+### ref与reactive的类型标注
+
+ref一般使用泛型标注。  
+```ts
+const year :Ref<string | number> = ref('2020')
+```
+而reactive由于会对对象深层的ref进行解包，导致泛型与最终获取类型不一致，因此禁止使用泛型来进行类型标注。  
+仅使用自动类型推断，或者变量类型声明即可
+```ts
+import { reactive } from 'vue'
+
+interface Book {
+  title: string
+  year?: number
+}
+
+const book: Book = reactive({ title: 'Vue 3 指引' })
+```
+
+
 ### 使用ref获取组件实例时的类型声明
 
 ```ts
