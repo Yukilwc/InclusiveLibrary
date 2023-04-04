@@ -41,9 +41,25 @@ winget install Docker.DockerDesktop
 
 3. 使用WSL2，在其上运行docker
 
+推荐使用这总方式，直接安装会发生奇怪的闪退等。
+
 具体参考 [Link](https://docs.docker.com/desktop/windows/wsl/),[Link](https://docs.docker.com/desktop/windows/wsl/)
 
+如何安装并设定wsl，参考以下:
+[安装](https://learn.microsoft.com/zh-tw/windows/wsl/install)
+[设定](https://learn.microsoft.com/zh-tw/windows/wsl/setup/environment#set-up-your-linux-username-and-password)
+
 ### 国内加速
+
+
+```json
+{
+  "registry-mirrors": [
+    "https://hub-mirror.c.163.com",
+    "https://mirror.baidubce.com"
+  ]
+}
+```
 
 ## 参考
 
