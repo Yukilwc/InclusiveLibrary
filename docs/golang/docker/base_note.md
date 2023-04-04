@@ -41,13 +41,24 @@ winget install Docker.DockerDesktop
 
 3. 使用WSL2，在其上运行docker
 
-推荐使用这总方式，直接安装会发生奇怪的闪退等。
+推荐使用这种方式，直接安装会发生奇怪的闪退等。
 
-具体参考 [Link](https://docs.docker.com/desktop/windows/wsl/),[Link](https://docs.docker.com/desktop/windows/wsl/)
+关于通过WSL2安装，有如下步骤：
 
-如何安装并设定wsl，参考以下:
-[安装](https://learn.microsoft.com/zh-tw/windows/wsl/install)
-[设定](https://learn.microsoft.com/zh-tw/windows/wsl/setup/environment#set-up-your-linux-username-and-password)
+以管理员身份，命令行运行以下指令：
+```sh
+# 会安装适用于linux的windows子系统服务
+# 之后会下载一个Ubuntu版本
+wsl --install
+# 开启安装后的子系统服务和虚拟化服务
+dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart
+dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /norestart
+wsl --set-default-version 2
+```
+完成上述操作后，重启后，才能正常使用windows平台的docker客户端或者使用linux。
+
+运行`wsl -l -v`可以查看当前安装的版本。  
+接下来就可以使用docker desktop，或者使用Ubantu安装docker了。
 
 ### 国内加速
 
@@ -64,3 +75,14 @@ winget install Docker.DockerDesktop
 ## 参考
 
 [Docker从入门到实践](https://yeasy.gitbook.io/docker_practice/basic_concept/container)
+
+[Link](https://docs.docker.com/desktop/windows/wsl/)
+
+[Link](https://docs.docker.com/desktop/windows/wsl/)
+
+[安装](https://learn.microsoft.com/zh-tw/windows/wsl/install)
+
+[设定](https://learn.microsoft.com/zh-tw/windows/wsl/setup/environment#set-up-your-linux-username-and-password)
+
+[知乎教程](https://zhuanlan.zhihu.com/p/466001838)
+
