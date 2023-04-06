@@ -72,6 +72,33 @@ wsl --set-default-version 2
 }
 ```
 
+## Docker指令
+
+### 工作空间的概念
+
+docker中，操作的各种路径，都是基于工作空间的。  
+而工作空间是docker build时，指定的目录，docker会把此目录拷贝一份，作为工作空间。  
+如果有些大文件不想拷贝，例如node_modules，则可以创建一个.dockerignore文件，用来在构建工作空间时，忽略拷贝。  
+
+### COPY
+
+从工作空间，拷贝一个文件，到目标路径下。路径可以不存在，会自动创建。 
+```dockerfile
+COPY package.json /mydir/
+```
+
+### ADD
+
+ADD与COPY类似，但是ADD的源路径可以添加远程url，会自动下载存放到指定目标位置。 
+但是这个指令并不实用，不如直接使用RUN，然后用wget或者curl工具下载，解压，处理。  
+
+如果 <源路径> 为一个 tar 压缩文件的话，压缩格式为 gzip, bzip2 以及 xz 的情况下，ADD 指令将会自动解压缩这个压缩文件到 <目标路径> 去。
+
+在 Docker 官方的 Dockerfile 最佳实践文档 中要求，尽可能的使用 COPY，因为 COPY 的语义很明确，就是复制文件而已，而 ADD 则包含了更复杂的功能，其行为也不一定很清晰。最适合使用 ADD 的场合，就是所提及的需要自动解压缩的场合。
+
+另外需要注意的是，ADD 指令会令镜像构建缓存失效，从而可能会令镜像构建变得比较缓慢。
+
+
 ## 参考
 
 [Docker从入门到实践](https://yeasy.gitbook.io/docker_practice/basic_concept/container)
