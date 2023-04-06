@@ -98,6 +98,26 @@ ADD与COPY类似，但是ADD的源路径可以添加远程url，会自动下载�
 
 另外需要注意的是，ADD 指令会令镜像构建缓存失效，从而可能会令镜像构建变得比较缓慢。
 
+### CMD
+
+用来指定容器的启动命令。CMD可以被`docker run`后面的参数覆盖。  
+
+### ENTRYPOINT
+
+当指定了ENTRYPOINT后，CMD的含义就变成了ENTRYPOINT的参数，实际执行时会变成<ENTRYPOINT> “<CMD>”。
+
+```dockerfile
+FROM alpine
+ENTRYPOINT ["/bin/echo"]
+CMD ["hello, world"]
+```
+
+```sh
+docker run test-cmd hello, code
+```
+
+上面运行时，会先把CMD替换成run后面的参数 `CMD ["hello, code"]`,之后会把CMD本身替换为ENTRYPOINT,也就是变成
+`/bin/echo hello, code`
 
 ## 参考
 
