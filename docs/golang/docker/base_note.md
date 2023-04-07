@@ -119,12 +119,25 @@ docker run test-cmd hello, code
 上面运行时，会先把CMD替换成run后面的参数 `CMD ["hello, code"]`,之后会把CMD本身替换为ENTRYPOINT,也就是变成
 `/bin/echo hello, code`
 
+## 多阶段镜像构造
+
+### 意义
+
+### 方法
+
+## 操作容器
+
 ## 常用指令收录
 
 ### shell
 
 ```sh
+# 列出容器信息
 docker container ls
+# 在容器运行一个交互式的shell
+# -i, --interactive=true|false 保持 STDIN 打开
+# -t, --tty=true|false 为容器分配一个伪终端。
+docker run -it my_image
 ```
 
 ### dockerfile
@@ -133,6 +146,17 @@ docker container ls
 
 ```
 
+## 知识补全
+
+前台进程：占据终端，无法进行其它操作，终端退出进程停止。  
+后台进程：不占据终端，可进行其它操作，终端退出进程停止。  
+守护进程：不占据终端，不与终端关联，独立于受控终端。 
+nginx默认是按守护进程来运行得。在Docker里，nginx要设置daemon off，变成前台运行，是为了让Docker能够正确地跟踪nginx进程，  
+否则容器会在启动后立即停止。这是因为Docker的设计原则是一个容器只运行一个前台进程 ，如果nginx以后台守护进程的方式运行，  
+Docker就无法监控它的状态，而且容器内没有其他前台进程，所以容器就会退出 。如果nginx以前台进程的方式运行，Docker就可以监控它的状态，
+并且保持容器的运行 。
+
+prune这个单词的发音是/pruːn/,修剪,删除
 ## 参考
 
 [Docker从入门到实践](https://yeasy.gitbook.io/docker_practice/basic_concept/container)
