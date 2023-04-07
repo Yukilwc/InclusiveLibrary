@@ -24,11 +24,22 @@ docker rm -v web_server
 # 删除已经停止的容器
 docker container prune
 
+# 清除指定镜像
+docker rmi nginx:alpine ubuntu:latest
+
 # 清除镜像 清除目标是没有被容器引用的镜像
 docker image prune -a
 
 # 构建失败时，如果是一些镜像拉取失败，则可以单独拉取指定镜像
- docker pull nginx:alpine@sha256:c94a22b036afa972426b82d5b0a49c959786005b4f6f81ac7467ca5538d0158f
+docker pull nginx:alpine@sha256:c94a22b036afa972426b82d5b0a49c959786005b4f6f81ac7467ca5538d0158f
+
+# 在容器中打开一个shell查看信息 例如查看nginx配置是否正确COPY
+# 进入容器的交互式shell，可以执行任意命令
+docker exec -it <容器ID或名称> /bin/sh
+docker inspect <容器ID或名称>
+docker ports <容器ID或名称>
+docker logs <容器ID或名称>
+docker stats <容器ID或名称>
 ```
 
 ## dockerfile
