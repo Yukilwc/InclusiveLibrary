@@ -119,6 +119,20 @@ docker run test-cmd hello, code
 上面运行时，会先把CMD替换成run后面的参数 `CMD ["hello, code"]`,之后会把CMD本身替换为ENTRYPOINT,也就是变成
 `/bin/echo hello, code`
 
+## 常用指令收录
+
+### shell
+
+```sh
+docker container ls
+```
+
+### dockerfile
+
+```dockerfile
+
+```
+
 ## 参考
 
 [Docker从入门到实践](https://yeasy.gitbook.io/docker_practice/basic_concept/container)
