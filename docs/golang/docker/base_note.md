@@ -26,7 +26,7 @@
 ### Repository
 
 是存储分发镜像的服务。
-一个镜像包含多个版本，使用tag来区分版本，格式为 **<仓库名>:<标签>**，如果不给出标签，则默认为latest。
+一个镜像包含多个版本，使用tag来区分版本，格式为 **仓库名:标签**，如果不给出标签，则默认为latest。
 
 ## 安装
 
@@ -92,7 +92,7 @@ COPY package.json /mydir/
 ADD与COPY类似，但是ADD的源路径可以添加远程url，会自动下载存放到指定目标位置。 
 但是这个指令并不实用，不如直接使用RUN，然后用wget或者curl工具下载，解压，处理。  
 
-如果 <源路径> 为一个 tar 压缩文件的话，压缩格式为 gzip, bzip2 以及 xz 的情况下，ADD 指令将会自动解压缩这个压缩文件到 <目标路径> 去。
+如果 源路径 为一个 tar 压缩文件的话，压缩格式为 gzip, bzip2 以及 xz 的情况下，ADD 指令将会自动解压缩这个压缩文件到 目标路径 去。
 
 在 Docker 官方的 Dockerfile 最佳实践文档 中要求，尽可能的使用 COPY，因为 COPY 的语义很明确，就是复制文件而已，而 ADD 则包含了更复杂的功能，其行为也不一定很清晰。最适合使用 ADD 的场合，就是所提及的需要自动解压缩的场合。
 
@@ -104,7 +104,7 @@ ADD与COPY类似，但是ADD的源路径可以添加远程url，会自动下载�
 
 ### ENTRYPOINT
 
-当指定了ENTRYPOINT后，CMD的含义就变成了ENTRYPOINT的参数，实际执行时会变成<ENTRYPOINT> “<CMD>”。
+当指定了ENTRYPOINT后，CMD的含义就变成了ENTRYPOINT的参数，实际执行时会变成 `ENTRYPOINT “CMD”`。
 
 ```dockerfile
 FROM alpine
