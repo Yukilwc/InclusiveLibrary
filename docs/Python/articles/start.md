@@ -190,9 +190,39 @@ py -m start
 
 直接执行安装指令`py -m pip install Pillow`，会发现，当前项目下并无任何变化，这是安装包到了全局。
 执行`py -m pip show Pillow`可以查看到详细的包信息，发现包被安装到了Python安装包下的一个路径 
-`D:\workspace\install\python\Python\Lib\site-packages`
+`D:\workspace\install\python\Python\Lib\site-packages`。 
+默认使用pip的全局安装，容易导致多个项目的依赖产生版本冲突，所以并不推荐。下面介绍使用虚拟环境安装管理依赖。
 
-#### 项目内安装
+#### 使用虚拟环境
+
+如果存在多个复杂项目，把依赖安装到全局并非是好选择，这时候就想尽可能让项目自己包含依赖，从而实现更好的独立，从而避免依赖版本不同的冲突。
+虚拟环境是一个python环境，其内部的python解释器，pip，包，都是独立于全局系统级别的，这样对应的项目就能自成一体。
+
+这样的好处：
+
+* 你的开发环境被固定化到了一个项目中，和全局与其它虚拟环境实现了隔离。
+* 可以很简单的打包应用或者分享应用。
+
+**使用venv创建虚拟环境**
+
+其原理是把python库拷贝一份到项目目录下，然后在该项目中，临时修改环境变量Path，让其指向当前项目下的Python库。
+
+在命令行中运行指令`py -m pip venv myvenv`，最后一个参数是命名的虚拟环境变量名称。
+运行完成后，项目会多出一个名为`myvenv`的文件夹，其目录内就是拷贝的一份python环境，存放于项目之下。
+
+加下来就要**激活虚拟环境**
+
+**结合vscode**
+
+1. 切换到虚拟环境解释器。`ctrl+shift+p`,输入python，选择`Python:Select interpreter`，其中会看到虚拟环境的解释器，并选择。
+   ![Link](./images/select_interpreter.png)
+2. 切换到虚拟环境命令行。使用插件或者直接通过命令行命令进入到虚拟环境终端中。此时终端前会显示一个`(虚拟环境名)`。  
+   使用插件只需要找到插件显示得对应env内的环境，然后选择`Open in terminal`  
+   ![Link](./images/plugin_activate.png)  
+   如果使用命令行，则需要找到venv文件夹下的activate可执行程序，并运行`./myvenv/Scripts/activate`  
+   ![Link](./images/cmd_active.png)  
+3. 如此在虚拟环境命令行中，运行`py -m pip install Pillow`，其对应的依赖，也会被安装下项目下的`myvenv\Lib\site-packages`文件夹下了。
+
 
 #### 使用requirements.txt
 
@@ -230,6 +260,12 @@ py -3 -m pip install Pillow
 py -3 -m pip install --upgrade Pillow
 py -m pip show Pillow
 py -m pip list 
+# 列举出安装的库
+py -m pip freeze
+# 列举出安装的库，并输出到requirements.txt
+py -m pip freeze > requirements.txt
+# 基于当前python解释器创建一个虚拟环境
+py -m venv myvenv
 ```
 
 ## 其它问题
@@ -263,3 +299,8 @@ py -m pip --version
 ```
 如果希望直接使用pip，并指定版本，那就只能调整下`\Python\Scripts\`环境变量的顺序了，把想要的版本排在上面，如此直接
 使用`pip --version`即可。
+
+
+## 参考
+
+[怎样设置Python虚拟环境](https://www.freecodecamp.org/news/how-to-setup-virtual-environments-in-python/)
