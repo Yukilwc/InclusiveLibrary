@@ -1,4 +1,4 @@
-# Python之旅 快速开始
+# 初学者Python之旅 项目构建
 
 ## 概述
 
@@ -224,31 +224,93 @@ py -m start
 3. 如此在虚拟环境命令行中，运行`py -m pip install Pillow`，其对应的依赖，也会被安装下项目下的`myvenv\Lib\site-packages`文件夹下了。
 
 
+
+
+
+
 #### 使用requirements.txt
 
-已经有了requirements.txt,安装其列出的依赖：
+此文件用来保存安装的依赖及其版本，当下载一个新项目时，可以用其快速安装依赖。
+
+已经有requirements.txt时,安装其列出的依赖：
 ```sh
 pip install -r requirements.txt
 ```
 
-默认的使用原始的纯pip，`pip install package`，是不会更新requirements.txt的。
+如果使用pip安装依赖，`pip install package`，是不会更新requirements.txt的。这需要我们手动去执行指令，
+创建或更新requirements.txt：
+```sh
+# 列出全部安装的依赖，并写入文件
+py -m pip freeze > requirements.txt
+```
 
-#### 推荐的包管理工具
+#### 包管理工具
 
-已经有了requirements.txt,安装其列出的依赖：
-
-install安装时同步到requirements.txt:
+有**pipenv**，**poetry**等工具，但是当前我觉得Python自带得pip和venv已经够用，暂时先不研究其它包管理工具了。
 
 
-### 引入
 
-引入三方包
+### 引入安装的依赖包
 
-引入本地包
+安装的依赖包非常简单，各个包文档一般都会标明使用方式，可以自行查询文档，例如Pillow：`from PIL import Image`
+
+### 引入本地文件
+
+首先要了解python解释器查找模块的机制。
+
+python解释器在启动时，会优先把启动入口的文件夹路径，加入到`sys.path`的第一位。如此这个数组里就包含了 启动目录，标准库目录，PYTHONPATH环境变量目录，
+以及三方库的site-packages目录，然后在解析到任意文件时，碰到`import`，则会从`sys.path`中开始查找是否有匹配的模块。  
+
+首先我们需要了解一个特殊的文件`__init__.py`，当一个文件夹存在此文件，python解释器才能知道，这是一个包文件夹，
+从而其它文件可以通过import来将之引入，当引入时，会优先执行一次`__init__.py`文件。
+
+
+**以文件方式运行**
+
+下面是一个父子级引入的例子，引入下级的包，其是按文件夹作为路径名的：
+
+![Link](./images/import1.png)
+
+这里是一个平级引入的例子：
+
+![Link](./images/brother_import.png)
+
+上述都是通过`py start.py`执行，会发现python解释器自动把根目录添加到了`sys.path`,所以，后续的包引入，都是基于根路径的，才能被找到。  
+
+如果这里是从子级开始执行，那就会报错，例如 `py ./your_package/package2/unit2.py`，因为此时`sys.path`中添加的是unit2.py所在的文件夹为查找路径，是无法找到
+与父文件夹同级的模块的。
+
+
+**以模块方式运行**
+
+当以模块的方式执行python文件，则import相对路径是可以的。同时使用发现，此时`sys.path`添加的是根路径，因此`from your_package.package1 import unit1`
+也是可以的。
+
+```sh
+py -m your_package.package2.unit2
+```
+
+![Link](./images/relative_import.png)
+
+### 其它引入方式
+
+既然python解释器是从`sys.path`里查找路径，那么还可以通过append路径的方式，添加要引入的目标目录。
+例如把自己所在文件夹加入查找路径：
+
+```py
+import sys
+import os
+sys.path.append(os.path.dirname(os.path.abspath(__file__)))
+from unit2 import Package3Unit2
+```
+
+这种方法，缺点是会丢失代码提示，跳转，好处是不论以文件形式还是模块形式运行，都能正确找到导入模块。
 
 ## 最终的项目创建流程
 
 ## 一个简单有用的程序
+
+### 打包
 
 ## 命令行相关汇总
 
@@ -304,3 +366,5 @@ py -m pip --version
 ## 参考
 
 [怎样设置Python虚拟环境](https://www.freecodecamp.org/news/how-to-setup-virtual-environments-in-python/)
+
+[init py是什么](https://stackoverflow.com/questions/448271/what-is-init-py-for)
