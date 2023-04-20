@@ -1,8 +1,22 @@
 # 初学者Python之旅 项目构建
 
+
+## TODO
+
+
+以3W的形式重新组织，添加补充
+
+文笔润色
+
+标题与首页目录重新设计
+
+完善模板
+
+加个前言，讲下要做什么，吸引人停留
+
 ## 概述
 
-本文尽可能详细的描述自己学习安装python，到建立起一个工程运行起来的过程。  
+本文详细描述自己学习Python的探索过程，从基础的安装，到运行起第一行Python代码，。  
 笔者是前端出身，很多流程可能保留着nodejs，npm的前端工程的思路与想法。我相信一门成熟的语言与框架，总是殊途同归的，其语言特性，开发环境流程
 总是存在共性。  
 我会尽可能追根究底，安装时保持好奇心，碰到的问题尽可能查明白，力求知其然，知其所以然。  
@@ -24,7 +38,7 @@ Python有2和3两个大版本，现在3已经较为通用，这里在Windows平�
 
 ::: tip
 * Use admin privileges when installing py.exe，这个选项选中，保证以管理员身份安装，防止缺少权限导致安装失败。
-* Add python.exe to PATH，会自动添加环境变量。
+* Add python.exe to PATH，会自动添加Python.exe所在目录到环境变量Path。
 
 
 :::
@@ -98,7 +112,7 @@ Download debugging symbols意味着下载用于调试Python的符号文件（.pd
 这些文件可以帮助你在Visual Studio等开发工具中调试混合模式的Python/C++代码。 如果你不使用Visual Studio或者不需要调试混合模式的代码，你可以不选择这个选
 项。如果你选择了这个选项，你需要同时选择Download debug binaries，这样才能下载适用于.NET开发的调试符号。
 
-## 一些配置
+## 安装后的配置
 
 ### 环境变量
 
@@ -151,7 +165,7 @@ pip config unset global.index-url
 
 ![Link](./images/vscode_set.png)
 
-## 工程构建与运行
+## 工程构建与简单运行
 
 ### 简单项目构建
 
@@ -184,16 +198,15 @@ py -m start
 
 ## 依赖管理
 
-### 安装
 
-#### 全局安装
+### 全局安装
 
 直接执行安装指令`py -m pip install Pillow`，会发现，当前项目下并无任何变化，这是安装包到了全局。
 执行`py -m pip show Pillow`可以查看到详细的包信息，发现包被安装到了Python安装包下的一个路径 
 `D:\workspace\install\python\Python\Lib\site-packages`。 
 默认使用pip的全局安装，容易导致多个项目的依赖产生版本冲突，所以并不推荐。下面介绍使用虚拟环境安装管理依赖。
 
-#### 使用虚拟环境
+### 使用虚拟环境
 
 如果存在多个复杂项目，把依赖安装到全局并非是好选择，这时候就想尽可能让项目自己包含依赖，从而实现更好的独立，从而避免依赖版本不同的冲突。
 虚拟环境是一个python环境，其内部的python解释器，pip，包，都是独立于全局系统级别的，这样对应的项目就能自成一体。
@@ -223,12 +236,19 @@ py -m start
    ![Link](./images/cmd_active.png)  
 3. 如此在虚拟环境命令行中，运行`py -m pip install Pillow`，其对应的依赖，也会被安装下项目下的`myvenv\Lib\site-packages`文件夹下了。
 
+::: tip
+关于虚拟环境目录：
+* Scripts包含了Python环境自身，内部有`Python`,`pip`这些核心指令工具，还存在`activate`,`deactivate`这些操作虚拟环境的脚本。
+* Lib则包含了Python需要的依赖包，包括基础库和安装的第三方依赖包。
+* Include目录是存放`.h`的header文件的，可能是空的。
+:::
 
 
 
 
 
-#### 使用requirements.txt
+
+### 使用requirements.txt
 
 此文件用来保存安装的依赖及其版本，当下载一个新项目时，可以用其快速安装依赖。
 
@@ -244,7 +264,7 @@ pip install -r requirements.txt
 py -m pip freeze > requirements.txt
 ```
 
-#### 包管理工具
+### 包管理工具
 
 有**pipenv**，**poetry**等工具，但是当前我觉得Python自带得pip和venv已经够用，暂时先不研究其它包管理工具了。
 
@@ -306,11 +326,16 @@ from unit2 import Package3Unit2
 
 这种方法，缺点是会丢失代码提示，跳转，好处是不论以文件形式还是模块形式运行，都能正确找到导入模块。
 
-## 最终的项目创建流程
 
-## 一个简单有用的程序
+### 生产环境
 
-### 打包
+以上，都是对python进行开发需要的构建。
+那么当写好了一个python程序后，怎样使用呢？
+一般来说，有下面几种方式：
+
+* 直接把项目拷贝给别人运行
+* 封装成包，然后引入
+* 打包成可执行程序
 
 ## 命令行相关汇总
 
@@ -318,8 +343,8 @@ from unit2 import Package3Unit2
 
 ```sh
 # -m的意思是module，是值要运行一个module，后面指定module是pip，也可以指定其它py文件或者exe
-py -3 -m pip install Pillow
-py -3 -m pip install --upgrade Pillow
+py -m pip install Pillow
+py -m pip install --upgrade Pillow
 py -m pip show Pillow
 py -m pip list 
 # 列举出安装的库
@@ -362,6 +387,69 @@ py -m pip --version
 如果希望直接使用pip，并指定版本，那就只能调整下`\Python\Scripts\`环境变量的顺序了，把想要的版本排在上面，如此直接
 使用`pip --version`即可。
 
+### 关于以脚本运行和以模块运行
+
+```sh
+# 脚本
+py main.py
+# 模块
+py -m main
+```
+
+模块运行的情景与好处：
+
+以模块运行的方式更适合于那些需要打包和分发的代码，比如库，工具，应用等。
+以模块运行的好处是可以保证代码在不同的环境中都能正确地找到依赖的模块，可以避免相对导入的问题，可以让代码更容易重用和测试 。
+以模块运行会优先执行目录下的`__init__.py`文件。
+如果你的代码是一个完整的包，有多个模块和子包，需要打包和分发给其他人使用，那么你应该使用模块运行的方式，
+这样可以保证你的代码在不同的环境中都能正确地工作。
+
+脚本运行的情景：
+如果你的代码是一个简单的脚本，只有一个文件，不需要打包和分发给其他人使用，只是为了完成一些临时的任务或者实验，
+那么你可以使用脚本运行的方式，这样可以节省一些时间和精力。
+
+**Vscode如何指定F5的运行方式**
+
+在自带得`Run and Debug`功能里，点击创建`launch.json`，会提示选择，并输入Module名。
+
+![Link](./images/vscode_run_module.png)
+
+生成得`launch.json`如下，以Module方式运行，同时入口Module为start。
+如果想单独调试其它子文件模块，可以修改Module后执行，例如修改为`your_package.package1.unit1`，就会以模块方式
+调用`unit1.py`，如果添加的是目录，则会执行目录下的`__init__.py`。
+
+```json
+{
+   "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Python: Module",
+            "type": "python",
+            "request": "launch",
+            "module": "start",
+            "justMyCode": true
+        }
+    ]
+}
+```
+
+## 总结
+
+下载安装Python，清晰每一个安装选项后，选择自己需要的选项安装。
+
+之后为pip配置了国内镜像源。同时给Vscode安装好对应插件。
+
+创建文件夹，添加第一个py文件，并使用vscode和命令行运行。
+
+依赖管理了解了默认pip安装，与虚拟环境构建。
+
+知道使用requirements.txt来保存依赖清单。
+
+明白了本地Module的引入机制。
+
+汇总了过程中的命令行，方便查询。
+
+同时研究了多版本python的管理问题。
 
 ## 参考
 
