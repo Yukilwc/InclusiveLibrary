@@ -12,4 +12,6 @@
 
 [编程语言学习 通用思路](./SoftwareEngineering/language_learning/generic_ideas.md)
 
-[前端人学Python 快速开始](./Python/articles/start.md)
+[前端开发的Python 快速开始](./Python/articles/start.md)
+
+[前端开发的Python 模块](./Python/articles/module.md)
