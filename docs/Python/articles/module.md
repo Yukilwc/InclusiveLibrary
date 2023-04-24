@@ -131,3 +131,7 @@ from unit2 import Package3Unit2
 这种方法，缺点是会丢失代码提示，跳转，好处是不论以文件形式还是模块形式运行，都能正确找到导入模块。
 
 
+
+## 参考
+
+[init py是什么](https://stackoverflow.com/questions/448271/what-is-init-py-for)
