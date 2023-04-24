@@ -85,12 +85,11 @@ Python测试套件，需要安装，给一些工具方法写单元测试是好�
 
 ```sh
 # 在命令行中使用py命令运行python解释器，以python版本3的解释器，来执行指定的脚本
+# py后跟随的数字参数为版本，可选，不填写时，默认使用3
 py -3.11 start.py
 # 查看本机安装的全部python版本，参数中的0是列出python主要版本，p的意思是path，列举出所在路径。
 py -0p
 ```
-
-
 
 ::: tip 命令行常用小操作
 想知道py等指令存放的位置，可以直接在命令行中运行`where.exe py`，就可以查看其安装位置。
@@ -103,17 +102,17 @@ py -0p
 
 默认上述选项即可，然后选择想要安装的目标目录，然后点击安装。
 
-安装完成后，可以打开命令行，运行`py --version`，如果能输出当前python版本，即表示安装成功。
+安装完成后，可以打开命令行，运行`py --version`，如果能输出当前Python版本，即表示安装成功。
 
 这里大概解释下这些高级选项的含义。
 
 **Install python for all users**
 
-给windows全部用户安装python。对应的环境变量应该也会变成全局，而非当前User了。
+给windows全部用户安装Python。对应的环境变量应该也会变成全局，而非当前User了。
 
 **Associate files with python**
 
-关联python文件，这样会自动识别对应后缀的文件为python脚本。如此，对py文件双击可以直接调用python解释器执行，而不需要选择打开方式。
+关联Python文件，这样会自动识别对应后缀的文件为Python脚本。如此，对py文件双击可以直接调用Python解释器执行，而不需要选择打开方式。
 不过笔者这里的py文件一般都关联的是VSCode，双击启动会自动打开VSCode。
 
 **Add Python to environment varivables**
@@ -203,8 +202,8 @@ print("Hello Python")
 ```
 2. 使用VSCode打开文件夹，参考配置章节的VSCode配置，指定好当前的解释器版本。
 
-3. 接着F5，弹出选择执行方式，以**module**方式执行即可，模块名填写为**start**，也就是目录下的py文件名，可以看到控制台打印出了相关文本。
-   关于以其它方式执行的差异，后续会说到。
+3. 接着点击F5开启运行与调试，会弹出下拉选项，选择执行方式，以**Module**方式执行即可，模块名填写为**start**，也就是目录下的py文件名，
+   可以看到控制台打印出了相关文本。关于以其它方式执行的差异，后续研究模块时会再做了解。
 
 ![Link](./images/select_file_or_module.png)
 
@@ -215,8 +214,8 @@ print("Hello Python")
 ```sh
 # 以脚本形式运行，只要路径正确，就能执行
 py start.py
-# 以module形式运行 关于module的概念，使用方法，和脚本文件的差异，会在后续介绍
-# 添加了-m后，python会在sys.path和当前项目中查找对应的名为start的module，然后作为脚本执行
+# 以module形式运行 关于module的概念，使用方法，和脚本文件的差异，会在后续文章探究。
+# 添加了-m后，python会查找对应的名为start的module，然后作为脚本执行，查询原理也会在后续模块相关文章中探究。
 py -m start
 ```
 
@@ -225,9 +224,14 @@ VSCode的各种操作，本质都是图形化的，对命令行指令的封装�
 因此所有VSCode操作都应该有对应的命令行版本。
 :::
 
+::: tip 前端联想
+Python文件仅能通过Python解释器执行，而前端得纯js文件，则可以使用node指令运行，也可以通过浏览器自己的Js引擎执行。
+如果是工程化的前端项目，则需要借助脚手架执行，如常用的`npm run dev`，就是启动对应`package.json`中的脚手架脚本。
+:::
+
 ## 依赖管理
 
-安装Python时，选择了安装pip，这是Python的包管理器，使用pip指令进行各种第三方依赖的安装，更新，删除，查看等。
+安装Python时，选择了安装pip，这是Python的包管理器，可以使用pip指令进行各种第三方依赖的安装，更新，删除，查看等。
 
 ### 全局安装
 
@@ -236,7 +240,7 @@ VSCode的各种操作，本质都是图形化的，对命令行指令的封装�
 执行`py -m pip show Pillow`可以查看到详细的包信息，发现包被安装到了Python安装目录下的一个文件夹中：
 `D:\workspace\install\python\Python\Lib\site-packages`。 
 
-默认使用pip的全局安装，容易导致多个项目的依赖产生版本冲突，所以并不推荐。后面虚拟环境章节，会介绍在虚拟环境中，使用pip安装管理依赖。
+默认使用pip的全局安装，容易导致多个项目的依赖产生版本冲突，所以并不推荐。后面介绍虚拟环境的文章，会在虚拟环境中，使用pip安装管理依赖，
 此种方法安装的依赖会独立于全局，能更好的管理，控制，维护。
 
 ::: tip
@@ -247,6 +251,11 @@ VSCode的各种操作，本质都是图形化的，对命令行指令的封装�
 * pip就是找到的Module。
 * install 是 pip支持的安装指令。
 * Pillow是要安装的依赖名字。
+:::
+
+::: tip 前端联想
+pip在Python中的地位，类似npm在前端项目中的地位。npm也区分了`-g`全局，以及项目内安装。不过npm安装依赖并不需要搭建虚拟环境，
+只需要使用其命令行参数进行控制即可。
 :::
 
 ### 使用requirements.txt
@@ -281,11 +290,11 @@ py -m pip freeze > requirements.txt
 ### 多python版本操作
 
 当电脑安装了多个python版本，就需要使用py launcher的`py`指令来调用不同版本python解释器。  
-直接调用`py`，会运行最近安装的python版本。  
-使用参数指定版本，可以运行`py -3.11`来指定python版本。  
-如果想指定一个`py`的默认版本，则需要windows环境变量`PY_PYTHON`，此变量不存在时，会默认为3。 
+可以使用参数指定版本运行，例如`py -3.11`就是指定3.11版本解释器。  
+如果想指定一个`py`的默认版本，则需要设置windows环境变量`PY_PYTHON`，此变量不存在时，会默认为3。 
 
-可以通过命令行实验一下：
+可以通过命令行实验一下(命令行工具为Windows PowerShell)：
+
 ```sh
 # 默认打印空
 $env:PY_PYTHON
@@ -310,18 +319,18 @@ py -m pip --version
 
 ### VSCode如何指定F5的运行方式
 
-**创建VSCode启动文件**
-
 使用F5启动调试时，发现会默认执行当前选中的文件，以此为入口。要修改其执行的入口，则需要创建`.VSCode/launch.json`，
 通过此配置文件，控制调试时的一些行为。
 
+**创建VSCode启动文件**
+
 打开侧边栏的`Run and Debug`，会发现上方有文字按钮**create a launch.json file**，点击按钮，
-依旧出现选择执行方式，这里还是选择`Module`，提示填入启动的模块名，这里填入的Modules名字即为下面的.py文件名，
-接着自动自动创建了`.VSCode/launch.json`。
+在弹层中选择执行方式，这里还是选择`Module`，提示填入启动的模块名，这里填入的Modules名字即为要作为入口的.py文件名，
+接着会自动创建`.VSCode/launch.json`文件。
 
 ![Link](./images/launch_json_create.png)
 
-打开文件`launch.json`文件，生成得`launch.json`如下，以Module方式运行，同时入口Module为start。
+打开文件`launch.json`文件，其内容如下，以Module方式运行，同时入口为start。
 如果想单独调试其它子文件模块，可以修改Module后执行，例如修改为`your_package.package1.unit1`，就会以模块方式
 调用`your_package/package1/unit1.py`，如果添加的是目录，则会执行目录下的`__init__.py`。
 
@@ -341,6 +350,10 @@ py -m pip --version
 ```
 
 ## 总结
+
+经过上述流程，已经安装好了Python环境，并且尝试了第一行代码，使用命令行和VSCode都做了运行。
+但是现在的一个问题就是，依赖会被迫安装到全局，这会影响项目的独立性，难以管理。
+解决这个问题的方案，就在下一篇文章 [《Python虚拟环境》](./virtual_env.md)。
 
 ## 参考
 

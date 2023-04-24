@@ -10,6 +10,8 @@ py -m pip install Pillow
 py -m pip install --upgrade Pillow
 py -m pip show Pillow
 py -m pip list 
+# 安装依赖清单上的库
+pip install -r requirements.txt
 # 列举出安装的库
 py -m pip freeze
 # 列举出安装的库，并输出到requirements.txt
