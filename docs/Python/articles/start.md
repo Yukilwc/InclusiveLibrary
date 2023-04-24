@@ -1,4 +1,4 @@
-# 前端开发的Python学习笔记 项目构建
+# 前端开发的Python学习 快速开始篇
 
 
 ## TODO
@@ -17,6 +17,10 @@
 CP 加个前言，讲下要做什么，吸引人停留
 
 图片隐私问题检查
+
+加入关于语言学习模板化的思想，其必然性，尝试由浅入深讲解。
+
+理解这篇文章，然后再细化修补[Link](https://www.zhihu.com/question/49136398) [Link](https://blog.konghy.cn/2017/04/24/python-entry-program/)
 
 ## 前言
 
@@ -237,9 +241,14 @@ py start.py
 py -m start
 ```
 
+::: tip
+VSCode的各种操作，本质都是图形化的，对命令行指令的封装。
+因此所有VSCode操作都应该有对应的命令行版本。
+:::
+
 ## 依赖管理
 
-安装Python时，选择了安装Pip，这是Python的包管理器，使用pip指令进行各种第三方依赖的安装，更新，删除，查看等。
+安装Python时，选择了安装pip，这是Python的包管理器，使用pip指令进行各种第三方依赖的安装，更新，删除，查看等。
 
 ### 全局安装
 
@@ -253,8 +262,8 @@ py -m start
 
 ::: tip
 `py -3 -m pip install Pillow`，这里的指令含义：
-* py 使用py launcher
-* 后面可以跟着一个-3，表示指定python3
+* py 使用py launcher。
+* 后面可以跟着一个-3，表示指定python3。
 * -m 是使用module，这里会从`sys.path`数组中查找对应目录，会在``\Python\Scripts\`下查找到的名为**pip**的**module**。
 * pip就是找到的Module。
 * install 是 pip支持的安装指令。
@@ -263,15 +272,18 @@ py -m start
 
 ### 使用requirements.txt
 
-此文件用来保存安装的依赖及其版本，当下载一个新项目时，可以用其快速安装依赖。
+此文件是一个安装的依赖及其版本的清单，当下载一个新项目时，可以用其快速安装依赖。
 
-已经有requirements.txt时,安装其列出的依赖：
+当已经有requirements.txt时，例如是下载的别人的项目，想快速安装全部依赖，可以运行如下指令：
+
 ```sh
+# -r是read读取，读取文件中的清单，然后全部安装
 pip install -r requirements.txt
 ```
 
-如果使用pip安装依赖，`pip install package`，是不会更新requirements.txt的。这需要我们手动去执行指令，
+如果使用pip安装依赖，`pip install package_name`，是不会更新requirements.txt的(当然是有三方的包管理工具能实现同步的)。这需要我们手动去执行指令，
 创建或更新requirements.txt：
+
 ```sh
 # 列出全部安装的依赖，并写入文件
 py -m pip freeze > requirements.txt
@@ -281,26 +293,16 @@ py -m pip freeze > requirements.txt
 
 有**pipenv**，**poetry**等工具，但是当前我觉得Python自带得pip和venv已经够用，暂时先不研究其它包管理工具了。
 
-
-
-### 引入安装的依赖包
+### 引入安装的第三方依赖包
 
 安装的依赖包非常简单，各个包文档一般都会标明使用方式，可以自行查询文档，例如Pillow：`from PIL import Image`
 
-### 生产环境
-
-以上，都是对python进行开发需要的构建。
-那么当写好了一个python程序后，怎样使用呢？
-一般来说，有下面几种方式：
-
-* 直接把项目拷贝给别人运行
-* 封装成包，然后引入
-* 打包成可执行程序
-
 ## 使用虚拟环境
 
-如果存在多个复杂项目，把依赖安装到全局并非是好选择，这时候就想尽可能让项目自己包含依赖，从而实现更好的独立，从而避免依赖版本不同的冲突。
-虚拟环境是一个python环境，其内部的python解释器，pip，包，都是独立于全局系统级别的，这样对应的项目就能自成一体。
+如果电脑上存在多个复杂项目，把依赖安装到全局并非是好选择，这时候就想尽可能让项目自己包含依赖，从而实现更好的独立，避免依赖版本不同发生冲突。
+
+虚拟环境是一个轻量的Python环境，是基于全局已经存在的Python安装来构建。
+其内部的Python解释器，pip，依赖包，都是独立于全局系统级别的，这样对应的项目就能自成一体。
 
 这样的好处：
 
@@ -312,55 +314,122 @@ py -m pip freeze > requirements.txt
 之后在目录下，先进入虚拟环境，然后运行`pip install`，如此，用户不需要在本机安装Python，即可直接运行起一个Python项目。
 :::
 
-**使用venv创建虚拟环境**
+### 使用venv创建虚拟环境
 
-其原理是把python库拷贝一份到项目目录下，然后在该项目中，临时修改环境变量Path，让其指向当前项目下的Python库。
+其会将Python库拷贝或者链接一份到项目目录下，然后在该项目中，临时修改环境变量Path，让其指向当前项目下的Python库。
 
-在命令行中运行指令`py -m pip venv myvenv`，最后一个参数是命名的虚拟环境变量名称。
-运行完成后，项目会多出一个名为`myvenv`的文件夹，其目录内就是拷贝的一份python环境，存放于项目之下。
+在命令行中运行以下指令，在当前目录下，创建一个虚拟环境。
 
-加下来就要**激活虚拟环境**
+```sh
+# 最后一个参数是命名的虚拟环境变量名称
+py -m pip venv myvenv
+```
 
-**结合VSCode**
+运行完成后，项目会多出一个名为`myvenv`的文件夹，其目录内就是一个Python环境，存放于项目之下。
+
+这个虚拟环境目录下包含：
+* Scripts：包含了Python环境自身，内部有`Python`,`pip`这些核心指令工具，还存在`activate`,`deactivate`这些操作虚拟环境的脚本。
+* Lib：则包含了Python需要的依赖包，包括基础库和安装的第三方依赖包。
+* Include：目录是存放`.h`的header文件的，可能是空的。
+
+### 激活虚拟环境
+
+创建虚拟环境后，还需要激活，进入虚拟环境的命令行模式，此模式下，进行的相关pip操作，例如安装，查看，更新等，都会限定到虚拟环境中。
+此时终端命令前缀会显示一个`(虚拟环境名)`。  
+
+**使用命令行**
+  
+如果使用命令行，则需要找到venv文件夹下的activate可执行程序，并运行`./myvenv/Scripts/activate`  
+
+![Link](./images/cmd_active.png)
+
+```sh
+# 当前目录下，运行activate文件，即可激活虚拟环境
+./myvenv/Scripts/activate
+# 退出虚拟环境，直接在虚拟环境下，运行即可，无需指定路径
+deactivate
+```
+
+**使用VSCode**
+
+有以下两种方式：
 
 1. 切换到虚拟环境解释器。`ctrl+shift+p`,输入python，选择`Python:Select interpreter`，其中会看到虚拟环境的解释器，并选择。
-   ![Link](./images/select_interpreter.png)
-2. 切换到虚拟环境命令行。使用插件或者直接通过命令行命令进入到虚拟环境终端中。此时终端前会显示一个`(虚拟环境名)`。  
-   使用插件只需要找到插件显示得对应env内的环境，然后选择`Open in terminal`  
-   ![Link](./images/plugin_activate.png)  
-   如果使用命令行，则需要找到venv文件夹下的activate可执行程序，并运行`./myvenv/Scripts/activate`  
-   ![Link](./images/cmd_active.png)  
-3. 如此在虚拟环境命令行中，运行`py -m pip install Pillow`，其对应的依赖，也会被安装下项目下的`myvenv\Lib\site-packages`文件夹下了。
 
-::: tip
-关于虚拟环境目录：
-* Scripts包含了Python环境自身，内部有`Python`,`pip`这些核心指令工具，还存在`activate`,`deactivate`这些操作虚拟环境的脚本。
-* Lib则包含了Python需要的依赖包，包括基础库和安装的第三方依赖包。
-* Include目录是存放`.h`的header文件的，可能是空的。
-:::
+   ![Link](./images/select_interpreter.png)
+
+2. 使用插件只需要找到插件显示得对应env内的环境，然后选择`Open in terminal`或者`Set as active workspace interpreter`  
+
+   ![Link](./images/plugin_activate.png) 
+
+如此在虚拟环境命令行中，运行`py -m pip install Pillow`，其对应的依赖，也会被安装下项目下的`myvenv\Lib\site-packages`文件夹下,而非全局。
 
 ## 本地模块引入
 
+第三方模块的安装和引入已经了解了，接下来探索本地封装的工具方法，该如何引入和使用。
+
+### 创建样例结构
+
+目录下构建如下文件结构，情景为有一个工具文件夹tools，存放了一些通用工具，用户想从顶层`start.py`调用底层工具，同时
+工具之间也还存在了相互调用。
+
+其中两个工具函数，各自进入时，会打印自身名字，同时还提供了一个函数供外部调用。并且子目录下，还都添加了`__init__.py`文件，
+对于添加了此文件的目录，Python会将其作为模块目录，引入此模块时，会优先执行`__init__.py`文件。
+
+* 根路径
+  * start.py
+  * tools 
+    * net
+      * request.py
+      * __init__.py
+    * tree
+      * traversal.py
+      * __init__.py
+
+```py
+# request.py
+import sys
+print("request run")
+print("sys path in request", sys.path)
+def Request():
+    print("do request")
+# net/__init__.py
+print("net init run")
+```
+
+```py
+# traversal.py
+import sys
+print("traversal run")
+print("sys path in traversal", sys.path)
+def Traversal():
+    print("traversal")
+# tree/__init__.py
+print("tree init run")
+```
+
+### 原理
+
+首先要了解python解释器查找模块的机制，也就是使用`from module_name import *`的查找机制。
+
+Python解释器在启动时，会维护一个`sys.path`的数组，sys是Python的基础库模块，path是sys维护的一个数组，内部存放了一些路径，
+这些路径就是Python解释器查找模块时的检索目录。
+
+解释器会**优先把启动入口的文件夹路径**，加入到`sys.path`的第一位。这其中以脚本文件运行，和以模块运行，所添加的路径会有不同，可在后续样例中了解。
+
+如此这个数组里就包含了启动目录，标准库目录，PYTHONPATH环境变量目录，以及三方库的site-packages目录等等，
+解析到`import`语句时，解释器就会从`sys.path`所列举的目录中，开始查找是否有匹配的文件/模块。  
+
+
 ### 引入本地文件
-
-首先要了解python解释器查找模块的机制。
-
-python解释器在启动时，会优先把启动入口的文件夹路径，加入到`sys.path`的第一位。如此这个数组里就包含了 启动目录，标准库目录，PYTHONPATH环境变量目录，
-以及三方库的site-packages目录，然后在解析到任意文件时，碰到`import`，则会从`sys.path`中开始查找是否有匹配的模块。  
-
-首先我们需要了解一个特殊的文件`__init__.py`，当一个文件夹存在此文件，python解释器才能知道，这是一个包文件夹，
-从而其它文件可以通过import来将之引入，当引入时，会优先执行一次`__init__.py`文件。
-
 
 **以文件方式运行**
 
 下面是一个父子级引入的例子，引入下级的包，其是按文件夹作为路径名的：
 
-![Link](./images/import1.png)
 
 这里是一个平级引入的例子：
 
-![Link](./images/brother_import.png)
 
 上述都是通过`py start.py`执行，会发现python解释器自动把根目录添加到了`sys.path`,所以，后续的包引入，都是基于根路径的，才能被找到。  
 
@@ -377,7 +446,15 @@ python解释器在启动时，会优先把启动入口的文件夹路径，加�
 py -m your_package.package2.unit2
 ```
 
-![Link](./images/relative_import.png)
+
+### 关于__init__.py
+
+**集中引入与导出**
+
+首先我们需要了解一个特殊的文件`__init__.py`，当一个文件夹存在此文件，python解释器才能知道，这是一个包文件夹，
+从而其它文件可以通过import来将之引入，当引入时，会优先执行一次`__init__.py`文件。
+
+**设计意义**
 
 ### 其它引入方式
 
@@ -393,6 +470,16 @@ from unit2 import Package3Unit2
 
 这种方法，缺点是会丢失代码提示，跳转，好处是不论以文件形式还是模块形式运行，都能正确找到导入模块。
 
+
+## 生产环境
+
+以上，都是对python进行开发需要的构建。
+那么当写好了一个python程序后，怎样使用呢？
+一般来说，有下面几种方式：
+
+* 直接把项目拷贝给别人运行
+* 封装成包，然后引入
+* 打包成可执行程序
 
 
 ## 命令行相关汇总
