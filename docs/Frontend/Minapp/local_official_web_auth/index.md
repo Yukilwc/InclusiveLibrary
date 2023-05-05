@@ -31,6 +31,8 @@ ipconfig /flushdns
 
 **注意**
 
+修改host时，由于其只读，保存时为overwrite覆盖，同时需要管理员权限。
+
 这里host的解析，只支持http，不支持https，也就是在前端项目中，配置redirect_uri时，需要配置成http协议，才能解析到本机。
 
 ```js
@@ -92,8 +94,11 @@ let code = new URL(href).searchParams.get("code");
 let userId = new URL(href).searchParams.get("userId");
 ```
 
+如此，通过这种非hash的拼接query参数方式，以及通过URL解析的方式，就可以避免code拼接错误的问题。
+
 ### 不是微信公众号网页开发者
 
-**使用vconsole**
+如果不是微信公众号网页开发者，那么在微信开发者工具中，访问授权会直接提示没有开发权限，而在浏览器访问又缺少微信环境。
+这时有个方法，就是直接在PC端微信，打开链接，如此就能够做到走host解析，同时还能利用微信环境。
 
-对于查看打印日志，[使用vconsole](https://github.com/Tencent/vConsole)即可。
+至于微信客户端无法F12查看日志的问题，[使用vconsole](https://github.com/Tencent/vConsole)即可
