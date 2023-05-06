@@ -38,7 +38,7 @@
 
 ```sh
 # 最后一个参数是命名的虚拟环境变量名称
-py -m pip venv myvenv
+py -m venv myvenv
 ```
 
 运行完成后，项目会多出一个名为`myvenv`的文件夹，其目录内就是一个Python环境，存放于项目之下。

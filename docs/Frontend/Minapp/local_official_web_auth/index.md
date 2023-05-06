@@ -196,5 +196,3 @@ if (userIsAuthorized()) {
 **注意**:
 
 微信浏览器中location.replace在IOS设备等同于window.location.href跳转，不能做到替换页面栈中的路由。
-
-[参考](https://developer.mozilla.org/en-US/docs/Web/API/Window/popstate_event)
