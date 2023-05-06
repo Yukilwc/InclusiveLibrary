@@ -114,3 +114,87 @@ export default function useParams() {
 这时有个方法，就是直接在PC端微信，打开链接，如此就能够做到走host解析，同时还能利用微信环境。
 
 至于微信客户端无法F12查看日志的问题，[使用vconsole](https://github.com/Tencent/vConsole)即可
+
+### 授权重定向后，返回时循环重定向
+
+微信网页授权的核心流程，是跳转拼接好的微信授权链接，进入微信的授权页，在授权成功后，会重定向到链接参数redirect_uri指定的页面，
+从而获取code来进行下一步操作。
+
+此时如果手机左滑或者按返回键，在部分手机上，
+会出现又回到了授权页，然后再次重定向回来的问题，如此循环，就无法通过返回来退出。
+
+经过实验，最后找到了一个解决方法，就是通过session记录标记的方式，在一次会话的生命周期内，
+让授权页面仅在首次进入时，解析code，再次进入时，进行主动回退。
+
+首先梳理下流程：
+
+* 触发某个交互后，拼接好微信授权链接，跳转进入**微信授权页**。
+* 授权成功后，微信官方重定向到redirect_uri指定的**code解析页**(这里我的code解析页是纯空白页面，
+  为了减少复杂度，没有和业务页面耦合在一起)。
+* code解析页通过后台接口，完成解析后，接着跳转**业务页面**,例如首页，订单页等。
+
+从上面流程可以发现，其主要涉及三个页面，授权页，解析页，业务页，其中**授权页**是微信官方页面，我们是没有对其操纵的权限的。
+而死循环是发生在**业务页**，触发返回后，回到**空白解析页**的时候，这两个涉及到的页面，我们都可以对其进行改动，改动的核心思路，
+就是避免**解析页**二次跳转到**业务页**。
+
+可以发现，问题的核心矛盾，在于回退到**授权页**时，重复解析code并进行了一次重复定向，只要我们能够实现，授权一次后，
+再进入**解析页**，就直接回退，而不走解析code和跳转的分支即可。
+
+我们可以借助一个session标记位实现这个机制。
+
+首先，我们知道，同一个会话session下，回退被认为是一个会话，所以session标记位是持久化的。
+而再次通过正向跳转流程进入解析页，是算作一个新会话的。
+如此，标记位就仅仅在回退情境中生效。
+
+通过session标记位，在code解析空白页中，就可以标记授权状态。当已经授权一次后，再次进入此页面，就直接回退。
+
+使用vue3，伪代码大概如下：
+
+```ts
+// code解析空白页逻辑
+export default function useAuth() {
+  const HAS_AUTH_KEY = "PAGE_HAS_AUTH";
+  // 这里是直接把code作为了一个标记位，也可以使用true/false均可
+  let authorizedCode = ref(sessionStorage.getItem(HAS_AUTH_KEY));
+  watch(authorizedCode, (n, o) => {
+    if (!n) {
+      sessionStorage.removeItem(HAS_AUTH_KEY);
+      return;
+    }
+    sessionStorage.setItem(HAS_AUTH_KEY, n);
+  });
+  const userIsAuthorized = () => {
+    if (authorizedCode.value) {
+      return true;
+    } else return false;
+  };
+  // 已经在此次会话授权过了
+  const doDecode = async (code: string | null) => {
+      // 此处调用后台接口，解析code
+      // 授权成功后，留存code作为授权了的标记位
+      authorizedCode.value = code
+  };
+  return {
+    doDecode,
+    userIsAuthorized,
+    authorizedCode,
+  };
+}
+let { doDecode, userIsAuthorized, authorizedCode } = useAuth();
+if (userIsAuthorized()) {
+  // 保险起见，连续回退前清空标记。其实本来重新进入，也会算作一次新的会话，会清空session
+  authorizedCode.value = null;
+  // 如果是小程序，直接通过wx.miniProgram.navigateBack退出webview
+  // 如果是h5，则可通过history连续回调，回调次数可以自己尝试
+  history.go(-2)
+} else {
+  doDecode(code.value, userInfo.value);
+}
+```
+
+
+**注意**:
+
+微信浏览器中location.replace在IOS设备等同于window.location.href跳转，不能做到替换页面栈中的路由。
+
+[参考](https://developer.mozilla.org/en-US/docs/Web/API/Window/popstate_event)

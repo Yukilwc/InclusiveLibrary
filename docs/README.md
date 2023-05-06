@@ -3,8 +3,6 @@
 
 # Misaka Net
 
-
-
 ## 刀尖上的舞蹈
 
 [菜谱收录](./Life-Skill/Cook/Recipes-Collection/Recipes-1.md)
@@ -14,6 +12,8 @@
 [洛阳游记](./Life-Skill/travel/LuoYang/article.md)
 
 ## 0与1的艺术
+
+记录计算机相关。
 
 ### 思想
 
@@ -32,3 +32,13 @@
 ### 前端开发
 
 [本地调试微信公众号网页授权](./Frontend/Minapp/local_official_web_auth/index.md)
+
+## 知天命
+
+记录人生的感悟与思考。
+
+## 仅仅是记录
+
+记录一些需要记住的事情。
+
+[当地风俗收录](./Life-Skill/Life-Experience/local_traditions.md)
