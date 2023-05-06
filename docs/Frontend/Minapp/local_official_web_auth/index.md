@@ -81,17 +81,29 @@ let wechatUrl = `https://open.weixin.qq.com/connect/oauth2/authorize?appid=${app
 
 这里我采用的一种方法，就是不使用vue-router解析路由参数，而是使用`new URL()`来解析。
 
-以下是一个例子：
+以下是一个vue3中的例子：
 
 ```ts
 // 注意，这里如果要自带参数，则一定需要拼接到hash前，放到hash后，会被微信莫名其妙的吞掉，所以hash后务必仅仅放路由名字就行
-let redirectUri = `http://your_config_host.com?userId=666&userName=myname#route_name`
+let redirectUri = `http://your_config_host.com?userInfoStr=编码后的JSON序列化字符串#route_name`
 // 经过跳转拼接，后url会变成如下
-// http://your_config_host.com?userId=666&userName=myname&code=123&state=456#route_name
-let href = window.location.href
-// 通过URL构造器构造对象的方法，解析参数
-let code = new URL(href).searchParams.get("code");
-let userId = new URL(href).searchParams.get("userId");
+// http://your_config_host.com?userInfoStr=编码后的JSON序列化字符串&code=123&state=456#route_name
+export default function useParams() {
+  let code = ref("");
+  let userInfo: Ref<UserInfo> = ref(new UserInfo());
+  let url = window.location.href;
+  let searchParams = new URL(url).searchParams;
+  code.value = searchParams.get("code") || "";
+  let userInfoStr = searchParams.get("userInfoStr") || "";
+  if(!userInfoStr) {
+    throw new Error("searchParams.get('userInfoStr') is empty")
+  }
+  userInfo.value = JSON.parse(decodeURIComponent(userInfoStr)) as UserInfo;
+  return {
+    code,
+    userInfo,
+  };
+}
 ```
 
 如此，通过这种非hash的拼接query参数方式，以及通过URL解析的方式，就可以避免code拼接错误的问题。
