@@ -42,3 +42,9 @@
 记录一些需要记住的事情。
 
 [当地风俗收录](./Life-Skill/Life-Experience/local_traditions.md)
+
+## 游戏人生
+
+**星穹铁道**
+
+[笔记](./Game/rail_star/note.md)
