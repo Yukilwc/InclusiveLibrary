@@ -188,7 +188,7 @@ pip config unset global.index-url
 * 使用安装的Python Environment Manager扩展，侧边栏会出现对应图标。
 * ctrl+shift+p,输入`Python:Select interpreter`，进行选择。
 
-![Link](./images/VSCode_set.png)
+![Link](./images/vscode_set.png)
 
 ## 工程构建与简单运行
 
