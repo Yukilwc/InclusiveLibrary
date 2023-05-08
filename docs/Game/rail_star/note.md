@@ -36,6 +36,18 @@
 
 ## 角色养成策略
 
+### 希儿
+
+光锥:
+
+![link](./images/xi_er.png)
+
+### 丹恒
+
+光锥:
+
+![link](./images/dan_heng.png)
+
 ### 阿兰
 
 光锥:
@@ -53,3 +65,10 @@
 光锥:
 
 ![link](./images/hu_ke.png)
+
+### 素裳
+
+光锥:
+
+![link](./images/su_shang.png)
+
