@@ -26,4 +26,8 @@ protoc --version
 # 安装生成go代码的工具
 go install google.golang.org/protobuf/cmd/protoc-gen-go@latest
 go install google.golang.org/grpc/cmd/protoc-gen-go-grpc@latest
+# 下载安装etcd，https://github.com/etcd-io/etcd/releases/
+# 添加到环境变量path
+# 尝试是否成功
+etcd --version
 ```
