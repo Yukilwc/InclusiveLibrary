@@ -17,6 +17,9 @@ $env:PY_PYTHON
 # 设置环境变量
 $env:PY_PYTHON = 3
 
+# 打印当前目录树形结构
+tree
+
 ```
 
 使用curl

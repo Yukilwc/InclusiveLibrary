@@ -1,0 +1,10 @@
+# 经验规则
+
+定义struct后，可提供一个New函数，提供给外部一个便捷的获取实例的方法，
+此方法总是对struct进行初始化并返回其指针。
+
+在go中，方法名前面的Must一般表示该方法不会返回错误，而是直接panic或者退出程序。和没有Must的方法相比，
+它们更适合用于初始化或者配置的场景，不需要处理错误返回值。
+例如，MustNewServer方法1是NewServer方法的一个包装，它接受一个RestConf和一些RunOption作为参数，返回一个Server对象。
+如果NewServer方法返回错误，MustNewServer方法会直接调用log.Fatal打印错误并退出程序。
+所以，MustNewServer方法不会返回错误，只会返回一个Server对象或者终止程序。
