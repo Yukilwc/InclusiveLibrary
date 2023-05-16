@@ -12,7 +12,10 @@ docker image ls
 
 # 根据镜像启动容器。-d 为后台运行，大概试daemon? , -p是映射容器内部端口到宿主主机的8080端口，从而访问容器内部的Nginx服务器。
 # -p 是 hostPort:containerPort
-docker run -d -p 8080:80 vue-nginx
+# -it 分配一个交互式终端，如此可以看到容器输出或者执行命令
+# --rm 容器退出时删除容器
+docker run -it --rm -d -p 8080:80 vue-nginx
+
 
 # 指定容器名i在 
 docker run --name vue-nginx-container -d -p 8080:80 vue-nginx

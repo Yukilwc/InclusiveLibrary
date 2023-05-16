@@ -66,7 +66,7 @@ CMD ["./server"]
 # 运行指令，构造镜像
 docker build -t docker_develop .
 # 从镜像实例化容器
-docker run --name docker_develop_ctnr -d -p 8080:8080 docker_develop
+docker run -it --rm --name docker_develop_ctnr -d -p 8080:8080 docker_develop
 # 查看镜像信息 此时镜像有百M大小
 docker image ls
 # 查看容器
@@ -104,7 +104,7 @@ COPY . ./
 RUN GOPROXY=https://goproxy.cn go mod tidy && \ 
     CGO_ENABLED=0 GOOS=linux go build -o server .
 
-FROM scratch
+FROM alpine 
 
 WORKDIR /app
 
@@ -134,7 +134,7 @@ RUN GOPROXY=https://goproxy.cn go mod download
 COPY . ./
 RUN CGO_ENABLED=0 GOOS=linux go build -o server .
 
-FROM scratch
+FROM alpine
 WORKDIR /app
 COPY --from=builder /app/server .
 CMD ["./server"]
@@ -159,10 +159,53 @@ COPY vendor/ .
 COPY . ./
 RUN CGO_ENABLED=0 GOOS=linux go build -mod=vendor -o server .
 
-FROM scratch
+FROM alpine
 WORKDIR /app
 COPY --from=builder /app/server .
 CMD ["./server"]
+```
+
+**使用volume**
+
+上述使用vendor的方式，虽然解决了问题，但是其会导致忽略到go.mod和go.sum，
+如果是想要使用这二者来控制依赖，则需要更换其它方式。
+
+例用volume，可以让容器和主机，共享一块存储，如果能把主机的go mod缓存，
+和容器的go mod缓存共享，那么每次执行`go mod download`，就只会下载新增的依赖了。
+
+同时，如果不挂载volume，那构建镜像时也不会出错，等价于上面的go.mod变动方案。
+
+```sh
+# 查看缓存存放目录
+# C:\Users\name\go\pkg\mod
+go env GOMODCACHE
+# 随便启动一个golang的容器，进入交互式终端
+docker exec -it docker_develop_ctnr /bin/sh
+# 查看容器内的缓存位置 
+# /go/pkg/mod
+go env
+```
+
+使用之前的dockerfile：
+
+```dockerfile
+FROM golang:1.19-alpine as builder
+WORKDIR /app
+COPY go.mod go.sum .
+RUN GOPROXY=https://goproxy.cn go mod download 
+COPY . ./
+RUN CGO_ENABLED=0 GOOS=linux go build -o server .
+
+FROM alpine
+WORKDIR /app
+COPY --from=builder /app/server .
+CMD ["./server"]
+```
+
+构造镜像时，启动容器时挂载卷
+
+```sh
+
 ```
 
 ## vscode配置
