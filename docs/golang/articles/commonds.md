@@ -21,4 +21,14 @@ go env
 go env <variable name>
 # 设置环境变量
 go env -w 变量名=设置值
+
+go build 
+
+# 运行
+go run main.go
+
+# 从本地vendor中读取依赖进行编译，而不是网络或者全局缓存
+# 这适用于使用go mod vendor来安装依赖的情景
+# 此时 go.mod 文件会被忽略
+go build -mod=vendor -o server .
 ```

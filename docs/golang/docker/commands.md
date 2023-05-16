@@ -1,4 +1,4 @@
-# 部署实验
+# 命令收录
 
 ## 指令
 
@@ -6,7 +6,12 @@
 # 运行
 # 构建一个镜像。 -t指定镜像名称标签，. 指定dockerfile所在目录
 docker build -t vue-nginx .
+
+# 查看全部镜像信息
+docker image ls
+
 # 根据镜像启动容器。-d 为后台运行，大概试daemon? , -p是映射容器内部端口到宿主主机的8080端口，从而访问容器内部的Nginx服务器。
+# -p 是 hostPort:containerPort
 docker run -d -p 8080:80 vue-nginx
 
 # 指定容器名i在 
