@@ -19,6 +19,12 @@ docker run -it --rm -d -p 8080:80 vue-nginx
 
 # 指定容器名i在 
 docker run --name vue-nginx-container -d -p 8080:80 vue-nginx
+
+# 容器启动时，挂载volume
+# -v后，有两种写法
+# -v volume_name:container_path 是创建一个volume，然后挂载
+# -v host_path:container_path 是不创建volume，而是直接把宿主主机的一个路径，挂载到容器路径，这叫做bind mount
+docker run -it -v gomodcache:/go/pkg/mod  --rm --name docker_develop_ctnr -d -p 8080:8080 docker_develop
 # 查看容器信息
 docker ps
 

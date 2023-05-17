@@ -41,6 +41,8 @@ curl -method get -uri http://localhost:8080
 
 ## 使用docker开发调试
 
+这里使用一个测试用例，然后构造一个基本镜像，以此为基础，使用一些方案，解决各种问题。
+
 ### 简单镜像
 
 接着上述的项目，添加一个`Dockerfile`文件，用来构建镜像使用。
@@ -145,12 +147,14 @@ CMD ["./server"]
 上述方法，仅仅做到了修改源码后不触发，但是如果是执行了`go get`或者`go tidy`等操作，
 从而更新了`go.mod`文件，那就依旧会触发重新下载。
 
-### go.mod更新后重复下载多余依赖的问题
+### go.mod更新后重复下载多余依赖的问题--使用vendor
 
-**使用vendor**
+可以使用`go mod vendor`，其能够把go.mod文件中的依赖，下载到项目根目录下，然后docker构建时，把vendor拷贝到工作空间，
+如此，也就不需要在docker中，进行依赖下载了。  
 
-可以使用`go mod vendor`，然后docker构建时，把vendor拷贝到工作空间，
-如此
+但是这样带来的问题是，依赖是在windows下载，在linux系统下做编译使用，总是不一致的。
+
+这种思路的本质，就是把难处理的依赖安装，这个职责，放到本地来做，而不在docker中做，此种做法和上面go.mod变动法各有优劣。
 
 ```dockerfile
 FROM golang:1.19-alpine as builder
@@ -165,53 +169,37 @@ COPY --from=builder /app/server .
 CMD ["./server"]
 ```
 
-**使用volume**
-
-上述使用vendor的方式，虽然解决了问题，但是其会导致忽略到go.mod和go.sum，
-如果是想要使用这二者来控制依赖，则需要更换其它方式。
-
-例用volume，可以让容器和主机，共享一块存储，如果能把主机的go mod缓存，
-和容器的go mod缓存共享，那么每次执行`go mod download`，就只会下载新增的依赖了。
-
-同时，如果不挂载volume，那构建镜像时也不会出错，等价于上面的go.mod变动方案。
-
-```sh
-# 查看缓存存放目录
-# C:\Users\name\go\pkg\mod
-go env GOMODCACHE
-# 随便启动一个golang的容器，进入交互式终端
-docker exec -it docker_develop_ctnr /bin/sh
-# 查看容器内的缓存位置 
-# /go/pkg/mod
-go env
-```
-
-使用之前的dockerfile：
-
-```dockerfile
-FROM golang:1.19-alpine as builder
-WORKDIR /app
-COPY go.mod go.sum .
-RUN GOPROXY=https://goproxy.cn go mod download 
-COPY . ./
-RUN CGO_ENABLED=0 GOOS=linux go build -o server .
-
-FROM alpine
-WORKDIR /app
-COPY --from=builder /app/server .
-CMD ["./server"]
-```
-
-构造镜像时，启动容器时挂载卷
-
-```sh
-
-```
 
 ## vscode配置
+
+### 基础知识(待整理)
+
+**launch.json配置**
+
+* type: 指定调试器的类型，例如docker，go。
+  * 设置为go，表示使用go的调试器，可以调试本地或远程的go程序。
+  * type 设置为 docker ，表示使用 docker 的调试器，可以调试在 docker 容器中运行的程序，支持 node.js ，python 和 .net 三种平台
+* preLaunchTask:指定启动调试前，要运行的任务名称。
+* request: 可以是launch或者attach。
+  * launch 模式是指 vscode 启动一个程序并附加调试器到它，可以控制程序的运行和停止。
+  * attach 模式是指 vscode 连接到一个已经运行的程序或进程，并附加调试器到它，不能控制程序的运行和停止。
+  * 对目标程序，必须是以debug模式启动的才能调试。
+* mode:调试器的模式，例如go支持debug,remote,exec,test等。
+* program:指定要调试的程序或进程路径。
+* args: 要传递给程序或进程的命令参数。
+
+### docker镜像构建与容器启动
+
+我们需要能够在Vscode中，启动调试时，自动构建镜像，然后启动容器，而不是每次都要手动输入指令。
+
+### 断点调试
+
+要调试查看变量等，总不能全程`print`，还是得借助调试工具，添加断点，实时查看各种变量信息。
 
 ## go-zero
 
 ## 远程开发
 
 ## 参考
+
+[vscode docker debug](https://code.visualstudio.com/docs/containers/debug-common)
