@@ -11,6 +11,15 @@
 * 链子5个
 * 球10个
 
+![Link](./images/yiqi_zhucitiao.webp)
+
+
+### 角色遗器推荐
+
+![Link](./images/juseyiqi1.webp)
+
+![Link](./images/jueseyiqi2.webp)
+
 ## 兑换相关
 
 大月卡光锥：
@@ -72,3 +81,7 @@
 
 ![link](./images/su_shang.png)
 
+
+## 机制
+
+![击破负面](./images/jipofumian.webp)
