@@ -203,3 +203,9 @@ CMD ["./server"]
 ## 参考
 
 [vscode docker debug](https://code.visualstudio.com/docs/containers/debug-common)
+
+## 随笔记录
+
+调试go需要使用delve这个调试器。
+
+vscode天然只支持nodejs，python和.net的docker调试。
