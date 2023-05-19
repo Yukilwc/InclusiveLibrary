@@ -1,4 +1,4 @@
-# 使用docker本地开发调试golang项目
+# 草稿 使用docker本地开发调试golang项目
 
 ## 概要
 
@@ -131,7 +131,7 @@ CMD ["./server"]
 ```dockerfile
 FROM golang:1.19-alpine as builder
 WORKDIR /app
-COPY go.mod go.sum .
+COPY go.mod go.sum ./
 RUN GOPROXY=https://goproxy.cn go mod download 
 COPY . ./
 RUN CGO_ENABLED=0 GOOS=linux go build -o server .
@@ -204,8 +204,147 @@ CMD ["./server"]
 
 [vscode docker debug](https://code.visualstudio.com/docs/containers/debug-common)
 
+[vscode 使用docker compose调试go微服务](https://spirited.io/docker-debugging-go-microservices-in-visual-studio-code/)
+
+[vscode中调试docker中的go](https://dev.to/bruc3mackenzi3/debugging-go-inside-docker-using-vscode-4f67)
+
+[dlv调试](https://yusank.github.io/posts/docker-dlv-debugging/)
+
+[dlv文档-命令行选项](https://github.com/go-delve/delve/blob/master/Documentation/usage/dlv.md)
+
 ## 随笔记录
 
 调试go需要使用delve这个调试器。
 
 vscode天然只支持nodejs，python和.net的docker调试。
+
+涉及到的文件
+
+Dockerfile,launch.json,tasks.json,.env,docker-compose-debug.yml
+
+插件：tasks-shell-input,vscode-env,vscode-docker,go
+
+需要使用`go install`下载编译go的调试工具delve，同时在build时需要加入参数，表示是debug。
+
+在最后运行生成的可执行文件时，也需要使用调试工具运行，不能直接运行。
+
+go的一些命令行参数，后续整理收录：
+
+
+```dockerfile
+RUN go install -ldflags "-extldflags '-static'" -gcflags "all=-N -l" -v ./service/...;
+```
+
+-ldflags 用来设置传递给go tool links的参数选项。
+`"-extldflags '-static'"` 是传递给go tool link的参数，
+它表示使用外部链接器（如gcc）并指定链接器的标志为-static，
+这意味着要生成完全静态链接的可执行文件，不依赖于任何动态库。
+
+-gcflags,是用来设置传递给go tool compile的参数的选项，其为用来编译go源文件的工具。
+
+`"all=-N -l"`，传递给go tool compile的参数，all表示对所有包应用-N -l两个标志。
+-N表示禁用优化，-l表示禁用内联，这两个标志通常用于调试目的，使得生成的二进制文件更容易与源代码对应。
+
+-v 是用来打印编译和安装过程中涉及到的包名的选项，方便查看编译和安装的进度和结果。
+
+./service/… 是要编译和安装的包或程序的路径，…表示匹配任意子目录下的包或程序。
+
+```dockerfile
+RUN CGO_ENABLED=0 go install -ldflags "-s -w -extldflags '-static'" github.com/go-delve/delve/cmd/dlv@latest
+```
+
+CGO_ENABLED=0 是一个环境变量，用于控制是否启用CGO，即是否允许go程序调用C语言的代码。设置为0表示禁用CGO，这样可以避免依赖C语言的库和工具。
+
+“-s -w -extldflags ‘-static’” 是传递给go tool link的参数,
+
+* -s 表示省略符号表和调试信息，减小二进制文件的大小
+* -w 表示省略DWARF符号表，减小二进制文件的大小
+* -extldflags ‘-static’ 表示使用外部链接器（如gcc）并指定链接器的标志为-static，这意味着要生成完全静态链接的可执行文件，不依赖于任何动态库。
+
+```dockerfile
+CMD ["/go/bin/dlv","--listen=:4000","--headless=true","--log=true","--accept-multiclient","--api-version=2","exec","./server"]
+```
+
+这条指令的作用是：
+
+* CMD 是一个Dockerfile中的指令，用于定义容器启动时要执行的命令。这个指令使用了exec形式，即将命令和参数作为一个数组传递。
+* 中括号内是传递给CMD的参数，它表示：
+    * go/bin/dlv 是一个可执行文件，它是一个go语言的调试器，可以在运行时检查和修改go程序的状态³
+    * --listen=:4000 表示dlv监听4000端口，等待远程连接
+    * --headless=true 表示dlv以无头模式运行，不需要交互式终端
+    * --log=true 表示dlv输出日志信息
+    * --accept-multiclient 表示dlv接受多个客户端连接
+    * --api-version=2 表示dlv使用API版本2
+    * exec ./server 表示dlv执行./server这个程序
+
+所以，这个指令的作用是在容器中启动一个dlv调试器，让它运行./server这个go程序，并允许远程客户端连接到4000端口进行调试。
+
+### 一个实现
+
+```go
+package main
+
+import (
+	"fmt"
+
+	"github.com/gin-gonic/gin"
+)
+
+func main() {
+	fmt.Println("run main")
+	r := gin.Default()
+	r.GET("/test", func(c *gin.Context) {
+		fmt.Println("hello")
+		c.JSON(200, gin.H{
+			"message": "Hello",
+		})
+	})
+	r.Run(":80")
+}
+```
+
+**Dockerfile.debug**
+
+```dockerfile
+FROM golang:1.19-alpine as builder
+EXPOSE 80 4000
+# 安装编译调试工具
+RUN CGO_ENABLED=0 go install -ldflags "-s -w -extldflags '-static'" github.com/go-delve/delve/cmd/dlv@latest
+WORKDIR /app
+# 安装调试工具
+COPY go.mod go.sum ./
+RUN GOPROXY=https://goproxy.cn go mod download 
+COPY . ./
+# build时禁用优化，禁用内联，方便后续调试
+RUN CGO_ENABLED=0 GOOS=linux go build -gcflags "all=-N -l" -o server .
+CMD ["/go/bin/dlv","--listen=:4000","--headless=true","--log=true","--accept-multiclient","--api-version=2","exec","/app/server"]
+```
+
+**launch.json**
+
+```json
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name":"Remote docker app",
+            "type":"go",
+            "request": "attach",
+            "mode": "remote",
+            "port": 4000,
+            "host": "127.0.0.1",
+        }
+    ]
+}
+```
+
+```sh
+docker build . --tag dd --file Dockerfile.debug
+docker run -p 80:80 -p 4000:4000 --name ddc dd 
+# 注意，此处通过vscode，来启动链接
+curl -method get -uri http://localhost/test
+```
+
+### 使用tasks.json
+
+### 使用插件 remote containers
