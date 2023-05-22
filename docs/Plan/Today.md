@@ -1,12 +1,20 @@
 # 今日
 
-完成tasks.json的版本
+compose 版本，解决冗余镜像问题
 
-过一遍compose文档
+**再多一个版本**,还是想要尝试把源码 挂载成卷，如此每次不用重新构造镜像，仅仅重启容器，也就是CMD即可。
 
-compose 版本
+compose volumes版本
+
 
 远程dev文档
+
+docker调试go，写成文章
+
+研究docker调试前端 解决热更新问题
+
+还能用k8s来试试?
+
 
 两个星铁任务
 

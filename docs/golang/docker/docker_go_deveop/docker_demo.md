@@ -55,7 +55,8 @@ CMD ["/go/bin/dlv","--listen=:4000","--headless=true","--log=true","--accept-mul
             "mode": "remote",
             "port": 4000,
             "host": "127.0.0.1",
-            "preLaunchTask": "debug"
+            "preLaunchTask": "debug",
+            "postDebugTask": "stop debug"
         }
     ]
 }
@@ -115,6 +116,11 @@ CMD ["/go/bin/dlv","--listen=:4000","--headless=true","--log=true","--accept-mul
       "label": "debug",
       "dependsOrder": "sequence",
       "dependsOn": ["clearContainer","clearImage","build", "run"]
+    },
+    {
+        "label": "stop debug",
+        "dependsOrder": "sequence",
+        "dependsOn":["clearContainer","clearImage"]
     }
   ]
 }
