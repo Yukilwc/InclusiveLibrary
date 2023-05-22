@@ -200,18 +200,6 @@ CMD ["./server"]
 
 ## 远程开发
 
-## 参考
-
-[vscode docker debug](https://code.visualstudio.com/docs/containers/debug-common)
-
-[vscode 使用docker compose调试go微服务](https://spirited.io/docker-debugging-go-microservices-in-visual-studio-code/)
-
-[vscode中调试docker中的go](https://dev.to/bruc3mackenzi3/debugging-go-inside-docker-using-vscode-4f67)
-
-[dlv调试](https://yusank.github.io/posts/docker-dlv-debugging/)
-
-[dlv文档-命令行选项](https://github.com/go-delve/delve/blob/master/Documentation/usage/dlv.md)
-
 ## 随笔记录
 
 调试go需要使用delve这个调试器。
@@ -341,10 +329,30 @@ CMD ["/go/bin/dlv","--listen=:4000","--headless=true","--log=true","--accept-mul
 ```sh
 docker build . --tag dd --file Dockerfile.debug
 docker run -p 80:80 -p 4000:4000 --name ddc dd 
+# 必须通过F5开启调试attach后，才能请求
 # 注意，此处通过vscode，来启动链接
 curl -method get -uri http://localhost/test
 ```
 
-### 使用tasks.json
+### 使用tasks.json的版本
 
 ### 使用插件 remote containers
+
+## 参考
+
+[vscode docker debug](https://code.visualstudio.com/docs/containers/debug-common)
+
+[vscode 使用docker compose调试go微服务](https://spirited.io/docker-debugging-go-microservices-in-visual-studio-code/)
+
+[vscode中调试docker中的go](https://dev.to/bruc3mackenzi3/debugging-go-inside-docker-using-vscode-4f67)
+
+[dlv调试](https://yusank.github.io/posts/docker-dlv-debugging/)
+
+[dlv文档-命令行选项](https://github.com/go-delve/delve/blob/master/Documentation/usage/dlv.md)
+
+[使用remote container](https://www.jianshu.com/p/84898e937c5a)
+
+[vscode remote dev文档](https://code.visualstudio.com/docs/remote/remote-overview)
+
+[vscode tasks文档](https://code.visualstudio.com/docs/editor/tasks#_compound-tasks)
+
