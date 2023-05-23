@@ -29,7 +29,6 @@ func main() {
 
 ```dockerfile
 FROM golang:1.19-alpine as builder
-EXPOSE 80 4000
 # 安装编译调试工具
 RUN CGO_ENABLED=0 go install -ldflags "-s -w -extldflags '-static'" github.com/go-delve/delve/cmd/dlv@latest
 WORKDIR /app
@@ -39,7 +38,15 @@ RUN GOPROXY=https://goproxy.cn go mod download
 COPY . ./
 # build时禁用优化，禁用内联，方便后续调试
 RUN CGO_ENABLED=0 GOOS=linux go build -gcflags "all=-N -l" -o server .
+
+FROM alpine:latest
+EXPOSE 80 4000
+WORKDIR /go/bin
+COPY --from=builder /go/bin/dlv ./
+WORKDIR /app
+COPY --from=builder /app/server ./
 CMD ["/go/bin/dlv","--listen=:4000","--headless=true","--log=true","--accept-multiclient","--api-version=2","exec","/app/server"]
+# CMD ["./server"]
 ```
 
 **launch.json**

@@ -8,11 +8,15 @@
 
 docker compose up命令不会自动覆盖镜像和停止删除容器，除非您指定了相关的选项。您可以用以下方法来控制镜像和容器的行为：
 
-* 如果您想在启动容器之前重新构建镜像，可以用--build选项2。例如：`docker compose up --build`。
-* 如果您想在启动容器之前拉取最新的镜像，可以用--pull选项2。例如：`docker compose up --pull missing`。
-* 如果您想在启动容器之前强制重新创建容器，可以用--force-recreate选项2。例如：`docker compose up --force-recreate`。
-* 如果您想在退出命令后停止并删除容器，可以用--abort-on-container-exit选项2。例如：`docker compose up --abort-on-container-exit`。
-* 如果您想单独删除已停止的容器，可以用docker compose rm命令3。例如：`docker compose rm -fsv`。
+* 如果您想在启动容器之前重新构建镜像，可以用--build选项。例如：`docker compose up --build`。
+* 如果您想在启动容器之前拉取最新的镜像，可以用--pull选项。例如：`docker compose up --pull missing`。
+* 如果您想在启动容器之前强制重新创建容器，可以用--force-recreate选项。例如：`docker compose up --force-recreate`。
+* 如果您想在退出命令后停止并删除容器，可以用--abort-on-container-exit选项。例如：`docker compose up --abort-on-container-exit`。
+* 如果您想单独删除已停止的容器，可以用docker compose rm命令。例如：`docker compose rm -fsv`。
+
+docker image prune -a选项是用来移除所有未被任何容器引用的镜像的选项1。默认情况下，docker image prune只移除悬空的镜像，也就是没有标签并且没有被任何容器引用的镜像2。使用-a选项可以扩大移除的范围，包括那些有标签但是没有被任何容器引用的镜像2。
+
+例如，如果你有一个名为my-app:latest的镜像，但是没有任何容器使用它，那么运行docker image prune不会移除它，因为它有一个标签。但是如果你运行docker image prune -a，那么它会被移除，因为它没有被任何容器引用。
 
 ### 优化
 
@@ -87,6 +91,184 @@ docker volumes的常用场景有：
 * 存储日志文件，如nginx，apache等。
 * 存储配置文件，如redis.conf等。
 * 存储应用程序数据，如图片，视频等。
+
+## 最终版本
+
+**main.go**
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+
+	"github.com/gin-gonic/gin"
+	"github.com/redis/go-redis/v9"
+)
+
+var rdb *redis.Client
+var ctx = context.Background()
+
+func main() {
+	fmt.Println("run main,测试clear")
+	initRedis()
+	r := gin.Default()
+	r.GET("/test", func(c *gin.Context) {
+		fmt.Println("hello")
+		rdb.Set(ctx, "key", "zzz", 0)
+		val, err := rdb.Get(ctx, "key").Result()
+		if err != nil {
+			c.JSON(200, gin.H{
+				"error": err.Error(),
+			})
+
+		} else {
+			c.JSON(200, gin.H{
+				"message": "Hello," + val,
+			})
+
+		}
+
+	})
+	r.Run(":80")
+}
+
+func initRedis() {
+	rdb = redis.NewClient(&redis.Options{
+		Addr:     "redis:6379", // 这里需要使用compose中的service name作为地址
+		Password: "",
+		DB:       0,
+	})
+	// pong, err := rdb.Ping(ctx).Result()
+	// fmt.Println(pong, err)
+}
+```
+
+**Dockerfile.debug**
+
+```dockerfile
+FROM golang:1.19-alpine as builder
+# 安装编译调试工具
+RUN CGO_ENABLED=0 go install -ldflags "-s -w -extldflags '-static'" github.com/go-delve/delve/cmd/dlv@latest
+WORKDIR /app
+# 安装调试工具
+COPY go.mod go.sum ./
+RUN GOPROXY=https://goproxy.cn go mod download 
+COPY . ./
+# build时禁用优化，禁用内联，方便后续调试
+RUN CGO_ENABLED=0 GOOS=linux go build -gcflags "all=-N -l" -o server .
+
+FROM alpine:latest
+EXPOSE 80 4000
+WORKDIR /go/bin
+COPY --from=builder /go/bin/dlv ./
+WORKDIR /app
+COPY --from=builder /app/server ./
+CMD ["/go/bin/dlv","--listen=:4000","--headless=true","--log=true","--accept-multiclient","--api-version=2","exec","/app/server"]
+# CMD ["./server"]
+```
+
+**docker-compose-debug.yml**
+
+```yml
+version: '3.9'
+services:
+  backend:
+    image: docker_develop_image
+    container_name: docker_develop_container
+    build:
+      context: .
+      dockerfile: Dockerfile.debug
+    ports:
+      - "${BACKEND_PORT}:80"
+      - "${DEBUG_PORT}:4000"
+    depends_on:
+      - redis
+    networks:
+      - app-network
+    restart: always
+    volumes:
+      - ./logs:/logs
+  redis:
+    image: "redis:alpine"
+    ports:
+      - "${REDIS_PORT}:6379"
+    networks:
+      - app-network
+    restart: always
+    volumes:
+      - ./data:/data
+networks:
+  app-network:
+    driver: bridge
+```
+
+**launch.json**
+
+```json
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name":"Remote docker app",
+            "type":"go",
+            "request": "attach",
+            "mode": "remote",
+            "port": 4000,
+            "host": "127.0.0.1",
+            "preLaunchTask": "debug",
+            "postDebugTask": "stop debug"
+        }
+    ]
+}
+```
+
+**tasks.json**
+
+```json
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "image prune",
+      "type": "shell",
+      "command": "docker",
+      "args": ["image", "prune", "-f"]
+    },
+    {
+      "label": "clear",
+      "type": "shell",
+      "command": "docker-compose",
+      "args": ["-f", "./docker-compose-debug.yml", "down", "-v"]
+    },
+
+    {
+      "label": "compose up",
+      "type": "shell",
+      "command": "docker-compose",
+      "args": [
+        "-f",
+        "./docker-compose-debug.yml",
+        "up",
+        "--detach",
+        "--build",
+        "--force-recreate"
+      ]
+    },
+    {
+      "label": "debug",
+      "dependsOrder": "sequence",
+      "dependsOn": ["clear", "image prune", "compose up"]
+    },
+    {
+      "label": "stop debug",
+      "dependsOrder": "sequence",
+      "dependsOn": ["clear", "image prune"]
+    }
+  ]
+}
+```
 
 ## 参考
 
