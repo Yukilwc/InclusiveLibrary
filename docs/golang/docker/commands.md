@@ -59,3 +59,58 @@ docker stats <容器ID或名称>
 ## dockerfile
 
 ## nginx配置
+
+## 指定用户组与用户
+
+```dockerfile
+FROM node:14
+
+WORKDIR /vue-setup
+
+RUN npm install -g @vue/cli
+
+# The following commands ensure access to our files
+# If we left them out, changing files on our local setup
+# would fail due to insufficient permissions. 
+RUN userdel -r node
+
+ARG USER_ID
+
+ARG GROUP_ID
+
+RUN addgroup --gid $GROUP_ID user
+
+RUN adduser --disabled-password --gecos '' --uid $USER_ID --gid $GROUP_ID user
+
+# Set the active user and open the interactive terminal
+USER user
+
+ENTRYPOINT [ "bash" ]
+
+```
+
+* FROM node:14：这是指定基础镜像为node:14，也就是node的14版本
+* WORKDIR /vue-setup：这是指定工作目录为/vue-setup，也就是容器内的/vue-setup文件夹
+* RUN npm install -g @vue/cli：这是在容器内运行npm命令，全局安装@vue/cli，也就是vue的命令行工具
+* RUN userdel -r node：这是删除容器内默认的node用户，因为可能会和本地的用户冲突
+* ARG USER_ID：这是定义一个变量USER_ID，用于接收本地的用户ID
+* ARG GROUP_ID：这是定义一个变量GROUP_ID，用于接收本地的用户组ID
+* RUN addgroup --gid $GROUP_ID user：这是在容器内创建一个新的用户组user，并指定其ID为GROUP_ID
+* RUN adduser --disabled-password --gecos ‘’ --uid $USER_ID --gid $GROUP_ID user：
+  这是在容器内创建一个新的用户user，并指定其ID为USER_ID，所属用户组为user，并禁用密码和其他信息
+* USER user：这是指定容器内运行的用户为user，而不是root
+* ENTRYPOINT [ “bash” ]：这是指定容器启动时运行的命令为bash，也就是打开交互式终端
+
+
+```sh
+docker build \
+  --build-arg USER_ID=$(id -u) \
+  --build-arg GROUP_ID=$(id -g) \
+  -t vue_helper - < ./dockerfiles/Setup.Dockerfile
+```
+
+* –build-arg：这是用于指定构建镜像时的参数，可以在Dockerfile中使用ARG来接收
+* USER_ID：这是一个构建参数的名字，表示用户ID，其值为$(id -u)，也就是本地的用户ID
+* GROUP_ID：这是一个构建参数的名字，表示用户组ID，其值为$(id -g)，也就是本地的用户组ID
+* -t：这是用于指定镜像的标签，也就是镜像的名字和版本
+
