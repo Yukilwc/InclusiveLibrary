@@ -1,33 +1,9 @@
 # 今日
 
-ios高度：
-
-整箱列表，详情
-陆运详情
-空运列表
-进口整箱列表
-出口拼箱详情
-进口拼箱详情
-我的报价单详情
-我的名片
-我的运价订阅
-跟踪订阅详情
-飞跎海运跟踪详情
-新闻详情
-特种箱列表
-特种箱详情
-冷冻箱列表
-冷冻箱详情
-我的 供应商列表
-
-研究docker调试前端 解决热更新问题
-
-远程dev文档
 
 **docker调试go，写成文章**
 
 
-还能用k8s来试试?
 
 整了几天，终于搞好了一套golang在docker里调试得配置，用的docker compose
 现在我想能用我家里得电脑跑docker容器，然后公司电脑做开发，远程连接docker，还不吃我公司电脑得资源，有啥办法能做到吗
@@ -185,6 +161,10 @@ python文章继续完善
 
 ## 待解决
 
+还能用k8s来试试?
+
+尝试研究vscode remote develop [Link](https://code.visualstudio.com/docs/devcontainers/tutorial)
+
 vue3的class，仅仅使用其作为数据存放，而方法整合到use函数中 如果碰到复杂的，需要继承的，对于this操作无法获得响应式的问题?
 
 python基础语法篇。
@@ -192,6 +172,8 @@ python基础语法篇。
 python使用setuptools，其打包可执行程序和PyInstaller有何不同。
 
 对比object与map，前端理论 [Link](https://www.zhenghao.io/posts/object-vs-map)
+
+利用baseline对齐的特性，可以保持不换行时无间距，换行后margin-top生效，产生间距。可以看凯迪网站拼箱
 
 ## work
 
