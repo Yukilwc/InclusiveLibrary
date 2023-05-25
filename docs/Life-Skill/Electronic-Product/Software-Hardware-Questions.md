@@ -33,12 +33,12 @@ curl www.google.com
 
 **new bing自动切换国内**
 
-edge浏览器会自动锁定为中国地区，就算改成美国了，也会自动改回来解决办法：输入edge://settings/searchEngines 
-点击添加
-输入信息：
-搜索引擎：bing
-快捷方式：www.bing.com
-以 %s 代替查询的 URL: https://www.bing.com/search?q=%s
+edge浏览器会自动锁定为中国地区，就算改成美国了，也会自动改回来解决办法：
+* 输入 `edge://settings/searchEngines`
+* 点击添加
+* 输入信息：搜索引擎：bing
+* 快捷方式：www.bing.com
+* 以 %s 代替查询的 URL: `https://www.bing.com/search?q=%s`
 
 
 ## 硬件
