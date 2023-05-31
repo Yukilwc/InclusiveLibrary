@@ -105,9 +105,43 @@ func LoginHandler(svcCtx *svc.ServiceContext) http.HandlerFunc {
 		if err != nil {
 			httpx.ErrorCtx(r.Context(), w, err)
 		} else {
-            // 成功时，写入成功信息
+            // 成功时，返回定义好的返回结构信息
 			httpx.OkJsonCtx(r.Context(), w, resp)
 		}
 	}
+}
+```
+
+## logic/loginlogic
+
+逻辑层，登录逻辑
+
+```go
+// 结构体定义，New函数，归属结构体的方法
+// struct定义，其包含了请求ctx，service ctx，以及logger
+type LoginLogic struct {
+	logx.Logger
+	ctx    context.Context
+	svcCtx *svc.ServiceContext
+}
+// New实例化一个结构体，对其内容初始化
+func NewLoginLogic(ctx context.Context, svcCtx *svc.ServiceContext) *LoginLogic {
+	return &LoginLogic{
+        // 注入request ctx，跟踪记录
+		Logger: logx.WithContext(ctx),
+		ctx:    ctx,
+		svcCtx: svcCtx,
+	}
+}
+
+func (l *LoginLogic) Login(req *types.ReqLoginUser) (*types.RespLoginUser, error) {
+    // 使用logic中的svcCtx实例，获取rpc客户端实例，调用实例的对应逻辑方法
+    // 这里会把request ctx传入，以及参数本质是需要使用rpc中定义的参数struct
+	resp, err := l.svcCtx.UserRpc.Login(l.ctx, &user.ReqLoginUser{Username: req.Username, Password: req.Password})
+	if err != nil {
+		return nil, err
+	}
+    // 如果成功，则返回 api层定义的resp结构体
+	return &types.RespLoginUser{Token: resp.Token}, nil
 }
 ```
