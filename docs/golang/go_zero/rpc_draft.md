@@ -165,3 +165,5 @@ Config通过上层参数传入。Model通过Model层的New方法实例赋值。
 结构体包含ctx，svcCtx，还有Logger。
 
 提供结构体的NewLogic方法。
+
+为结构体添加业务方法的具体实现，其接收输入参数，获得返回。
