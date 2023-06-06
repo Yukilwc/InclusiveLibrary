@@ -134,4 +134,34 @@ userClient作为receiver，在其上定义了业务方法Login等，其实现了
 这些描述，会在 RegisterUserServer这个方法中，注册服务时，作为参数传入。
 ## userclient/user.go
 
-提供用来调用的userclient客户端
+提供用来调用的userclient客户端。
+
+定义了一轮请求和返回类型。
+
+定义了User接口，defaultUser结构体。
+
+defaultUser作为receiver，其上定义了方法集合。
+
+提供一个NewUser方法，初始化defaultUser并返回实例。
+
+## internal/server/userserver.go
+
+提供一个类似路由或者控制器的功能，把获取的请求，转发给logic层，获取结果后返回。
+
+提供NewUserServer功能，给入口调用，用来在启动服务后，进行注册。
+
+## internal/svc/servicecontext.go
+
+定义ServiceContext结构体，其内Config，还可手动为其添加Model。
+
+提供NewServiceContext对结构体实例化。
+
+Config通过上层参数传入。Model通过Model层的New方法实例赋值。
+
+## internal/logic/loginlogic.go
+
+定义业务Logic结构体。
+
+结构体包含ctx，svcCtx，还有Logger。
+
+提供结构体的NewLogic方法。
