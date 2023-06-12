@@ -173,7 +173,6 @@ python文章继续完善
 
 研究Prompt，借助new bing
 
-婚车订上
 
 ## 星铁计划
 
