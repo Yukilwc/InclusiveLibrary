@@ -270,6 +270,10 @@ networks:
 }
 ```
 
+## env
+
+常用的变量放到env中，如此构造时，只修改env即可，这样不会触发镜像重新构造。
+
 ## 参考
 
 [compose up 命令行参数](https://docs.docker.com/engine/reference/commandline/compose_up/)
