@@ -19,3 +19,11 @@ However, if you use a bind mount instead of a volume, Docker does not copy any c
 So, to answer your question, when you mount a volume, Docker will not cover the container content using host content, unless the container content is empty. But when you mount a bind mount, Docker will always cover the container content using host content.
 
 可以发现，挂载本地时，容器内容是会被本地覆盖的。
+
+## 三种挂载方式
+
+挂载本地路径，是为了本地修改后同步
+
+挂载具名，是为了下次启动，还能使用上次留存的，例如下载的包
+
+挂载匿名，是为了临时性存储，容器关闭后也会再见。

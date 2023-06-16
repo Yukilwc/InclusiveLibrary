@@ -1,5 +1,32 @@
 # Work
 
+**2023-06-15 10:01:32**
+
+left comp clear all flow
+
+后台:
+
+导入模板配置：
+
+1. 
+
+import template tips:
+
+* ok 双击可选
+* ok 用户分析有投影
+* ok input default no shadow,hover has shadow
+* ok 34px padding-bottom
+* ok min-height
+* ok not close dialog when save finished
+* ok default select first
+* ok should design import/export type and business type,for lcl import
+* ok support double click
+
+import tips:
+
+* ok if has template,auto select first,can not clear
+* ok cache template id,when select event trigger,do cache
+
 **2023-06-13 15:33:39**
 
 小程序：
