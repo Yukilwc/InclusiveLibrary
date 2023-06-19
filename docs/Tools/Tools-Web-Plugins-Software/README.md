@@ -111,7 +111,7 @@
 | ---------------- | ------------------------------------------------------------------------------------------- | ---- |
 | 棱角             | [Link](https://www.lengjiao.me/)                                                            |      |
 | nerwo            | [Link](https://control.nerwo.co/)                                                           |      |
-| bywave不限制时间 | [Link](https://sub.paasmi.com)                                                              |      |
+| bywave不限制时间 | [Link](https://sub.paasmi.com)       [Link](https://bywa.cc/)                                                       |      |
 | 机场推荐         | [Link](https://www.v2ex.com/t/885448#reply57) [Link](https://www.v2ex.com/t/895324#reply30) |      |
 
 ### 开发工具
