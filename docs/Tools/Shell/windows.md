@@ -19,6 +19,9 @@ $env:PY_PYTHON = 3
 
 # 打印当前目录树形结构
 tree
+# 停止mysql服务
+gsudo
+net stop mysql
 
 ```
 

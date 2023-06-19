@@ -157,6 +157,18 @@ Docker就无法监控它的状态，而且容器内没有其他前台进程，�
 并且保持容器的运行 。
 
 prune这个单词的发音是/pruːn/,修剪,删除
+
+## 一些知识
+
+### attach
+
+According to the Docker documentation1, docker attach is a command that attaches your terminal’s standard input, output, and error streams to a running container using the container’s ID or name. This allows you to view its ongoing output or to control it interactively, as though the commands were running directly in your terminal1. For example, if you have a container named app running in the background, you can use docker attach app to attach to its terminal. You can detach from the container and leave it running using the CTRL-p CTRL-q key sequence1. You can also use the –detach-keys option to override the default detach sequence1.
+
+### attach 与 exec -it 的差异
+
+According to Stack Overflow1, the difference between docker exec -it and docker attach is that docker exec -it runs a new command in a running container, while docker attach attaches to the existing process in the container. For example, if you have a container running a web server, you can use `docker exec -it <container_id> bash` to start a new bash shell in the container,
+or you can use `docker attach <container_id>` to attach to the web server process and see its output1. The advantage of docker exec -it is that you can run multiple commands in the same container without affecting its main process. The advantage of docker attach is that you can interact with the main process and send signals to it1. You can detach from a container and leave it running using the CTRL-p CTRL-q key sequence2. You can also use the –detach-keys option to override the default detach sequence2
+
 ## 参考
 
 [Docker从入门到实践](https://yeasy.gitbook.io/docker_practice/basic_concept/container)

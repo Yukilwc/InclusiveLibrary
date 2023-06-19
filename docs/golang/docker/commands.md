@@ -56,6 +56,15 @@ docker logs <容器ID或名称>
 docker stats <容器ID或名称>
 ```
 
+## network
+
+```sh
+# 查看全部网络
+docker network ls
+# 查看一个网络下链接的全部容器的信息，包括ip
+docker network inspect network_name
+```
+
 ## dockerfile
 
 ## nginx配置
