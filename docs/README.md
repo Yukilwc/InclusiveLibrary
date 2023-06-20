@@ -37,6 +37,8 @@
 
 [前端开发的Golang学习笔记 操作收录](./golang/articles/commonds.md)
 
+[goctl笔记](./golang/go_zero/articles/goctl.md)
+
 ## 知天命
 
 记录人生的感悟与思考。
