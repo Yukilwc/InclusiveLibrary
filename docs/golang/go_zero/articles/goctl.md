@@ -15,8 +15,11 @@ goctl api go -api ./my.api -dir .
 goctl rpc -o=my.proto
 # 生成rpc服务代码
 goctl rpc protoc my.proto --go_out=. --go-grpc_out=. --zrpc_out=.
+
+# 分组生成rpc服务代码
+goctl rpc protoc my.proto --go_out=. --go-grpc_out=. --zrpc_out=. -m
 # 根据sql文件生成model
-goctl model mysql ddl -src ./*.sql -dir ./model -c
+goctl model mysql ddl --src ./*.sql --dir ./model -c
 ```
 
 ## 单体服务项目结构设计
