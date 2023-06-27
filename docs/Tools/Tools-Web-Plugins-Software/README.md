@@ -107,12 +107,26 @@
 |                           |                                                                   |                        |
 ### vpn
 
-| 名字             | 地址                                                                                        | 其他 |
-| ---------------- | ------------------------------------------------------------------------------------------- | ---- |
-| 棱角             | [Link](https://www.lengjiao.me/)                                                            |      |
-| nerwo            | [Link](https://control.nerwo.co/)                                                           |      |
-| bywave不限制时间 | [Link](https://sub.paasmi.com)       [Link](https://bywa.cc/)                                                       |      |
-| 机场推荐         | [Link](https://www.v2ex.com/t/885448#reply57) [Link](https://www.v2ex.com/t/895324#reply30) |      |
+ 棱角                            [Link](https://www.lengjiao.me/)                                                                      
+
+ nerwo                            [Link](https://control.nerwo.co/)  
+
+ bywave不限制时间(可直接搜网址)  
+
+ [Link](https://sub.paasmi.com)       
+
+ [Link](https://bywa.cc/) 
+
+ [Link](https://console.bywa.art/clientarea.php)       
+
+ 机场推荐                        
+ [Link](https://www.v2ex.com/t/885448#reply57) 
+ [Link](https://www.v2ex.com/t/895324#reply30)                   |      |
+ [机场收录](https://9.234456.xyz/abc.html?t=567)
+
+机场订阅链接对应的客户端： 
+
+v2ray,clash,Shad­owrocket ,Quan­tu­mult 
 
 ### 开发工具
 
