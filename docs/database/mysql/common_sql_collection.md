@@ -13,7 +13,7 @@ CREATE TABLE user (
   update_at timestamp null default current_timestamp on update current_timestamp,
 );
 
-ALTER TABLE user
-MODIFY COLUMN create_at SET DEFAULT CURRENT_TIMESTAMP;
+-- 把字段修改为默认创建时间
+ALTER TABLE user MODIFY COLUMN create_at timestamp DEFAULT CURRENT_TIMESTAMP;
 
 ```

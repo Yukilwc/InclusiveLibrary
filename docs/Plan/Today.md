@@ -1,5 +1,16 @@
 # 今日DEADLINE
 
+添加启动运行的sh脚本，以及生成model的脚本
+
+登录完成：
+禁用中间件，jwt过期，刷新机制
+
+工具研究：
+远程控制类：
+推荐使用Todesk、Rustdesk
+文档类：
+office + onedrive、腾讯文档、石墨文档
+
 如果使用自带得，那就只能自己写方法，不能使用tag
 
 如果使用validator库，那可以使用tag
