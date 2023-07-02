@@ -39,6 +39,10 @@
 
 [goctl笔记](./golang/go_zero/articles/goctl.md)
 
+## 赛博技能
+
+[接网线](./Life-Skill/house_fit_up/operation/network_line.md)
+
 ## 知天命
 
 记录人生的感悟与思考。
