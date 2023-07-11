@@ -12,9 +12,13 @@ jwt过期，刷新机制 设置x-token头
 
 ## 等待启动
 
+redis缓存数据库查询的时间
+
 完成菜单，权限，角色后，定产品需求：一个工具，能给大众方便，能带来效率，能解决苦恼。
 
 从vueuse中，理解感悟use系封装的哲学，以及最佳实践
+
+RBAC用户设计研究 [Link](https://tobebetterjavaer.com/nice-article/weixin/quanwzqdqxjtsjfajysz.html#_2-4-%E7%94%A8%E6%88%B7%E5%88%92%E5%88%86)
 
 多看和研究别人的产品
 
