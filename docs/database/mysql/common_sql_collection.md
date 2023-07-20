@@ -17,3 +17,25 @@ CREATE TABLE user (
 ALTER TABLE user MODIFY COLUMN create_at timestamp DEFAULT CURRENT_TIMESTAMP;
 
 ```
+
+```sql
+-- 聚合字符串
+SELECT user.*, GROUP_CONCAT(user_role.role_id, ',') AS role_ids, GROUP_CONCAT(role.name, ',') AS role_names
+FROM `user` 
+LEFT JOIN `user_role` ON user.id=user_role.user_id 
+LEFT JOIN `role` on user_role.role_id=role.id 
+GROUP BY user.id
+ORDER BY user.id DESC
+
+```
+
+```sql
+-- 多表分页&&临时表
+SELECT ut.*,r.* from (
+	SELECT * from `user` 
+    ORDER BY id 
+    LIMIT 0,2
+) AS ut
+LEFT JOIN user_role as ur ON ut.id=ur.user_id
+LEFT JOIN role as r ON ur.role_id = r.id;
+```
