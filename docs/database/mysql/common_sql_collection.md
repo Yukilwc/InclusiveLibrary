@@ -39,3 +39,14 @@ SELECT ut.*,r.* from (
 LEFT JOIN user_role as ur ON ut.id=ur.user_id
 LEFT JOIN role as r ON ur.role_id = r.id;
 ```
+
+```sql
+-- 使用row_number()
+SELECT * from (
+    SELECT *,row_number() over (order by id) AS `row_number`
+	from user
+) AS ut
+LEFT JOIN user_role as ur ON ut.id=ur.user_id
+LEFT JOIN role as r ON ur.role_id = r.id
+WHERE ut.row_number BETWEEN 1 and 3;
+```
