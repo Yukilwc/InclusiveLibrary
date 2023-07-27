@@ -14,6 +14,17 @@ jwt过期，刷新机制 设置x-token头
 
 舞狮子预约下
 
+go-zero项目，前端传来一个字段，可能是数字，也可能是字符串，也可能是null，那么服务端在api层，如何接受?
+在api层，可以修改为any，然后使用type switch断言类型。直接封装一个转换器，固定获取到数字。
+
+前端设置价格为0，那么rpc层如何接收这个价格，而不会误判为空?
+
+[研究go-zero官方例子](https://github.com/zeromicro/zero-examples)
+
+docker中，如何让微服务热更新
+
+结合vscode，搞一套支持vscode launch的一键启动热更新微服务，同时支持断点的开发环境。
+
 搭建ELK日志体系
 
 仅仅通过配置tag，就实现validate校验
