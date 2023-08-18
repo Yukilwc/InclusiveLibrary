@@ -15,6 +15,8 @@ jwt过期，刷新机制 设置x-token头
 
 舞狮子预约下
 
+[ts工具类型](https://www.typescriptlang.org/docs/handbook/utility-types.html)
+
 索引原理，配置守则深度研究
 
 怎样在两个windows电脑上，实现远程？使用wireguard +RDP，说说具体步骤
