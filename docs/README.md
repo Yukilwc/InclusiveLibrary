@@ -58,3 +58,7 @@
 **星穹铁道**
 
 [笔记](./Game/rail_star/note.md)
+
+## 工欲善其事,必先利其器
+
+[代码转换为vscode的snippets json](./Tools/Online/Code2SnippetsJson/README.md)

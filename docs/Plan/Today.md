@@ -22,6 +22,7 @@
 ## 当下
 
 
+
 jwt过期，刷新机制 设置x-token头
 给go-zero写一个中间件，在自带的jwtauth中间件后，从前一个中间件中，获取解析后的exp，refreshAfter，进行过期对比，如果过期，就写入一个X-Token，之后继续后面的逻辑
 
@@ -32,6 +33,21 @@ jwt过期，刷新机制 设置x-token头
 ## 等待启动
 
 舞狮子预约下
+
+索引原理，配置守则深度研究
+
+怎样在两个windows电脑上，实现远程？使用wireguard +RDP，说说具体步骤
+
+go-zero项目，前端传来一个字段，可能是数字，也可能是字符串，也可能是null，那么服务端在api层，如何接受?
+在api层，可以修改为any，然后使用type switch断言类型。直接封装一个转换器，固定获取到数字。
+
+前端设置价格为0，那么rpc层如何接收这个价格，而不会误判为空?
+
+[研究go-zero官方例子](https://github.com/zeromicro/zero-examples)
+
+docker中，如何让微服务热更新
+
+结合vscode，搞一套支持vscode launch的一键启动热更新微服务，同时支持断点的开发环境。
 
 搭建ELK日志体系
 
