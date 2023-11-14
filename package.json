@@ -22,22 +22,22 @@
   },
   "homepage": "https://github.com/Yukilwc/InclusiveLibrary#readme",
   "devDependencies": {
-    "@types/prettier": "^2.6.1",
+    "@types/prettier": "^3.0.0",
     "@vuepress/plugin-docsearch": "^2.0.0-beta.43",
     "@vuepress/plugin-google-analytics": "^2.0.0-beta.43",
     "@vuepress/plugin-pwa": "^2.0.0-beta.43",
     "@vuepress/plugin-pwa-popup": "^2.0.0-beta.43",
     "@vuepress/plugin-register-components": "^2.0.0-beta.43",
     "@vuepress/plugin-search": "^2.0.0-beta.43",
-    "prettier": "2.6.2",
-    "rimraf": "^3.0.2",
+    "prettier": "^3.1.0",
+    "rimraf": "^5.0.5",
     "vuepress": "^2.0.0-beta.46"
   },
   "dependencies": {
-    "@types/offscreencanvas": "^2019.7.0",
-    "@vueuse/core": "^8.5.0",
-    "element-plus": "^2.2.2",
-    "swiper": "^6.8.4",
+    "@types/offscreencanvas": "^2019.7.3",
+    "@vueuse/core": "^10.6.1",
+    "element-plus": "^2.4.2",
+    "swiper": "^11.0.4",
     "vue3-carousel-animate": "^0.0.2-alpha.5"
   }
 }
