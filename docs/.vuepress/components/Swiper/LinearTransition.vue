@@ -18,37 +18,37 @@
 </template>
 
 <script lang="ts" setup>
-import { onMounted, ref } from "vue";
+// import { onMounted, ref } from "vue";
 // core version + navigation, pagination modules:
-import Swiper, { Navigation, Pagination, Autoplay } from "swiper";
+// import Swiper, { Navigation, Pagination, Autoplay } from "swiper";
 // import Swiper and modules styles
-import "swiper/swiper-bundle.min.css"
-Swiper.use([Autoplay])
-const getImage = (index) => {
-  return new URL(`./images/${index}.png`, import.meta.url).href
-}
-onMounted(() => {
-  init()
-});
-const swiperPerview = ref(null)
-const init = () => {
+// import "swiper/swiper-bundle.min.css"
+// Swiper.use([Autoplay])
+// const getImage = (index) => {
+//   return new URL(`./images/${index}.png`, import.meta.url).href
+// }
+// onMounted(() => {
+//   init()
+// });
+// const swiperPerview = ref(null)
+// const init = () => {
 
-  if (!swiperPerview.value) return
-  new Swiper(swiperPerview.value, {
-    loop: true,
-    speed: 3000, // 控制过渡时间
-    spaceBetween: 20,
-    slidesPerView: 'auto',
-    loopedSlides: 6, // 其并不会影响实际loop的slide数量的拷贝
-    loopAdditionalSlides: 6, // 好像也没啥影响?
-    freeMode: true,
-    autoplay: {
-      delay: 0, // 取消停顿
-      disableOnInteraction: false,
-    },
-    noSwiping: true,// 同时添加swiper-no-swiping禁止鼠标拖动
-  });
-};
+//   if (!swiperPerview.value) return
+//   new Swiper(swiperPerview.value, {
+//     loop: true,
+//     speed: 3000, // 控制过渡时间
+//     spaceBetween: 20,
+//     slidesPerView: 'auto',
+//     loopedSlides: 6, // 其并不会影响实际loop的slide数量的拷贝
+//     loopAdditionalSlides: 6, // 好像也没啥影响?
+//     freeMode: true,
+//     autoplay: {
+//       delay: 0, // 取消停顿
+//       disableOnInteraction: false,
+//     },
+//     noSwiping: true,// 同时添加swiper-no-swiping禁止鼠标拖动
+//   });
+// };
 </script>
 
 <style scoped lang="scss">

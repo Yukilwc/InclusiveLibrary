@@ -31,46 +31,46 @@
 </template>
 
 <script lang="ts" setup>
-import { onMounted, ref } from "vue";
+// import { onMounted, ref } from "vue";
 // core version + navigation, pagination modules:
-import Swiper, { Navigation, Pagination, Autoplay } from "swiper";
+// import Swiper, { Navigation, Pagination, Autoplay } from "swiper";
 // import Swiper and modules styles
-import "swiper/swiper-bundle.min.css"
-Swiper.use([Autoplay])
-const getImage = (index) => {
-  return new URL(`./images/${index}.png`, import.meta.url).href
-}
-onMounted(() => {
-  init()
-});
-const swiperHidden = ref(null)
-const swiperPerview = ref(null)
-const init = () => {
-  if (!swiperHidden.value) return
-  new Swiper(swiperHidden.value, {
-    loop: true,
-    autoplay: {
-      delay: 3000,
-      disableOnInteraction: true,
-    },
-    spaceBetween: 20,
-    // loopedSlides: 5,
-    // loopAdditionalSlides: 5
+// import "swiper/swiper-bundle.min.css"
+// Swiper.use([Autoplay])
+// const getImage = (index) => {
+//   return new URL(`./images/${index}.png`, import.meta.url).href
+// }
+// onMounted(() => {
+//   init()
+// });
+// const swiperHidden = ref(null)
+// const swiperPerview = ref(null)
+// const init = () => {
+//   if (!swiperHidden.value) return
+//   new Swiper(swiperHidden.value, {
+//     loop: true,
+//     autoplay: {
+//       delay: 3000,
+//       disableOnInteraction: true,
+//     },
+//     spaceBetween: 20,
+//     // loopedSlides: 5,
+//     // loopAdditionalSlides: 5
 
-  });
-  if (!swiperPerview.value) return
-  new Swiper(swiperPerview.value, {
-    loop: true,
-    spaceBetween: 20,
-    slidesPerView: 'auto',
-    loopedSlides: 6,
-    // slideToClickedSlide: true,
-    autoplay: {
-      delay: 1000,
-      disableOnInteraction: true,
-    },
-  });
-};
+//   });
+//   if (!swiperPerview.value) return
+//   new Swiper(swiperPerview.value, {
+//     loop: true,
+//     spaceBetween: 20,
+//     slidesPerView: 'auto',
+//     loopedSlides: 6,
+//     // slideToClickedSlide: true,
+//     autoplay: {
+//       delay: 1000,
+//       disableOnInteraction: true,
+//     },
+//   });
+// };
 </script>
 
 <style scoped lang="scss">

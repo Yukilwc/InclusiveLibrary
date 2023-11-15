@@ -13,31 +13,31 @@
 </template>
 
 <script lang="ts" setup>
-import { onMounted, ref } from "vue";
+// import { onMounted, ref } from "vue";
 // core version + navigation, pagination modules:
-import Swiper, { Navigation, Pagination, Autoplay } from "swiper";
+// import Swiper, { Navigation, Pagination, Autoplay } from "swiper";
 // import Swiper and modules styles
-import "swiper/swiper-bundle.min.css"
-Swiper.use([Autoplay])
-const getImage = (index) => {
-  return new URL(`./images/${index}.png`, import.meta.url).href
-}
-onMounted(() => {
-  init()
-});
-const singleSlideRef = ref(null)
-const init = () => {
-  if (!singleSlideRef.value) return
-  new Swiper(singleSlideRef.value, {
-    loop: true,
-    autoplay: {
-      delay: 3000,
-      disableOnInteraction: false,
-      pauseOnMouseEnter: false,
-      reverseDirection: false,
-    }
-  });
-};
+// import "swiper/swiper-bundle.min.css"
+// Swiper.use([Autoplay])
+// const getImage = (index) => {
+//   return new URL(`./images/${index}.png`, import.meta.url).href
+// }
+// onMounted(() => {
+//   init()
+// });
+// const singleSlideRef = ref(null)
+// const init = () => {
+//   if (!singleSlideRef.value) return
+//   new Swiper(singleSlideRef.value, {
+//     loop: true,
+//     autoplay: {
+//       delay: 3000,
+//       disableOnInteraction: false,
+//       pauseOnMouseEnter: false,
+//       reverseDirection: false,
+//     }
+//   });
+// };
 </script>
 
 <style scoped lang="scss">
