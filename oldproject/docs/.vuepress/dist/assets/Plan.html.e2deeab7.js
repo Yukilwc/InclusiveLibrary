@@ -1,0 +1,1 @@
+const t={key:"v-c65ea094",path:"/XMindNote/PlantUML/Plan.html",title:"\u89C4\u5212",lang:"zh-CN",frontmatter:{},excerpt:"",headers:[],git:{updatedTime:1682005434e3,contributors:[{name:"Misaka",email:"misaka1033@gmail.com",commits:2}]},filePathRelative:"XMindNote/PlantUML/Plan.md"};export{t as data};

@@ -1,0 +1,1 @@
+const e={key:"v-432db41b",path:"/IDE/VSCode/VSCode-config.html",title:"VSCode\u914D\u7F6E",lang:"zh-CN",frontmatter:{},excerpt:"",headers:[],git:{updatedTime:1652809681e3,contributors:[{name:"Misaka",email:"misaka1033@gmail.com",commits:2}]},filePathRelative:"IDE/VSCode/VSCode-config.md"};export{e as data};

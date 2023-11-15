@@ -1,0 +1,1 @@
+const e={key:"v-07fc1ab6",path:"/golang/go_zero/develop_using_docker/dockerfile_config.html",title:"dockerfile\u6587\u4EF6\u914D\u7F6E",lang:"zh-CN",frontmatter:{},excerpt:"",headers:[],git:{updatedTime:1686219004e3,contributors:[{name:"Misaka",email:"misaka1033@gmail.com",commits:1}]},filePathRelative:"golang/go_zero/develop_using_docker/dockerfile_config.md"};export{e as data};

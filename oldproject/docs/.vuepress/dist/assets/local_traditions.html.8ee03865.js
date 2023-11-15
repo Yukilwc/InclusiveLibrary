@@ -1,0 +1,1 @@
+const e={key:"v-79bd3f24",path:"/Life-Skill/Life-Experience/local_traditions.html",title:"\u5F53\u5730\u98CE\u4FD7\u6536\u5F55",lang:"zh-CN",frontmatter:{},excerpt:"",headers:[],git:{updatedTime:168777376e4,contributors:[{name:"Misaka",email:"misaka1033@gmail.com",commits:3}]},filePathRelative:"Life-Skill/Life-Experience/local_traditions.md"};export{e as data};

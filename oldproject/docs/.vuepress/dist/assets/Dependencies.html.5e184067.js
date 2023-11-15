@@ -1,0 +1,1 @@
+const e={key:"v-1c3b01b1",path:"/Flutter/Flutter/Dependencies.html",title:"\u4F9D\u8D56\u6536\u5F55",lang:"zh-CN",frontmatter:{},excerpt:"",headers:[],git:{updatedTime:1656672726e3,contributors:[{name:"Misaka",email:"misaka1033@gmail.com",commits:1}]},filePathRelative:"Flutter/Flutter/Dependencies.md"};export{e as data};

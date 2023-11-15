@@ -1,0 +1,1 @@
+const a={key:"v-0dd73cfe",path:"/Rust/Base/Grammar.html",title:"",lang:"zh-CN",frontmatter:{},excerpt:"",headers:[],git:{updatedTime:1653555591e3,contributors:[{name:"Misaka",email:"misaka1033@gmail.com",commits:1}]},filePathRelative:"Rust/Base/Grammar.md"};export{a as data};

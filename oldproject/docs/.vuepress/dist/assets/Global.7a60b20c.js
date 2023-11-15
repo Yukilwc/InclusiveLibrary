@@ -1,0 +1,1 @@
+import{_ as e,o as c,c as o}from"./app.59b4e306.js";const r={};function a(l,_){return c(),o("div",null,"\u7EC4\u4EF6\u672C\u4F53:\u6D4B\u8BD5\u5168\u5C40\u7EC4\u4EF6\u81EA\u52A8\u6CE8\u518C")}var t=e(r,[["render",a],["__file","Global.vue"]]);export{t as default};

@@ -1,0 +1,1 @@
+const t={key:"v-015f1667",path:"/Frontend/Richtext-Editor/Tinymce-Note.html",title:"",lang:"zh-CN",frontmatter:{},excerpt:"",headers:[],git:{updatedTime:1651049555e3,contributors:[{name:"Misaka",email:"misaka1033@gmail.com",commits:1}]},filePathRelative:"Frontend/Richtext-Editor/Tinymce-Note.md"};export{t as data};

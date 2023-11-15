@@ -1,0 +1,1 @@
+import{_ as r,o as a,c as o,a as e,d as s}from"./app.59b4e306.js";const t={},d=e("h1",{id:"go-redis\u4F7F\u7528",tabindex:"-1"},[e("a",{class:"header-anchor",href:"#go-redis\u4F7F\u7528","aria-hidden":"true"},"#"),s(" Go Redis\u4F7F\u7528")],-1),c=[d];function _(i,n){return a(),o("div",null,c)}var l=r(t,[["render",_],["__file","go_redis.html.vue"]]);export{l as default};

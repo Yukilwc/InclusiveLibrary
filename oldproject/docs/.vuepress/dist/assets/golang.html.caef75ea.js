@@ -1,0 +1,1 @@
+const a={key:"v-354aeac9",path:"/XMindNote/PlantUML/golang.html",title:"Golang",lang:"zh-CN",frontmatter:{},excerpt:"",headers:[],git:{updatedTime:1666949727e3,contributors:[{name:"Misaka",email:"misaka1033@gmail.com",commits:2}]},filePathRelative:"XMindNote/PlantUML/golang.md"};export{a as data};

@@ -1,0 +1,1 @@
+const a={key:"v-8cd2456c",path:"/golang/lib_learning/lib_collection.html",title:"\u5E93\u6536\u5F55",lang:"zh-CN",frontmatter:{},excerpt:"",headers:[],git:{updatedTime:1669702816e3,contributors:[{name:"Misaka",email:"misaka1033@gmail.com",commits:1}]},filePathRelative:"golang/lib_learning/lib_collection.md"};export{a as data};

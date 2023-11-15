@@ -1,0 +1,1 @@
+const a={key:"v-40066ec0",path:"/golang/handbook/some_questions.html",title:"\u4E00\u4E9B\u7591\u60D1",lang:"zh-CN",frontmatter:{},excerpt:"",headers:[],git:{updatedTime:1679986149e3,contributors:[{name:"Misaka",email:"misaka1033@gmail.com",commits:3}]},filePathRelative:"golang/handbook/some_questions.md"};export{a as data};

@@ -1,0 +1,1 @@
+const e={key:"v-7fd406c6",path:"/golang/docker/vscode_remote_develop/draft.html",title:"vscode\u8FDC\u7A0B\u5F00\u53D1",lang:"zh-CN",frontmatter:{},excerpt:"",headers:[],git:{updatedTime:1684923904e3,contributors:[{name:"Misaka",email:"misaka1033@gmail.com",commits:1}]},filePathRelative:"golang/docker/vscode_remote_develop/draft.md"};export{e as data};

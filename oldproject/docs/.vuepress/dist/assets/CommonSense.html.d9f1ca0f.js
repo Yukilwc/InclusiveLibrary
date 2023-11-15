@@ -1,0 +1,1 @@
+const e={key:"v-1ee14ac2",path:"/Tools/Shell/CommonSense.html",title:"shell\u811A\u672C\u7684\u5E38\u8BC6\u4E60\u60EF",lang:"zh-CN",frontmatter:{},excerpt:"",headers:[],git:{updatedTime:1683714304e3,contributors:[{name:"Misaka",email:"misaka1033@gmail.com",commits:1}]},filePathRelative:"Tools/Shell/CommonSense.md"};export{e as data};

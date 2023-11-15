@@ -1,0 +1,1 @@
+const t={key:"v-30e3f50e",path:"/Algorithm/",title:"",lang:"zh-CN",frontmatter:{},excerpt:"",headers:[],git:{updatedTime:1653296512e3,contributors:[{name:"Misaka",email:"misaka1033@gmail.com",commits:1}]},filePathRelative:"Algorithm/README.md"};export{t as data};

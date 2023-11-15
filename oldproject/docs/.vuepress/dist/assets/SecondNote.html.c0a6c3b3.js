@@ -1,0 +1,1 @@
+const t={key:"v-109df119",path:"/Python/SecondNote.html",title:"\u67E5\u8BE2\u8BB0\u5F55",lang:"zh-CN",frontmatter:{},excerpt:"",headers:[],git:{updatedTime:1660205547e3,contributors:[{name:"Misaka",email:"misaka1033@gmail.com",commits:1}]},filePathRelative:"Python/SecondNote.md"};export{t as data};

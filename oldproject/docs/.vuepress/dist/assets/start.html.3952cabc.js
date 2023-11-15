@@ -1,0 +1,16 @@
+import{_ as e,o as n,c as a,e as s}from"./app.59b4e306.js";const i={},o=s(`<h1 id="go-zero-\u5FEB\u901F\u5F00\u59CB" tabindex="-1"><a class="header-anchor" href="#go-zero-\u5FEB\u901F\u5F00\u59CB" aria-hidden="true">#</a> go-zero \u5FEB\u901F\u5F00\u59CB</h1><h2 id="\u7ED3\u6784" tabindex="-1"><a class="header-anchor" href="#\u7ED3\u6784" aria-hidden="true">#</a> \u7ED3\u6784</h2><h3 id="api\u670D\u52A1" tabindex="-1"><a class="header-anchor" href="#api\u670D\u52A1" aria-hidden="true">#</a> API\u670D\u52A1</h3><h2 id="\u4E00\u4E2A\u8BF7\u6C42\u53D1\u9001\u5230\u8FD4\u56DE\u7684\u6D41\u7A0B" tabindex="-1"><a class="header-anchor" href="#\u4E00\u4E2A\u8BF7\u6C42\u53D1\u9001\u5230\u8FD4\u56DE\u7684\u6D41\u7A0B" aria-hidden="true">#</a> \u4E00\u4E2A\u8BF7\u6C42\u53D1\u9001\u5230\u8FD4\u56DE\u7684\u6D41\u7A0B</h2><h3 id="\u6587\u4EF6\u7ED3\u6784\u5C42\u6B21" tabindex="-1"><a class="header-anchor" href="#\u6587\u4EF6\u7ED3\u6784\u5C42\u6B21" aria-hidden="true">#</a> \u6587\u4EF6\u7ED3\u6784\u5C42\u6B21</h3><h3 id="\u8BF7\u6C42\u8FDB\u5165" tabindex="-1"><a class="header-anchor" href="#\u8BF7\u6C42\u8FDB\u5165" aria-hidden="true">#</a> \u8BF7\u6C42\u8FDB\u5165</h3><h2 id="\u73AF\u5883\u5B89\u88C5" tabindex="-1"><a class="header-anchor" href="#\u73AF\u5883\u5B89\u88C5" aria-hidden="true">#</a> \u73AF\u5883\u5B89\u88C5</h2><div class="language-bash ext-sh line-numbers-mode"><pre class="language-bash"><code><span class="token comment"># \u5B89\u88C5goctl</span>
+go <span class="token function">install</span> github.com/zeromicro/go-zero/tools/goctl@latest
+<span class="token comment"># \u68C0\u67E5\u5B89\u88C5\u6210\u529F</span>
+goctl -v
+<span class="token comment"># \u5B89\u88C5protoc\uFF0C\u5982\u679C\u5931\u8D25\uFF0C\u5219\u53EF\u4EE5\u624B\u52A8\u4ECEgithub\u4E0B\u8F7D\uFF0C\u7136\u540E\u89E3\u538B\uFF0C\u628Abin\u4E0B\u7684\u6267\u884C\u6587\u4EF6\uFF0C\u62F7\u8D1D\u5230go\u76EE\u5F55\u4E0B\u7684bin\u4E2D</span>
+goctl <span class="token function">env</span> check -i -f --verbose
+<span class="token comment"># \u68C0\u67E5\u5B89\u88C5\u6210\u529F</span>
+protoc --version
+<span class="token comment"># \u5B89\u88C5\u751F\u6210go\u4EE3\u7801\u7684\u5DE5\u5177</span>
+go <span class="token function">install</span> google.golang.org/protobuf/cmd/protoc-gen-go@latest
+go <span class="token function">install</span> google.golang.org/grpc/cmd/protoc-gen-go-grpc@latest
+<span class="token comment"># \u4E0B\u8F7D\u5B89\u88C5etcd\uFF0Chttps://github.com/etcd-io/etcd/releases/</span>
+<span class="token comment"># \u6DFB\u52A0\u5230\u73AF\u5883\u53D8\u91CFpath</span>
+<span class="token comment"># \u5C1D\u8BD5\u662F\u5426\u6210\u529F</span>
+etcd --version
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div>`,8),c=[o];function t(r,d){return n(),a("div",null,c)}var h=e(i,[["render",t],["__file","start.html.vue"]]);export{h as default};

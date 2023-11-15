@@ -1,0 +1,1 @@
+const e={key:"v-de826974",path:"/Tools/Tools-Web-Plugins-Software/TamperMonkey.html",title:"\u6CB9\u7334\u811A\u672C\u6536\u5F55",lang:"zh-CN",frontmatter:{},excerpt:"",headers:[],git:{updatedTime:1653064533e3,contributors:[{name:"Misaka",email:"misaka1033@gmail.com",commits:1}]},filePathRelative:"Tools/Tools-Web-Plugins-Software/TamperMonkey.md"};export{e as data};

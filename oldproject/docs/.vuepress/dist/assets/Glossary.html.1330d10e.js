@@ -1,0 +1,1 @@
+const a={key:"v-28448484",path:"/Language/English/Glossary.html",title:"\u8BCD\u6C47\u8868",lang:"zh-CN",frontmatter:{},excerpt:"",headers:[],git:{updatedTime:1657079558e3,contributors:[{name:"Misaka",email:"misaka1033@gmail.com",commits:8}]},filePathRelative:"Language/English/Glossary.md"};export{a as data};

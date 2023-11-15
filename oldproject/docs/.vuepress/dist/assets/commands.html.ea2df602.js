@@ -1,0 +1,1 @@
+const t={key:"v-bec6cdce",path:"/Python/articles/commands.html",title:"\u547D\u4EE4\u884C\u76F8\u5173\u6C47\u603B",lang:"zh-CN",frontmatter:{},excerpt:"",headers:[],git:{updatedTime:1682325672e3,contributors:[{name:"Misaka",email:"misaka1033@gmail.com",commits:2}]},filePathRelative:"Python/articles/commands.md"};export{t as data};

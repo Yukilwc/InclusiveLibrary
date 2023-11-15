@@ -1,0 +1,1 @@
+const t={key:"v-b6df9c4c",path:"/Diary/something/",title:"\u4E00\u4E9B\u4EBA\u751F\u7684\u8BB0\u5F55\u5B58\u6863",lang:"zh-CN",frontmatter:{},excerpt:"",headers:[],git:{updatedTime:1685202804e3,contributors:[{name:"Misaka",email:"misaka1033@gmail.com",commits:1}]},filePathRelative:"Diary/something/index.md"};export{t as data};

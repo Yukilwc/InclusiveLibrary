@@ -1,0 +1,1 @@
+const a={key:"v-6fb8b941",path:"/Finance/Stock/Base.html",title:"\u80A1\u7968\u57FA\u7840",lang:"zh-CN",frontmatter:{},excerpt:"",headers:[],git:{updatedTime:1660183665e3,contributors:[{name:"Misaka",email:"misaka1033@gmail.com",commits:1}]},filePathRelative:"Finance/Stock/Base.md"};export{a as data};

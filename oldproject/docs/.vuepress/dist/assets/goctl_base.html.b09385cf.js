@@ -1,0 +1,17 @@
+import{_ as s,o as n,c as a,e}from"./app.59b4e306.js";const o={},l=e(`<h1 id="goctl\u57FA\u7840" tabindex="-1"><a class="header-anchor" href="#goctl\u57FA\u7840" aria-hidden="true">#</a> goctl\u57FA\u7840</h1><h2 id="\u6307\u4EE4\u6536\u5F55" tabindex="-1"><a class="header-anchor" href="#\u6307\u4EE4\u6536\u5F55" aria-hidden="true">#</a> \u6307\u4EE4\u6536\u5F55</h2><p><strong>api\u6307\u4EE4</strong></p><div class="language-bash ext-sh line-numbers-mode"><pre class="language-bash"><code><span class="token comment"># \u751F\u6210api\u6587\u4EF6</span>
+goctl api -o blog.api
+<span class="token comment"># \u6839\u636Eapi\u6587\u4EF6\u751F\u6210 api</span>
+goctl api go -api blog.api -dir <span class="token builtin class-name">.</span>
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p><strong>rpc\u6307\u4EE4</strong></p><div class="language-bash ext-sh line-numbers-mode"><pre class="language-bash"><code><span class="token comment"># \u521B\u5EFAgreet rpc</span>
+goctl rpc new greet
+<span class="token comment"># \u751F\u6210proto\u6A21\u677F</span>
+goctl rpc -o<span class="token operator">=</span>user.proto
+<span class="token comment"># \u751F\u6210rpc\u670D\u52A1\u4EE3\u7801</span>
+goctl rpc protoc user.proto --go_out<span class="token operator">=</span>. --go-grpc_out<span class="token operator">=</span>. --zrpc_out<span class="token operator">=</span>.
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p><strong>model\u6307\u4EE4</strong></p><p>\u652F\u6301\u901A\u8FC7\u8BC6\u522Bmysql ddl,\u6765\u8FDB\u884Cmodel\u5C42\u4EE3\u7801\u7684\u751F\u6210\u3002(ddl\u662F\u6570\u636E\u5B9A\u4E49\u8BED\u8A00\u7684\u7F29\u5199\uFF0C\u662FSQL\u8BED\u53E5\u7684\u4E00\u79CD\u7F29\u5199)\u3002</p><div class="language-bash ext-sh line-numbers-mode"><pre class="language-bash"><code><span class="token comment"># \u4ECEsql\u8BED\u53E5\u751F\u6210</span>
+goctl model mysql ddl -src<span class="token operator">=</span><span class="token string">&quot;./*.sql&quot;</span> -dir<span class="token operator">=</span><span class="token string">&quot;./sql/model&quot;</span> -c
+goctl model mysql ddl -src ./*.sql -dir ./model -c
+<span class="token comment"># \u4ECE\u6570\u636E\u6E90\u751F\u6210</span>
+goctl model mysql datasource -url<span class="token operator">=</span><span class="token string">&quot;user:password@tcp(127.0.0.1:3306)/database&quot;</span> -table<span class="token operator">=</span><span class="token string">&quot;*&quot;</span> -dir<span class="token operator">=</span><span class="token string">&quot;./model&quot;</span>
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p><strong>docker\u6307\u4EE4</strong></p><div class="language-bash ext-sh line-numbers-mode"><pre class="language-bash"><code>goctl <span class="token function">docker</span> -go hello.go
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div></div></div>`,11),r=[l];function t(c,i){return n(),a("div",null,r)}var p=s(o,[["render",t],["__file","goctl_base.html.vue"]]);export{p as default};
