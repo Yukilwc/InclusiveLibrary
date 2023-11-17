@@ -1,0 +1,1 @@
+const a=JSON.parse('{"key":"v-8daa1a0e","path":"/","title":"首页","lang":"zh-CN","frontmatter":{"title":"首页","layout":"Home"},"headers":[],"git":{"updatedTime":1700211396000,"contributors":[{"name":"Misaka","email":"misaka1033@gmail.com","commits":87},{"name":"Yukilwc","email":"misaka1033@gmail.com","commits":10}]},"filePathRelative":"README.md"}');export{a as data};

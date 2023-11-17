@@ -1,0 +1,1 @@
+const e=JSON.parse('{"key":"v-5fe1abee","path":"/frontend/vuepress/createMyWiki/","title":"使用vuepress创建自己的wiki个人知识库","lang":"zh-CN","frontmatter":{},"headers":[],"git":{"updatedTime":1700211396000,"contributors":[{"name":"Misaka","email":"misaka1033@gmail.com","commits":1}]},"filePathRelative":"frontend/vuepress/createMyWiki/index.md"}');export{e as data};
