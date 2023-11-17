@@ -28,10 +28,9 @@ onMounted(() => {
       <slot name="title"></slot>
     </div>
     <div class="code">
-      <pre
-        :class="className"
-        class="line-numbers"
-      ><code :class="className"  ref="codeRef"><slot name="code"></slot></code></pre>
+      <CodePanel>
+        <slot name="code"></slot>
+      </CodePanel>
     </div>
     <div class="detail"></div>
     <div class="demo"></div>
